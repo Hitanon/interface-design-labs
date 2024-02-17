@@ -11,8 +11,7 @@ import ListButton from "./ui/ListButton";
 import SearchBar from "./ui/SearchBar";
 
 
-
-export const Header = () => {
+const Header = () => {
   const navigate = useNavigate();
 
   const onCategoriesClick = () => {
