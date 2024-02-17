@@ -1,6 +1,9 @@
 import { useContext } from "react";
-import { Context } from "..";
+
 import { observer } from "mobx-react-lite";
+
+import { Context } from "..";
+
 import Product from "./Product";
 
 const TopProducts = observer(() => {

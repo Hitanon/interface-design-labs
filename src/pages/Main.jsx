@@ -1,7 +1,8 @@
+import { useContext, useEffect } from "react";
+
 import TopCategories from "../components/TopCategories";
 
 import { getTopCategories } from "../clients/CategoryClient";
-import { useContext, useEffect } from "react";
 import { Context } from "..";
 import { DEFAULT_TOP_CATEGORIES_COUNT, DEFAULT_TOP_ITEMS_COUNT } from "../utils/Consts";
 import TopProducts from "../components/TopProducts";

@@ -1,5 +1,3 @@
-import host from ".";
-
 export const getTopCategories = async (limit) => {
   return [
     {

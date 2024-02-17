@@ -1,6 +1,8 @@
 import { useContext } from "react";
-import { Context } from "..";
+
 import { observer } from "mobx-react-lite";
+
+import { Context } from "..";
 
 const Footer = observer(() => {
   const { projectInfo } = useContext(Context);

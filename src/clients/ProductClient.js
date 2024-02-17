@@ -1,6 +1,3 @@
-import $host from ".";
-
-
 export const getTopProducts = async (limit) => {
   return [
     {
