@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
+
 export default class ProjectInfoStore {
   constructor() {
     this._phone = "";
@@ -10,10 +11,10 @@ export default class ProjectInfoStore {
   }
 
   setInfo(info) {
-    this.setPhone(info.phone);
-    this.setEmail(info.email);
-    this.setAbout(info.about);
-    this.setSocial(info.social);
+    this._phone = info.phone;
+    this._email = info.email;
+    this._about = info.about;
+    this._social = info.social;
   }
 
   get phone() {
