@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  artisan-avenue-frontend:
+    image: smwatertd/artisan-avenue-frontend:latest
+    container_name: artisan-avenue-frontend
+    restart: unless-stopped
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=
