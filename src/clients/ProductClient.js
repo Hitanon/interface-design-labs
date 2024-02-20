@@ -58,7 +58,7 @@ export const getProduct = async (id) => {
     ],
     comments: [
       {
-        rating: 1,
+        rating: 4,
         text: "text1",
         author: {
           id: 1,
@@ -66,7 +66,7 @@ export const getProduct = async (id) => {
         },
       },
       {
-        rating: 2,
+        rating: 5,
         text: "text2",
         author: {
           id: 2,
