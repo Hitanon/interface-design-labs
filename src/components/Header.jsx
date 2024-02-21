@@ -24,9 +24,7 @@ const Header = () => {
 
   return (
     <>
-      <div>
-        Header
-      </div>
+      Logo
       <ListButton text={LIST_CATEGORIES_BUTTON_TEXT} callback={onCategoriesClick} />
       <SearchBar text={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT} callback={onSearchClick} />
     </>

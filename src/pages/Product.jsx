@@ -31,7 +31,9 @@ const Product = () => {
   return (
     <>
       <Header />
+      <hr/>
       <FullProductInfo />
+      <hr/>
       <Footer />
     </>
   );
