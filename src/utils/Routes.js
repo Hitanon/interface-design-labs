@@ -1,7 +1,8 @@
 import Main from "../pages/Main";
 import Product from "../pages/Product";
+import Profile from "../pages/Profile";
 
-import { MAIN_ROUTE, PRODUCT_ROUTE } from "./Consts";
+import { MAIN_ROUTE, PRODUCT_ROUTE, PROFILE_ROUTE } from "./Consts";
 
 
 export const routes = [
@@ -12,5 +13,9 @@ export const routes = [
   {
     path: PRODUCT_ROUTE,
     element: <Product />,
+  },
+  {
+    path: PROFILE_ROUTE,
+    element: <Profile />,
   },
 ];
