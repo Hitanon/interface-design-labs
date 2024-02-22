@@ -53,3 +53,7 @@ export const getUserOrders = async () => {
     },
   ];
 };
+
+export const login = async (credentials) => {
+  return true;
+};
