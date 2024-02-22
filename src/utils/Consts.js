@@ -3,6 +3,7 @@ export const MAIN_ROUTE = "/";
 export const CATEGORIES_ROUTE = "/categories";
 export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE = "/products/search";
 export const PRODUCT_ROUTE = "/product/:id";
+export const PROFILE_ROUTE = "/profile";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
