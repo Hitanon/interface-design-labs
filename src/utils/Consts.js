@@ -1,8 +1,9 @@
 // Routes
 export const MAIN_ROUTE = "/";
 export const CATEGORIES_ROUTE = "/categories";
-export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE = "/products/search";
-export const PRODUCT_ROUTE = "/product/:id";
+export const PRODUCTS_ROUTE = "/products";
+export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE = `${PRODUCTS_ROUTE}/search`;
+export const PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/:id`;
 export const PROFILE_ROUTE = "/profile";
 
 // Settings
