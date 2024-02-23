@@ -9,14 +9,11 @@ const Footer = observer(() => {
 
   return (
     <>
-      <div>
-        Footer
-      </div>
-      <div>{projectInfo.phone}</div>
-      <div>{projectInfo.email}</div>
-      <div>{projectInfo.about}</div>
+      <div>Phone: {projectInfo.phone}</div>
+      <div>Email: {projectInfo.email}</div>
+      <div>About us: {projectInfo.about}</div>
       {
-        Object.keys(projectInfo.social).map((key) => <div key={key}>{projectInfo.social[key]}</div>)
+        Object.keys(projectInfo.social).map((key) => <div key={key}>{key}: {projectInfo.social[key]}</div>)
       }
     </>
   );
