@@ -8,6 +8,7 @@ export const PROFILE_ROUTE = "/profile";
 export const LOGIN_ROUTE = "/login";
 export const LOGOUT_ROUTE = "/logout";
 export const REGISTRATION_ROUTE = "/registration";
+export const SELLER_ROUTE = "/seller/:id";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
