@@ -39,11 +39,11 @@ const Main = () => {
   return (
     <>
       <Header />
-      <div>
-        Main Page
-      </div>
+      <hr/>
       <TopCategories />
+      <hr/>
       <TopProducts />
+      <hr/>
       <Footer />
     </>
   );
