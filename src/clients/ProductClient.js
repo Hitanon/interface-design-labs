@@ -84,3 +84,5 @@ export const getProduct = async (id) => {
 export const searchProductsByParams = (params) => {
   return products;
 };
+
+export { products };
