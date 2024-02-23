@@ -1,14 +1,18 @@
 import Categories from "../pages/Categories";
+import Login from "../pages/Login";
 import Main from "../pages/Main";
 import Product from "../pages/Product";
 import Profile from "../pages/Profile";
+import Registration from "../pages/Registration";
 import SearchProducts from "../pages/SearchProducts";
 
 import {
   CATEGORIES_ROUTE,
+  LOGIN_ROUTE,
   MAIN_ROUTE,
   PRODUCT_ROUTE,
   PROFILE_ROUTE,
+  REGISTRATION_ROUTE,
   SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE,
 } from "./Consts";
 
@@ -33,5 +37,13 @@ export const routes = [
   {
     path: SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE,
     element: <SearchProducts />,
+  },
+  {
+    path: LOGIN_ROUTE,
+    element: <Login />,
+  },
+  {
+    path: REGISTRATION_ROUTE,
+    element: <Registration />,
   },
 ];
