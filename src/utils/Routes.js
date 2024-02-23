@@ -1,8 +1,9 @@
+import Categories from "../pages/Categories";
 import Main from "../pages/Main";
 import Product from "../pages/Product";
 import Profile from "../pages/Profile";
 
-import { MAIN_ROUTE, PRODUCT_ROUTE, PROFILE_ROUTE } from "./Consts";
+import { CATEGORIES_ROUTE, MAIN_ROUTE, PRODUCT_ROUTE, PROFILE_ROUTE } from "./Consts";
 
 
 export const routes = [
@@ -17,5 +18,9 @@ export const routes = [
   {
     path: PROFILE_ROUTE,
     element: <Profile />,
+  },
+  {
+    path: CATEGORIES_ROUTE,
+    element: <Categories />,
   },
 ];
