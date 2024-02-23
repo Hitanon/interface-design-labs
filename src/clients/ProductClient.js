@@ -1,26 +1,29 @@
+const products = [
+  {
+    id: 1,
+    name: "product1",
+    price: 100,
+    unitsInStock: 10,
+    seller: {
+      id: 1,
+      name: "seller1",
+    },
+  },
+  {
+    id: 2,
+    name: "product2",
+    price: 200,
+    unitsInStock: 20,
+    seller: {
+      id: 2,
+      name: "seller2",
+    },
+  },
+];
+
+
 export const getTopProducts = async (limit) => {
-  return [
-    {
-      id:1,
-      name: "product1",
-      price: 100,
-      unitsInStock: 10,
-      seller: {
-        id: 1,
-        name: "seller1",
-      },
-    },
-    {
-      id:2,
-      name: "product2",
-      price: 200,
-      unitsInStock: 20,
-      seller: {
-        id: 2,
-        name: "seller2",
-      },
-    },
-  ];
+  return products;
 };
 
 export const getProduct = async (id) => {
@@ -75,4 +78,9 @@ export const getProduct = async (id) => {
       },
     ],
   };
+};
+
+
+export const searchProductsByParams = (params) => {
+  return products;
 };

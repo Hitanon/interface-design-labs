@@ -4,18 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 import { Context } from "..";
 
-import { CATEGORIES_ROUTE } from "../utils/Consts";
+import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE } from "../utils/Consts";
 
 import Category from "./Category";
 
 
 const TopCategories = observer(() => {
-  const { topItems } = useContext(Context);
+  const { topItems, searchProducts } = useContext(Context);
 
   const navigate = useNavigate();
 
   const onCategoryClick = (categoryId) => {
-    navigate(`${CATEGORIES_ROUTE}/${categoryId}`);
+    searchProducts.setCategory(categoryId);
+    navigate(SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE);
   };
 
   return (

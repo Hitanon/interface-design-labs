@@ -6,6 +6,7 @@ import TopItemsStore from "./store/TopItemsStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
 import ProductStore from "./store/ProductStore";
 import UserStore from "./store/UserStore";
+import SearchProductsStore from "./store/SearchProductsStore";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,6 +18,7 @@ root.render(
     projectInfo: new ProjectInfoStore(),
     product: new ProductStore(),
     user: new UserStore(),
+    searchProducts: new SearchProductsStore(),
   }}>
     <App />
   </Context.Provider>
