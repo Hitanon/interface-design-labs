@@ -5,6 +5,7 @@ import Product from "../pages/Product";
 import Profile from "../pages/Profile";
 import Registration from "../pages/Registration";
 import SearchProducts from "../pages/SearchProducts";
+import Seller from "../pages/Seller";
 
 import {
   CATEGORIES_ROUTE,
@@ -14,6 +15,7 @@ import {
   PROFILE_ROUTE,
   REGISTRATION_ROUTE,
   SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE,
+  SELLER_ROUTE,
 } from "./Consts";
 
 
@@ -45,5 +47,9 @@ export const routes = [
   {
     path: REGISTRATION_ROUTE,
     element: <Registration />,
+  },
+  {
+    path: SELLER_ROUTE,
+    element: <Seller />,
   },
 ];
