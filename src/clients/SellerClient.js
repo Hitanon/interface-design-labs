@@ -52,3 +52,6 @@ export const getSellerOrders = () => {
     },
   ];
 };
+
+export const moveToNextStatus = async (id) => {
+};
