@@ -17,3 +17,4 @@ export const DEFAULT_TOP_ITEMS_COUNT = 5;
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
 export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем категориям";
+export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
