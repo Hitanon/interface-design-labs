@@ -30,9 +30,9 @@ export const getTopProducts = async (limit) => {
   return response.data;
 };
 
-
-export const searchProductsByParams = (params) => {
-  return products;
+export const getProduct = async (id) => {
+  const response = await $host.get(`/api/products/${id}`);
+  return response.data;
 };
 
 export { products };
