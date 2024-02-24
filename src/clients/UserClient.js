@@ -1,5 +1,4 @@
-import $host from ".";
-import { $authHost } from ".";
+import { $host, $authHost } from ".";
 
 
 export const getUserOrders = async () => {
