@@ -5,10 +5,10 @@ const ProductComment = ({ comment }) => {
         {comment.rating}
       </div>
       <div>
-        {comment.text}
+        {comment.message}
       </div>
       <div>
-        {comment.author.name}
+        {comment.author}
       </div>
     </>
   );
