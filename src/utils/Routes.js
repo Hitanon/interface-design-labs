@@ -1,3 +1,4 @@
+import Cart from "../pages/Cart";
 import Categories from "../pages/Categories";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
@@ -11,6 +12,7 @@ import {
   CATEGORIES_ROUTE,
   LOGIN_ROUTE,
   MAIN_ROUTE,
+  CART_ROUTE,
   PRODUCT_ROUTE,
   PROFILE_ROUTE,
   REGISTRATION_ROUTE,
@@ -51,5 +53,9 @@ export const routes = [
   {
     path: SELLER_ROUTE,
     element: <Seller />,
+  },
+  {
+    path: CART_ROUTE,
+    element: <Cart />,
   },
 ];

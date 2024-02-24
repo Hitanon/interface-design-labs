@@ -11,6 +11,8 @@ import {
   MAIN_ROUTE,
   LOGIN_ROUTE,
   REGISTRATION_ROUTE,
+  PLACE_AN_ORDER_BUTTON_TEXT,
+  CART_ROUTE,
 } from "../utils/Consts";
 import { Context } from "..";
 import { logout } from "../clients/UserClient";
@@ -49,6 +51,10 @@ const Header = observer(() => {
     navigate(REGISTRATION_ROUTE);
   };
 
+  const onPlaceAnOrderClick = () => {
+    navigate(CART_ROUTE);
+  };
+
   const onLogoutClick = async () => {
     user.setIsAuth(false);
     user.setUsername("");
@@ -80,6 +86,7 @@ const Header = observer(() => {
       }
 
       <Cart />
+      <button onClick={onPlaceAnOrderClick}>{PLACE_AN_ORDER_BUTTON_TEXT}</button>
     </>
   );
 });
