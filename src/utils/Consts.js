@@ -9,6 +9,7 @@ export const LOGIN_ROUTE = "/login";
 export const LOGOUT_ROUTE = "/logout";
 export const REGISTRATION_ROUTE = "/registration";
 export const SELLER_ROUTE = "/seller/:id";
+export const CART_ROUTE = "/cart";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
@@ -18,3 +19,4 @@ export const DEFAULT_TOP_ITEMS_COUNT = 5;
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
 export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем категориям";
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
+export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
