@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import { Context } from "..";
 
 import ProductComments from "./ProductComments";
-import ProductImageSlider from "./ProductImageSlider";
+// import ProductImageSlider from "./ProductImageSlider";
 import ProductOptions from "./ProductOptions";
 import AddToCartButton from "./ui/AddToCartButton";
 
@@ -14,7 +14,7 @@ const FullProductInfo = observer(() => {
 
   return (
     <>
-      <ProductImageSlider />
+      {/* <ProductImageSlider /> */}
       <div>
         { product.name }
       </div>
