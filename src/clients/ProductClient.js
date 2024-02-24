@@ -35,4 +35,15 @@ export const getProduct = async (id) => {
   return response.data;
 };
 
+
+export const searchProductsByParams = async (params) => {
+  const urlParams = new URLSearchParams(params);
+  let url = "/api/products";
+  if (urlParams.size !== 0) {
+    url += `?${urlParams.toString()}`;
+  };
+  const response = await $host.get(url);
+  return response.data;
+};
+
 export { products };
