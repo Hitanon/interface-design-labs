@@ -6,6 +6,7 @@ import { Context } from "..";
 import ProductComments from "./ProductComments";
 import ProductImageSlider from "./ProductImageSlider";
 import ProductOptions from "./ProductOptions";
+import AddToCartButton from "./ui/AddToCartButton";
 
 
 const FullProductInfo = observer(() => {
@@ -37,9 +38,7 @@ const FullProductInfo = observer(() => {
       </div>
       <ProductOptions />
       <ProductComments />
-      <div>
-        <button>Добавить в корзину</button>
-      </div>
+      <AddToCartButton productId={product.id} />
     </>
   );
 });

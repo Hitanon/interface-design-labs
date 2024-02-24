@@ -17,6 +17,7 @@ import { logout } from "../clients/UserClient";
 
 import ListButton from "./ui/ListButton";
 import SearchBar from "./ui/SearchBar";
+import Cart from "./Cart";
 
 
 const Header = observer(() => {
@@ -78,6 +79,7 @@ const Header = observer(() => {
           </div>
       }
 
+      <Cart />
     </>
   );
 });
