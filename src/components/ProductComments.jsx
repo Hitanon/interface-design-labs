@@ -12,7 +12,7 @@ const ProductComments = () => {
     <>
       <div>
         ProductComments
-        { product.comments.map((comment) => <div key={comment.author.id}><ProductComment comment={comment} /></div>) }
+        { product.comments.map((comment) => <div key={comment.id}><ProductComment comment={comment} /></div>) }
       </div>
     </>
   );
