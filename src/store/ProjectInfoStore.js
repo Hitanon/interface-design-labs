@@ -6,7 +6,7 @@ export default class ProjectInfoStore {
     this._phone = "";
     this._email = "";
     this._about = "";
-    this._social = {};
+    this._social = [];
     makeAutoObservable(this);
   }
 

@@ -12,9 +12,9 @@ const Footer = observer(() => {
       <div>Phone: {projectInfo.phone}</div>
       <div>Email: {projectInfo.email}</div>
       <div>About us: {projectInfo.about}</div>
-      {
-        Object.keys(projectInfo.social).map((key) => <div key={key}>{key}: {projectInfo.social[key]}</div>)
-      }
+      <ul>
+        {projectInfo.social.map((item) => <li key={item.name}>{item.name}: {item.url}</li>)}
+      </ul>
     </>
   );
 });
