@@ -14,7 +14,7 @@ export const addToCart = async (id, quantity) => {
 };
 
 export const removeFromCart = async (id, quantity) => {
-  await $authHost.delete("/api/cart", buildCartItem(id, quantity));
+  await $authHost.post("/api/cart", buildCartItem(id, -quantity));
 };
 
 export const getCart = async () => {
