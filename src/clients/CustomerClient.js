@@ -1,20 +1,18 @@
-let cart = [{
-  id: 1,
-  quantity: 1,
-}];
+import { $authHost } from ".";
+
 
 export const addToCart = async (id, quantity) => {
-  cart.findIndex(item => item.id === id) === -1
-    ? cart.push({ id, quantity })
-    : cart[cart.findIndex(item => item.id === id)].quantity += quantity;
+  await $authHost.post("/api/cart", {
+    product: id,
+    quantity,
+  });
 };
 
 export const getCart = async () => {
-  console.log(cart);
-  return cart;
+  const response = await $authHost.get("/api/cart");
+  return response.data;
 };
 
 export const purchase = async () => {
-  console.log(`Purchase: ${JSON.stringify(cart)}`);
-  cart = [];
+  await $authHost.post("/api/orders/purchase");
 };
