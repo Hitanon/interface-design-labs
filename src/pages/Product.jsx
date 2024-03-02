@@ -5,18 +5,12 @@ import Footer from "../components/Footer";
 import FullProductInfo from "../components/FullProductInfo";
 import Header from "../components/Header";
 import { Context } from "..";
-import { getProjectInfo } from "../clients/ProjectInfoClient";
 import { getProduct } from "../clients/ProductClient";
 
 
 const Product = () => {
-  const { projectInfo, product } = useContext(Context);
+  const { product } = useContext(Context);
   const { id } = useParams();
-
-  const loadProjectInfo = async () => {
-    const info = await getProjectInfo();
-    projectInfo.setInfo(info);
-  };
 
   const loadFullProductInfo = async () => {
     const fullProductInfo = await getProduct(id);
@@ -24,7 +18,6 @@ const Product = () => {
   };
 
   useEffect(() => {
-    loadProjectInfo();
     loadFullProductInfo();
   }, []);
 

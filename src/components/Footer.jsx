@@ -1,20 +1,29 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 
 import { observer } from "mobx-react-lite";
 
-import { Context } from "..";
+import { getProjectInfo } from "../clients/ProjectInfoClient";
+
+import SocialMediaButton from "./ui/SocialMediaButton";
+
 
 const Footer = observer(() => {
-  const { projectInfo } = useContext(Context);
+  const [projectInfo, setProjectInfo] = useState({});
+
+  const loadProjectInfo = async () => {
+    setProjectInfo(await getProjectInfo());
+  };
+
+  useEffect(() => {
+    loadProjectInfo();
+  }, []);
 
   return (
     <>
       <div>Phone: {projectInfo.phone}</div>
       <div>Email: {projectInfo.email}</div>
       <div>About us: {projectInfo.about}</div>
-      <ul>
-        {projectInfo.social.map((item) => <li key={item.name}>{item.name}: {item.url}</li>)}
-      </ul>
+      {projectInfo.social?.map((item) => <SocialMediaButton key={item.name} name={item.name} url={item.url} />)}
     </>
   );
 });

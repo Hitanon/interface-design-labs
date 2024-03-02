@@ -8,12 +8,11 @@ import { DEFAULT_TOP_CATEGORIES_COUNT, DEFAULT_TOP_ITEMS_COUNT } from "../utils/
 import TopProducts from "../components/TopProducts";
 import { getTopProducts } from "../clients/ProductClient";
 import Footer from "../components/Footer";
-import { getProjectInfo } from "../clients/ProjectInfoClient";
 import Header from "../components/Header";
 
 
 const Main = () => {
-  const { topItems, projectInfo } = useContext(Context);
+  const { topItems } = useContext(Context);
 
   const loadTopCategories = async () => {
     const categories = await getTopCategories(DEFAULT_TOP_CATEGORIES_COUNT);
@@ -25,15 +24,9 @@ const Main = () => {
     topItems.setProducts(products);
   };
 
-  const loadProjectInfo = async () => {
-    const info = await getProjectInfo();
-    projectInfo.setInfo(info);
-  };
-
   useEffect(() => {
     loadTopCategories();
     loadTopProducts();
-    loadProjectInfo();
   }, []);
 
   return (

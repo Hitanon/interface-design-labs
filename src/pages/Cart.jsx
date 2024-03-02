@@ -4,25 +4,19 @@ import { useNavigate } from "react-router-dom";
 
 import { Context } from "..";
 import { addToCart, getCart, purchase, removeFromCart } from "../clients/CustomerClient";
-import { getProjectInfo } from "../clients/ProjectInfoClient";
 import { MAIN_ROUTE, PURCHASE_BUTTON_TEXT } from "../utils/Consts";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 
 const Cart = observer(() => {
-  const { projectInfo, cart } = useContext(Context);
+  const { cart } = useContext(Context);
 
   const navigate = useNavigate();
 
   const loadCart = async () => {
     const cartItems = await getCart();
     cart.setItems(cartItems);
-  };
-
-  const loadProjectInfo = async () => {
-    const info = await getProjectInfo();
-    projectInfo.setInfo(info);
   };
 
   const onPurchaseClick = async () => {
@@ -46,7 +40,6 @@ const Cart = observer(() => {
 
   useEffect(() => {
     loadCart();
-    loadProjectInfo();
   }, []);
 
   return (
