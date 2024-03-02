@@ -21,6 +21,18 @@ export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем 
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
 export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
 export const PURCHASE_BUTTON_TEXT = "Оформить";
+export const LOGIN_BUTTON_TEXT = "Войти";
+export const LOGOUT_BUTTON_TEXT = "Выйти";
+export const REGISTRATION_BUTTON_TEXT = "Регистрация";
+export const PROFILE_BUTTON_TEXT = "Профиль";
+export const HELLO_MESSAGE_TEXT = "Здравствуйте";
+export const DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT = "Нет аккаунта?";
+export const HAVE_AN_ACCOUNT_BUTTON_TEXT = "Есть аккаунт?";
+export const EMAIL_FIELD_LABEL = "Электронная почта";
+export const USERNAME_FIELD_LABEL = "Имя";
+export const PASSWORD_FIELD_LABEL = "Пароль";
+export const LOGIN_FORM_TITLE = "Авторизация";
+export const REGISTRATION_FORM_TITLE = "Авторизация";
 
 // Enums
 export const ROLE = {
