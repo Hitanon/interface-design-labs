@@ -21,3 +21,9 @@ export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем 
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
 export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
 export const PURCHASE_BUTTON_TEXT = "Оформить";
+
+// Enums
+export const ROLE = {
+  CUSTOMER: "customer",
+  SELLER: "seller",
+};

@@ -19,6 +19,7 @@ const App = observer(() => {
     }
     user.setUsername(userInfo.username);
     user.setIsAuth(true);
+    user.setRole(userInfo.role);
   };
 
   useEffect(() => {

@@ -19,7 +19,7 @@ const Login = () => {
   const onLoginClick = async () => {
     const response = await login(credentials);
     setAuthToken(response.token);
-    authorizeUser(response.username);
+    authorizeUser(response.username, response.role);
     navigate(MAIN_ROUTE);
   };
 
@@ -31,8 +31,9 @@ const Login = () => {
     localStorage.setItem("token", token);
   };
 
-  const authorizeUser = (username) => {
+  const authorizeUser = (username, role) => {
     user.setUsername(username);
+    user.setRole(role);
     user.setIsAuth(true);
   };
 
