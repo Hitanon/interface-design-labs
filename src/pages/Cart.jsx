@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 
 import { Context } from "..";
-import { getCart, purchase } from "../clients/CustomerClient";
+import { addToCart, getCart, purchase, removeFromCart } from "../clients/CustomerClient";
 import { getProjectInfo } from "../clients/ProjectInfoClient";
 import { MAIN_ROUTE, PURCHASE_BUTTON_TEXT } from "../utils/Consts";
 import Header from "../components/Header";
@@ -32,6 +32,18 @@ const Cart = observer(() => {
     navigate(MAIN_ROUTE);
   };
 
+  const removeItem = async (id) => {
+    await removeFromCart(id, 1);
+    const cartItems = await getCart();
+    cart.setItems(cartItems);
+  };
+
+  const addItem = async (id) => {
+    await addToCart(id, 1);
+    const cartItems = await getCart();
+    cart.setItems(cartItems);
+  };
+
   useEffect(() => {
     loadCart();
     loadProjectInfo();
@@ -43,7 +55,14 @@ const Cart = observer(() => {
       <hr />
       Cart
 
-      {cart.items.map((item) => <div key={item.id}>Name: {item.id} - quantity: {item.quantity}</div>)}
+      {cart.items.map(
+        (item) =>
+          <div key={item.id}>
+          Name: {item.id} - quantity: {item.quantity}
+            <button onClick={() => removeItem(item.id)}>Remove</button>
+            <button onClick={() => addItem(item.id)}>Add</button>
+          </div>
+      )}
 
       <button onClick={onPurchaseClick}>{PURCHASE_BUTTON_TEXT}</button>
       <hr />
