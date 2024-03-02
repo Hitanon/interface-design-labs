@@ -1,62 +1,43 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { MAIN_ROUTE, REGISTRATION_ROUTE } from "../utils/Consts";
-import { login } from "../clients/UserClient";
-import { Context } from "..";
+import {
+  DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT,
+  LOGIN_BUTTON_TEXT,
+  LOGIN_FORM_TITLE,
+  MAIN_ROUTE,
+  REGISTRATION_ROUTE,
+} from "../utils/Consts";
+import useAuthenticate from "../hooks/useAuthenticate";
+import TextButton from "../components/ui/TextButton";
+import TextRedirectButton from "../components/ui/TextRedirectButton";
+import InputField from "../components/ui/InputField";
 
 
 const Login = () => {
-  const { user } = useContext(Context);
-
-  const [credentials, setCredentials] = useState({
-    email: "admin@test.com",
-    password: "secret",
-  });;
-
+  const [email, setEmail] = useState("admin@test.com");
+  const [password, setPassword] = useState("secret");
   const navigate = useNavigate();
+  const { login } = useAuthenticate();
 
   const onLoginClick = async () => {
-    const response = await login(credentials);
-    setAuthToken(response.token);
-    authorizeUser(response.username, response.role);
+    await login({ email, password });
     navigate(MAIN_ROUTE);
-  };
-
-  const onDontHaveAccount = () => {
-    navigate(REGISTRATION_ROUTE);
-  };
-
-  const setAuthToken = (token) => {
-    localStorage.setItem("token", token);
-  };
-
-  const authorizeUser = (username, role) => {
-    user.setUsername(username);
-    user.setRole(role);
-    user.setIsAuth(true);
   };
 
   return (
     <>
       <div>
-        Email:
-        <input
-          type="email"
-          value={credentials.email}
-          onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-        />
+        {LOGIN_FORM_TITLE}
       </div>
       <div>
-        Password:
-        <input
-          type="password"
-          value={credentials.password}
-          onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-        />
+        <InputField type="email" value={email} callback={setEmail} />
+        <InputField type="password" value={password} callback={setPassword} />
       </div>
-      <button onClick={onLoginClick}>Login</button>
-      <button onClick={onDontHaveAccount}>Doesn't have an account?</button>
+      <div>
+        <TextButton text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />
+        <TextRedirectButton text={DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT} route={REGISTRATION_ROUTE} />
+      </div>
     </>
   );
 };
