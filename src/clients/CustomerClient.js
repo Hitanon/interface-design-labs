@@ -25,3 +25,8 @@ export const getCart = async () => {
 export const purchase = async () => {
   await $authHost.post("/api/orders/purchase");
 };
+
+export const getCustomerOrders = async () => {
+  const response = await $authHost.get("/api/orders");
+  return response.data;
+};
