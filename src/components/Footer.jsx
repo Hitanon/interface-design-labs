@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { observer } from "mobx-react-lite";
 
-import { getProjectInfo } from "../clients/ProjectInfoClient";
+import { getProjectInfo } from "../clients/GeneralClient";
 
 import SocialMediaButton from "./ui/SocialMediaButton";
 
