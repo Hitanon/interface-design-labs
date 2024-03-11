@@ -5,9 +5,11 @@ const OrderStatus = ({ status }) => {
         Name: {status.name}
       </div>
       <div>
-        Start Date: {status.startAt}
-        {status.endedAt !== null ? <div>End Date: {status.endedAt}</div> : null}
-        Status: {status.endedAt === null ? "active" : "ended"}
+        Start Date: {status.dateFrom}
+        <div>
+          {status.dateTo !== null ? <div>End Date: {status.dateTo}</div> : null}
+        </div>
+        Status: {status.dateTo === null ? "active" : "ended"}
       </div>
     </>
   );
