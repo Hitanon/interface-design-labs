@@ -1,17 +1,33 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import { Context } from "..";
+import { getCustomerOrders } from "../clients/CustomerClient";
 
 import CustomerOrder from "./CustomerOrder";
 
 
 const CustomerOrders = observer(() => {
-  const { user } = useContext(Context);
+  const [orders, setOrders] = useState([]);
+
+  const getOrders = async () => {
+    setOrders(await getCustomerOrders());
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
 
   return (
     <>
-      {user.orders.map(order => <div key={order.id}><CustomerOrder order={order} /></div>)}
+      {
+        orders
+          ?
+          orders.map(order => <div key={order.id}><CustomerOrder order={order} /></div>)
+          :
+          <div>
+            No orders
+          </div>
+      }
     </>
   );
 });
