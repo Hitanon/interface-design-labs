@@ -7,6 +7,10 @@ export const getProjectInfo = async () => {
 };
 
 export const checkProjectHealth = async () => {
-  const response = await $host.get("/api/health");
-  return response.data;
+  try {
+    await $host.get("/api/health");
+    return true;
+  } catch (e) {
+    return false;
+  }
 };
