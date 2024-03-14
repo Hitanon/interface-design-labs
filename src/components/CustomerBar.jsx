@@ -1,4 +1,4 @@
-import { CART_ROUTE, PLACE_AN_ORDER_BUTTON_TEXT } from "../utils/Consts";
+import { PURCHASE_ORDER_ROUTE, PLACE_AN_ORDER_BUTTON_TEXT } from "../utils/Consts";
 
 import Cart from "./Cart";
 import TextRedirectButton from "./ui/TextRedirectButton";
@@ -12,7 +12,7 @@ const CustomerBar = () => {
         <GreetingMessage />
       </div>
       <Cart />
-      <TextRedirectButton text={PLACE_AN_ORDER_BUTTON_TEXT} route={CART_ROUTE} />
+      <TextRedirectButton text={PLACE_AN_ORDER_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
     </>
   );
 };

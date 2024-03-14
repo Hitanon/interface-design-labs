@@ -9,7 +9,7 @@ export const LOGIN_ROUTE = "/login";
 export const LOGOUT_ROUTE = "/logout";
 export const REGISTRATION_ROUTE = "/registration";
 export const SELLER_ROUTE = "/seller/:id";
-export const CART_ROUTE = "/cart";
+export const PURCHASE_ORDER_ROUTE = "/cart";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;

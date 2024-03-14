@@ -9,7 +9,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 
-const Cart = observer(() => {
+const PurchaseOrder = observer(() => {
   const { cart } = useContext(Context);
 
   const navigate = useNavigate();
@@ -64,4 +64,4 @@ const Cart = observer(() => {
   );
 });
 
-export default Cart;
+export default PurchaseOrder;
