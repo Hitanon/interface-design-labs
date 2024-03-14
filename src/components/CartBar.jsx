@@ -5,7 +5,7 @@ import { getCart } from "../clients/CustomerClient";
 import { Context } from "..";
 
 
-const Cart = observer(() => {
+const CartBar = observer(() => {
   const { cart } = useContext(Context);
 
   const loadCart = async () => {
@@ -24,4 +24,4 @@ const Cart = observer(() => {
   );
 });
 
-export default Cart;
+export default CartBar;
