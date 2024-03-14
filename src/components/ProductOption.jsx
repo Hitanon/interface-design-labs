@@ -2,9 +2,6 @@ const ProductOption = ({ option }) =>{
   return (
     <>
       <div>
-        ProductOption
-      </div>
-      <div>
         {option.name}
       </div>
       <ul>
