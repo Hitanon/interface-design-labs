@@ -1,67 +1,35 @@
-import { useContext, useEffect } from "react";
-import { observer } from "mobx-react-lite";
 import { useNavigate } from "react-router-dom";
 
-import { Context } from "..";
-import { addToCart, getCart, purchase, removeFromCart } from "../clients/CustomerClient";
+import { purchase } from "../clients/CustomerClient";
 import { MAIN_ROUTE, PURCHASE_BUTTON_TEXT } from "../utils/Consts";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CartItems from "../components/CartItems";
+import TextButton from "../components/ui/TextButton";
+import useCart from "../hooks/useCart";
 
 
-const PurchaseOrder = observer(() => {
-  const { cart } = useContext(Context);
+const PurchaseOrder = () => {
+  const { loadCart } = useCart();
 
   const navigate = useNavigate();
 
-  const loadCart = async () => {
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
-  };
-
   const onPurchaseClick = async () => {
     await purchase();
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
+    await loadCart();
     navigate(MAIN_ROUTE);
   };
-
-  const removeItem = async (id) => {
-    await removeFromCart(id, 1);
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
-  };
-
-  const addItem = async (id) => {
-    await addToCart(id, 1);
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
-  };
-
-  useEffect(() => {
-    loadCart();
-  }, []);
 
   return (
     <>
       <Header />
       <hr />
-      Cart
-
-      {cart.items.map(
-        (item) =>
-          <div key={item.id}>
-          Name: {item.id} - quantity: {item.quantity}
-            <button onClick={() => removeItem(item.id)}>Remove</button>
-            <button onClick={() => addItem(item.id)}>Add</button>
-          </div>
-      )}
-
-      <button onClick={onPurchaseClick}>{PURCHASE_BUTTON_TEXT}</button>
+      <CartItems />
+      <TextButton callback={onPurchaseClick} text={PURCHASE_BUTTON_TEXT} />
       <hr />
       <Footer />
     </>
   );
-});
+};
 
 export default PurchaseOrder;
