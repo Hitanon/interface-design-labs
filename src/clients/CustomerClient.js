@@ -38,3 +38,7 @@ export const updateProductComment = async (id, rating, message) => {
 export const createProductComment = async (productId, rating, message) => {
   await $authHost.post(`/api/products/${productId}/comments`, { rating, message });
 };
+
+export const deleteProductComment = async (id) => {
+  await $authHost.delete(`/api/comments/${id}`);
+};

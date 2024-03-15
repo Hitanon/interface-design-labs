@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { Context } from "..";
-import { createProductComment, updateProductComment } from "../clients/CustomerClient";
+import { createProductComment, deleteProductComment, updateProductComment } from "../clients/CustomerClient";
 import { getProduct } from "../clients/ProductClient";
 
 
@@ -33,11 +33,17 @@ const useComments = () => {
     await updateProduct();
   };
 
+  const deleteComment = async (id) => {
+    await deleteProductComment(id);
+    await updateProduct();
+  };
+
   return {
     isUserCommentExists,
     getUserComment,
     updateComment,
     createComment,
+    deleteComment,
   };
 };
 
