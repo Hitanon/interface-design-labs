@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
 
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
 import { EDIT_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
 import useComments from "../../hooks/useComments";
+import { Context } from "../..";
 
 
-const EditCommentForm = () => {
+const EditCommentForm = observer(() => {
+  const { product } = useContext(Context);
+
   const {getUserComment, updateComment} = useComments();
 
   const [rating, setRating] = useState(0);
@@ -20,7 +24,7 @@ const EditCommentForm = () => {
 
   useEffect(() => {
     loadComment();
-  }, []);
+  }, [product.comments]);  // Fix. Rerender component when product changes
 
   return (
     <>
@@ -33,6 +37,6 @@ const EditCommentForm = () => {
       </div>
     </>
   );
-};
+});
 
 export default EditCommentForm;
