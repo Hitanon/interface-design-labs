@@ -35,6 +35,7 @@ export const LOGIN_FORM_TITLE = "Авторизация";
 export const REGISTRATION_FORM_TITLE = "Авторизация";
 export const EDIT_COMMENT_BUTTON_TEXT = "Изменить комментарий";
 export const CREATE_COMMENT_BUTTON_TEXT = "Оставить комментарий";
+export const DELETE_COMMENT_BUTTON_TEXT = "Удалить комментарий";
 
 // Enums
 export const ROLE = {
