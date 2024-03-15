@@ -7,6 +7,7 @@ import ProductComments from "./ProductComments";
 // import ProductImageSlider from "./ProductImageSlider";
 import ProductOptions from "./ProductOptions";
 import AddToCartButton from "./ui/AddToCartButton";
+import UserComment from "./UserComment";
 
 
 const FullProductInfo = observer(() => {
@@ -37,6 +38,7 @@ const FullProductInfo = observer(() => {
         { product.seller.name }
       </div>
       <ProductOptions />
+      <UserComment />
       <ProductComments />
       <AddToCartButton productId={product.id} />
     </>
