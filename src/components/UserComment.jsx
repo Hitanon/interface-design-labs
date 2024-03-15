@@ -11,7 +11,7 @@ const UserComment = observer(() => {
 
   return (
     <>
-      <hr/>
+      <hr />
       {
         isUserCommentExists()
           ?
@@ -19,7 +19,7 @@ const UserComment = observer(() => {
           :
           <CreateCommentForm />
       }
-      <hr/>
+      <hr />
     </>
   );
 });
