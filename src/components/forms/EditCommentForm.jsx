@@ -24,7 +24,7 @@ const EditCommentForm = observer(() => {
 
   useEffect(() => {
     loadComment();
-  }, [product.comments]);  // Fix. Rerender component when product changes
+  }, [product.comments]);  // TODO: Fix. Rerender component when product changes
 
   return (
     <>
