@@ -30,3 +30,7 @@ export const getCustomerOrders = async () => {
   const response = await $authHost.get("/api/orders");
   return response.data;
 };
+
+export const updateProductComment = async (id, rating, message) => {
+  await $authHost.put(`/api/comments/${id}`, { rating, message });
+};
