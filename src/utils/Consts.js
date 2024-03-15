@@ -34,6 +34,7 @@ export const PASSWORD_FIELD_LABEL = "Пароль";
 export const LOGIN_FORM_TITLE = "Авторизация";
 export const REGISTRATION_FORM_TITLE = "Авторизация";
 export const EDIT_COMMENT_BUTTON_TEXT = "Изменить комментарий";
+export const CREATE_COMMENT_BUTTON_TEXT = "Оставить комментарий";
 
 // Enums
 export const ROLE = {
