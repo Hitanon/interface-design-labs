@@ -29,7 +29,7 @@ const useComments = () => {
   };
 
   const createComment = async (rating, message) => {
-    await createProductComment(rating, message);
+    await createProductComment(product.id, rating, message);
     await updateProduct();
   };
 

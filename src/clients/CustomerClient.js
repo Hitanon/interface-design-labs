@@ -35,6 +35,6 @@ export const updateProductComment = async (id, rating, message) => {
   await $authHost.put(`/api/comments/${id}`, { rating, message });
 };
 
-export const createProductComment = async (rating, message) => {
-  await $authHost.post("/api/comments", { rating, message });
+export const createProductComment = async (productId, rating, message) => {
+  await $authHost.post(`/api/products/${productId}/comments`, { rating, message });
 };
