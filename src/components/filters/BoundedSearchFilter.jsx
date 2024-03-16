@@ -12,7 +12,6 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
   const [upperValue, setUpperValue] = useState(initialValue);
 
   const onValueChange = (name, value, callback) => {
-    console.log(name, value);
     search.addParam({ name: name, value: value });
     callback(value);
   };
