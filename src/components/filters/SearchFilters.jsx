@@ -1,10 +1,11 @@
 import useCategories from "../../hooks/useCategories";
 
 import useSearch from "../../hooks/useSearch";
+import { SEARCH_PRODUCTS_LABEL } from "../../utils/Consts";
 import TextButton from "../ui/TextButton";
 
 import BoundedSearchFilter from "./BoundedSearchFilter";
-import SearchFilter from "./SearchFilter";
+import CheckBoxSearchFilter from "./CheckBoxSearchFIlter";
 
 
 const SearchFilters = () => {
@@ -46,11 +47,14 @@ const SearchFilters = () => {
   return (
     <>
       <div>
-        SearchFilters
+        {SEARCH_PRODUCTS_LABEL}
       </div>
 
       {
-        filters.map(({ name, label, loader }) => <SearchFilter key={name} name={name} label={label} loader={loader} />)
+        filters.map(
+          ({ name, label, loader }) =>
+            <CheckBoxSearchFilter key={name} name={name} label={label} loader={loader} />
+        )
       }
 
       {
