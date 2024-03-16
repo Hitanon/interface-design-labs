@@ -15,7 +15,7 @@ export const SEARCH_PRODUCTS_ROUTE = `${PRODUCTS_ROUTE}/search`;
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
-export const DEFAULT_TOP_ITEMS_COUNT = 5;
+export const DEFAULT_TOP_PRODUCTS_COUNT = 5;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
