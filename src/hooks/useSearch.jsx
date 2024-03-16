@@ -12,7 +12,7 @@ const useSearch = () => {
   };
 
   const parseUrlParams = () => {
-    const splitted = window.location.search.replace("?", "").split("&")
+    const splitted = window.location.search.replace("?", "").split("&");
     const params = splitted.map((param) => param.split("=")).map(([key, value]) => ({name: key, value}));
     for (const param of params) {
       search.addParam(param);
