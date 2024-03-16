@@ -5,7 +5,7 @@ import App from "./App";
 import TopItemsStore from "./store/TopItemsStore";
 import ProductStore from "./store/ProductStore";
 import UserStore from "./store/UserStore";
-import SearchProductsStore from "./store/SearchProductsStore";
+import SearchStore from "./store/SearchStore";
 import SellerStore from "./store/SellerStore";
 import SellerOrdersStore from "./store/SellerOrdersStore";
 import CartStore from "./store/CartStore";
@@ -20,7 +20,7 @@ root.render(
     topItems: new TopItemsStore(),
     product: new ProductStore(),
     user: new UserStore(),
-    searchProducts: new SearchProductsStore(),
+    search: new SearchStore(),
     seller: new SellerStore(),
     sellerOrders: new SellerOrdersStore(),
     cart: new CartStore(),
