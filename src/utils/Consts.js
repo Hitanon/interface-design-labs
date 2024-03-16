@@ -40,6 +40,7 @@ export const CREATE_COMMENT_BUTTON_TEXT = "Оставить комментари
 export const DELETE_COMMENT_BUTTON_TEXT = "Удалить комментарий";
 export const TOP_PRODUCTS_LABEL = "Лучшие товары";
 export const TOP_CATEGORIES_LABEL = "Лучшие категории";
+export const SEARCH_PRODUCTS_LABEL = "Поиск";
 
 // Enums
 export const ROLE = {
