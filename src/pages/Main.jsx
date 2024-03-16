@@ -9,6 +9,7 @@ import TopProducts from "../components/TopProducts";
 import { getTopProducts } from "../clients/ProductClient";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import ProjectGreeting from "../components/ProjectGreeting";
 
 
 const Main = () => {
@@ -32,6 +33,8 @@ const Main = () => {
   return (
     <>
       <Header />
+      <hr/>
+      <ProjectGreeting />
       <hr/>
       <TopCategories />
       <hr/>
