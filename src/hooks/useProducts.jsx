@@ -1,4 +1,4 @@
-import { getTopProducts } from "../clients/ProductClient";
+import { getTopProducts, searchProductsByParams } from "../clients/ProductClient";
 import { DEFAULT_TOP_PRODUCTS_COUNT } from "../utils/Consts";
 
 
@@ -7,7 +7,14 @@ const useProducts = () => {
     return await getTopProducts(limit);
   };
 
-  return { getTop };
+  const search = async (urlParams) => {
+    return await searchProductsByParams(urlParams);
+  };
+
+  return {
+    getTop,
+    search,
+  };
 };
 
 export default useProducts;

@@ -1,10 +1,14 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Context } from "..";
+import { SEARCH_PRODUCTS_ROUTE } from "../utils/Consts";
+import { searchProductsByParams } from "../clients/ProductClient";
 
 
 const useSearch = () => {
-  const { search } = useContext(Context);
+  const navigate = useNavigate();
+  const { search, searchProducts } = useContext(Context);
 
   const getUrlParams = () => {
     const urlParams = search.params.reduce((acc, param) => `${acc}${param.name}=${param.value}&`, "?");
@@ -19,10 +23,16 @@ const useSearch = () => {
     }
   };
 
+  const applyFilters = async () => {
+    searchProducts.setProducts(await searchProductsByParams(getUrlParams()));
+    navigate(`${SEARCH_PRODUCTS_ROUTE}${getUrlParams()}`);
+  };
+
   return {
     search,
     getUrlParams,
     parseUrlParams,
+    applyFilters,
   };
 };
 

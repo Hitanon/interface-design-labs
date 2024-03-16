@@ -10,6 +10,7 @@ import SellerStore from "./store/SellerStore";
 import SellerOrdersStore from "./store/SellerOrdersStore";
 import CartStore from "./store/CartStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
+import SearchProductsStore from "./store/SearchProductsStore";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,6 +22,7 @@ root.render(
     product: new ProductStore(),
     user: new UserStore(),
     search: new SearchStore(),
+    searchProducts: new SearchProductsStore(),
     seller: new SellerStore(),
     sellerOrders: new SellerOrdersStore(),
     cart: new CartStore(),

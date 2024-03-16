@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { searchProducts } from "../clients/ProductClient";
 import Products from "../components/Products";
 import useSearch from "../hooks/useSearch";
+import SearchFilters from "../components/filters/SearchFilters";
+import { Context } from "..";
+import useProducts from "../hooks/useProducts";
 
 
-const SearchProducts = () => {
-  const [products, setProducts] = useState([]);
+const SearchProducts = observer(() => {
+  const { searchProducts } = useContext(Context);
+  const { search } = useProducts();
   const { parseUrlParams, getUrlParams } = useSearch();
 
   const loadProducts = async () => {
     parseUrlParams();
-    setProducts(await searchProducts(getUrlParams()));
+    searchProducts.setProducts(await search(getUrlParams()));
   };
 
   useEffect(() => {
@@ -24,11 +28,13 @@ const SearchProducts = () => {
     <>
       <Header />
       <hr />
-      <Products products={products}/>
+      <SearchFilters />
+      <hr />
+      <Products products={searchProducts.products} />
       <hr />
       <Footer />
     </>
   );
-};
+});
 
 export default SearchProducts;

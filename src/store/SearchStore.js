@@ -12,6 +12,10 @@ export default class SearchStore {
     this._params.push(param);
   }
 
+  clearParam(name) {
+    this._params = this._params.filter(p => p.name !== name);
+  }
+
   get params() {
     return this._params;
   }

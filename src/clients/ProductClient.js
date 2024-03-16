@@ -36,7 +36,7 @@ export const getProduct = async (id) => {
 };
 
 
-export const searchProducts = async (urlParams) => {
+export const searchProductsByParams = async (urlParams) => {
   const response = await $host.get(`/api/products${urlParams}`);
   return response.data;
 };
