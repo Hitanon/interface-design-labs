@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { observer } from "mobx-react-lite";
 
-import { getProjectInfo } from "../clients/GeneralClient";
+import useProjectInfo from "../hooks/useProjectInfo";
 
 import SocialMediaButton from "./ui/SocialMediaButton";
 
 
 const Footer = observer(() => {
-  const [projectInfo, setProjectInfo] = useState({});
-
-  const loadProjectInfo = async () => {
-    setProjectInfo(await getProjectInfo());
-  };
+  const { loadProjectInfo, projectInfo } = useProjectInfo();
 
   useEffect(() => {
     loadProjectInfo();
