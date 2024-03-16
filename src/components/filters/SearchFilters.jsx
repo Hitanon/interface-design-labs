@@ -1,4 +1,4 @@
-import useCategories from "../../hooks/useCategories";
+import useFilters from "../../hooks/useFilters";
 
 import useSearch from "../../hooks/useSearch";
 import { SEARCH_PRODUCTS_LABEL } from "../../utils/Consts";
@@ -9,36 +9,8 @@ import CheckBoxSearchFilter from "./CheckBoxSearchFIlter";
 
 
 const SearchFilters = () => {
-  // Категория - category
-  // Минимальная цена - lowerPrice
-  // Максимальная цена - upperPrice
-  // Минимальный рейтинг - lowerRating
-  // Максимальный рейтинг - upperRating
-
-  const filters = [
-    {
-      label: "Категория",
-      name: "category",
-      loader: useCategories().getAll,
-    },
-  ];
-
-  const boundedFilters = [
-    {
-      label: "Цена",
-      inputType: "number",
-      lower: {
-        label: "Минимальная цена",
-        name: "lowerPrice",
-      },
-      upper: {
-        label: "Максимальная цена",
-        name: "upperPrice",
-      },
-    },
-  ];
-
   const { applyFilters } = useSearch();
+  const { checkboxFilters, boundedFilters } = useFilters();
 
   const onSubmitClick = async () => {
     await applyFilters();
@@ -51,7 +23,7 @@ const SearchFilters = () => {
       </div>
 
       {
-        filters.map(
+        checkboxFilters.map(
           ({ name, label, loader }) =>
             <CheckBoxSearchFilter key={name} name={name} label={label} loader={loader} />
         )
