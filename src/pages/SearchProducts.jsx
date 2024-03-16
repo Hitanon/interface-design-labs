@@ -1,29 +1,30 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import { Context } from "..";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { searchProductsByParams } from "../clients/ProductClient";
+import { searchProducts } from "../clients/ProductClient";
 import Products from "../components/Products";
+import useSearch from "../hooks/useSearch";
 
 
 const SearchProducts = () => {
-  const { searchProducts } = useContext(Context);
+  const [products, setProducts] = useState([]);
+  const { parseUrlParams, getUrlParams } = useSearch();
 
-  const searchProductsByParamsLocal = async () => {
-    const products = await searchProductsByParams(searchProducts.params);
-    searchProducts.setProducts(products);
+  const loadProducts = async () => {
+    parseUrlParams();
+    setProducts(await searchProducts(getUrlParams()));
   };
 
   useEffect(() => {
-    searchProductsByParamsLocal();
+    loadProducts();
   }, []);
 
   return (
     <>
       <Header />
       <hr />
-      <Products />
+      <Products products={products}/>
       <hr />
       <Footer />
     </>

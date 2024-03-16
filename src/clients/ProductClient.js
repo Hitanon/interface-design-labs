@@ -36,13 +36,8 @@ export const getProduct = async (id) => {
 };
 
 
-export const searchProductsByParams = async (params) => {
-  const urlParams = new URLSearchParams(params);
-  let url = "/api/products";
-  if (urlParams.size !== 0) {
-    url += `?${urlParams.toString()}`;
-  };
-  const response = await $host.get(url);
+export const searchProducts = async (urlParams) => {
+  const response = await $host.get(`/api/products${urlParams}`);
   return response.data;
 };
 
