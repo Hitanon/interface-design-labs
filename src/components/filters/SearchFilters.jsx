@@ -3,6 +3,7 @@ import useCategories from "../../hooks/useCategories";
 import useSearch from "../../hooks/useSearch";
 import TextButton from "../ui/TextButton";
 
+import BoundedSearchFilter from "./BoundedSearchFilter";
 import SearchFilter from "./SearchFilter";
 
 
@@ -15,9 +16,24 @@ const SearchFilters = () => {
 
   const filters = [
     {
-      name: "category",
       label: "Категория",
+      name: "category",
       loader: useCategories().getAll,
+    },
+  ];
+
+  const boundedFilters = [
+    {
+      label: "Цена",
+      inputType: "number",
+      lower: {
+        label: "Минимальная цена",
+        name: "lowerPrice",
+      },
+      upper: {
+        label: "Максимальная цена",
+        name: "upperPrice",
+      },
     },
   ];
 
@@ -35,6 +51,13 @@ const SearchFilters = () => {
 
       {
         filters.map(({ name, label, loader }) => <SearchFilter key={name} name={name} label={label} loader={loader} />)
+      }
+
+      {
+        boundedFilters.map(
+          ({ label, inputType, lower, upper }) =>
+            <BoundedSearchFilter key={label} label={label} lower={lower} upper={upper} inputType={inputType} />
+        )
       }
 
       <div>
