@@ -8,6 +8,7 @@ export default class SearchStore {
   }
 
   addParam(param) {
+    this._params = this._params.filter(p => p.name !== param.name);
     this._params.push(param);
   }
 
