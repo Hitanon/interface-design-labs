@@ -8,7 +8,8 @@ export const PROFILE_ROUTE = "/profile";
 export const LOGIN_ROUTE = "/login";
 export const LOGOUT_ROUTE = "/logout";
 export const REGISTRATION_ROUTE = "/registration";
-export const SELLER_ROUTE = "/seller/:id";
+export const SELLERS_ROUTE = "/sellers";
+export const SELLER_ROUTE = `${SELLERS_ROUTE}/:id`;
 export const PURCHASE_ORDER_ROUTE = "/cart";
 
 // Settings
