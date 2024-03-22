@@ -1,20 +1,17 @@
 import { useNavigate } from "react-router-dom";
 
-import { useContext } from "react";
-
-import { Context } from "..";
+import useSearch from "../hooks/useSearch";
 import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE } from "../utils/Consts";
 
 import Category from "./Category";
 
 
 const Categories = ({ categories }) => {
-  const { searchProducts } = useContext(Context);
-
+  const { search } = useSearch();
   const navigate = useNavigate();
 
-  const onCategoryClick = (categoryId) => {
-    searchProducts.setCategory(categoryId);
+  const onCategoryClick = (id) => {
+    search.addParam({ name: "category", value: id });
     navigate(`${SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE}`);
   };
 
