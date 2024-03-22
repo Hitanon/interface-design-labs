@@ -6,8 +6,10 @@ import TextRedirectButton from "./ui/TextRedirectButton";
 const AuthenticateBar = () => {
   return (
     <>
-      <TextRedirectButton text={LOGIN_BUTTON_TEXT} route={LOGIN_ROUTE} />
-      <TextRedirectButton text={REGISTRATION_BUTTON_TEXT} route={REGISTRATION_ROUTE} />
+      <div>
+        <TextRedirectButton text={LOGIN_BUTTON_TEXT} route={LOGIN_ROUTE} />
+        <TextRedirectButton text={REGISTRATION_BUTTON_TEXT} route={REGISTRATION_ROUTE} />
+      </div>
     </>
   );
 };
