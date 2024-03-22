@@ -29,11 +29,16 @@ const useSearch = () => {
     navigate(`${SEARCH_PRODUCTS_ROUTE}${getUrlParams()}`);
   };
 
+  const clearParams = () => {
+    search.clearParams();
+  };
+
   return {
     search,
     getUrlParams,
     parseUrlParams,
     applyFilters,
+    clearParams,
   };
 };
 

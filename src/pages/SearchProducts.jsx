@@ -13,7 +13,7 @@ import useProducts from "../hooks/useProducts";
 const SearchProducts = observer(() => {
   const { searchProducts } = useContext(Context);
   const { search } = useProducts();
-  const { parseUrlParams, getUrlParams } = useSearch();
+  const { parseUrlParams, getUrlParams, clearParams} = useSearch();
 
   const loadProducts = async () => {
     parseUrlParams();
@@ -22,6 +22,7 @@ const SearchProducts = observer(() => {
 
   useEffect(() => {
     loadProducts();
+    return clearParams;
   }, []);
 
   return (
