@@ -17,7 +17,7 @@ const Product = ({ id }) => {
   const [product, setProduct] = useState({ category: {}, seller: {} });
 
   const loadFullProductInfo = async () => {
-    setIsLoading(false);
+    setIsLoading(true);
     setProduct(await getProduct(id));
     setIsLoading(false);
   };
