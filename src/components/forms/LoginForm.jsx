@@ -11,7 +11,7 @@ import {
   DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT,
   LOGIN_BUTTON_TEXT,
   REGISTRATION_ROUTE,
-} from "../utils/Consts";
+} from "../../utils/Consts";
 
 
 const LoginForm = () => {
