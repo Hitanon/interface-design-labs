@@ -42,7 +42,8 @@ export const TOP_PRODUCTS_LABEL = "Лучшие товары";
 export const TOP_CATEGORIES_LABEL = "Лучшие категории";
 export const SEARCH_PRODUCTS_LABEL = "Поиск";
 export const MOVE_TO_CART_BUTTON_TEXT = "Перейти в корзину";
-export const REMOVE_FROM_CART_BUTTON_TEXT = "Удалить из корзины";
+export const INCREASE_QUANTITY_BUTTON_TEXT = "+";
+export const DECREASE_QUANTITY_BUTTON_TEXT = "-";
 
 // Enums
 export const ROLE = {
