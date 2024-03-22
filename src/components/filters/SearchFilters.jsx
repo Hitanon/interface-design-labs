@@ -10,7 +10,7 @@ import CheckBoxSearchFilter from "./CheckBoxSearchFIlter";
 
 const SearchFilters = () => {
   const { applyFilters } = useSearch();
-  const { checkboxFilters, boundedFilters } = useFilters();
+  const { checkBoxFilters, boundedFilters } = useFilters();
 
   const onSubmitClick = async () => {
     await applyFilters();
@@ -23,7 +23,7 @@ const SearchFilters = () => {
       </div>
 
       {
-        checkboxFilters.map(
+        checkBoxFilters.map(
           ({ name, label, loader }) =>
             <CheckBoxSearchFilter key={name} name={name} label={label} loader={loader} />
         )
