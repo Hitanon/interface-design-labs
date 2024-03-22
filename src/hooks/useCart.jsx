@@ -27,7 +27,8 @@ const useCart = () => {
   };
 
   const getItemQuantity = (id) => {
-    return cart.items.find(item => item.id === id).quantity;
+    const item = cart.items.find(item => item.id === id);
+    return item ? item.quantity : 0;
   };
 
   return {
