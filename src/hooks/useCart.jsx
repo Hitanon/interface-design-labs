@@ -22,10 +22,15 @@ const useCart = () => {
     cart.setItems(cartItems);
   };
 
+  const isCartContains = (id) => {
+    return cart.items.some(item => item.id === id);
+  };
+
   return {
     loadCart,
     removeItem,
     addItem,
+    isCartContains,
   };
 };
 
