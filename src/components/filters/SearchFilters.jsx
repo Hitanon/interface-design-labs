@@ -1,7 +1,7 @@
 import useFilters from "../../hooks/useFilters";
 
 import useSearch from "../../hooks/useSearch";
-import { SEARCH_PRODUCTS_LABEL } from "../../utils/Consts";
+import { APPLY_FILTERS_BUTTON_TEXT, SEARCH_PRODUCTS_LABEL } from "../../utils/Consts";
 import TextButton from "../ui/TextButton";
 
 import BoundedSearchFilter from "./BoundedSearchFilter";
@@ -37,7 +37,7 @@ const SearchFilters = () => {
       }
 
       <div>
-        <TextButton text="Применить" callback={onSubmitClick} />
+        <TextButton text={APPLY_FILTERS_BUTTON_TEXT} callback={onSubmitClick} />
       </div>
     </>
   );
