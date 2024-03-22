@@ -21,6 +21,19 @@ const useFilters = () => {
     return true;
   };
 
+  const ratingValidator = (value) => {
+    try {
+      const num = Number(value);
+      if (num < 0 || num > 5) {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+  };
+
   const checkBoxFilters = [
     {
       label: "Категория",
@@ -42,6 +55,20 @@ const useFilters = () => {
         label: "Максимальная цена",
         name: "upperPrice",
         validator: positiveNumberValidator,
+      },
+    },
+    {
+      label: "Рейтинг",
+      inputType: "number",
+      lower: {
+        label: "Минимальный рейтинг",
+        name: "lowerRating",
+        validator: ratingValidator,
+      },
+      upper: {
+        label: "Максимальный рейтинг",
+        name: "upperRating",
+        validator: ratingValidator,
       },
     },
   ];
