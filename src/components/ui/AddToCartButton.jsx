@@ -1,24 +1,58 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
 
-import { Context } from "../..";
-import { ADD_TO_CART_BUTTON_TEXT } from "../../utils/Consts";
-import { addToCart, getCart } from "../../clients/CustomerClient";
+import {
+  ADD_TO_CART_BUTTON_TEXT,
+  DECREASE_QUANTITY_BUTTON_TEXT,
+  INCREASE_QUANTITY_BUTTON_TEXT,
+  MOVE_TO_CART_BUTTON_TEXT,
+  PURCHASE_ORDER_ROUTE,
+} from "../../utils/Consts";
+
+import useCart from "../../hooks/useCart";
+
+import TextButton from "./TextButton";
+import TextRedirectButton from "./TextRedirectButton";
 
 
-const AddToCartButton = ({ id }) => {
-  const { cart } = useContext(Context);
+const AddToCartButton = observer(({ id }) => {
+  const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
+  const [contains, setContains] = useState(false);
 
-  const onAddToCartClick = async () => {
-    await addToCart(id, 1);
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
+  const checkIsCartContains = async () => {
+    setContains(isCartContains(id));
   };
 
+  const onAddToCartClick = async (quantity) => {
+    await addItem(id, quantity);
+    checkIsCartContains();
+  };
+
+  const onRemoveFromCartClick = async (quantity) => {
+    await removeItem(id, quantity);
+    checkIsCartContains();
+  };
+
+  useEffect(() => {
+    checkIsCartContains();
+  }, []);
+
   return (
-    <button onClick={onAddToCartClick}>
-      {ADD_TO_CART_BUTTON_TEXT}
-    </button>
+    <>
+      {
+        contains
+          ?
+          <div>
+            <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+            <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
+            {getItemQuantity(id)}
+            <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+          </div>
+          :
+          <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+      }
+    </>
   );
-};
+});
 
 export default AddToCartButton;
