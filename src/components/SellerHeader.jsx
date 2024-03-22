@@ -1,12 +1,4 @@
-import { useContext } from "react";
-import { observer } from "mobx-react-lite";
-
-import { Context } from "..";
-
-
-const SellerHeader = observer(() => {
-  const { seller } = useContext(Context);
-
+const SellerHeader = ({ seller }) => {
   return (
     <>
       <div>
@@ -26,6 +18,6 @@ const SellerHeader = observer(() => {
       </div>
     </>
   );
-});
+};
 
 export default SellerHeader;
