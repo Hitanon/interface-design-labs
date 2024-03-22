@@ -30,7 +30,7 @@ const CategoryButton = ({ id }) => {
         Category: {category.name}
       </div>
     </>
-  )
+  );
 };
 
 export default CategoryButton;
