@@ -5,11 +5,11 @@ import { ADD_TO_CART_BUTTON_TEXT } from "../../utils/Consts";
 import { addToCart, getCart } from "../../clients/CustomerClient";
 
 
-const AddToCartButton = ({ productId }) => {
+const AddToCartButton = ({ id }) => {
   const { cart } = useContext(Context);
 
   const onAddToCartClick = async () => {
-    await addToCart(productId, 1);
+    await addToCart(id, 1);
     const cartItems = await getCart();
     cart.setItems(cartItems);
   };
