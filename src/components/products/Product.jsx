@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { getProduct } from "../../clients/ProductClient";
 
-import ProductComments from "../ProductComments";
 import ProductOptions from "../ProductOptions";
 import AddToCartButton from "../ui/AddToCartButton";
 import UserComment from "../UserComment";
@@ -10,10 +9,12 @@ import ImageSlider from "../ui/ImageSlider";
 import SellerButton from "../sellers/SellerButton";
 import CategoryButton from "../categories/CategoryButton";
 
+import ProductComments from "./ProductComments";
+
 
 const Product = ({ id }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [product, setProduct] = useState({category: {}, seller: {}});
+  const [product, setProduct] = useState({ category: {}, seller: {} });
 
   const loadFullProductInfo = async () => {
     setIsLoading(false);
@@ -27,13 +28,13 @@ const Product = ({ id }) => {
 
   // TODO: refactor. Make it better
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <></>;
   }
 
   return (
     <>
       <div>
-        <ImageSlider />
+        <ImageSlider images={[]} />
         <div>
           Name: {product.name}
         </div>
