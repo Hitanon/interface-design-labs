@@ -9,7 +9,9 @@ const SearchProductByName = () => {
   const [productName, setProductName] = useState("");
 
   const onSearchClick = async () => {
-    search.addParam({name: "name", value: productName});
+    if (productName.length !== 0) {
+      search.addParam({name: "name", value: productName});
+    }
     await applyFilters();
   };
 
