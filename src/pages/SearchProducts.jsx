@@ -8,7 +8,7 @@ import useSearch from "../hooks/useSearch";
 import SearchFilters from "../components/filters/SearchFilters";
 import { Context } from "..";
 import useProducts from "../hooks/useProducts";
-import ProductsOrderer from "../components/products/ProductsOrderer";
+import ProductsOrderer from "../components/orderers/ProductsOrderer";
 
 
 const SearchProducts = observer(() => {
