@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 
-import { getProduct } from "../clients/ProductClient";
+import { getProduct } from "../../clients/ProductClient";
 
-import ProductComments from "./ProductComments";
-import ProductOptions from "./ProductOptions";
-import AddToCartButton from "./ui/AddToCartButton";
-import UserComment from "./UserComment";
-import ImageSlider from "./ui/ImageSlider";
-import SellerButton from "./sellers/SellerButton";
-import CategoryButton from "./categories/CategoryButton";
+import ProductComments from "../ProductComments";
+import ProductOptions from "../ProductOptions";
+import AddToCartButton from "../ui/AddToCartButton";
+import UserComment from "../UserComment";
+import ImageSlider from "../ui/ImageSlider";
+import SellerButton from "../sellers/SellerButton";
+import CategoryButton from "../categories/CategoryButton";
 
 
-const FullProductInfo = ({ id }) => {
+const Product = ({ id }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({category: {}, seller: {}});
 
   const loadFullProductInfo = async () => {
-    setIsLoading(true);
+    setIsLoading(false);
     setProduct(await getProduct(id));
     setIsLoading(false);
   };
@@ -55,10 +55,10 @@ const FullProductInfo = ({ id }) => {
         <UserComment />
         <ProductComments />
         <hr />
-        <AddToCartButton productId={product.id} />
+        <AddToCartButton id={product.id} />
       </div>
     </>
   );
 };
 
-export default FullProductInfo;
+export default Product;

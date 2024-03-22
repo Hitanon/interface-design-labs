@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import Footer from "../components/Footer";
-import FullProductInfo from "../components/FullProductInfo";
+import FullProductInfo from "../components/products/Product";
 import Header from "../components/Header";
 
 
