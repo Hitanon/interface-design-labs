@@ -27,6 +27,7 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
           type={inputType}
           value={lowerValue}
           callback={value => onValueChange(lower.name, value, setLowerValue)}
+          validator={lower.validator}
         />
       </div>
       <div>
@@ -35,6 +36,7 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
           type={inputType}
           value={upperValue}
           callback={value => onValueChange(upper.name, value, setUpperValue)}
+          validator={upper.validator}
         />
       </div>
     </>
