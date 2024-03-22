@@ -4,7 +4,7 @@ import useSearch from "../../hooks/useSearch";
 import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../utils/Consts";
 
 
-const SearchProductName = () => {
+const SearchProductByName = () => {
   const { search, applyFilters } = useSearch();
   const [productName, setProductName] = useState("");
 
@@ -25,4 +25,4 @@ const SearchProductName = () => {
   );
 };
 
-export default SearchProductName;
+export default SearchProductByName;

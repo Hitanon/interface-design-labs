@@ -13,7 +13,7 @@ import ListButton from "./ui/ListButton";
 import UserBar from "./UserBar";
 import AuthenticateBar from "./AuthenticateBar";
 import ImageButton from "./ui/ImageButton";
-import SearchProductName from "./filters/SearchProductName";
+import SearchProductByName from "./filters/SearchProductByName";
 
 
 const Header = observer(() => {
@@ -28,7 +28,7 @@ const Header = observer(() => {
     <>
       <ImageButton src="img/logo.png" alt="logo" route={MAIN_ROUTE} />
       <ListButton text={LIST_CATEGORIES_BUTTON_TEXT} callback={onCategoriesClick} />
-      <SearchProductName />
+      <SearchProductByName />
       {
         user.isAuth
           ? <UserBar />
