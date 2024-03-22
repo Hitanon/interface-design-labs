@@ -26,11 +26,16 @@ const useCart = () => {
     return cart.items.some(item => item.id === id);
   };
 
+  const getItemQuantity = (id) => {
+    return cart.items.find(item => item.id === id).quantity;
+  };
+
   return {
     loadCart,
     removeItem,
     addItem,
     isCartContains,
+    getItemQuantity,
   };
 };
 
