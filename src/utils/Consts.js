@@ -51,3 +51,22 @@ export const ROLE = {
   CUSTOMER: "customer",
   SELLER: "seller",
 };
+
+export const PRODUCT_ORDERS_OPTIONS = [
+  {
+    name: "По рейтингу (по убыванию)",
+    codename: "desc-rating",
+  },
+  {
+    name: "По рейтингу (по возрастанию)",
+    codename: "asc-rating",
+  },
+  {
+    name: "По цене (по убыванию)",
+    codename: "desc-price",
+  },
+  {
+    name: "По цене (по возрастанию)",
+    codename: "asc-price",
+  },
+];

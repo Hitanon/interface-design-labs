@@ -4,6 +4,7 @@ import { makeAutoObservable } from "mobx";
 export default class SearchStore {
   constructor() {
     this._params = [];
+    this._orderBy = "";
     makeAutoObservable(this);
   }
 
@@ -22,5 +23,13 @@ export default class SearchStore {
 
   get params() {
     return this._params;
+  }
+
+  setOrderBy(orderBy) {
+    this._orderBy = orderBy;
+  }
+
+  get orderBy() {
+    return this._orderBy;
   }
 };

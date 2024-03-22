@@ -8,6 +8,7 @@ import useSearch from "../hooks/useSearch";
 import SearchFilters from "../components/filters/SearchFilters";
 import { Context } from "..";
 import useProducts from "../hooks/useProducts";
+import ProductsOrderer from "../components/products/ProductsOrderer";
 
 
 const SearchProducts = observer(() => {
@@ -28,6 +29,8 @@ const SearchProducts = observer(() => {
   return (
     <>
       <Header />
+      <hr />
+      <ProductsOrderer />
       <hr />
       <SearchFilters />
       <hr />

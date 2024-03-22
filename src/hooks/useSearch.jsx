@@ -12,7 +12,11 @@ const useSearch = () => {
 
   const getUrlParams = () => {
     const urlParams = search.params.reduce((acc, param) => `${acc}${param.name}=${param.value}&`, "?");
-    return urlParams.slice(0, -1);
+    const sliced = urlParams.slice(0, -1);
+    if (search.orderBy) {
+      return `${sliced}&orderBy=${search.orderBy}`;
+    }
+    return sliced;
   };
 
   const parseUrlParams = () => {
@@ -33,12 +37,17 @@ const useSearch = () => {
     search.clearParams();
   };
 
+  const setOrderByField = (field) => {
+    search.setOrderBy(field);
+  };
+
   return {
     search,
     getUrlParams,
     parseUrlParams,
     applyFilters,
     clearParams,
+    setOrderByField,
   };
 };
 
