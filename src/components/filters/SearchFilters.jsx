@@ -1,16 +1,17 @@
 import useFilters from "../../hooks/useFilters";
 
 import useSearch from "../../hooks/useSearch";
-import { APPLY_FILTERS_BUTTON_TEXT, SEARCH_PRODUCTS_LABEL } from "../../utils/Consts";
+import { APPLY_FILTERS_BUTTON_TEXT } from "../../utils/Consts";
 import TextButton from "../ui/TextButton";
 
 import BoundedSearchFilter from "./BoundedSearchFilter";
 import CheckBoxSearchFilter from "./CheckBoxSearchFIlter";
+import SelectFilter from "./SelectFilter";
 
 
 const SearchFilters = () => {
   const { applyFilters } = useSearch();
-  const { checkBoxFilters, boundedFilters } = useFilters();
+  const { filters, boundedFilters } = useFilters();
 
   const onSubmitClick = async () => {
     await applyFilters();
@@ -18,16 +19,16 @@ const SearchFilters = () => {
 
   return (
     <>
-      <div>
-        {SEARCH_PRODUCTS_LABEL}
-      </div>
-
       {
+        filters.map(options => <SelectFilter key={options.name} options={options} />)
+      }
+
+      {/* {
         checkBoxFilters.map(
           ({ name, label, loader }) =>
             <CheckBoxSearchFilter key={name} name={name} label={label} loader={loader} />
         )
-      }
+      } */}
 
       {
         boundedFilters.map(

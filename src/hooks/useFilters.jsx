@@ -42,6 +42,14 @@ const useFilters = () => {
     },
   ];
 
+  const filters = [
+    {
+      label: "Цена",
+      name: "price",
+      loader: useCategories().getAll,
+    },
+  ];
+
   const boundedFilters = [
     {
       label: "Цена",
@@ -74,7 +82,7 @@ const useFilters = () => {
   ];
 
   return {
-    checkBoxFilters,
+    filters,
     boundedFilters,
   };
 };

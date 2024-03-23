@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Products from "../components/Products";
 import useSearch from "../hooks/useSearch";
-import SearchFilters from "../components/filters/SearchFilters";
+import SearchProductsFilters from "../components/products/SearchProductsFilters";
 import { Context } from "..";
 import useProducts from "../hooks/useProducts";
 import ProductsOrderer from "../components/orderers/ProductsOrderer";
@@ -32,7 +32,8 @@ const SearchProducts = observer(() => {
       <hr />
       <ProductsOrderer />
       <hr />
-      <SearchFilters />
+      {/* <SearchFilters /> */}
+      <SearchProductsFilters />
       <hr />
       <Products products={searchProducts.products} />
       <hr />
