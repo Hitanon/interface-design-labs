@@ -29,6 +29,10 @@ export default class SearchStore {
     this._orderBy = orderBy;
   }
 
+  clearOrderBy() {
+    this._orderBy = "";
+  }
+
   get orderBy() {
     return this._orderBy;
   }
