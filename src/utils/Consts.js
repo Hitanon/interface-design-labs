@@ -50,8 +50,8 @@ export const PRICE_FILTER_LABEL = "Цена";
 export const LOWER_PRICE_FILTER_LABEL = "Цена от";
 export const UPPER_PRICE_FILTER_LABEL = "Цена до";
 export const RATING_FILTER_LABEL = "Рейтинг";
-export const RATING_FILTER_LABEL_LOW = "Рейтинг от";
-export const RATING_FILTER_LABEL_HIGH = "Рейтинг до";
+export const LOWER_RATING_FILTER_LABEL = "Рейтинг от";
+export const UPPER_RATING_FILTER_LABEL = "Рейтинг до";
 
 // Enums
 export const ROLE = {
