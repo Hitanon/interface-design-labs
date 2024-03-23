@@ -52,6 +52,7 @@ export const UPPER_PRICE_FILTER_LABEL = "Цена до";
 export const RATING_FILTER_LABEL = "Рейтинг";
 export const LOWER_RATING_FILTER_LABEL = "Рейтинг от";
 export const UPPER_RATING_FILTER_LABEL = "Рейтинг до";
+export const SEARCH_PRODUCTS_BUTTON_TEXT = "Поиск";
 
 // Enums
 export const ROLE = {
@@ -61,18 +62,22 @@ export const ROLE = {
 
 export const PRODUCT_ORDERS_OPTIONS = [
   {
+    id: 1,
     name: "По рейтингу (по убыванию)",
     codename: "desc-rating",
   },
   {
+    id: 2,
     name: "По рейтингу (по возрастанию)",
     codename: "asc-rating",
   },
   {
+    id: 3,
     name: "По цене (по убыванию)",
     codename: "desc-price",
   },
   {
+    id: 4,
     name: "По цене (по возрастанию)",
     codename: "asc-price",
   },

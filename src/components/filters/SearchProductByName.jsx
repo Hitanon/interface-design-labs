@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 import useSearch from "../../hooks/useSearch";
-import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../utils/Consts";
+import { SEARCH_PRODUCTS_BUTTON_TEXT, SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../utils/Consts";
+import InputField from "../ui/InputField";
+import TextButton from "../ui/TextButton";
 
 
 const SearchProductByName = () => {
@@ -10,19 +12,20 @@ const SearchProductByName = () => {
 
   const onSearchClick = async () => {
     if (productName.length !== 0) {
-      search.addParam({name: "name", value: productName});
+      search.addParam({ name: "name", value: productName });
     }
     await applyFilters();
   };
 
   return (
     <>
-      <input
+      <InputField
         type="text"
         placeholder={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT}
-        onChange={e => setProductName(e.target.value)}
+        value={productName}
+        callback={setProductName}
       />
-      <button onClick={onSearchClick}>Search</button>
+      <TextButton text={SEARCH_PRODUCTS_BUTTON_TEXT} callback={onSearchClick} />
     </>
   );
 };
