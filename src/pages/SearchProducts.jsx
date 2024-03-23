@@ -30,7 +30,8 @@ const SearchProducts = observer(() => {
 
   const onClearClick = async () => {
     clearParams();
-    applyFilters();
+    await applyFilters();
+    setIsChanged(!isChanged);
   };
 
   useEffect(() => {
