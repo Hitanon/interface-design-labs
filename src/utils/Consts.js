@@ -49,6 +49,9 @@ export const CATEGORY_FILTER_LABEL = "Категория";
 export const PRICE_FILTER_LABEL = "Цена";
 export const LOWER_PRICE_FILTER_LABEL = "Цена от";
 export const UPPER_PRICE_FILTER_LABEL = "Цена до";
+export const RATING_FILTER_LABEL = "Рейтинг";
+export const RATING_FILTER_LABEL_LOW = "Рейтинг от";
+export const RATING_FILTER_LABEL_HIGH = "Рейтинг до";
 
 // Enums
 export const ROLE = {
