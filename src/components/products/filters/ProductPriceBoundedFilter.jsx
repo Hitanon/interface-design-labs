@@ -21,7 +21,7 @@ const ProductPriceBoundedFilter = () => {
   };
 
   const checkLowerPrice = (price) => {
-    return price >= 0 && price <= upperValue;
+    return price >= initialValue && price <= upperValue;
   };
 
 
@@ -30,7 +30,7 @@ const ProductPriceBoundedFilter = () => {
   };
 
   const checkUpperPrice = (price) => {
-    return (price >= 0);
+    return price >= initialValue;
   };
 
   const setUpperPrice = (price) => {
