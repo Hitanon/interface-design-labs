@@ -46,6 +46,9 @@ export const INCREASE_QUANTITY_BUTTON_TEXT = "+";
 export const DECREASE_QUANTITY_BUTTON_TEXT = "-";
 export const APPLY_FILTERS_BUTTON_TEXT = "Применить";
 export const CATEGORY_FILTER_LABEL = "Категория";
+export const PRICE_FILTER_LABEL = "Цена";
+export const LOWER_PRICE_FILTER_LABEL = "Цена от";
+export const UPPER_PRICE_FILTER_LABEL = "Цена до";
 
 // Enums
 export const ROLE = {
