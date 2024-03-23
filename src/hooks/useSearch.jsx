@@ -35,6 +35,7 @@ const useSearch = () => {
 
   const clearParams = () => {
     search.clearParams();
+    search.clearOrderBy();
   };
 
   const setOrderByField = (field) => {
