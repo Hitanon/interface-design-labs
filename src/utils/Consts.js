@@ -45,6 +45,7 @@ export const MOVE_TO_CART_BUTTON_TEXT = "Перейти в корзину";
 export const INCREASE_QUANTITY_BUTTON_TEXT = "+";
 export const DECREASE_QUANTITY_BUTTON_TEXT = "-";
 export const APPLY_FILTERS_BUTTON_TEXT = "Применить";
+export const CATEGORY_FILTER_LABEL = "Категория";
 
 // Enums
 export const ROLE = {
