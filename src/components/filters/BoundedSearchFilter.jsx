@@ -1,19 +1,15 @@
 import { useState } from "react";
 
 import InputField from "../ui/InputField";
-import useSearch from "../../hooks/useSearch";
 
 
 const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
-  const { search } = useSearch();
+  const [lowerValue, setLowerValue] = useState(lower.initialValue);
+  const [upperValue, setUpperValue] = useState(upper.initialValue);
 
-  const initialValue = "" ? inputType === "text" : 0;
-  const [lowerValue, setLowerValue] = useState(initialValue);
-  const [upperValue, setUpperValue] = useState(initialValue);
-
-  const onValueChange = (name, value, callback) => {
-    search.addParam({ name: name, value: value });
+  const onValueChange = (value, callback, setValue) => {
     callback(value);
+    setValue(value);
   };
 
   return (
@@ -26,7 +22,7 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
         <InputField
           type={inputType}
           value={lowerValue}
-          callback={value => onValueChange(lower.name, value, setLowerValue)}
+          callback={value => onValueChange(value, setLowerValue, lower.setValue)}
           validator={lower.validator}
         />
       </div>
@@ -35,7 +31,7 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
         <InputField
           type={inputType}
           value={upperValue}
-          callback={value => onValueChange(upper.name, value, setUpperValue)}
+          callback={value => onValueChange(value, setUpperValue, upper.setValue)}
           validator={upper.validator}
         />
       </div>
