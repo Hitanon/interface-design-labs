@@ -72,4 +72,4 @@ export const PRODUCT_ORDERS_OPTIONS = [
 ];
 
 // Mocks
-export const MOCK_IMAGE_URL = "https://ir.ozone.ru/s3/multimedia-u/wc1000/6593475438.jpg"
+export const MOCK_IMAGE_URL = "https://ir.ozone.ru/s3/multimedia-u/wc1000/6593475438.jpg";
