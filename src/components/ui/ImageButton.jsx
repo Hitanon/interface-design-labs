@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import ImageField from "./ImageField";
+
 
 const ImageButton = ({ src, alt, route }) => {
   const navigate = useNavigate();
@@ -10,7 +12,9 @@ const ImageButton = ({ src, alt, route }) => {
 
   return (
     <>
-      <img src={src} alt={alt} onClick={onImageClick}/>
+      <div onClick={onImageClick}>
+        <ImageField />
+      </div>
     </>
   );
 };
