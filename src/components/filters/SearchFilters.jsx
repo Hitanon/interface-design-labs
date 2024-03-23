@@ -5,7 +5,6 @@ import { APPLY_FILTERS_BUTTON_TEXT } from "../../utils/Consts";
 import TextButton from "../ui/TextButton";
 
 import BoundedSearchFilter from "./BoundedSearchFilter";
-import CheckBoxSearchFilter from "./CheckBoxSearchFIlter";
 import SelectFilter from "./SelectFilter";
 
 
@@ -22,13 +21,6 @@ const SearchFilters = () => {
       {
         filters.map(options => <SelectFilter key={options.name} options={options} />)
       }
-
-      {/* {
-        checkBoxFilters.map(
-          ({ name, label, loader }) =>
-            <CheckBoxSearchFilter key={name} name={name} label={label} loader={loader} />
-        )
-      } */}
 
       {
         boundedFilters.map(

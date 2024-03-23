@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import useCategories from "../../../hooks/useCategories";
-import SelectFilter from "../../filters/SelectFilter";
+import SelectItemList from "../../SelectItemList";
 import useSearch from "../../../hooks/useSearch";
 import { CATEGORY_FILTER_LABEL } from "../../../utils/Consts";
 
@@ -17,7 +17,7 @@ const ProductCategoryFilter = () => {
   };
 
   const setCategory = (category) => {
-    search.addParam({name: PARAM_NAME, value: category.id});
+    search.addParam({ name: PARAM_NAME, value: category.id });
   };
 
   const clearCategory = () => {
@@ -30,8 +30,10 @@ const ProductCategoryFilter = () => {
 
   return (
     <>
-      <SelectFilter
-        label={CATEGORY_FILTER_LABEL}
+      <div>
+        {CATEGORY_FILTER_LABEL}
+      </div>
+      <SelectItemList
         items={categories}
         setItem={setCategory}
         clearSelected={clearCategory}

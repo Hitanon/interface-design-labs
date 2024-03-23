@@ -3,7 +3,7 @@ import { useState } from "react";
 import InputField from "../ui/InputField";
 
 
-const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
+const BoundedSearchFilter = ({ lower, upper, inputType }) => {
   const [lowerValue, setLowerValue] = useState(lower.initialValue);
   const [upperValue, setUpperValue] = useState(upper.initialValue);
 
@@ -14,9 +14,6 @@ const BoundedSearchFilter = ({ label, lower, upper, inputType }) => {
 
   return (
     <>
-      <div>
-        {label}
-      </div>
       <div>
         {lower.label}
         <InputField
