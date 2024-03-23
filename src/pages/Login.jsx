@@ -1,61 +1,20 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import { MAIN_ROUTE, REGISTRATION_ROUTE } from "../utils/Consts";
-import { login } from "../clients/UserClient";
-import { Context } from "..";
+import { LOGIN_FORM_TITLE } from "../utils/Consts";
+import LoginForm from "../components/forms/LoginForm";
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
 
 
 const Login = () => {
-  const { user } = useContext(Context);
-
-  const [credentials, setCredentials] = useState({
-    email: "admin@test.com",
-    password: "secret",
-  });;
-
-  const navigate = useNavigate();
-
-  const onLoginClick = async () => {
-    const response = await login(credentials);
-    setAuthToken(response.token);
-    authorizeUser(response.username);
-    navigate(MAIN_ROUTE);
-  };
-
-  const onDontHaveAccount = () => {
-    navigate(REGISTRATION_ROUTE);
-  };
-
-  const setAuthToken = (token) => {
-    localStorage.setItem("token", token);
-  };
-
-  const authorizeUser = (username) => {
-    user.setUsername(username);
-    user.setIsAuth(true);
-  };
-
   return (
     <>
+      <Header />
+      <hr />
       <div>
-        Email:
-        <input
-          type="email"
-          value={credentials.email}
-          onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-        />
+        {LOGIN_FORM_TITLE}
       </div>
-      <div>
-        Password:
-        <input
-          type="password"
-          value={credentials.password}
-          onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-        />
-      </div>
-      <button onClick={onLoginClick}>Login</button>
-      <button onClick={onDontHaveAccount}>Doesn't have an account?</button>
+      <LoginForm />
+      <hr />
+      <Footer />
     </>
   );
 };

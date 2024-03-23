@@ -6,7 +6,9 @@ export default class ProjectInfoStore {
     this._phone = "";
     this._email = "";
     this._about = "";
-    this._social = {};
+    this._greeting = "";
+    this._name = "";
+    this._social = [];
     makeAutoObservable(this);
   }
 
@@ -14,6 +16,8 @@ export default class ProjectInfoStore {
     this._phone = info.phone;
     this._email = info.email;
     this._about = info.about;
+    this._greeting = info.greeting;
+    this._name = info.name;
     this._social = info.social;
   }
 
@@ -27,6 +31,14 @@ export default class ProjectInfoStore {
 
   get about() {
     return this._about;
+  }
+
+  get greeting() {
+    return this._greeting;
+  }
+
+  get name() {
+    return this._name;
   }
 
   get social() {

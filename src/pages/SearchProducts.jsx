@@ -1,40 +1,65 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
 
-import { Context } from "..";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import { getProjectInfo } from "../clients/ProjectInfoClient";
-import { searchProductsByParams } from "../clients/ProductClient";
-import Products from "../components/Products";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import Products from "../components/products/Products";
+import useSearch from "../hooks/useSearch";
+import SearchProductsFilters from "../components/products/SearchProductsFilters";
+import useProducts from "../hooks/useProducts";
+import ProductOrderer from "../components/products/ProductOrderer";
+import TextButton from "../components/ui/TextButton";
+import { APPLY_FILTERS_BUTTON_TEXT, CLEAR_FILTERS_BUTTON_TEXT } from "../utils/Consts";
 
 
-const SearchProducts = () => {
-  const { projectInfo, searchProducts } = useContext(Context);
+const SearchProducts = observer(() => {
+  const [products, setProducts] = useState([]);
+  const [isChanged, setIsChanged] = useState(false);
+  const { search } = useProducts();
+  const { parseUrlParams, getUrlParams, clearParams, applyFilters} = useSearch();
 
-  const searchProductsByParamsLocal = async () => {
-    const products = await searchProductsByParams(searchProducts.params);
-    searchProducts.setProducts(products);
+  const loadProducts = async () => {
+    parseUrlParams();
+    setProducts(await search(getUrlParams()));
   };
 
-  const loadProjectInfo = async () => {
-    const info = await getProjectInfo();
-    projectInfo.setInfo(info);
+  const onSubmitClick = async () => {
+    await applyFilters();
+    setIsChanged(!isChanged);
+  };
+
+  const onClearClick = async () => {
+    clearParams();
+    await applyFilters();
+    setIsChanged(!isChanged);
   };
 
   useEffect(() => {
-    searchProductsByParamsLocal();
-    loadProjectInfo();
+    loadProducts();
+    return clearParams;
   }, []);
+
+  useEffect(() => {
+    loadProducts();
+    clearParams();
+  }, [isChanged]);
 
   return (
     <>
       <Header />
       <hr />
-      <Products />
+      <ProductOrderer />
+      <hr />
+      <SearchProductsFilters />
+      <hr />
+      <TextButton text={APPLY_FILTERS_BUTTON_TEXT} callback={onSubmitClick} />
+      <TextButton text={CLEAR_FILTERS_BUTTON_TEXT} callback={onClearClick} />
+      <hr />
+      <Products products={products} />
       <hr />
       <Footer />
     </>
   );
-};
+});
 
 export default SearchProducts;

@@ -1,4 +1,4 @@
-import Cart from "../pages/Cart";
+import PurchaseOrder from "../pages/PurchaseOrder";
 import Categories from "../pages/Categories";
 import Login from "../pages/Login";
 import Main from "../pages/Main";
@@ -12,7 +12,7 @@ import {
   CATEGORIES_ROUTE,
   LOGIN_ROUTE,
   MAIN_ROUTE,
-  CART_ROUTE,
+  PURCHASE_ORDER_ROUTE,
   PRODUCT_ROUTE,
   PROFILE_ROUTE,
   REGISTRATION_ROUTE,
@@ -55,7 +55,7 @@ export const routes = [
     element: <Seller />,
   },
   {
-    path: CART_ROUTE,
-    element: <Cart />,
+    path: PURCHASE_ORDER_ROUTE,
+    element: <PurchaseOrder />,
   },
 ];

@@ -1,74 +1,30 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { observer } from "mobx-react-lite";
 
 import { Context } from "..";
-// import { getUserOrders } from "../clients/UserClient";
-// import CustomerOrders from "../components/CustomerOrders";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { getProjectInfo } from "../clients/ProjectInfoClient";
-import SellerOrders from "../components/SellerOrders";
-import { getSellerOrders } from "../clients/SellerClient";
+import CustomerOrders from "../components/customers/CustomerOrders";
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
+import SellerOrders from "../components/orders/SellerOrders";
+import { ROLE } from "../utils/Consts";
 
 
-// const Profile = () => {
-//   const { user, projectInfo } = useContext(Context);
-
-//   const loadOrders = async () => {
-//     const orders = await getUserOrders();
-//     user.setOrders(orders);
-//   };
-
-//   const loadProjectInfo = async () => {
-//     const info = await getProjectInfo();
-//     projectInfo.setInfo(info);
-//   };
-
-//   useEffect(() => {
-//     loadOrders();
-//     loadProjectInfo();
-//   }, []);
-
-//   return (
-//     <>
-//       <Header />
-//       <hr />
-//       <CustomerOrders />
-//       <hr />
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default Profile;
-
-
-const Profile = () => {
-  const { sellerOrders, projectInfo } = useContext(Context);
-
-  const loadSellerOrders = async () => {
-    const orders = await getSellerOrders();
-    sellerOrders.setOrders(orders);
-  };
-
-  const loadProjectInfo = async () => {
-    const info = await getProjectInfo();
-    projectInfo.setInfo(info);
-  };
-
-  useEffect(() => {
-    loadSellerOrders();
-    loadProjectInfo();
-  }, []);
+const Profile = observer(() => {
+  const { user } = useContext(Context);
 
   return (
     <>
       <Header />
       <hr />
-      <SellerOrders />
+      {
+        user.role === ROLE.CUSTOMER
+          ? <CustomerOrders />
+          : <SellerOrders />
+      }
       <hr />
       <Footer />
     </>
   );
-};
+});
 
 export default Profile;

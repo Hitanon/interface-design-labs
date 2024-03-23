@@ -1,37 +1,17 @@
+import { $host } from "./index";
+
+
+export const getCategory = async (id) => {
+  const response = await $host.get(`/api/categories/${id}`);
+  return response.data;
+};
+
 export const getTopCategories = async (limit) => {
-  return [
-    {
-      id: 1,
-      name: "category1",
-    },
-    {
-      id: 2,
-      name: "category2",
-    },
-  ];
+  const response = await $host.get("/api/categories/top");
+  return response.data;
 };
 
 export const getAllCategories = async () => {
-  return [
-    {
-      id: 1,
-      name: "category1",
-    },
-    {
-      id: 2,
-      name: "category2",
-    },
-    {
-      id: 3,
-      name: "category3",
-    },
-    {
-      id: 4,
-      name: "category4",
-    },
-    {
-      id: 5,
-      name: "category5",
-    },
-  ];
+  const response = await $host.get("/api/categories");
+  return response.data;
 };

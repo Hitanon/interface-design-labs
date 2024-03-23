@@ -20,5 +20,4 @@ const getToken = () => {
 
 $authHost.interceptors.request.use(authHostConfig);
 
-export default $host;
-export { $authHost };
+export { $host, $authHost };

@@ -3,13 +3,14 @@ import React, { createContext } from "react";
 
 import App from "./App";
 import TopItemsStore from "./store/TopItemsStore";
-import ProjectInfoStore from "./store/ProjectInfoStore";
 import ProductStore from "./store/ProductStore";
 import UserStore from "./store/UserStore";
-import SearchProductsStore from "./store/SearchProductsStore";
+import SearchStore from "./store/SearchStore";
 import SellerStore from "./store/SellerStore";
 import SellerOrdersStore from "./store/SellerOrdersStore";
 import CartStore from "./store/CartStore";
+import ProjectInfoStore from "./store/ProjectInfoStore";
+import SearchProductsStore from "./store/SearchProductsStore";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,13 +19,14 @@ const Context = createContext(null);
 root.render(
   <Context.Provider value={{
     topItems: new TopItemsStore(),
-    projectInfo: new ProjectInfoStore(),
     product: new ProductStore(),
     user: new UserStore(),
+    search: new SearchStore(),
     searchProducts: new SearchProductsStore(),
     seller: new SellerStore(),
     sellerOrders: new SellerOrdersStore(),
     cart: new CartStore(),
+    projectInfo: new ProjectInfoStore(),
   }}>
     <App />
   </Context.Provider>

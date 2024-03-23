@@ -1,5 +1,4 @@
-import $host from ".";
-import { $authHost } from ".";
+import { $host, $authHost } from ".";
 
 
 export const getUserOrders = async () => {
@@ -58,12 +57,12 @@ export const getUserOrders = async () => {
   ];
 };
 
-export const login = async (credentials) => {
+export const authenticateUser = async (credentials) => {
   const response = await $host.post("/api/auth/login", credentials);
-  return response.data;
+  return response.data.token;
 };
 
-export const logout = async () => {
+export const logoutUser = async () => {
   await $authHost.post("/api/auth/logout");
 };
 
@@ -76,6 +75,6 @@ export const getUserInfo = async () => {
   }
 };
 
-export const register = async (credentials) => {
+export const registerUser = async (credentials) => {
   await $host.post("/api/users", credentials);
 };
