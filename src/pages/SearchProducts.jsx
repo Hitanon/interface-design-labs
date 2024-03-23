@@ -9,16 +9,27 @@ import SearchProductsFilters from "../components/products/SearchProductsFilters"
 import { Context } from "..";
 import useProducts from "../hooks/useProducts";
 import ProductOrderer from "../components/products/ProductOrderer";
+import TextButton from "../components/ui/TextButton";
+import { APPLY_FILTERS_BUTTON_TEXT, CLEAR_FILTERS_BUTTON_TEXT } from "../utils/Consts";
 
 
 const SearchProducts = observer(() => {
   const { searchProducts } = useContext(Context);
   const { search } = useProducts();
-  const { parseUrlParams, getUrlParams, clearParams} = useSearch();
+  const { parseUrlParams, getUrlParams, clearParams, applyFilters} = useSearch();
 
   const loadProducts = async () => {
     parseUrlParams();
     searchProducts.setProducts(await search(getUrlParams()));
+  };
+
+  const onSubmitClick = () => {
+    applyFilters();
+  };
+
+  const onClearClick = () => {
+    clearParams();
+    applyFilters();
   };
 
   useEffect(() => {
@@ -33,6 +44,9 @@ const SearchProducts = observer(() => {
       <ProductOrderer />
       <hr />
       <SearchProductsFilters />
+      <hr />
+      <TextButton text={APPLY_FILTERS_BUTTON_TEXT} callback={onSubmitClick} />
+      <TextButton text={CLEAR_FILTERS_BUTTON_TEXT} callback={onClearClick} />
       <hr />
       <Products products={searchProducts.products} />
       <hr />
