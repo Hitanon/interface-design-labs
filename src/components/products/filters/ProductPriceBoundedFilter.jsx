@@ -6,14 +6,15 @@ import useSearch from "../../../hooks/useSearch";
 
 
 const ProductPriceBoundedFilter = () => {
-  const initialValue = 0;
+  const INITIAL_VALUE = 0;
   const UPPER_PRICE_CODENAME = "upperPrice";
   const LOWER_PRICE_CODENAME = "lowerPrice";
+  const inputType = "number";
   const { search } = useSearch();
-  const [upperValue, setUpperValue] = useState(initialValue);
+  const [upperValue, setUpperValue] = useState(INITIAL_VALUE);
 
   const setPrice = (price, codename) => {
-    if (price === initialValue) {
+    if (price === INITIAL_VALUE) {
       search.removeParam(codename);
     } else {
       search.addParam({ name: codename, value: price });
@@ -21,7 +22,7 @@ const ProductPriceBoundedFilter = () => {
   };
 
   const checkLowerPrice = (price) => {
-    return price >= initialValue && price <= upperValue;
+    return price >= INITIAL_VALUE && price <= upperValue;
   };
 
 
@@ -30,7 +31,7 @@ const ProductPriceBoundedFilter = () => {
   };
 
   const checkUpperPrice = (price) => {
-    return price >= initialValue;
+    return price >= INITIAL_VALUE;
   };
 
   const setUpperPrice = (price) => {
@@ -40,21 +41,21 @@ const ProductPriceBoundedFilter = () => {
 
   const lower = {
     label: LOWER_PRICE_FILTER_LABEL,
-    initialValue: initialValue,
+    initialValue: INITIAL_VALUE,
     validator: checkLowerPrice,
     setValue: setLowerPrice,
   };
 
   const upper = {
     label: UPPER_PRICE_FILTER_LABEL,
-    initialValue: initialValue,
+    initialValue: INITIAL_VALUE,
     validator: checkUpperPrice,
     setValue: setUpperPrice,
   };
 
   return (
     <>
-      <BoundedSearchFilter label={PRICE_FILTER_LABEL} lower={lower} upper={upper} inputType="number" />
+      <BoundedSearchFilter label={PRICE_FILTER_LABEL} lower={lower} upper={upper} inputType={inputType} />
     </>
   );
 };
