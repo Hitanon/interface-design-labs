@@ -6,6 +6,7 @@ import {
   CATEGORIES_ROUTE,
   LIST_CATEGORIES_BUTTON_TEXT,
   MAIN_ROUTE,
+  MOCK_IMAGE_URL,
 } from "../utils/Consts";
 import { Context } from "..";
 
@@ -26,7 +27,7 @@ const Header = observer(() => {
 
   return (
     <>
-      <ImageButton src="img/logo.png" alt="logo" route={MAIN_ROUTE} />
+      <ImageButton src={MOCK_IMAGE_URL} alt="logo" route={MAIN_ROUTE} />
       <ListButton text={LIST_CATEGORIES_BUTTON_TEXT} callback={onCategoriesClick} />
       <SearchProductByName />
       {
