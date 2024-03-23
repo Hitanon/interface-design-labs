@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { getSellerInfo } from "../../clients/SellerClient";
 import { SELLERS_ROUTE } from "../../utils/Consts";
+import ImageField from "../ui/ImageField";
 
 
 const SellerButton = ({ id }) => {
@@ -24,7 +25,7 @@ const SellerButton = ({ id }) => {
   return (
     <>
       <div onClick={onSellerClick}>
-        Image
+        <ImageField />
         <div>
           <div>
             Name: {seller.name}

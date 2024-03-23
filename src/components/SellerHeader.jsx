@@ -1,6 +1,10 @@
+import ImageField from "./ui/ImageField";
+
+
 const SellerHeader = ({ seller }) => {
   return (
     <>
+      <ImageField />
       <div>
         Name: {seller.name}
       </div>
