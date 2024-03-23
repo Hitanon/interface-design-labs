@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 import { purchase } from "../clients/CustomerClient";
 import { MAIN_ROUTE, PURCHASE_BUTTON_TEXT } from "../utils/Consts";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import CartItems from "../components/CartItems";
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
+import CartItems from "../components/carts/CartItems";
 import TextButton from "../components/ui/TextButton";
 import useCart from "../hooks/useCart";
 

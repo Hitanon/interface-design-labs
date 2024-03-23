@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import { TOP_CATEGORIES_LABEL } from "../../utils/Consts";
 import useCategories from "../../hooks/useCategories";
 
-import CategoryCard from "./CategoryCard";
+import Categories from "./Categories";
 
 
 const TopCategories = observer(() => {
@@ -24,9 +24,7 @@ const TopCategories = observer(() => {
       <div>
         {TOP_CATEGORIES_LABEL}
       </div>
-      {
-        topCategories.map(category => <div key={category.id}><CategoryCard id={category.id} /></div>)
-      }
+      <Categories categories={topCategories} />
     </>
   );
 });

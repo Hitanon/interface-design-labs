@@ -2,9 +2,9 @@ import { useEffect } from "react";
 
 import { observer } from "mobx-react-lite";
 
-import useProjectInfo from "../hooks/useProjectInfo";
+import useProjectInfo from "../../hooks/useProjectInfo";
 
-import SocialMediaButton from "./ui/SocialMediaButton";
+import SocialMediaButton from "../ui/SocialMediaButton";
 
 
 const Footer = observer(() => {

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { routes } from "../utils/Routes";
+import { routes } from "../../utils/Routes";
 
 
 const AppRouter = () => {

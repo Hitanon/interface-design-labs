@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { Context } from "..";
-import { getSellerOrder, moveToNextStatus } from "../clients/SellerClient";
+import { Context } from "../..";
+import { getSellerOrder, moveToNextStatus } from "../../clients/SellerClient";
 
 import OrderItem from "./OrderItem";
 

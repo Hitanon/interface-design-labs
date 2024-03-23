@@ -4,8 +4,8 @@ import { useContext, useEffect, useState } from "react";
 
 import { getUserInfo } from "./clients/UserClient";
 
-import AppRouter from "./components/AppRouter";
-import TechnicalWorks from "./components/TechnicalWorks";
+import AppRouter from "./components/general/AppRouter";
+import TechnicalWorks from "./components/general/TechnicalWorks";
 import { checkProjectHealth } from "./clients/GeneralClient";
 
 import { Context } from ".";

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { Context } from "..";
-import { HELLO_MESSAGE_TEXT, ROLE } from "../utils/Consts";
+import { Context } from "../..";
+import { HELLO_MESSAGE_TEXT, ROLE } from "../../utils/Consts";
 
 
 const GreetingMessage = () => {

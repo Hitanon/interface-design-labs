@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import SellerHeader from "../SellerHeader";
+import SellerHeader from "./SellerHeader";
 import { getSellerInfo } from "../../clients/SellerClient";
-import Products from "../Products";
+import Products from "../products/Products";
 
 
 const SellerInfo = observer(({ id }) => {

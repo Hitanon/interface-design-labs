@@ -7,14 +7,14 @@ import {
   LIST_CATEGORIES_BUTTON_TEXT,
   MAIN_ROUTE,
   MOCK_IMAGE_URL,
-} from "../utils/Consts";
-import { Context } from "..";
+} from "../../utils/Consts";
+import { Context } from "../..";
 
-import ListButton from "./ui/ListButton";
-import UserBar from "./UserBar";
-import AuthenticateBar from "./AuthenticateBar";
-import ImageButton from "./ui/ImageButton";
-import SearchProductByName from "./filters/SearchProductByName";
+import ListButton from "../ui/ListButton";
+import UserBar from "../users/UserBar";
+import AuthenticateBar from "../users/AuthenticateBar";
+import ImageButton from "../ui/ImageButton";
+import SearchProductByName from "../filters/SearchProductByName";
 
 
 const Header = observer(() => {

@@ -1,8 +1,8 @@
-import { PURCHASE_ORDER_ROUTE, PLACE_AN_ORDER_BUTTON_TEXT } from "../utils/Consts";
+import { PURCHASE_ORDER_ROUTE, PLACE_AN_ORDER_BUTTON_TEXT } from "../../utils/Consts";
 
-import CartBar from "./CartBar";
-import TextRedirectButton from "./ui/TextRedirectButton";
-import GreetingMessage from "./GreetingMessage";
+import CartBar from "../carts/CartBar";
+import TextRedirectButton from "../ui/TextRedirectButton";
+import GreetingMessage from "../general/GreetingMessage";
 
 
 const CustomerBar = () => {

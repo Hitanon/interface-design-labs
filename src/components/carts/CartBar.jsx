@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import { getCart } from "../clients/CustomerClient";
-import { Context } from "..";
+import { getCart } from "../../clients/CustomerClient";
+import { Context } from "../..";
 
 
 const CartBar = observer(() => {

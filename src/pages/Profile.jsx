@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
 import { Context } from "..";
-import CustomerOrders from "../components/CustomerOrders";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import SellerOrders from "../components/SellerOrders";
+import CustomerOrders from "../components/customers/CustomerOrders";
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
+import SellerOrders from "../components/orders/SellerOrders";
 import { ROLE } from "../utils/Consts";
 
 

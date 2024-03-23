@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { getAllCategories } from "../clients/CategoryClient";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import CategoriesList from "../components/Categories";
+import Header from "../components/general/Header";
+import Footer from "../components/general/Footer";
+import CategoriesList from "../components/categories/Categories";
 
 
 const Categories = () => {

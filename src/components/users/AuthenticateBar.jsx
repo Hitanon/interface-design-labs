@@ -1,6 +1,6 @@
-import { LOGIN_BUTTON_TEXT, LOGIN_ROUTE, REGISTRATION_BUTTON_TEXT, REGISTRATION_ROUTE } from "../utils/Consts";
+import { LOGIN_BUTTON_TEXT, LOGIN_ROUTE, REGISTRATION_BUTTON_TEXT, REGISTRATION_ROUTE } from "../../utils/Consts";
 
-import TextRedirectButton from "./ui/TextRedirectButton";
+import TextRedirectButton from "../ui/TextRedirectButton";
 
 
 const AuthenticateBar = () => {

@@ -1,4 +1,4 @@
-import GreetingMessage from "./GreetingMessage";
+import GreetingMessage from "../general/GreetingMessage";
 
 
 const SellerBar = () => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import useCategories from "../../../hooks/useCategories";
-import SelectItemList from "../../SelectItemList";
+import SelectItemList from "../../general/SelectItemList";
 import useSearch from "../../../hooks/useSearch";
 import { CATEGORY_FILTER_LABEL } from "../../../utils/Consts";
 

@@ -1,6 +1,6 @@
 import useSearch from "../../hooks/useSearch";
 import { PRODUCT_ORDERS_OPTIONS } from "../../utils/Consts";
-import SelectItemList from "../SelectItemList";
+import SelectItemList from "../general/SelectItemList";
 
 
 const ProductOrderer = () => {
@@ -22,4 +22,3 @@ const ProductOrderer = () => {
 };
 
 export default ProductOrderer;
-

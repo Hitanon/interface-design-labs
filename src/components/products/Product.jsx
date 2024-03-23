@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 import { getProduct } from "../../clients/ProductClient";
 
-import ProductOptions from "../ProductOptions";
+import ProductOptions from "./ProductOptions";
 import AddToCartButton from "../ui/AddToCartButton";
-import UserComment from "../UserComment";
+import UserComment from "../customers/UserComment";
 import ImageSlider from "../ui/ImageSlider";
 import SellerButton from "../sellers/SellerButton";
 import CategoryButton from "../categories/CategoryButton";

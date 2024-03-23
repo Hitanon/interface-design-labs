@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Products from "../components/Products";
+import Footer from "../components/general/Footer";
+import Header from "../components/general/Header";
+import Products from "../components/products/Products";
 import useSearch from "../hooks/useSearch";
 import SearchProductsFilters from "../components/products/SearchProductsFilters";
 import useProducts from "../hooks/useProducts";
