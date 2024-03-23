@@ -11,7 +11,6 @@ const SellerOrders = observer(() => {
 
   return (
     <>
-      Orders
       <ul>
         {sellerOrders.orders.map((order) => <li key={order.id}><SellerOrder order={order} /></li>)}
       </ul>

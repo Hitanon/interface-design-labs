@@ -11,7 +11,6 @@ const SellerProducts = observer(() => {
 
   return (
     <>
-      Products
       {
         seller.products.map(product => <div key={product.id}><ProductCard id={product.id} /></div>)
       }

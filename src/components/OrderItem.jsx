@@ -1,4 +1,4 @@
-import OrderStatuses from "./OrderStatuses";
+import OrderStatus from "./OrderStatus";
 
 
 const OrderItem = ({ item }) => {
@@ -8,7 +8,9 @@ const OrderItem = ({ item }) => {
         <div>
           Name: {item.id}
         </div>
-        <OrderStatuses statuses={item.statuses} />
+        {
+          item.statuses.map(status => <ul key={status.id}><li><OrderStatus status={status} /></li></ul>)
+        }
       </div>
     </>
   );

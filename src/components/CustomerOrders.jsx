@@ -17,16 +17,14 @@ const CustomerOrders = observer(() => {
     getOrders();
   }, []);
 
+  if (!orders) {
+    return <div>No orders</div>;
+  }
+
   return (
     <>
       {
-        orders
-          ?
-          orders.map(order => <div key={order.id}><CustomerOrder order={order} /></div>)
-          :
-          <div>
-            No orders
-          </div>
+        orders.map(order => <div key={order.id}><CustomerOrder order={order} /></div>)
       }
     </>
   );

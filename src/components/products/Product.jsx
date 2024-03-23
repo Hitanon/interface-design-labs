@@ -52,7 +52,7 @@ const Product = ({ id }) => {
         </div>
         <CategoryButton id={product.category.id} />
         <SellerButton id={product.seller.id} />
-        <ProductOptions />
+        <ProductOptions options={product.options} />
         <UserComment />
         <ProductComments />
         <hr />
