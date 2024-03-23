@@ -17,7 +17,6 @@ const ProductCategoryFilter = () => {
   };
 
   const setCategory = (category) => {
-    console.log(category);
     search.addParam({name: PARAM_NAME, value: category.id});
   };
 
