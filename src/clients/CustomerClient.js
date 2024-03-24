@@ -45,7 +45,9 @@ export const deleteProductComment = async (id) => {
 
 export const getProductOrder = async (id) => {
   const response = await $authHost.get(`/api/orders/items/${id}`);
-  return response.data;
+  const data = response.data;
+  data.statuses.sort((b, a) => a.id - b.id);
+  return data;
 };
 
 export const submitAcceptOrderItem = async (id) => {
