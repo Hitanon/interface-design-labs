@@ -1,4 +1,4 @@
-import OrderItem from "../orders/OrderItem";
+import OrderItem from "./OrderItem";
 
 
 const CustomerOrder = ({ order }) => {
