@@ -5,6 +5,10 @@ export const getSellerInfo = async (id) => {
   return response.data;
 };
 
+export const registerSeller = async (credentials) => {
+  await $host.post("/api/sellers", credentials);
+};
+
 export const getSellerOrders = () => {
   return [
     {

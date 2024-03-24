@@ -11,6 +11,7 @@ import {
   LOGIN_ROUTE,
   MAIN_ROUTE,
   REGISTRATION_BUTTON_TEXT,
+  ROLE,
 } from "../../utils/Consts";
 
 
@@ -18,24 +19,29 @@ const RegistrationForm = () => {
   const [email, setEmail] = useState("admin@test.com");
   const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("secret");
+  const [isSeller, setIsSeller] = useState(false);
   const navigate = useNavigate();
   const { register } = useAuthenticate();
 
-
   const onRegisterClick = async () => {
-    await register({email, username, password});
+    const role = isSeller ? ROLE.SELLER : ROLE.CUSTOMER;
+    await register({ email, username, password, role });
     navigate(MAIN_ROUTE);
   };
 
   return (
     <>
       <div>
-        <InputField type="email" value={email} callback={setEmail}/>
-        <InputField type="text" value={username} callback={setUsername}/>
-        <InputField type="password" value={password} callback={setPassword}/>
+        <InputField type="email" value={email} callback={setEmail} />
+        <InputField type="text" value={username} callback={setUsername} />
+        <InputField type="password" value={password} callback={setPassword} />
       </div>
       <div>
-        <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick}/>
+        <input type="checkbox" checked={isSeller} onChange={() => setIsSeller(!isSeller)} />
+        <label>Я продавец</label>
+      </div>
+      <div>
+        <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
         <TextRedirectButton text={HAVE_AN_ACCOUNT_BUTTON_TEXT} route={LOGIN_ROUTE} />
       </div>
     </>

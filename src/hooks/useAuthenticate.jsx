@@ -1,7 +1,10 @@
 import { useContext } from "react";
 
 import { Context } from "../";
-import { logoutUser, getUserInfo, registerUser, authenticateUser } from "../clients/UserClient";
+import { logoutUser, getUserInfo, authenticateUser } from "../clients/UserClient";
+import { ROLE } from "../utils/Consts";
+import { registerCustomer } from "../clients/CustomerClient";
+import { registerSeller } from "../clients/SellerClient";
 
 
 const useAuthenticate = () => {
@@ -23,8 +26,12 @@ const useAuthenticate = () => {
     await getInfo();
   };
 
-  const register = async ({email, username, password}) => {
-    await registerUser({email, username, password});
+  const register = async ({email, username, password, role}) => {
+    if (role === ROLE.CUSTOMER) {
+      await registerCustomer({email, username, password});
+    } else {
+      await registerSeller({email, username, password});
+    }
     await login({email, password});
   };
 
