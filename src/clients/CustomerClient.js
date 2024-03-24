@@ -42,3 +42,8 @@ export const createProductComment = async (productId, rating, message) => {
 export const deleteProductComment = async (id) => {
   await $authHost.delete(`/api/comments/${id}`);
 };
+
+export const getProductOrder = async (id) => {
+  const response = await $authHost.get(`/api/orders/items/${id}`);
+  return response.data;
+};
