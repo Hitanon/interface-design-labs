@@ -23,7 +23,7 @@ export const getCart = async () => {
 };
 
 export const purchase = async () => {
-  await $authHost.post("/api/orders/purchase");
+  await $authHost.post("/api/orders");
 };
 
 export const getCustomerOrders = async () => {
