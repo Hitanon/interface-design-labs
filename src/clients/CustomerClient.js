@@ -1,4 +1,4 @@
-import { $authHost } from ".";
+import { $host, $authHost } from ".";
 
 
 const buildCartItem = (id, quantity) => {
@@ -8,6 +8,9 @@ const buildCartItem = (id, quantity) => {
   };
 };
 
+export const registerCustomer = async (credentials) => {
+  await $host.post("/api/customers", credentials);
+};
 
 export const addToCart = async (id, quantity) => {
   await $authHost.post("/api/cart", buildCartItem(id, quantity));
