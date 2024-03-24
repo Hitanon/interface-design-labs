@@ -31,7 +31,7 @@ const SellerButton = ({ id }) => {
             Name: {seller.name}
           </div>
           <div>
-            Description: {seller.description}
+            {seller.description ? `Description: ${seller.description}` : null}
           </div>
         </div>
       </div>
