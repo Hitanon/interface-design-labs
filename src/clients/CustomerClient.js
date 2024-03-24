@@ -47,3 +47,7 @@ export const getProductOrder = async (id) => {
   const response = await $authHost.get(`/api/orders/items/${id}`);
   return response.data;
 };
+
+export const submitAcceptOrderItem = async (id) => {
+  await $authHost.put(`/api/orders/items/${id}/accept`);
+};
