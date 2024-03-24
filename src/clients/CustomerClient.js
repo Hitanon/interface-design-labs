@@ -23,7 +23,7 @@ export const getCart = async () => {
 };
 
 export const purchase = async () => {
-  await $authHost.post("/api/orders/purchase");
+  await $authHost.post("/api/orders");
 };
 
 export const getCustomerOrders = async () => {
@@ -42,3 +42,19 @@ export const createProductComment = async (productId, rating, message) => {
 export const deleteProductComment = async (id) => {
   await $authHost.delete(`/api/comments/${id}`);
 };
+
+export const getProductOrder = async (id) => {
+  const response = await $authHost.get(`/api/orders/items/${id}`);
+  const data = response.data;
+  data.statuses.sort((b, a) => a.id - b.id);
+  return data;
+};
+
+export const submitAcceptOrderItem = async (id) => {
+  await $authHost.post(`/api/orders/items/${id}/accept`);
+};
+
+// export const getCustomerOrder = async (id) => {
+//   const response = await $authHost.get(`/api/orders/${id}`);
+//   return response.data;
+// };

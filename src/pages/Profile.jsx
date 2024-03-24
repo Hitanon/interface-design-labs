@@ -1,30 +1,18 @@
-import { useContext } from "react";
-import { observer } from "mobx-react-lite";
-
-import { Context } from "..";
-import CustomerOrders from "../components/customers/CustomerOrders";
 import Header from "../components/general/Header";
 import Footer from "../components/general/Footer";
-import SellerOrders from "../components/orders/SellerOrders";
-import { ROLE } from "../utils/Consts";
+import UserProfile from "../components/users/UserProfile";
 
 
-const Profile = observer(() => {
-  const { user } = useContext(Context);
-
+const Profile = () => {
   return (
     <>
       <Header />
       <hr />
-      {
-        user.role === ROLE.CUSTOMER
-          ? <CustomerOrders />
-          : <SellerOrders />
-      }
+      <UserProfile />
       <hr />
       <Footer />
     </>
   );
-});
+};
 
 export default Profile;

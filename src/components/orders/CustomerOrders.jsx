@@ -17,7 +17,7 @@ const CustomerOrders = observer(() => {
     getOrders();
   }, []);
 
-  if (!orders) {
+  if (orders.length === 0) {
     return <div>No orders</div>;
   }
 

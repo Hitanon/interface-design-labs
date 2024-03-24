@@ -14,7 +14,7 @@ import ListButton from "../ui/ListButton";
 import UserBar from "../users/UserBar";
 import AuthenticateBar from "../users/AuthenticateBar";
 import ImageButton from "../ui/ImageButton";
-import SearchProductByName from "../filters/SearchProductByName";
+import SearchProductByName from "../products/filters/SearchProductByName";
 
 
 const Header = observer(() => {

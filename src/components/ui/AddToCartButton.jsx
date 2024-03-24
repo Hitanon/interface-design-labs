@@ -10,22 +10,31 @@ import {
 } from "../../utils/Consts";
 
 import useCart from "../../hooks/useCart";
+import useProducts from "../../hooks/useProducts";
 
 import TextButton from "./TextButton";
 import TextRedirectButton from "./TextRedirectButton";
 
 
 const AddToCartButton = observer(({ id }) => {
-  const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
   const [contains, setContains] = useState(false);
+  const [product, setProduct] = useState({});
+  const { get } = useProducts();
+  const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
 
   const checkIsCartContains = async () => {
     setContains(isCartContains(id));
   };
 
+  const loadProduct = async () => {
+    setProduct(await get(id));
+  };
+
   const onAddToCartClick = async (quantity) => {
-    await addItem(id, quantity);
-    checkIsCartContains();
+    if (product.unitsInStock >= getItemQuantity(id) + quantity) {
+      await addItem(id, quantity);
+      checkIsCartContains();
+    }
   };
 
   const onRemoveFromCartClick = async (quantity) => {
@@ -34,8 +43,12 @@ const AddToCartButton = observer(({ id }) => {
   };
 
   useEffect(() => {
-    checkIsCartContains();
+    loadProduct();
   }, []);
+
+  useEffect(() => {
+    checkIsCartContains();
+  }, [product]);
 
   return (
     <>

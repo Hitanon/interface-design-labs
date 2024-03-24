@@ -29,8 +29,9 @@ const useSearch = () => {
   };
 
   const applyFilters = async () => {
-    searchProducts.setProducts(await searchProductsByParams(getUrlParams()));
-    navigate(`${SEARCH_PRODUCTS_ROUTE}${getUrlParams()}`);
+    const url = getUrlParams();
+    searchProducts.setProducts(await searchProductsByParams(url));
+    navigate(`${SEARCH_PRODUCTS_ROUTE}${url}`);
   };
 
   const clearParams = () => {
