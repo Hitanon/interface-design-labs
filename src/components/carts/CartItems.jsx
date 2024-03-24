@@ -12,7 +12,7 @@ const CartItems = observer(() => {
   return (
     <>
       {
-        cart.items.map(
+        cart.items.slice().sort((a, b) => a.id - b.id).map(
           item => <div key={item.id}>
             <CartItem item={item} />
           </div>
