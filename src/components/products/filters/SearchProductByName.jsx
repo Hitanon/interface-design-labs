@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import useSearch from "../../hooks/useSearch";
-import { SEARCH_PRODUCTS_BUTTON_TEXT, SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../utils/Consts";
-import InputField from "../ui/InputField";
-import TextButton from "../ui/TextButton";
+import useSearch from "../../../hooks/useSearch";
+import { SEARCH_PRODUCTS_BUTTON_TEXT, SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../../utils/Consts";
+import InputField from "../../ui/InputField";
+import TextButton from "../../ui/TextButton";
 
 
 const SearchProductByName = () => {
