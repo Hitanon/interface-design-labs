@@ -74,6 +74,7 @@ const CartItem = ({ item }) => {
         <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
         {getItemQuantity(item.id)}
         <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+        <TextButton text={"Clear"} callback={() => onRemoveFromCartClick(item.quantity)} />
       </div>
     </>
   );
