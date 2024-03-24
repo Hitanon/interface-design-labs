@@ -9,6 +9,10 @@ import CartItem from "./CartItem";
 const CartItems = observer(() => {
   const { cart } = useContext(Context);
 
+  const calculateTotal = () => {
+    return cart.items.reduce((a, b) => a + b.price * b.quantity, 0);
+  };
+
   return (
     <>
       {
@@ -18,6 +22,9 @@ const CartItems = observer(() => {
           </div>
         )
       }
+      <div>
+        Total: {calculateTotal()}
+      </div>
     </>
   );
 });
