@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { getProduct } from "../../clients/ProductClient";
 
-import ProductOptions from "./ProductOptions";
 import AddToCartButton from "../ui/AddToCartButton";
 import UserComment from "../customers/UserComment";
 import ImageSlider from "../ui/ImageSlider";
@@ -52,7 +51,6 @@ const Product = ({ id }) => {
         </div>
         <CategoryButton id={product.category.id} />
         <SellerButton id={product.seller.id} />
-        <ProductOptions options={product.options} />
         <UserComment />
         <ProductComments />
         <hr />
