@@ -44,8 +44,11 @@ const AddToCartButton = observer(({ id }) => {
 
   useEffect(() => {
     loadProduct();
-    checkIsCartContains();
   }, []);
+
+  useEffect(() => {
+    checkIsCartContains();
+  }, [product]);
 
   return (
     <>
