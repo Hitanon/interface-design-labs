@@ -1,4 +1,6 @@
 const OrderStatus = ({ status }) => {
+  console.log(status);
+
   return (
     <>
       <div>
@@ -10,6 +12,9 @@ const OrderStatus = ({ status }) => {
           {status.dateTo !== null ? <div>End Date: {status.dateTo}</div> : null}
         </div>
         Status: {status.dateTo === null ? "active" : "ended"}
+      </div>
+      <div>
+        {status.details ? `Message: ${status.details}` : null}
       </div>
     </>
   );
