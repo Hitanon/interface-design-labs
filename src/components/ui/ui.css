@@ -1,0 +1,22 @@
+.list-button {
+    background-color: transparent;
+    font-size: 14px;
+    position: relative;
+    padding: 0 0 0 30px;
+}
+
+.list-button::before {
+    content: ""; 
+    background-image: url('../../../public/icons/list-icon.svg'); 
+    background-size: cover; 
+    display: block; 
+    width: 19px;
+    height: 16px;
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+}
+
+.list-button:hover {
+    opacity: 70%;
+}

@@ -9,7 +9,6 @@ const Main = () => {
   return (
     <>
       <Header />
-      <hr/>
       <ProjectGreeting />
       <hr/>
       <TopCategories />

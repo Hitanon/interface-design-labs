@@ -1,7 +1,9 @@
+import "./ui.css";
+
 export const ListButton = ({ text, callback }) => {
   return (
     <>
-      <button onClick={callback}>||| {text}</button>
+      <button className="list-button" onClick={callback}> {text}</button>
     </>
   );
 };

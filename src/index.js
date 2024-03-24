@@ -12,6 +12,8 @@ import CartStore from "./store/CartStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
 import SearchProductsStore from "./store/SearchProductsStore";
 
+import "./index.css";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const Context = createContext(null);
