@@ -6,14 +6,12 @@ import {
   CATEGORIES_ROUTE,
   LIST_CATEGORIES_BUTTON_TEXT,
   MAIN_ROUTE,
-  MOCK_IMAGE_URL,
 } from "../../utils/Consts";
 import { Context } from "../..";
 
 import ListButton from "../ui/ListButton";
 import UserBar from "../users/UserBar";
 import AuthenticateBar from "../users/AuthenticateBar";
-import ImageButton from "../ui/ImageButton";
 import SearchProductByName from "../products/filters/SearchProductByName";
 
 import "./general.css";
