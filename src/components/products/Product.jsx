@@ -1,28 +1,29 @@
-import { useEffect, useState } from "react";
-
-import { getProduct } from "../../clients/ProductClient";
+import { useContext, useEffect, useState } from "react";
 
 import AddToCartButton from "../ui/AddToCartButton";
 import UserComment from "../customers/UserComment";
 import ImageSlider from "../ui/ImageSlider";
 import SellerButton from "../sellers/SellerButton";
 import CategoryButton from "../categories/CategoryButton";
+import { Context } from "../..";
+import useProducts from "../../hooks/useProducts";
 
 import ProductComments from "./ProductComments";
 
 
 const Product = ({ id }) => {
+  const { product } = useContext(Context);
+  const { get } = useProducts();
   const [isLoading, setIsLoading] = useState(true);
-  const [product, setProduct] = useState({ category: {}, seller: {} });
 
-  const loadFullProductInfo = async () => {
+  const loadProduct = async () => {
     setIsLoading(true);
-    setProduct(await getProduct(id));
+    product.setProduct(await get(id));
     setIsLoading(false);
   };
 
   useEffect(() => {
-    loadFullProductInfo();
+    loadProduct();
   }, []);
 
   // TODO: refactor. Make it better
@@ -52,7 +53,7 @@ const Product = ({ id }) => {
         <CategoryButton id={product.category.id} />
         <SellerButton id={product.seller.id} />
         <UserComment />
-        <ProductComments />
+        <ProductComments comments={product.comments} />
         <hr />
         <AddToCartButton id={product.id} />
       </div>

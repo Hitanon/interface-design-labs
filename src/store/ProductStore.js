@@ -12,7 +12,6 @@ export default class ProductStore {
     this._unitsInStock = 0;
     this._category = {};
     this._seller = {};
-    this._options = [];
     this._comments = [];
     makeAutoObservable(this);
   }
