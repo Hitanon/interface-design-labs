@@ -6,6 +6,7 @@ import TextButton from "../ui/TextButton";
 import { DELETE_COMMENT_BUTTON_TEXT, EDIT_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
 import useComments from "../../hooks/useComments";
 import { Context } from "../..";
+import { ratingValidator } from "../../utils/Validators";
 
 
 const EditCommentForm = observer(() => {
@@ -37,8 +38,19 @@ const EditCommentForm = observer(() => {
   return (
     <>
       <div>
-        <InputField type="number" placeholder="Rating" value={rating} callback={setRating} />
-        <InputField type="text" placeholder="Message" value={message} callback={setMessage} />
+        <InputField
+          type="number"
+          placeholder="Rating"
+          value={rating}
+          callback={setRating}
+          validator={ratingValidator}
+        />
+        <InputField
+          type="text"
+          placeholder="Message"
+          value={message}
+          callback={setMessage}
+        />
       </div>
       <div>
         <TextButton text={EDIT_COMMENT_BUTTON_TEXT} callback={onEditClick} />

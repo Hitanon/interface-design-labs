@@ -4,6 +4,7 @@ import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
 import { CREATE_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
 import useComments from "../../hooks/useComments";
+import { ratingValidator } from "../../utils/Validators";
 
 
 const CreateCommentForm = () => {
@@ -19,7 +20,13 @@ const CreateCommentForm = () => {
   return (
     <>
       <div>
-        <InputField type="number" placeholder="Rating" value={rating} callback={setRating} />
+        <InputField
+          type="number"
+          placeholder="Rating"
+          value={rating}
+          callback={setRating}
+          validator={ratingValidator}
+        />
         <InputField type="text" placeholder="Message" value={message} callback={setMessage} />
       </div>
       <div>

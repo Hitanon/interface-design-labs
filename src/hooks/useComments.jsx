@@ -28,8 +28,8 @@ const useComments = () => {
     await updateProduct();
   };
 
-  const createComment = async (rating, message) => {
-    await createProductComment(product.id, rating, message);
+  const createComment = async (productId, rating, message) => {
+    await createProductComment(productId, rating, message);
     await updateProduct();
   };
 
