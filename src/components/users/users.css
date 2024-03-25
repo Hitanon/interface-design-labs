@@ -1,0 +1,25 @@
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.link {
+    display: block;
+    width: 30px;
+    height: 30px;
+
+    background-repeat: no-repeat;
+}
+
+.link:hover {
+    opacity: 60%;
+}
+
+.login-link {
+    background-image: url("/public/icons/profile-icon.svg");
+}
+
+.registration-link {
+    margin-left: 15px;
+    background-image: url("/public/icons/signup-icon.svg");
+}

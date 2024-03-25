@@ -16,7 +16,6 @@ import SearchProductByName from "../products/filters/SearchProductByName";
 
 import "./general.css";
 
-
 const Header = observer(() => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
@@ -30,15 +29,14 @@ const Header = observer(() => {
       <Link rel="stylesheet" to={MAIN_ROUTE}>
         <img className="logo" src="/img/logo.svg" alt="Logo" />
       </Link>
-      <div>
-        <ListButton text={LIST_CATEGORIES_BUTTON_TEXT} callback={onCategoriesClick} />
+      <div className="nav-section">
+        <ListButton
+          text={LIST_CATEGORIES_BUTTON_TEXT}
+          callback={onCategoriesClick}
+        />
         <SearchProductByName />
       </div>
-      {
-        user.isAuth
-          ? <UserBar />
-          : <AuthenticateBar />
-      }
+      {user.isAuth ? <UserBar /> : <AuthenticateBar />}
     </nav>
   );
 });

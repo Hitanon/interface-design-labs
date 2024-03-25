@@ -1,16 +1,19 @@
-import { LOGIN_BUTTON_TEXT, LOGIN_ROUTE, REGISTRATION_BUTTON_TEXT, REGISTRATION_ROUTE } from "../../utils/Consts";
+import { Link } from "react-router-dom";
 
-import TextRedirectButton from "../ui/TextRedirectButton";
+import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../../utils/Consts";
 
+import "./users.css";
 
 const AuthenticateBar = () => {
   return (
-    <>
-      <div>
-        <TextRedirectButton text={LOGIN_BUTTON_TEXT} route={LOGIN_ROUTE} />
-        <TextRedirectButton text={REGISTRATION_BUTTON_TEXT} route={REGISTRATION_ROUTE} />
-      </div>
-    </>
+    <ul>
+      <li>
+        <Link className="link login-link" to={LOGIN_ROUTE}></Link>
+      </li>
+      <li>
+        <Link className="link registration-link" to={REGISTRATION_ROUTE}></Link>
+      </li>
+    </ul>
   );
 };
 

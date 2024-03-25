@@ -53,7 +53,6 @@ export const UPPER_PRICE_FILTER_LABEL = "Цена до";
 export const RATING_FILTER_LABEL = "Рейтинг";
 export const LOWER_RATING_FILTER_LABEL = "Рейтинг от";
 export const UPPER_RATING_FILTER_LABEL = "Рейтинг до";
-export const SEARCH_PRODUCTS_BUTTON_TEXT = "Поиск";
 
 // Enums
 export const ROLE = {

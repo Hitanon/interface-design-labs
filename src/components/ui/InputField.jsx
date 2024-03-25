@@ -1,3 +1,5 @@
+import "./ui.css";
+
 const InputField = ({type, placeholder, value, callback, validator = () => true}) => {
   const onChange = (value) => {
     if (validator(value)) {

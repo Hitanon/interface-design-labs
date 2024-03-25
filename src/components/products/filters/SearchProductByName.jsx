@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import useSearch from "../../../hooks/useSearch";
-import { SEARCH_PRODUCTS_BUTTON_TEXT, SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../../utils/Consts";
+import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../../utils/Consts";
 import InputField from "../../ui/InputField";
-import TextButton from "../../ui/TextButton";
+
+import "../../../index.css";
 
 
 const SearchProductByName = () => {
@@ -18,15 +19,15 @@ const SearchProductByName = () => {
   };
 
   return (
-    <>
+    <search>
       <InputField
         type="text"
         placeholder={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT}
         value={productName}
         callback={setProductName}
       />
-      <TextButton text={SEARCH_PRODUCTS_BUTTON_TEXT} callback={onSearchClick} />
-    </>
+      <button className="search-button" onClick={onSearchClick}></button>
+    </search>
   );
 };
 

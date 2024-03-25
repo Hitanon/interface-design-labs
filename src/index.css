@@ -5,6 +5,8 @@
     --secondary-color: #000000;
     --bg-light-color: #FFF8F3;
     --bg-dark-color: #A5978E;
+    --active-color: #FEC46D;
+    --grey-color: #333333;
 }
 
 
@@ -30,4 +32,23 @@ button {
 
 button:hover {
     cursor: pointer;
+    background-color: var(--active-color);
+}
+
+search {
+    margin-left: 20px;
+    display: flex;
+}
+
+.search-button {
+    margin: 0;
+    padding: 0;
+
+    height: 30px;
+    width: 37px;
+
+    background-image: url("/public/icons/search-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: black 1px solid;
 }

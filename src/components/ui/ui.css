@@ -7,7 +7,7 @@
 
 .list-button::before {
     content: ""; 
-    background-image: url('../../../public/icons/list-icon.svg'); 
+    background-image: url('/public/icons/list-icon.svg'); 
     background-size: cover; 
     display: block; 
     width: 19px;
@@ -19,4 +19,52 @@
 
 .list-button:hover {
     opacity: 70%;
+    background-color: transparent;
+}
+
+input {
+    position: relative;
+    left: 1px;
+
+    margin: 0;
+    padding: 0 14px;
+    min-width: 350px;
+    height: 28px;
+    border: black 1px solid;
+
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.social-icon {
+    background-repeat: no-repeat; 
+    display: block;
+    min-width: 30px;
+    height: 30px;
+    content-visibility: hidden;
+}
+
+.social-icon:nth-child(n+1) {
+    margin-left: 5px;
+}
+
+.social-icon:hover {
+    opacity: 60%;
+}
+
+.twitter-icon {
+    background-image: url('/public/icons/twitter-icon.svg');
+    
+}
+
+.youtube-icon {
+    background-image: url('/public/icons/youtube-icon.svg');
+}
+
+.vk-icon {
+    background-image: url('/public/icons/vk-icon.svg');
 }
