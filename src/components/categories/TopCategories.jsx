@@ -6,6 +6,8 @@ import useCategories from "../../hooks/useCategories";
 
 import Categories from "./Categories";
 
+import "./categories.css";
+
 
 const TopCategories = observer(() => {
   const [topCategories, setTopCategories] = useState([]);
@@ -20,12 +22,12 @@ const TopCategories = observer(() => {
   }, []);
 
   return (
-    <>
-      <div>
+    <div className="top-categories-section">
+      <h2 className="top-categories-title">
         {TOP_CATEGORIES_LABEL}
-      </div>
+      </h2>
       <Categories categories={topCategories} />
-    </>
+    </div>
   );
 });
 

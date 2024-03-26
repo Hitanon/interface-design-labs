@@ -1,0 +1,37 @@
+.top-categories-section {
+    position: relative;
+    left: 0;
+    right: 0;
+    
+    width: calc(100% + 280px);
+    margin-left: -140px;
+    padding: 65px 140px 85px;
+    box-sizing: border-box;
+
+    background-color: var(--bg-dark-color);
+    color: white;
+}
+
+.top-categories-title {
+    max-width: 15%;
+}
+
+.categories-list {
+    margin-top: 50px;
+    display: flex;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category:nth-child(n+2){
+    margin-left: 40px;
+}
+
+.category:hover {
+    cursor: pointer;
+    opacity: 60%;
+}

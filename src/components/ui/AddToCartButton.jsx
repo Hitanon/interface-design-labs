@@ -15,6 +15,8 @@ import useProducts from "../../hooks/useProducts";
 import TextButton from "./TextButton";
 import TextRedirectButton from "./TextRedirectButton";
 
+import "./ui.css";
+
 
 const AddToCartButton = observer(({ id }) => {
   const [contains, setContains] = useState(false);
@@ -51,7 +53,7 @@ const AddToCartButton = observer(({ id }) => {
   }, [product]);
 
   return (
-    <>
+    <div className="add-to-cart-button">
       {
         contains
           ?
@@ -64,7 +66,7 @@ const AddToCartButton = observer(({ id }) => {
           :
           <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
       }
-    </>
+    </div>
   );
 });
 

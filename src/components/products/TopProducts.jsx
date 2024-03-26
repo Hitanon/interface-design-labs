@@ -8,6 +8,8 @@ import useProducts from "../../hooks/useProducts";
 
 import ProductCard from "./ProductCard";
 
+import "./products.css";
+
 
 const TopProducts = observer(() => {
   const [topProducts, setTopProducts] = useState([]);
@@ -22,14 +24,21 @@ const TopProducts = observer(() => {
   }, []);
 
   return (
-    <>
-      <div>
-        {TOP_PRODUCTS_LABEL}
+    <div className="top-products-section">
+      <div className="top-products-info">
+        <h2 className="top-products-title">
+          {TOP_PRODUCTS_LABEL}
+        </h2>
+        <p className="top-products-text">
+          для всех, кто ценит уникальные и качественные изделия с особенным характером
+        </p>
       </div>
       {
-        topProducts.map((product) => <div key={product.id}><ProductCard id={product.id}></ProductCard></div>)
+        topProducts.map((product) =>
+          <div className="product" key={product.id}><ProductCard id={product.id}></ProductCard></div>)
       }
-    </>
+
+    </div>
   );
 });
 

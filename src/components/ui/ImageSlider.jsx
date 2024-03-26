@@ -1,13 +1,13 @@
 import { MOCK_IMAGE_URL } from "../../utils/Consts";
 
+import "./ui.css";
+
 
 const ImageSlider = ({ images }) => {
   return (
-    <>
-      <div>
-        <img src={MOCK_IMAGE_URL} alt="logo" style={{width: "100px"}}/>
-      </div>
-    </>
+    <div>
+      <img className="image-slider" src={MOCK_IMAGE_URL} alt="logo" />
+    </div>
   );
 };
 

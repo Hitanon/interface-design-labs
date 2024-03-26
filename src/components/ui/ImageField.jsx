@@ -1,11 +1,13 @@
 import { MOCK_IMAGE_URL } from "../../utils/Consts";
 
+import "./ui.css";
+
 
 const ImageField = ({ url }) => {
   return (
     <>
       <div>
-        <img src={MOCK_IMAGE_URL} alt="img" style={{width: "100px"}}/>
+        <img className="image-field" src={MOCK_IMAGE_URL} alt="img"/>
       </div>
     </>
   );

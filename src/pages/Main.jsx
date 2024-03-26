@@ -10,11 +10,8 @@ const Main = () => {
     <>
       <Header />
       <ProjectGreeting />
-      <hr/>
       <TopCategories />
-      <hr/>
       <TopProducts />
-      <hr/>
       <Footer />
     </>
   );

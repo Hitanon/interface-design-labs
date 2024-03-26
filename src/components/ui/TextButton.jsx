@@ -1,7 +1,9 @@
+import "./ui.css";
+
 const TextButton = ({ text, callback }) => {
   return (
     <>
-      <button onClick={callback}>{text}</button>
+      <button className="text-button" onClick={callback}>{text}</button>
     </>
   );
 };

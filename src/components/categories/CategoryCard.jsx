@@ -13,7 +13,7 @@ const CategoryCard = ({ id }) => {
   const [category, setCategory] = useState({});
 
   const onCategoryClick = () => {
-    search.addParam({name: "category", value: id});
+    search.addParam({ name: "category", value: id });
     navigate(`${SEARCH_PRODUCTS_ROUTE}${getUrlParams()}`);
   };
 
@@ -26,15 +26,13 @@ const CategoryCard = ({ id }) => {
   }, []);
 
   return (
-    <>
-      <div onClick={onCategoryClick}>
-        <ImageField />
+    <div className="category" onClick={onCategoryClick}>
+      <ImageField />
 
-        <div>
-          {category.name}
-        </div>
-      </div>
-    </>
+      <h3>
+        {category.name}
+      </h3>
+    </div>
   );
 };
 

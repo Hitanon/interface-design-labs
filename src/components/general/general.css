@@ -1,19 +1,25 @@
 .header {
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
+    width: calc(100% + 280px);
+    margin-left: -140px;
+    z-index: 999;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     
     height: 57px;
-    padding: 5px 0;
+    padding: 35px 140px;
+    box-sizing: border-box;
 
     background-color: var(--bg-light-color);
 }
 
 .logo {
-    width: 54px;
+    height: 50px;
 }
 
 .logo:hover {
@@ -59,4 +65,36 @@ footer {
 
 .footer-contats .icons {
     padding: 0;
+}
+
+.greeting-section {
+    padding: 74px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.greeting-section-title {
+    max-width: 20%;
+}
+
+.gretting-section-text {
+    margin: 28px 0;
+}
+
+.gretting-images{
+    width: 100%;
+    margin-left: 70px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gretting-images img {
+    height: 250px;
+    margin: 0 20px;
+}
+
+.gretting-images .main-image {
+    height: 350px;
 }
