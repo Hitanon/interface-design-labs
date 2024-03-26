@@ -1,4 +1,4 @@
-import { $host } from ".";
+import { $host, $authHost } from ".";
 
 export const getSellerInfo = async (id) => {
   const response = await $host.get(`/api/sellers/${id}`);
@@ -7,6 +7,11 @@ export const getSellerInfo = async (id) => {
 
 export const registerSeller = async (credentials) => {
   await $host.post("/api/sellers", credentials);
+};
+
+export const getSellerProfile = async () => {
+  const response = await $authHost.get("/api/sellers/me");
+  return response.data;
 };
 
 export const getSellerOrders = () => {
