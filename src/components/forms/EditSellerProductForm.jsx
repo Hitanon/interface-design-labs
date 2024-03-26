@@ -5,7 +5,7 @@ import TextRedirectButton from "../ui/TextRedirectButton";
 
 const EditSellerProductForm = ({ product }) => {
   const getEditProductRoute = () => {
-    return EDIT_PRODUCT_ROUTE.replace(":id", product.id)
+    return EDIT_PRODUCT_ROUTE.replace(":id", product.id);
   };
 
   return (

@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { observer } from "mobx-react-lite";
-
 import { TOP_PRODUCTS_LABEL } from "../../utils/Consts";
 
 import useProducts from "../../hooks/useProducts";
@@ -11,7 +9,7 @@ import ProductCard from "./ProductCard";
 import "./products.css";
 
 
-const TopProducts = observer(() => {
+const TopProducts = () => {
   const [topProducts, setTopProducts] = useState([]);
   const { getTop } = useProducts();
 
@@ -40,6 +38,6 @@ const TopProducts = observer(() => {
 
     </div>
   );
-});
+};
 
 export default TopProducts;

@@ -13,8 +13,8 @@ import "./products.css";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
-  const onProductClick = () => {
-    navigate(`${PRODUCTS_ROUTE}/${product.id}`);
+  const onProductClick = (id) => {
+    navigate(`${PRODUCTS_ROUTE}/${id}`);
   };
 
   return (
