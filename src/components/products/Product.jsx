@@ -50,7 +50,7 @@ const Product = ({ id }) => {
         <div>
           Unit in Stock: {product.unitsInStock}
         </div>
-        <CategoryButton id={product.category.id} />
+        <CategoryButton category={product.category} />
         <SellerButton id={product.seller.id} />
         <UserComment />
         <ProductComments comments={product.comments} />

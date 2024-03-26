@@ -10,6 +10,10 @@ const useSearch = () => {
   const navigate = useNavigate();
   const { search, searchProducts } = useContext(Context);
 
+  const addParam = (name, value) => {
+    search.addParam({name, value});
+  };
+
   const getUrlParams = () => {
     const urlParams = search.params.reduce((acc, param) => `${acc}${param.name}=${param.value}&`, "?");
     const sliced = urlParams.slice(0, -1);
@@ -45,6 +49,7 @@ const useSearch = () => {
 
   return {
     search,
+    addParam,
     getUrlParams,
     parseUrlParams,
     applyFilters,
