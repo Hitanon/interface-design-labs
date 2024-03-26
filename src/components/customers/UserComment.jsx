@@ -19,16 +19,12 @@ const UserComment = observer(({ itemId }) => {
 
   if (isUserCommentExists()) {
     return (
-      <>
-        <EditCommentForm />
-      </>
+      <EditCommentForm />
     );
   }
 
   return (
-    <>
-      <CreateCommentForm itemId={itemId} />
-    </>
+    <CreateCommentForm itemId={itemId} />
   );
 });
 

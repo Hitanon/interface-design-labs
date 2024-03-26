@@ -8,8 +8,8 @@ import CategoryButton from "../categories/CategoryButton";
 import { Context } from "../..";
 import useProducts from "../../hooks/useProducts";
 
-import ProductComments from "./ProductComments";
 import ProductInfo from "./ProductInfo";
+import ProductComment from "./ProductComment";
 
 
 const Product = observer(({ id }) => {
@@ -37,8 +37,7 @@ const Product = observer(({ id }) => {
       <CategoryButton category={product.category} />
       <SellerButton seller={product.seller} />
       <UserComment itemId={product.id} />
-      <ProductComments comments={product.comments} />
-      <hr />
+      {product.comments.map((comment) => <div key={comment.id}><ProductComment comment={comment} /></div>)}
       <AddToCartButton item={product} />
     </>
   );

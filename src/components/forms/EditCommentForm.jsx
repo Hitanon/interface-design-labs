@@ -20,7 +20,11 @@ const EditCommentForm = observer(() => {
   const loadComment = () => {
     const comment = getUserComment();
     setRating(comment.rating);
-    setMessage(comment.message);
+    if (comment.message) {
+      setMessage(comment.message);
+    } else {
+      setMessage("");
+    }
   };
 
   const onEditClick = async () => {
@@ -33,7 +37,7 @@ const EditCommentForm = observer(() => {
 
   useEffect(() => {
     loadComment();
-  }, [product.comments]);  // TODO: Fix. Rerender component when product changes
+  }, [product.comments]);
 
   return (
     <>

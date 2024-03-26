@@ -27,7 +27,12 @@ const CreateCommentForm = ({ itemId }) => {
           callback={setRating}
           validator={ratingValidator}
         />
-        <InputField type="text" placeholder="Message" value={message} callback={setMessage} />
+        <InputField
+          type="text"
+          placeholder="Message"
+          value={message}
+          callback={setMessage}
+        />
       </div>
       <div>
         <TextButton text={CREATE_COMMENT_BUTTON_TEXT} callback={createProductComment} />

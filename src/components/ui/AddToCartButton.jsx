@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { observer } from "mobx-react-lite";
 
 import {
   ADD_TO_CART_BUTTON_TEXT,
@@ -17,7 +16,7 @@ import TextRedirectButton from "./TextRedirectButton";
 import "./ui.css";
 
 
-const AddToCartButton = observer(({ item }) => {
+const AddToCartButton = ({ item }) => {
   const [contains, setContains] = useState(false);
   const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
 
@@ -68,6 +67,6 @@ const AddToCartButton = observer(({ item }) => {
       }
     </div>
   );
-});
+};
 
 export default AddToCartButton;
