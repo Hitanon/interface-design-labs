@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
 import { getProductOrder, submitAcceptOrderItem } from "../../clients/CustomerClient";
-import { SELLERS_ROUTE } from "../../utils/Consts";
+import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
 
 import ImageSlider from "../ui/ImageSlider";
 import TextButton from "../ui/TextButton";
@@ -19,6 +19,10 @@ const OrderItem = observer(({ item }) => {
     navigate(`${SELLERS_ROUTE}/${item.product.seller.id}`);
   };
 
+  const onProductClick = () => {
+    navigate(`${PRODUCTS_ROUTE}/${item.product.id}`);
+  };
+
   const isDelivered = () => {
     return item.statuses[0].name === "DELIVERED";
   };
@@ -30,15 +34,15 @@ const OrderItem = observer(({ item }) => {
 
   return (
     <>
-      <div>
+      <div onClick={onProductClick}>
         <div>
-          Name: {orderItem.product.name}
-        </div>
-        <div>
+          <div>
+            Name: {orderItem.product.name}
+          </div>
           <ImageSlider />
-        </div>
-        <div>
-          Price: {orderItem.product.price}
+          <div>
+            Price: {orderItem.product.price}
+          </div>
         </div>
         <div onClick={onSellerClick}>
           Seller: {orderItem.product.seller.name}

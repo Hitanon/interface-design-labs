@@ -1,9 +1,7 @@
-import { observer } from "mobx-react-lite";
-
 import OrderItem from "./OrderItem";
 
 
-const CustomerOrder = observer(({ order }) => {
+const CustomerOrder = ({ order }) => {
   return (
     <>
       <div>
@@ -12,14 +10,9 @@ const CustomerOrder = observer(({ order }) => {
       <div>
         Всего: {order.total}
       </div>
-      <div>
-        Items:
-        <div>
-          {order.items.map(item => <div key={item.id}><OrderItem item={item} /></div>)}
-        </div>
-      </div>
+      {order.items.map(item => <div key={item.id}><OrderItem item={item} /></div>)}
     </>
   );
-});
+};
 
 export default CustomerOrder;
