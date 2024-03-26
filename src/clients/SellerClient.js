@@ -14,6 +14,11 @@ export const getSellerProfile = async () => {
   return response.data;
 };
 
+export const updateSellerProfile = async (data) => {
+  const response = await $authHost.patch("/api/sellers/me", data);
+  return response.data;
+};
+
 export const getSellerOrders = () => {
   return [
     {
