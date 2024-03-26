@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   ADD_TO_CART_BUTTON_TEXT,
@@ -17,23 +17,24 @@ import "./ui.css";
 
 
 const AddToCartButton = ({ item }) => {
-  const [contains, setContains] = useState(false);
-  const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
+  const [quantity, setQuantity] = useState(0);
+  const { addItem, removeItem, getItemQuantity } = useCart();
 
-  const checkIsCartContains = async () => {
-    setContains(isCartContains(item.id));
+  const loadQuantity = async () => {
+    const itemQuantity = getItemQuantity(item.id);
+    setQuantity(itemQuantity);
   };
 
   const onAddToCartClick = async (quantity) => {
     if (item.unitsInStock >= getItemQuantity(item.id) + quantity) {
       await addItem(item.id, quantity);
-      checkIsCartContains();
+      await loadQuantity();
     }
   };
 
   const onRemoveFromCartClick = async (quantity) => {
     await removeItem(item.id, quantity);
-    checkIsCartContains();
+    await loadQuantity();
   };
 
   const getQuantity = () => {
