@@ -1,6 +1,6 @@
 import "./ui.css";
 
-const InputField = ({type, placeholder, value, callback, validator = () => true}) => {
+const InputField = ({type, placeholder, value, callback, validator = () => true, className}) => {
   const onChange = (value) => {
     if (validator(value)) {
       callback(value);
@@ -9,6 +9,7 @@ const InputField = ({type, placeholder, value, callback, validator = () => true}
 
   return (
     <input
+      className={className}
       type={type}
       placeholder={placeholder}
       value={value}

@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import useAuthenticate from "../../hooks/useAuthenticate";
 import { MAIN_ROUTE } from "../../utils/Consts";
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
-import TextRedirectButton from "../ui/TextRedirectButton";
 
 import {
+  LOGIN_FORM_TITLE,
   DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT,
   LOGIN_BUTTON_TEXT,
   REGISTRATION_ROUTE,
 } from "../../utils/Consts";
+
+import "./forms.css";
 
 
 const LoginForm = () => {
@@ -26,16 +28,22 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <div className="auth-form">
+      <h2 className="auth-title">
+        {LOGIN_FORM_TITLE}
+      </h2>
       <div>
-        <InputField type="email" value={email} callback={setEmail} />
-        <InputField type="password" value={password} callback={setPassword} />
+        <InputField className="input-auth" type="email" value={email} callback={setEmail} placeholder="E-mail" />
+        <InputField className="input-auth" type="password" value={password} callback={setPassword}
+          placeholder="Пароль" />
       </div>
-      <div>
+      <div className="auth-buttons">
         <TextButton text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />
-        <TextRedirectButton text={DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT} route={REGISTRATION_ROUTE} />
+        <Link className="auth-link" to={REGISTRATION_ROUTE}>
+          {DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT}
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

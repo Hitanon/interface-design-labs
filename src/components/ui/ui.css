@@ -94,3 +94,15 @@ input:focus {
 .add-to-cart-button {
     width: 100%;
 }
+
+.input-auth {
+    margin: 15px 0;
+    min-width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.input-auth:hover {
+    cursor: pointer;;
+}

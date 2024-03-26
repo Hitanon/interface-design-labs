@@ -1,8 +1,12 @@
 import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
+import { PURCHASE_ORDER_ROUTE } from "../../utils/Consts";
 import { getCart } from "../../clients/CustomerClient";
 import { Context } from "../..";
+
+import "./carts.css";
 
 
 const CartBar = observer(() => {
@@ -18,9 +22,9 @@ const CartBar = observer(() => {
   }, []);
 
   return (
-    <>
-      Cart ({cart.itemsCount})
-    </>
+    <Link className="cart-link" to={PURCHASE_ORDER_ROUTE}>
+      {cart.itemsCount > 0 && <span className="cart-counter">{cart.itemsCount}</span>}
+    </Link>
   );
 });
 

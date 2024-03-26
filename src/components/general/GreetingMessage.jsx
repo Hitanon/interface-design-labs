@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { Context } from "../..";
 import { HELLO_MESSAGE_TEXT, ROLE } from "../../utils/Consts";
 
+import "./general.css";
+
 
 const GreetingMessage = () => {
   const { user } = useContext(Context);
@@ -15,9 +17,9 @@ const GreetingMessage = () => {
   };
 
   return (
-    <>
+    <div className="greeting-message">
       {getGreetingMessage()}
-    </>
+    </div>
   );
 };
 

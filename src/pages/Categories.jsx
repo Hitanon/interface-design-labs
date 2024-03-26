@@ -18,13 +18,14 @@ const Categories = () => {
   }, []);
 
   return (
-    <>
+    <div className="page-footer-bottom">
       <Header />
-      <hr />
-      <CategoriesList categories={categories} />
-      <hr />
+      <div className="categroies-section">
+        <h2>Категории</h2>
+        <CategoriesList categories={categories} />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

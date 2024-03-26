@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { observer } from "mobx-react-lite";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { Context } from "../..";
-import { LOGOUT_BUTTON_TEXT, MAIN_ROUTE, PROFILE_BUTTON_TEXT, PROFILE_ROUTE, ROLE } from "../../utils/Consts";
+import { LOGOUT_BUTTON_TEXT, MAIN_ROUTE, PROFILE_ROUTE, ROLE } from "../../utils/Consts";
 import useAuthenticate from "../../hooks/useAuthenticate";
 
+import GreetingMessage from "../general/GreetingMessage";
 import CustomerBar from "../customers/CustomerBar";
-import SellerBar from "../sellers/SellerBar";
-import TextButton from "../ui/TextButton";
-import TextRedirectButton from "../ui/TextRedirectButton";
+
+import "./users.css";
 
 
 const UserBar = observer(() => {
@@ -24,18 +24,23 @@ const UserBar = observer(() => {
 
   return (
     <>
-      <div>
-        <TextRedirectButton text={PROFILE_BUTTON_TEXT} route={PROFILE_ROUTE} />
-        <TextButton text={LOGOUT_BUTTON_TEXT} callback={onLogoutClick} />
-      </div>
-
-      <div>
-        {
-          user.role === ROLE.CUSTOMER
-            ? <CustomerBar />
-            : <SellerBar />
-        }
-      </div>
+      <ul className="auth-bar">
+        <li>
+          <GreetingMessage />
+        </li>
+        <li>
+          <Link className="link login-link" to={PROFILE_ROUTE}></Link>
+        </li>
+        <li>
+          <button className="link logout" text={LOGOUT_BUTTON_TEXT} onClick={onLogoutClick} />
+        </li>
+        <li>
+          {
+            user.role === ROLE.CUSTOMER
+              && <CustomerBar />
+          }
+        </li>
+      </ul>
     </>
   );
 });

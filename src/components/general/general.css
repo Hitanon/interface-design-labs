@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     
-    height: 57px;
+    height: 65px;
     padding: 35px 140px;
     box-sizing: border-box;
 
@@ -19,7 +19,7 @@
 }
 
 .logo {
-    height: 50px;
+    height: 60px;
 }
 
 .logo:hover {
@@ -33,9 +33,10 @@
 
 
 footer {
-    position: absolute;
-    left: 0;
-    right: 0;
+    position: relative;
+    width: calc(100% + 280px);
+    margin-left: -140px;
+    box-sizing: border-box;
 
     display: flex;
     justify-content: space-between;
@@ -65,6 +66,12 @@ footer {
 
 .footer-contats .icons {
     padding: 0;
+}
+
+.greeting-message {
+    width: 80px;
+    margin-right: 10px;
+    font-size: 10px;
 }
 
 .greeting-section {
@@ -97,4 +104,8 @@ footer {
 
 .gretting-images .main-image {
     height: 350px;
+}
+
+.header-user-bar {
+    display: flex;
 }

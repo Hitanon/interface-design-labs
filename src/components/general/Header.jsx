@@ -36,7 +36,9 @@ const Header = observer(() => {
         />
         <SearchProductByName />
       </div>
-      {user.isAuth ? <UserBar /> : <AuthenticateBar />}
+      <div className="header-user-bar">
+        {user.isAuth ? <UserBar /> : <AuthenticateBar />}
+      </div>
     </nav>
   );
 });

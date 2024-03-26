@@ -1,0 +1,38 @@
+.auth-form {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 80px 0;
+}
+
+.auth-title {
+    text-align: center;
+}
+
+.auth-buttons {
+    margin-top: 20px;
+}
+
+.auth-link {
+    display: block;
+    margin-top: 20px;
+    color:black;
+    text-decoration: none;
+    text-align: center;
+}
+
+.auth-link:hover {
+    opacity: 70%;
+}
+
+.checkbox-section label {
+    display: block;
+    margin-left: 30px;
+}
+
+.checkbox-section {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 10px;
+}

@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
-import TextRedirectButton from "../ui/TextRedirectButton";
 import useAuthenticate from "../../hooks/useAuthenticate";
 
 import {
+  REGISTRATION_FORM_TITLE,
   HAVE_AN_ACCOUNT_BUTTON_TEXT,
   LOGIN_ROUTE,
   MAIN_ROUTE,
@@ -30,21 +30,27 @@ const RegistrationForm = () => {
   };
 
   return (
-    <>
+    <div className="auth-form">
+      <h2 className="auth-title">
+        {REGISTRATION_FORM_TITLE}
+      </h2>
       <div>
-        <InputField type="email" value={email} callback={setEmail} />
-        <InputField type="text" value={username} callback={setUsername} />
-        <InputField type="password" value={password} callback={setPassword} />
+        <InputField className="input-auth" type="email" value={email} callback={setEmail} placeholder="E-mail" />
+        <InputField className="input-auth" type="text" value={username} callback={setUsername} placeholder="Имя" />
+        <InputField className="input-auth" type="password" value={password} callback={setPassword}
+          placeholder="Пароль" />
       </div>
-      <div>
-        <input type="checkbox" checked={isSeller} onChange={() => setIsSeller(!isSeller)} />
-        <label>Я продавец</label>
+      <div className="checkbox-section">
+        <input type="checkbox" id="seller-checkbox" checked={isSeller} onChange={() => setIsSeller(!isSeller)} />
+        <label className="checkbox-label" htmlFor="seller-checkbox">Я продавец</label>
       </div>
-      <div>
+      <div className="auth-buttons">
         <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
-        <TextRedirectButton text={HAVE_AN_ACCOUNT_BUTTON_TEXT} route={LOGIN_ROUTE} />
+        <Link className="auth-link" to={LOGIN_ROUTE}>
+          {HAVE_AN_ACCOUNT_BUTTON_TEXT}
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

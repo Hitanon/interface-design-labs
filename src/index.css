@@ -13,14 +13,19 @@
 body {
     padding: 0 142px;
     margin: 0;
-    
+
     font-family: 'Comfortaa', cursive;
-    background-color: var(--bg-light-color);   
+    background-color: var(--bg-light-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Playfair Display', serif;
-    
+
 }
 
 h1 {
@@ -46,7 +51,7 @@ h3 {
 button {
     background-color: var(--primary-color);
     border: none;
-    
+
     font-family: 'Comfortaa', cursive;
     font-size: 17px;
     padding: 10px 43px;
@@ -62,6 +67,37 @@ search {
     display: flex;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
+
+
+input[type="checkbox"]+label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    margin-left: 0;
+}
+
+input[type="checkbox"]+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+input[type="checkbox"]:checked+label:before {
+    background-color: orange;
+    content: '✔';
+    color: white;
+    text-align: center;
+    line-height: 14px;
+}
+
 .search-button {
     margin: 0;
     padding: 0;
@@ -73,4 +109,12 @@ search {
     background-repeat: no-repeat;
     background-position: center;
     border: black 1px solid;
+}
+
+.page-footer-bottom {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
