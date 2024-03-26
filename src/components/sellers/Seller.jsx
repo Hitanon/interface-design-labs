@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { observer } from "mobx-react-lite";
 
 import { getSellerInfo } from "../../clients/SellerClient";
 import Products from "../products/Products";
@@ -7,16 +6,23 @@ import Products from "../products/Products";
 import SellerHeader from "./SellerHeader";
 
 
-const SellerInfo = observer(({ id }) => {
+const SellerInfo = ({ id }) => {
   const [seller, setSeller] = useState({products: []});
+  const [isLoading, setIsLoading] = useState(false);
 
   const loadSeller = async () => {
     setSeller(await getSellerInfo(id));
   };
 
   useEffect(() => {
+    setIsLoading(true);
     loadSeller();
+    setIsLoading(false);
   }, []);
+
+  if (isLoading) {
+    return ;
+  }
 
   return (
     <>
@@ -24,6 +30,6 @@ const SellerInfo = observer(({ id }) => {
       <Products products={seller.products} />
     </>
   );
-});
+};
 
 export default SellerInfo;
