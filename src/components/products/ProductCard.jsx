@@ -10,21 +10,12 @@ import AddToCartButton from "../ui/AddToCartButton";
 import "./products.css";
 
 
-const ProductCard = observer(({ id }) => {
-  const [product, setProduct] = useState({});
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const onProductClick = () => {
-    navigate(`${PRODUCTS_ROUTE}/${id}`);
+    navigate(`${PRODUCTS_ROUTE}/${product.id}`);
   };
-
-  const loadProduct = async () => {
-    setProduct(await getProduct(id));
-  };
-
-  useEffect(() => {
-    loadProduct();
-  }, []);
 
   return (
     <>
@@ -60,6 +51,6 @@ const ProductCard = observer(({ id }) => {
       <AddToCartButton id={id} />
     </>
   );
-});
+};
 
 export default ProductCard;
