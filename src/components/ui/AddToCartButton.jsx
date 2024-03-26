@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { observer } from "mobx-react-lite";
 
 import {
@@ -10,7 +10,6 @@ import {
 } from "../../utils/Consts";
 
 import useCart from "../../hooks/useCart";
-import useProducts from "../../hooks/useProducts";
 
 import TextButton from "./TextButton";
 import TextRedirectButton from "./TextRedirectButton";
@@ -18,39 +17,40 @@ import TextRedirectButton from "./TextRedirectButton";
 import "./ui.css";
 
 
-const AddToCartButton = observer(({ id }) => {
+const AddToCartButton = observer(({ item }) => {
   const [contains, setContains] = useState(false);
-  const [product, setProduct] = useState({});
-  const { get } = useProducts();
   const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
 
   const checkIsCartContains = async () => {
-    setContains(isCartContains(id));
-  };
-
-  const loadProduct = async () => {
-    setProduct(await get(id));
+    setContains(isCartContains(item.id));
   };
 
   const onAddToCartClick = async (quantity) => {
-    if (product.unitsInStock >= getItemQuantity(id) + quantity) {
-      await addItem(id, quantity);
+    if (item.unitsInStock >= getItemQuantity(item.id) + quantity) {
+      await addItem(item.id, quantity);
       checkIsCartContains();
     }
   };
 
   const onRemoveFromCartClick = async (quantity) => {
-    await removeItem(id, quantity);
+    await removeItem(item.id, quantity);
     checkIsCartContains();
   };
 
-  useEffect(() => {
-    loadProduct();
-  }, []);
+  const getQuantity = () => {
+    return getItemQuantity(item.id);
+  };
 
-  useEffect(() => {
-    checkIsCartContains();
-  }, [product]);
+  if (contains) {
+    return (
+      <>
+        <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+        <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
+        {getQuantity()}
+        <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+      </>
+    );
+  };
 
   return (
     <div className="add-to-cart-button">

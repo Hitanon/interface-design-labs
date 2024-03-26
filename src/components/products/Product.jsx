@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { observer } from "mobx-react-lite";
 
 import AddToCartButton from "../ui/AddToCartButton";
 import UserComment from "../customers/UserComment";
@@ -11,7 +12,7 @@ import ProductComments from "./ProductComments";
 import ProductInfo from "./ProductInfo";
 
 
-const Product = ({ id }) => {
+const Product = observer(({ id }) => {
   const { product } = useContext(Context);
   const { get } = useProducts();
   const [isLoading, setIsLoading] = useState(true);
@@ -38,9 +39,9 @@ const Product = ({ id }) => {
       <UserComment />
       <ProductComments comments={product.comments} />
       <hr />
-      <AddToCartButton id={product.id} />
+      <AddToCartButton item={product} />
     </>
   );
-};
+});
 
 export default Product;
