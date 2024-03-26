@@ -11,13 +11,13 @@ const SellerInfo = ({ id }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const loadSeller = async () => {
+    setIsLoading(true);
     setSeller(await getSellerInfo(id));
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    setIsLoading(true);
     loadSeller();
-    setIsLoading(false);
   }, []);
 
   if (isLoading) {

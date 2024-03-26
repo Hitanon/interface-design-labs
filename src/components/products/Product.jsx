@@ -18,13 +18,13 @@ const Product = observer(({ id }) => {
   const { get } = useProducts();
 
   const loadProduct = async () => {
+    setIsLoading(true);
     product.setProduct(await get(id));
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    setIsLoading(true);
     loadProduct();
-    setIsLoading(false);
   }, []);
 
   if (isLoading) {

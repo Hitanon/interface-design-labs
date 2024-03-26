@@ -1,19 +1,14 @@
-import { observer } from "mobx-react-lite";
+import { useEffect, useState } from "react";
 
-import SellerOrders from "../orders/SellerOrders";
-
-import SellerBalance from "./SellerBalance";
-
-import SellerFormInfo from "./SellerFormInfo";
-import { Context } from "../..";
-import { useContext, useEffect, useState } from "react";
 import EditSellerProductForm from "../forms/EditSellerProductForm";
 import { getSellerProfile } from "../../clients/SellerClient";
 
+import SellerFormInfo from "./SellerFormInfo";
+import SellerBalance from "./SellerBalance";
 
-const SellerProfile = observer(() => {
-  const { user } = useContext(Context);
-  const [seller, setSeller] = useState({products: []});
+
+const SellerProfile = () => {
+  const [seller, setSeller] = useState({ products: [] });
   const [isLoading, setIsLoading] = useState(false);
 
   const loadSellerProfile = async () => {
@@ -27,7 +22,7 @@ const SellerProfile = observer(() => {
   }, []);
 
   if (isLoading) {
-    return ;
+    return;
   }
 
   return (
@@ -39,6 +34,6 @@ const SellerProfile = observer(() => {
       {seller.products.map(product => <div key={product.id}><EditSellerProductForm product={product} /></div>)}
     </>
   );
-});
+};
 
 export default SellerProfile;
