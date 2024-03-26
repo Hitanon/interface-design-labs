@@ -7,14 +7,14 @@ import useComments from "../../hooks/useComments";
 import { ratingValidator } from "../../utils/Validators";
 
 
-const CreateCommentForm = () => {
+const CreateCommentForm = ({ itemId }) => {
   const { createComment } = useComments();
 
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
 
   const createProductComment = async () => {
-    await createComment(rating, message);
+    await createComment(itemId, rating, message);
   };
 
   return (

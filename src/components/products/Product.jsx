@@ -14,8 +14,8 @@ import ProductInfo from "./ProductInfo";
 
 const Product = observer(({ id }) => {
   const { product } = useContext(Context);
-  const { get } = useProducts();
   const [isLoading, setIsLoading] = useState(true);
+  const { get } = useProducts();
 
   const loadProduct = async () => {
     product.setProduct(await get(id));
@@ -36,7 +36,7 @@ const Product = observer(({ id }) => {
       <ProductInfo product={product} />
       <CategoryButton category={product.category} />
       <SellerButton seller={product.seller} />
-      <UserComment />
+      <UserComment itemId={product.id} />
       <ProductComments comments={product.comments} />
       <hr />
       <AddToCartButton item={product} />
