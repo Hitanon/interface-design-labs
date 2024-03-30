@@ -1,4 +1,4 @@
-import { $host } from ".";
+import { $host, $authHost } from ".";
 
 
 export const getTopProducts = async (limit) => {
@@ -11,8 +11,11 @@ export const getProduct = async (id) => {
   return response.data;
 };
 
-
 export const searchProductsByParams = async (urlParams) => {
   const response = await $host.get(`/api/products${urlParams}`);
   return response.data;
+};
+
+export const createProduct = async (data) => {
+  await $authHost.post("/api/products", data);
 };

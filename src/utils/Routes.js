@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import Registration from "../pages/Registration";
 import SearchProducts from "../pages/SearchProducts";
 import Seller from "../pages/Seller";
+import CreateProduct from "../pages/CreateProduct";
 
 import {
   CATEGORIES_ROUTE,
@@ -18,6 +19,7 @@ import {
   REGISTRATION_ROUTE,
   SEARCH_PRODUCTS_BY_ALL_CATEGORIES_ROUTE,
   SELLER_ROUTE,
+  CREATE_PRODUCT_ROUTE,
 } from "./Consts";
 
 
@@ -57,5 +59,9 @@ export const routes = [
   {
     path: PURCHASE_ORDER_ROUTE,
     element: <PurchaseOrder />,
+  },
+  {
+    path: CREATE_PRODUCT_ROUTE,
+    element: <CreateProduct />,
   },
 ];
