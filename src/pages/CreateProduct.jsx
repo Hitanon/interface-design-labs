@@ -6,9 +6,9 @@ import CreateProductForm from "../components/products/forms/CreateProductForm";
 const CreateProduct = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <CreateProductForm />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
