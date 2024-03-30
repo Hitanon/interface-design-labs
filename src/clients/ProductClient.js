@@ -19,3 +19,7 @@ export const searchProductsByParams = async (urlParams) => {
 export const createProduct = async (data) => {
   await $authHost.post("/api/products", data);
 };
+
+export const updateProduct = async (id, data) => {
+  await $authHost.put(`/api/products/${id}`, data);
+};

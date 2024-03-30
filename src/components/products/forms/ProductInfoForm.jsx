@@ -1,33 +1,28 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { observer } from "mobx-react-lite";
 
-import { descriptionValidator, nameValidator, priceValidator, quantityValidator } from "../../../utils/Validators";
 import InputField from "../../ui/InputField";
 import { Context } from "../../..";
 
 
-const ProductInfoForm = () => {
+const ProductInfoForm = observer(() => {
   const { editProduct } = useContext(Context);
-  const [price, setPrice] = useState(0);
-  const [unitsInStock, setUnitsInStock] = useState(0);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
 
-  const setProductPrice = (price) => {
+  const setPrice = (price) => {
     editProduct.setPrice(price);
-    setPrice(price);
   };
 
-  const setProductUnitsInStock = (unitsInStock) => {
+  const setUnitsInStock = (unitsInStock) => {
     editProduct.setUnitsInStock(unitsInStock);
     setUnitsInStock(unitsInStock);
   };
 
-  const setProductName = (name) => {
+  const setName = (name) => {
     editProduct.setName(name);
     setName(name);
   };
 
-  const setProductDescription = (description) => {
+  const setDescription = (description) => {
     editProduct.setDescription(description);
     setDescription(description);
   };
@@ -38,36 +33,36 @@ const ProductInfoForm = () => {
         Price:
         <InputField
           type="number"
-          value={price}
-          callback={setProductPrice}
+          value={editProduct.price}
+          callback={setPrice}
         />
       </div>
       <div>
         Units in Stock:
         <InputField
           type="number"
-          value={unitsInStock}
-          callback={setProductUnitsInStock}
+          value={editProduct.unitsInStock}
+          callback={setUnitsInStock}
         />
       </div>
       <div>
         Name:
         <InputField
           type="text"
-          value={name}
-          callback={setProductName}
+          value={editProduct.name}
+          callback={setName}
         />
       </div>
       <div>
         Description:
         <InputField
           type="text"
-          value={description}
-          callback={setProductDescription}
+          value={editProduct.description}
+          callback={setDescription}
         />
       </div>
     </>
   );
-};
+});
 
 export default ProductInfoForm;

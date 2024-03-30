@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
 import { Context } from "../../..";
@@ -10,13 +10,22 @@ import useProducts from "../../../hooks/useProducts";
 import ProductForm from "./ProductForm";
 
 
-const CreateProductForm = observer(() => {
+const EditProductForm = observer(() => {
+  const { get, update } = useProducts();
+  const [product, setProduct] = useState({});
   const { editProduct } = useContext(Context);
-  const { create } = useProducts();
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const onCreateClick = () => {
-    create(
+  const loadProduct = async () => {
+    const product = await get(id);
+    editProduct.setProduct(product);
+    setProduct(product);
+  };
+
+  const onSaveClick = () => {
+    update(
+      id,
       editProduct.name,
       editProduct.description,
       editProduct.price,
@@ -27,16 +36,21 @@ const CreateProductForm = observer(() => {
   };
 
   const onCancelClick = () => {
-    navigate(PROFILE_ROUTE);
+    editProduct.clear();
+    editProduct.setProduct(product);
   };
+
+  useEffect(() => {
+    loadProduct();
+  }, []);
 
   return (
     <>
       <ProductForm />
-      <TextButton text="Создать" callback={onCreateClick} />
+      <TextButton text="Сохранить" callback={onSaveClick} />
       <TextButton text="Отмена" callback={onCancelClick} />
     </>
   );
 });
 
-export default CreateProductForm;
+export default EditProductForm;

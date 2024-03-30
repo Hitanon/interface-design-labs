@@ -66,4 +66,12 @@ export default class EditProductStore {
   setDefaultCategory() {
     this._category = 0;
   }
+
+  setProduct(product) {
+    this._name = product.name;
+    this._description = product.description;
+    this._price = product.price;
+    this._unitsInStock = product.unitsInStock;
+    this._category = product.category.id;
+  }
 }
