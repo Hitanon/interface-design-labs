@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import {
   ADD_TO_CART_BUTTON_TEXT,
@@ -37,35 +37,20 @@ const AddToCartButton = ({ item }) => {
     await loadQuantity();
   };
 
-  const getQuantity = () => {
-    return getItemQuantity(item.id);
-  };
-
-  if (contains) {
+  if (quantity === 0) {
     return (
-      <>
-        <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
-        <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
-        {getQuantity()}
-        <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
-      </>
+      <div className="add-to-cart-button">
+        <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+      </div>
     );
   };
 
   return (
     <div className="add-to-cart-button">
-      {
-        contains
-          ?
-          <div>
-            <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
-            <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
-            {getItemQuantity(id)}
-            <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
-          </div>
-          :
-          <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
-      }
+      <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+      <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
+      {getItemQuantity(item.id)}
+      <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
     </div>
   );
 };
