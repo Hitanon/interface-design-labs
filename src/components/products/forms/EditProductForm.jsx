@@ -6,13 +6,13 @@ import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
 import TextButton from "../../ui/TextButton";
 import useProducts from "../../../hooks/useProducts";
+import useSeller from "../../../hooks/useSeller";
 
 import ProductForm from "./ProductForm";
-import useSeller from "../../../hooks/useSeller";
 
 
 const EditProductForm = observer(() => {
-  const { get, update } = useProducts();
+  const { get } = useProducts();
   const [product, setProduct] = useState({});
   const { editProduct } = useContext(Context);
   const { id } = useParams();
