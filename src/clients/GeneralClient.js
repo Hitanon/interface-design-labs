@@ -20,6 +20,6 @@ export const getAvailableStatuses = async () => {
   return response.data;
 };
 
-export const moveToNextStatus = async (id, message) => {
-  await $host.post(`/api/orders/items/${id}/move`, { message });
+export const moveToNextStatus = async (id, details) => {
+  await $host.post(`/api/orders/items/${id}/move`, { details });
 };

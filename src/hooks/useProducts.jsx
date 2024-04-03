@@ -9,7 +9,7 @@ import {
   updateProduct,
 } from "../clients/ProductClient";
 import { DEFAULT_TOP_PRODUCTS_COUNT } from "../utils/Consts";
-import { getSellerProfile } from "../clients/SellerClient";
+import { getSellerProfile, updateSellerProfile } from "../clients/SellerClient";
 
 
 const useProducts = () => {

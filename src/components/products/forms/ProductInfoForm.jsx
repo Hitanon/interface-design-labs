@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { observer } from "mobx-react-lite";
 
 import InputField from "../../ui/InputField";
 import { Context } from "../../..";
+import { observer } from "mobx-react-lite";
 
 
 const ProductInfoForm = observer(() => {
@@ -14,17 +14,14 @@ const ProductInfoForm = observer(() => {
 
   const setUnitsInStock = (unitsInStock) => {
     editProduct.setUnitsInStock(unitsInStock);
-    setUnitsInStock(unitsInStock);
   };
 
   const setName = (name) => {
     editProduct.setName(name);
-    setName(name);
   };
 
   const setDescription = (description) => {
     editProduct.setDescription(description);
-    setDescription(description);
   };
 
   return (

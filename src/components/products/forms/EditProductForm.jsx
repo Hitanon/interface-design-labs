@@ -8,6 +8,7 @@ import TextButton from "../../ui/TextButton";
 import useProducts from "../../../hooks/useProducts";
 
 import ProductForm from "./ProductForm";
+import useSeller from "../../../hooks/useSeller";
 
 
 const EditProductForm = observer(() => {
@@ -16,6 +17,7 @@ const EditProductForm = observer(() => {
   const { editProduct } = useContext(Context);
   const { id } = useParams();
   const navigate = useNavigate();
+  const { updateProduct } = useSeller();
 
   const loadProduct = async () => {
     const product = await get(id);
@@ -24,7 +26,7 @@ const EditProductForm = observer(() => {
   };
 
   const onSaveClick = () => {
-    update(
+    updateProduct(
       id,
       editProduct.name,
       editProduct.description,
@@ -40,8 +42,13 @@ const EditProductForm = observer(() => {
     editProduct.setProduct(product);
   };
 
+  const onDestroy = () => {
+    editProduct.clear();
+  };
+
   useEffect(() => {
     loadProduct();
+    return onDestroy;
   }, []);
 
   return (

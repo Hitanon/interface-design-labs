@@ -1,8 +1,15 @@
-const SellerBalance = ({ seller }) => {
+import { useContext } from "react";
+
+import { Context } from "../..";
+
+
+const SellerBalance = () => {
+  const { sellerProfile } = useContext(Context);
+
   return (
     <>
       <div>
-        Balance: {seller.balance}
+        Balance: {sellerProfile.balance}
       </div>
     </>
   );

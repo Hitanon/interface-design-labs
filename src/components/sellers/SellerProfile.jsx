@@ -1,26 +1,23 @@
 import { useContext, useEffect, useState } from "react";
-import { observer } from "mobx-react-lite";
 
-import EditSellerProductForm from "../forms/EditSellerProductForm";
 import { getSellerProfile } from "../../clients/SellerClient";
 
 import { Context } from "../..";
-import { CREATE_PRODUCT_ROUTE } from "../../utils/Consts";
-import TextRedirectButton from "../ui/TextRedirectButton";
 import SellerOrders from "../orders/SellerOrders";
 
 import SellerFormInfo from "./SellerFormInfo";
 import SellerBalance from "./SellerBalance";
+import SellerProducts from "./SellerProducts";
+import useSeller from "../../hooks/useSeller";
 
 
-const SellerProfile = observer(() => {
-  const [seller, setSeller] = useState({ products: [], orders: [] });
-  const { sellerProfile } = useContext(Context);
+const SellerProfile = () => {
+  const { loadProfile } = useSeller();
   const [isLoading, setIsLoading] = useState(false);
 
   const loadSellerProfile = async () => {
     setIsLoading(true);
-    setSeller(await getSellerProfile());
+    await loadProfile();
     setIsLoading(false);
   };
 
@@ -28,27 +25,21 @@ const SellerProfile = observer(() => {
     loadSellerProfile();
   }, []);
 
-  useEffect(() => {
-    loadSellerProfile();
-  }, [sellerProfile.products]);
-
   if (isLoading) {
     return;
   }
 
   return (
     <>
-      <SellerFormInfo seller={seller} />
+      <SellerFormInfo />
       <hr />
-      <SellerBalance seller={seller} />
+      <SellerBalance />
       <hr />
-      <TextRedirectButton text="Добавить продукт" route={CREATE_PRODUCT_ROUTE} />
+      <SellerProducts />
       <hr />
-      {seller.products.map(product => <div key={product.id}><EditSellerProductForm product={product} /></div>)}
-      <hr />
-      <SellerOrders orders={seller.orders} />
+      <SellerOrders />
     </>
   );
-});
+};
 
 export default SellerProfile;

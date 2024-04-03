@@ -1,18 +1,29 @@
-import { getAvailableStatuses } from "../clients/GeneralClient";
+import { useContext } from "react";
+
+import { Context } from "..";
+import { getAvailableStatuses, moveToNextStatus } from "../clients/GeneralClient";
+import { getSellerProfile } from "../clients/SellerClient";
 
 
 const useOrders = () => {
+  const { sellerProfile } = useContext(Context);
+
   const getStatuses = async () => {
     return await getAvailableStatuses();
   };
 
-  const moveToNextStatus = (id) => {
+  const loadOrders = async () => {
+    sellerProfile.setProfile(await getSellerProfile());
+  };
 
+  const move = async (id, message) => {
+    await moveToNextStatus(id, message);
+    loadOrders();
   };
 
   return {
     getStatuses,
-    moveToNextStatus,
+    move,
   };
 };
 

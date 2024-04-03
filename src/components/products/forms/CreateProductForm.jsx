@@ -1,22 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { observer } from "mobx-react-lite";
 
 import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
 import TextButton from "../../ui/TextButton";
-import useProducts from "../../../hooks/useProducts";
+import useSeller from "../../../hooks/useSeller";
 
 import ProductForm from "./ProductForm";
 
 
-const CreateProductForm = observer(() => {
+const CreateProductForm = () => {
   const { editProduct } = useContext(Context);
-  const { create } = useProducts();
+  const { createProduct } = useSeller();
   const navigate = useNavigate();
 
   const onCreateClick = () => {
-    create(
+    createProduct(
       editProduct.name,
       editProduct.description,
       editProduct.price,
@@ -30,6 +29,14 @@ const CreateProductForm = observer(() => {
     navigate(PROFILE_ROUTE);
   };
 
+  const onDestroy = () => {
+    editProduct.clear();
+  };
+
+  useEffect(() => {
+    return onDestroy;
+  }, []);
+
   return (
     <>
       <ProductForm />
@@ -37,6 +44,6 @@ const CreateProductForm = observer(() => {
       <TextButton text="Отмена" callback={onCancelClick} />
     </>
   );
-});
+};
 
 export default CreateProductForm;

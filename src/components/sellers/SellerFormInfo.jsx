@@ -1,25 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { observer } from "mobx-react-lite";
 
 import TextButton from "../ui/TextButton";
 import InputField from "../ui/InputField";
-import { updateSellerProfile } from "../../clients/SellerClient";
+import { Context } from "../..";
+import useSeller from "../../hooks/useSeller";
 
 
-const SellerFormInfo = ({ seller }) => {
-  const [description, setDescription] = useState(seller.description || "");
+const SellerFormInfo = observer(() => {
+  const { sellerProfile } = useContext(Context);
+  const { updateDescription } = useSeller();
+  const [description, setDescription] = useState(sellerProfile.description || "");
 
   const onSaveClick = async () => {
-    await updateSellerProfile({ description });
+    updateDescription(description);
   };
 
   const onCancelClick = () => {
-    setDescription(seller.description);
+    setDescription(sellerProfile.description);
   };
 
   return (
     <>
       <div>
-        Name: {seller.name}
+        Name: {sellerProfile.name}
       </div>
       <div>
         <InputField type="text" value={description} callback={setDescription} />
@@ -30,6 +34,6 @@ const SellerFormInfo = ({ seller }) => {
       </div>
     </>
   );
-};
+});
 
 export default SellerFormInfo;

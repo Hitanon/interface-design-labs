@@ -23,3 +23,7 @@ export const createProduct = async (data) => {
 export const updateProduct = async (id, data) => {
   await $authHost.put(`/api/products/${id}`, data);
 };
+
+export const deleteProduct = async (id) => {
+  await $authHost.delete(`/api/products/${id}`);
+};

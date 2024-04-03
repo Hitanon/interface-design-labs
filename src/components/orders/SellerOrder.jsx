@@ -1,9 +1,14 @@
+import { observer } from "mobx-react-lite";
 import ImageSlider from "../ui/ImageSlider";
 
 import OrderStatusMovementForm from "./forms/OrderStatusMovementForm";
+import { Context } from "../..";
+import { useContext } from "react";
 
 
-const SellerOrder = ({ order }) => {
+const SellerOrder = observer(({ order }) => {
+  const { sellerProfile } = useContext(Context);
+
   return (
     <>
       <div>
@@ -24,6 +29,6 @@ const SellerOrder = ({ order }) => {
       <OrderStatusMovementForm order={order} />
     </>
   );
-};
+});
 
 export default SellerOrder;

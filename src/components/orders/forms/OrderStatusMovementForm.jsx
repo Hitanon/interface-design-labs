@@ -5,20 +5,23 @@ import InputField from "../../ui/InputField";
 import TextButton from "../../ui/TextButton";
 import useOrders from "../../../hooks/useOrders";
 import { Context } from "../../..";
-import { moveToNextStatus } from "../../../clients/GeneralClient";
+import useSeller from "../../../hooks/useSeller";
 
 
 const OrderStatusMovementForm = observer(({ order }) => {
   const { statuses } = useContext(Context);
   const { getStatuses } = useOrders();
-  const [message, setMessage] = useState("");
+  const { moveOrder } = useSeller();
+  const detailsDefaultValue = "";
+  const [details, setDetails] = useState(detailsDefaultValue);
 
   const loadAvailableStatuses = async () => {
     statuses.setStatuses(await getStatuses());
   };
 
   const onMoveClick = async () => {
-    await moveToNextStatus(order.id, message);
+    moveOrder(order.id, details);
+    setDetails(detailsDefaultValue);
   };
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const OrderStatusMovementForm = observer(({ order }) => {
         {statuses.statuses.map(status => <div key={status.name}>{status.name}</div>)}
       </div>
       <div>
-        <InputField type="text" value={message} callback={setMessage} />
+        <InputField type="text" value={details} callback={setDetails} />
         <TextButton text={"Перевести на следующий статус"} callback={onMoveClick} />
       </div>
     </>
