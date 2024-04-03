@@ -14,6 +14,7 @@ import SearchProductsStore from "./store/SearchProductsStore";
 import "./index.css";
 import EditProductStore from "./store/EditProductStore";
 import SellerProfileStore from "./store/SellerProfileStore";
+import StatusesStore from "./store/StatusesStore";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,6 +32,7 @@ root.render(
     projectInfo: new ProjectInfoStore(),
     editProduct: new EditProductStore(),
     sellerProfile: new SellerProfileStore(),
+    statuses: new StatusesStore(),
   }}>
     <App />
   </Context.Provider>

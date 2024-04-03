@@ -1,44 +1,27 @@
-import { useContext } from "react";
+import ImageSlider from "../ui/ImageSlider";
 
-import { Context } from "../..";
-import { getSellerOrder, moveToNextStatus } from "../../clients/SellerClient";
-
-import OrderItem from "./OrderItem";
+import OrderStatusMovementForm from "./forms/OrderStatusMovementForm";
 
 
 const SellerOrder = ({ order }) => {
-  const { sellerOrders } = useContext(Context);
-
-  const updateOrderStatus = async (orderId) => {
-    order = await getSellerOrder(orderId);
-    sellerOrders.updateOrder(order);
-  };
-
-  const onMoveToNextStatusClick = async (orderId) => {
-    await moveToNextStatus(orderId);
-    await updateOrderStatus(orderId);
-  };
-
   return (
     <>
       <div>
-        Created At: {order.createdAt}
+        Заказ от: {order.createdAt}
       </div>
       <div>
-        Items:
-        <ul>
-          {order.items.map(
-            (item) =>
-              <li key={item.id}>
-                <OrderItem item={item} />
-                <input type="text" />
-                <button onClick={() => onMoveToNextStatusClick(order.id)}>
-                  Move to next status ({"NEXT STATUS"})
-                </button>
-              </li>
-          )}
-        </ul>
+        Заказчик: {order.customer.username}
       </div>
+      <div>
+        <ImageSlider />
+      </div>
+      <div>
+        Название: {order.product.name}
+      </div>
+      <div>
+        Цена: {order.product.price}
+      </div>
+      <OrderStatusMovementForm order={order} />
     </>
   );
 };

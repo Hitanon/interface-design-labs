@@ -59,9 +59,6 @@ export const getSellerOrders = () => {
   ];
 };
 
-export const moveToNextStatus = async (id) => {
-};
-
 export const getSellerOrder = async (id) => {
   return {
     id: 1,
