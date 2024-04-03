@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { getSellerInfo } from "../../clients/SellerClient";
 import { SELLERS_ROUTE } from "../../utils/Consts";
 import ImageField from "../ui/ImageField";
 
 
-const SellerButton = ({ id }) => {
-  const [seller, setSeller] = useState({});
+const SellerButton = ({ seller }) => {
   const navigate = useNavigate();
 
-  const loadSeller = async () => {
-    setSeller(await getSellerInfo(id));
-  };
-
   const onSellerClick = () => {
-    navigate(`${SELLERS_ROUTE}/${id}`);
+    navigate(`${SELLERS_ROUTE}/${seller.id}`);
   };
 
-  useEffect(() => {
-    loadSeller();
-  }, []);
+  const getDescriptionLabel = () => {
+    if (seller.description) {
+      return seller.description;
+    }
+    return null;
+  };
 
   return (
     <>
@@ -31,7 +27,7 @@ const SellerButton = ({ id }) => {
             Name: {seller.name}
           </div>
           <div>
-            {seller.description ? `Description: ${seller.description}` : null}
+            {getDescriptionLabel()}
           </div>
         </div>
       </div>

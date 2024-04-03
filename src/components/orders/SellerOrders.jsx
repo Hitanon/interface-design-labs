@@ -1,19 +1,17 @@
 import { useContext } from "react";
-import { observer } from "mobx-react-lite";
 
 import { Context } from "../..";
 
 import SellerOrder from "./SellerOrder";
+import { observer } from "mobx-react-lite";
 
 
 const SellerOrders = observer(() => {
-  const { sellerOrders } = useContext(Context);
+  const { sellerProfile } = useContext(Context);
 
   return (
     <>
-      <ul>
-        {sellerOrders.orders.map((order) => <li key={order.id}><SellerOrder order={order} /></li>)}
-      </ul>
+      {sellerProfile.orders.map(order => <div key={order.id}><SellerOrder order={order} /></div>)}
     </>
   );
 });

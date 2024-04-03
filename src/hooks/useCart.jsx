@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { Context } from "..";
-import { addToCart, getCart, removeFromCart } from "../clients/CustomerClient";
+import { addToCart, getCart, purchaseOrder, removeFromCart } from "../clients/CustomerClient";
 
 
 const useCart = () => {
@@ -22,6 +22,15 @@ const useCart = () => {
     cart.setItems(cartItems);
   };
 
+  const get = async () => {
+    return await getCart();
+  };
+
+  const purchase = async () => {
+    await purchaseOrder();
+    await loadCart();
+  };
+
   const isCartContains = (id) => {
     return cart.items.some(item => item.id === id);
   };
@@ -32,6 +41,9 @@ const useCart = () => {
   };
 
   return {
+    cart,
+    get,
+    purchase,
     loadCart,
     removeItem,
     addItem,

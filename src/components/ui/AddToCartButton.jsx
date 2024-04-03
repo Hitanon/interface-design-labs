@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { observer } from "mobx-react-lite";
+import { useState } from "react";
 
 import {
   ADD_TO_CART_BUTTON_TEXT,
@@ -10,7 +9,6 @@ import {
 } from "../../utils/Consts";
 
 import useCart from "../../hooks/useCart";
-import useProducts from "../../hooks/useProducts";
 
 import TextButton from "./TextButton";
 import TextRedirectButton from "./TextRedirectButton";
@@ -18,56 +16,43 @@ import TextRedirectButton from "./TextRedirectButton";
 import "./ui.css";
 
 
-const AddToCartButton = observer(({ id }) => {
-  const [contains, setContains] = useState(false);
-  const [product, setProduct] = useState({});
-  const { get } = useProducts();
-  const { isCartContains, addItem, removeItem, getItemQuantity } = useCart();
+const AddToCartButton = ({ item }) => {
+  const [quantity, setQuantity] = useState(0);
+  const { addItem, removeItem, getItemQuantity } = useCart();
 
-  const checkIsCartContains = async () => {
-    setContains(isCartContains(id));
-  };
-
-  const loadProduct = async () => {
-    setProduct(await get(id));
+  const loadQuantity = async () => {
+    const itemQuantity = getItemQuantity(item.id);
+    setQuantity(itemQuantity);
   };
 
   const onAddToCartClick = async (quantity) => {
-    if (product.unitsInStock >= getItemQuantity(id) + quantity) {
-      await addItem(id, quantity);
-      checkIsCartContains();
+    if (item.unitsInStock >= getItemQuantity(item.id) + quantity) {
+      await addItem(item.id, quantity);
+      await loadQuantity();
     }
   };
 
   const onRemoveFromCartClick = async (quantity) => {
-    await removeItem(id, quantity);
-    checkIsCartContains();
+    await removeItem(item.id, quantity);
+    await loadQuantity();
   };
 
-  useEffect(() => {
-    loadProduct();
-  }, []);
-
-  useEffect(() => {
-    checkIsCartContains();
-  }, [product]);
+  if (quantity === 0) {
+    return (
+      <div className="add-to-cart-button">
+        <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+      </div>
+    );
+  };
 
   return (
     <div className="add-to-cart-button">
-      {
-        contains
-          ?
-          <div>
-            <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
-            <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
-            {getItemQuantity(id)}
-            <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
-          </div>
-          :
-          <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
-      }
+      <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+      <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
+      {getItemQuantity(item.id)}
+      <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
     </div>
   );
-});
+};
 
 export default AddToCartButton;

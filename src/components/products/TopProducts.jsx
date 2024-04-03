@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { observer } from "mobx-react-lite";
-
 import { TOP_PRODUCTS_LABEL } from "../../utils/Consts";
 
 import useProducts from "../../hooks/useProducts";
@@ -11,7 +9,7 @@ import ProductCard from "./ProductCard";
 import "./products.css";
 
 
-const TopProducts = observer(() => {
+const TopProducts = () => {
   const [topProducts, setTopProducts] = useState([]);
   const { getTop } = useProducts();
 
@@ -35,11 +33,11 @@ const TopProducts = observer(() => {
       </div>
       {
         topProducts.map((product) =>
-          <div className="product" key={product.id}><ProductCard id={product.id}></ProductCard></div>)
+          <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
       }
 
     </div>
   );
-});
+};
 
 export default TopProducts;

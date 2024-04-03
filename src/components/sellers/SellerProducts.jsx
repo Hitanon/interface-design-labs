@@ -1,19 +1,20 @@
 import { useContext } from "react";
-import { observer } from "mobx-react-lite";
 
 import { Context } from "../..";
-
-import ProductCard from "../products/ProductCard";
+import { CREATE_PRODUCT_ROUTE } from "../../utils/Consts";
+import EditSellerProductForm from "../forms/EditSellerProductForm";
+import TextRedirectButton from "../ui/TextRedirectButton";
+import { observer } from "mobx-react-lite";
 
 
 const SellerProducts = observer(() => {
-  const { seller } = useContext(Context);
+  const { sellerProfile } = useContext(Context);
 
   return (
     <>
-      {
-        seller.products.map(product => <div key={product.id}><ProductCard id={product.id} /></div>)
-      }
+      <TextRedirectButton text="Добавить продукт" route={CREATE_PRODUCT_ROUTE} />
+      <hr />
+      {sellerProfile.products.map(product => <div key={product.id}><EditSellerProductForm product={product} /></div>)}
     </>
   );
 });

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { observer } from "mobx-react-lite";
 
 import { getCustomerOrders } from "../../clients/CustomerClient";
 
 import CustomerOrder from "./CustomerOrder";
 
 
-const CustomerOrders = observer(() => {
+const CustomerOrders = () => {
   const [orders, setOrders] = useState([]);
 
   const getOrders = async () => {
@@ -28,6 +27,6 @@ const CustomerOrders = observer(() => {
       }
     </>
   );
-});
+};
 
 export default CustomerOrders;

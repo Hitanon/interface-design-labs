@@ -6,7 +6,7 @@ const Categories = ({ categories }) => {
     <>
       <div className="categories-list">
         {
-          categories.map(category => <CategoryCard key={category.id} id={category.id} />)
+          categories.map(category => <div key={category.id}><CategoryCard category={category} /></div>)
         }
       </div>
     </>

@@ -34,17 +34,17 @@ const App = observer(() => {
     loadUserInfo();
   }, []);
 
+  if (!isAlive) {
+    return (
+      <TechnicalWorks />
+    );
+  }
+
   return (
     <>
-      {
-        isAlive
-          ?
-          <BrowserRouter>
-            <AppRouter />
-          </BrowserRouter>
-          :
-          <TechnicalWorks />
-      }
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </>
   );
 });

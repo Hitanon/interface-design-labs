@@ -1,6 +1,4 @@
 const OrderStatus = ({ status }) => {
-  console.log(status);
-
   return (
     <>
       <div>

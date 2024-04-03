@@ -1,7 +1,11 @@
-import { getAllCategories, getTopCategories } from "../clients/CategoryClient";
+import { getAllCategories, getCategory, getTopCategories } from "../clients/CategoryClient";
 import { DEFAULT_TOP_CATEGORIES_COUNT } from "../utils/Consts";
 
 const useCategories = () => {
+  const get = async (id) => {
+    return await getCategory(id);
+  };
+
   const getTop = async (limit = DEFAULT_TOP_CATEGORIES_COUNT) => {
     return await getTopCategories(limit);
   };
@@ -11,6 +15,7 @@ const useCategories = () => {
   };
 
   return {
+    get,
     getTop,
     getAll,
   };

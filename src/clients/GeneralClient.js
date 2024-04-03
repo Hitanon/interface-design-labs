@@ -14,3 +14,12 @@ export const checkProjectHealth = async () => {
     return false;
   }
 };
+
+export const getAvailableStatuses = async () => {
+  const response = await $host.get("/api/orders/statuses");
+  return response.data;
+};
+
+export const moveToNextStatus = async (id, details) => {
+  await $host.post(`/api/orders/items/${id}/move`, { details });
+};
