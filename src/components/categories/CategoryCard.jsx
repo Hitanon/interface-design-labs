@@ -1,6 +1,8 @@
 import ImageField from "../ui/ImageField";
 import useSearch from "../../hooks/useSearch";
 
+import "./categories.css";
+
 
 const CategoryCard = ({ category }) => {
   const { addParam, applyFilters } = useSearch();
