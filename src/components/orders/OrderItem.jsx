@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
 import useCustomer from "../../hooks/useCustomer";
 
-import ImageSlider from "../ui/ImageSlider";
 import TextButton from "../ui/TextButton";
+import ImageField from "../ui/ImageField";
 
 import OrderStatus from "./OrderStatus";
 
@@ -34,11 +34,11 @@ const OrderItem = ({ item }) => {
       <div onClick={onProductClick}>
         <div>
           <div>
-            Name: {item.product.name}
+            {item.product.name}
           </div>
-          <ImageSlider />
+          <ImageField url={item.product.images[0]} />
           <div>
-            Price: {item.product.price}
+            {item.product.price} ₽
           </div>
         </div>
         <div onClick={onSellerClick}>
