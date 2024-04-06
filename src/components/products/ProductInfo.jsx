@@ -1,11 +1,18 @@
+import ImageField from "../ui/ImageField";
 import ImageSlider from "../ui/ImageSlider";
 
 
-const ProductInfo = ({ product, onClick = () => { } }) => {
+const ProductInfo = ({ product, withSlider = false, onClick = () => { } }) => {
   return (
     <div className="product-item" onClick={() => onClick(product.id)}>
       <div>
-        <ImageSlider />
+        {
+          withSlider
+            ?
+            <ImageSlider urls={product.images} />
+            :
+            <ImageField url={product.images[0]} />
+        }
       </div>
 
       <h2 className="product-price">
