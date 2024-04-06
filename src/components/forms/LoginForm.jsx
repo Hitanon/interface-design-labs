@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 
 import useAuthenticate from "../../hooks/useAuthenticate";
-import { MAIN_ROUTE } from "../../utils/Consts";
+import { LOGIN_ERROR_MODAL_MESSAGE, MAIN_ROUTE } from "../../utils/Consts";
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
 
@@ -59,7 +59,7 @@ const LoginForm = () => {
         onClose={onClose}
       >
         <Box>
-          <p>Wrong email or password</p>
+          <p>{LOGIN_ERROR_MODAL_MESSAGE}</p>
         </Box>
       </Modal>
     </>
