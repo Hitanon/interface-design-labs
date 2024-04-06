@@ -19,7 +19,7 @@ import TextRedirectButton from "./TextRedirectButton";
 import "./ui.css";
 
 
-const AddToCartButton = observer(({ item }) => {
+const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
   const { user } = useContext(Context);
   const [quantity, setQuantity] = useState(0);
   const { addItem, removeItem, getItemQuantity } = useCart();
@@ -41,6 +41,10 @@ const AddToCartButton = observer(({ item }) => {
     await loadQuantity();
   };
 
+  const onDeleteClick = async () => {
+    await removeItem(item.id, getItemQuantity(item.id));
+  };
+
   useEffect(() => {
     loadQuantity();
   }, []);
@@ -59,7 +63,13 @@ const AddToCartButton = observer(({ item }) => {
 
   return (
     <div className="add-to-cart-button">
-      <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+      {
+        moveToCartButton
+          ?
+          <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+          :
+          <TextButton text={"Удалить из корзины"} callback={onDeleteClick} />
+      }
       <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
       {getItemQuantity(item.id)}
       <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />

@@ -27,7 +27,7 @@ const PurchaseOrder = observer(() => {
     return (
       <>
         <div>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</div>
-        <TextRedirectButton text={"На главную"} path={MAIN_ROUTE} />
+        <TextRedirectButton text={"На главную"} route={MAIN_ROUTE} />
       </>
     );
   }
@@ -35,13 +35,7 @@ const PurchaseOrder = observer(() => {
   return (
     <>
       <CartItems items={cart.items} />
-      {
-        cart.items.length === 0
-          ?
-          <div>Empty cart</div>
-          :
-          <TextButton callback={onPurchaseClick} text={PURCHASE_BUTTON_TEXT} />
-      }
+      <TextButton callback={onPurchaseClick} text={PURCHASE_BUTTON_TEXT} />
     </>
   );
 });

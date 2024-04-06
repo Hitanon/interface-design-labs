@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Pagination } from "@mui/material";
+
+import { PRODUCTS_PER_PAGE } from "../../utils/Consts";
 
 import ProductCard from "./ProductCard";
-import { Pagination } from "@mui/material";
-import { PRODUCTS_PER_PAGE } from "../../utils/Consts";
 
 
 const Products = ({ products }) => {
