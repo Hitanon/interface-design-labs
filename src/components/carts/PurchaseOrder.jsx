@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import TextButton from "../ui/TextButton";
-import { MAIN_ROUTE, PURCHASE_BUTTON_TEXT } from "../../utils/Consts";
+import { PROFILE_ROUTE, PURCHASE_BUTTON_TEXT } from "../../utils/Consts";
 import useCart from "../../hooks/useCart";
 
 import CartItems from "./CartItems";
@@ -15,7 +15,7 @@ const PurchaseOrder = observer(() => {
 
   const onPurchaseClick = async () => {
     await purchase();
-    navigate(MAIN_ROUTE);
+    navigate(PROFILE_ROUTE);
   };
 
   useEffect(() => {
