@@ -17,7 +17,7 @@ export const CREATE_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/create`;
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
-export const DEFAULT_TOP_PRODUCTS_COUNT = 5;
+export const DEFAULT_TOP_PRODUCTS_COUNT = 3;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";

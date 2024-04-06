@@ -31,6 +31,7 @@ const TopProducts = () => {
           для всех, кто ценит уникальные и качественные изделия с особенным характером
         </p>
       </div>
+      
       {
         topProducts.map((product) =>
           <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)

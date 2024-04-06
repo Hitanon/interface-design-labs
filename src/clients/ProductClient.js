@@ -2,7 +2,7 @@ import { $host, $authHost } from ".";
 
 
 export const getTopProducts = async (limit) => {
-  const response = await $host.get("/api/products/top");
+  const response = await $host.get(`/api/products/top?limit=${limit}`);
   return response.data;
 };
 
