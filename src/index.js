@@ -6,7 +6,6 @@ import TopItemsStore from "./store/TopItemsStore";
 import ProductStore from "./store/ProductStore";
 import UserStore from "./store/UserStore";
 import SearchStore from "./store/SearchStore";
-import SellerOrdersStore from "./store/SellerOrdersStore";
 import CartStore from "./store/CartStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
 import SearchProductsStore from "./store/SearchProductsStore";
@@ -14,6 +13,7 @@ import SearchProductsStore from "./store/SearchProductsStore";
 import "./index.css";
 import EditProductStore from "./store/EditProductStore";
 import SellerProfileStore from "./store/SellerProfileStore";
+import CustomerProfileStore from "./store/CustomerProfileStore";
 import StatusesStore from "./store/StatusesStore";
 
 
@@ -27,11 +27,11 @@ root.render(
     user: new UserStore(),
     search: new SearchStore(),
     searchProducts: new SearchProductsStore(),
-    sellerOrders: new SellerOrdersStore(),
     cart: new CartStore(),
     projectInfo: new ProjectInfoStore(),
     editProduct: new EditProductStore(),
     sellerProfile: new SellerProfileStore(),
+    customerProfile: new CustomerProfileStore(),
     statuses: new StatusesStore(),
   }}>
     <App />

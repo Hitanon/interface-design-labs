@@ -24,9 +24,28 @@ const OrderStatusMovementForm = observer(({ order }) => {
     setDetails(detailsDefaultValue);
   };
 
+  const isLastSellerEvent = () => {
+    return order.events.length === statuses.statuses.length - 1;
+  };
+
   useEffect(() => {
     loadAvailableStatuses();
   }, []);
+
+  if (isLastSellerEvent()) {
+    return (
+      <>
+        <div>
+          Order statuses:
+          {order.events.map(status => <div key={status.id}>{status.name}</div>)}
+        </div>
+        <div>
+          All statuses:
+          {statuses.statuses.map(status => <div key={status.name}>{status.name}</div>)}
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
