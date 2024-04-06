@@ -23,6 +23,7 @@ const TopProducts = () => {
 
   return (
     <div className="top-products-section">
+      
       <div className="top-products-info">
         <h2 className="top-products-title">
           {TOP_PRODUCTS_LABEL}
@@ -31,7 +32,7 @@ const TopProducts = () => {
           для всех, кто ценит уникальные и качественные изделия с особенным характером
         </p>
       </div>
-      
+
       {
         topProducts.map((product) =>
           <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
