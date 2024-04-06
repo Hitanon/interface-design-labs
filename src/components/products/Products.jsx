@@ -2,6 +2,14 @@ import ProductCard from "./ProductCard";
 
 
 const Products = ({ products }) => {
+  if (products.length === 0) {
+    return (
+      <>
+        No Products
+      </>
+    );
+  }
+
   return (
     <>
       {

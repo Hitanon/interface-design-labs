@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { observer } from "mobx-react-lite";
 
 import { TOP_CATEGORIES_LABEL } from "../../utils/Consts";
 import useCategories from "../../hooks/useCategories";
@@ -9,7 +8,7 @@ import Categories from "./Categories";
 import "./categories.css";
 
 
-const TopCategories = observer(() => {
+const TopCategories = () => {
   const [topCategories, setTopCategories] = useState([]);
   const { getTop } = useCategories();
 
@@ -29,6 +28,6 @@ const TopCategories = observer(() => {
       <Categories categories={topCategories} />
     </div>
   );
-});
+};
 
 export default TopCategories;

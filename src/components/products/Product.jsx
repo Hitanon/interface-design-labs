@@ -33,7 +33,7 @@ const Product = observer(({ id }) => {
 
   return (
     <>
-      <ProductInfo product={product} />
+      <ProductInfo product={product} withSlider={true} />
       <CategoryButton category={product.category} />
       <SellerButton seller={product.seller} />
       <UserComment itemId={product.id} />

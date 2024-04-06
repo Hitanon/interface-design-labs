@@ -17,7 +17,11 @@ export const searchProductsByParams = async (urlParams) => {
 };
 
 export const createProduct = async (data) => {
-  await $authHost.post("/api/products", data);
+  await $authHost.post("/api/products", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 
 export const updateProduct = async (id, data) => {
