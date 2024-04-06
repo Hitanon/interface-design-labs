@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
 import {
@@ -40,6 +40,10 @@ const AddToCartButton = observer(({ item }) => {
     await removeItem(item.id, quantity);
     await loadQuantity();
   };
+
+  useEffect(() => {
+    loadQuantity();
+  }, []);
 
   if (user.role !== ROLE.CUSTOMER) {
     return;
