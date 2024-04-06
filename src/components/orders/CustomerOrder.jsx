@@ -21,7 +21,7 @@ const CustomerOrder = ({ order }) => {
         Заказ от: {formatCreatedAt()}
       </div>
       <div>
-        Всего: {order.total}
+        Всего: {order.total} ₽
       </div>
       {order.items.map(item => <div key={item.id}><OrderItem item={item} /></div>)}
     </>

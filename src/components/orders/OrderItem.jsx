@@ -7,6 +7,7 @@ import TextButton from "../ui/TextButton";
 import ImageField from "../ui/ImageField";
 
 import OrderStatus from "./OrderStatus";
+import OrderStatuses from "./OrderStatuses";
 
 
 const OrderItem = ({ item }) => {
@@ -45,10 +46,7 @@ const OrderItem = ({ item }) => {
           Seller: {item.product.seller.name}
         </div>
         <div>
-          Statuses:
-          <div>
-            {item.statuses.map(status => <div key={status.id}><OrderStatus status={status} /></div>)}
-          </div>
+          <OrderStatuses statuses={item.statuses} />
         </div>
       </div>
       {isAcceptable() ? <TextButton text={"Подтвердить получение"} callback={onSubmitAcceptClick} /> : null}
