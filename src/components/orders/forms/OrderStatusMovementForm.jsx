@@ -41,7 +41,7 @@ const OrderStatusMovementForm = observer(({ order }) => {
   const allStatuses = statuses.statuses.map(x => x.name);
   const nonActiveStatuses = allStatuses.filter(x => !orderStatuses.includes(x));
 
-  if (isLastSellerEvent()) {
+  if (isLastSellerEvent() || nonActiveStatuses.length === 0) {
     return (
       <>
         {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}

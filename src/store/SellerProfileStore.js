@@ -14,6 +14,7 @@ export default class SellerProfileStore {
   setProfile(profile) {
     this._name = profile.name;
     this._description = profile.description;
+    this._balance = profile.balance;
     this._products = profile.products;
     this._orders = profile.orders;
   }
