@@ -14,7 +14,7 @@ const CategoryCard = ({ category }) => {
 
   return (
     <div className="category" onClick={onCategoryClick}>
-      <ImageField />
+      <ImageField url={category.image} />
 
       <h3>
         {category.name}
