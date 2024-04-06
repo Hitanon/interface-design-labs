@@ -33,8 +33,8 @@ const Product = observer(({ id }) => {
 
   return (
     <>
-      <ProductInfo product={product} withSlider={true} />
       <CategoryButton category={product.category} />
+      <ProductInfo product={product} withSlider={true} />
       <SellerButton seller={product.seller} />
       <UserComment itemId={product.id} />
       {product.comments.map((comment) => <div key={comment.id}><ProductComment comment={comment} /></div>)}
