@@ -6,7 +6,6 @@ import useCustomer from "../../hooks/useCustomer";
 import TextButton from "../ui/TextButton";
 import ImageField from "../ui/ImageField";
 
-import OrderStatus from "./OrderStatus";
 import OrderStatuses from "./OrderStatuses";
 
 
@@ -43,7 +42,7 @@ const OrderItem = ({ item }) => {
           </div>
         </div>
         <div onClick={onSellerClick}>
-          Seller: {item.product.seller.name}
+          Продавец: {item.product.seller.name}
         </div>
         <div>
           <OrderStatuses statuses={item.statuses} />
