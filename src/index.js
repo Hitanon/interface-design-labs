@@ -8,7 +8,6 @@ import UserStore from "./store/UserStore";
 import SearchStore from "./store/SearchStore";
 import CartStore from "./store/CartStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
-import SearchProductsStore from "./store/SearchProductsStore";
 
 import "./index.css";
 import EditProductStore from "./store/EditProductStore";
@@ -26,7 +25,6 @@ root.render(
     product: new ProductStore(),
     user: new UserStore(),
     search: new SearchStore(),
-    searchProducts: new SearchProductsStore(),
     cart: new CartStore(),
     projectInfo: new ProjectInfoStore(),
     editProduct: new EditProductStore(),

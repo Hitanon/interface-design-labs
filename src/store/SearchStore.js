@@ -5,6 +5,7 @@ export default class SearchStore {
   constructor() {
     this._params = [];
     this._orderBy = "";
+    this._products = [];
     makeAutoObservable(this);
   }
 
@@ -35,5 +36,13 @@ export default class SearchStore {
 
   get orderBy() {
     return this._orderBy;
+  }
+
+  setProducts(products) {
+    this._products = products;
+  }
+
+  get products() {
+    return this._products;
   }
 };
