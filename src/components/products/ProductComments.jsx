@@ -49,7 +49,7 @@ const ProductComments = observer(() => {
         {getPagedComments().map((comment) => <ProductComment key={comment.id} comment={comment} />)}
       </div>
       {
-        product.comments.length > 0
+        product.comments.length / COMMENTS_PER_PAGE > 1
           ?
           <Pagination
             count={Math.ceil(product.comments.length / COMMENTS_PER_PAGE)}

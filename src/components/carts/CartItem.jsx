@@ -13,6 +13,8 @@ const CartItem = ({ item }) => {
     navigate(`${PRODUCTS_ROUTE}/${item.id}`);
   };
 
+  console.log(item.images);
+
   return (
     <>
       <ProductInfo product={item} onClick={onProductClick} />

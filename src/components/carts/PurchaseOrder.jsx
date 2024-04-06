@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
 import TextButton from "../ui/TextButton";
-import { PROFILE_ROUTE, PURCHASE_BUTTON_TEXT } from "../../utils/Consts";
+import { MAIN_ROUTE, PROFILE_ROUTE, PURCHASE_BUTTON_TEXT } from "../../utils/Consts";
 import useCart from "../../hooks/useCart";
+import TextRedirectButton from "../ui/TextRedirectButton";
 
 import CartItems from "./CartItems";
 
@@ -21,6 +22,15 @@ const PurchaseOrder = observer(() => {
   useEffect(() => {
     loadCart();
   }, []);
+
+  if (cart.items.length === 0) {
+    return (
+      <>
+        <div>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</div>
+        <TextRedirectButton text={"На главную"} path={MAIN_ROUTE} />
+      </>
+    );
+  }
 
   return (
     <>
