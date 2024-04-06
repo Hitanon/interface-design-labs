@@ -6,8 +6,6 @@ import "react-awesome-slider/dist/styles.css";
 
 
 const ImageSlider = ({ urls }) => {
-  console.log(urls);
-
   return (
     <AwesomeSlider>
       {

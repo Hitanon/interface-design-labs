@@ -21,13 +21,14 @@ const EditProductForm = observer(() => {
 
   const loadProduct = async () => {
     const product = await get(id);
-    editProduct.setProduct(product);
+    editProduct.setProduct({ ...product, images: [] });
     setProduct(product);
   };
 
   const onSaveClick = () => {
     updateProduct(
       id,
+      editProduct.images,
       editProduct.name,
       editProduct.description,
       editProduct.price,

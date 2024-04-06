@@ -17,7 +17,6 @@ export const searchProductsByParams = async (urlParams) => {
 };
 
 export const createProduct = async (data) => {
-  console.log(data);
   await $authHost.post("/api/products", data, {
     headers: {
       "Content-Type": "multipart/form-data",

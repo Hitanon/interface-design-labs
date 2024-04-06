@@ -29,7 +29,11 @@ const ProductImagesForm = observer(() => {
               <ul>
                 {editProduct.images.map((file, index) => (
                   <li key={index}>
-                    <img src={URL.createObjectURL(file)} alt={`Изображение ${index}`} style={{ maxWidth: '200px', maxHeight: '200px', marginBottom: '10px' }} />
+                    <img
+                      src={URL.createObjectURL(file)}
+                      alt={`Изображение ${index}`}
+                      style={{ maxWidth: "200px", maxHeight: "200px", marginBottom: "10px" }}
+                    />
                   </li>
                 ))}
               </ul>
