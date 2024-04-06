@@ -16,6 +16,7 @@ const CreateProductForm = () => {
 
   const onCreateClick = () => {
     createProduct(
+      editProduct.images,
       editProduct.name,
       editProduct.description,
       editProduct.price,

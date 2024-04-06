@@ -28,8 +28,17 @@ const useSeller = () => {
     sellerProfile.setDescription(description);
   };
 
-  const create = async (name, description, price, unitsInStock, category) => {
-    await createProduct({ name, description, price, unitsInStock, category });
+  const create = async (images, name, description, price, unitsInStock, category) => {
+    const formdata = new FormData();
+    formdata.append("name", name);
+    formdata.append("description", description);
+    formdata.append("price", price);
+    formdata.append("unitsInStock", unitsInStock);
+    formdata.append("category", category);
+    images.forEach((image, index) => {
+      formdata.append(`images[${index}]`, image);
+    });
+    await createProduct(formdata);
     updateProfileProducts();
   };
 
