@@ -14,6 +14,7 @@ export const PURCHASE_ORDER_ROUTE = "/cart";
 export const SEARCH_PRODUCTS_ROUTE = `${PRODUCTS_ROUTE}/search`;
 export const EDIT_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/:id/edit`;
 export const CREATE_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/create`;
+export const ABOUT_US_ROUTE = "/about";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;

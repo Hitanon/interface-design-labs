@@ -7,7 +7,7 @@ import useProjectInfo from "../../hooks/useProjectInfo";
 
 import SocialMediaButton from "../ui/SocialMediaButton";
 
-import { MAIN_ROUTE, CATEGORIES_ROUTE } from "../../utils/Consts";
+import { MAIN_ROUTE, CATEGORIES_ROUTE, ABOUT_US_ROUTE } from "../../utils/Consts";
 
 import "./general.css";
 
@@ -38,7 +38,7 @@ const Footer = observer(() => {
           </Link>
         </li>
         <li>
-          <Link className="footer-menu-link" to="/">
+          <Link className="footer-menu-link" to={ABOUT_US_ROUTE}>
             О нас
           </Link>
         </li>

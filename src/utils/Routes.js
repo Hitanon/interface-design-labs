@@ -9,6 +9,7 @@ import SearchProducts from "../pages/SearchProducts";
 import Seller from "../pages/Seller";
 import CreateProduct from "../pages/CreateProduct";
 import EditProduct from "../pages/EditProduct";
+import AboutUs from "../pages/AboutUs";
 
 import {
   CATEGORIES_ROUTE,
@@ -22,6 +23,7 @@ import {
   SELLER_ROUTE,
   CREATE_PRODUCT_ROUTE,
   EDIT_PRODUCT_ROUTE,
+  ABOUT_US_ROUTE,
 } from "./Consts";
 
 
@@ -69,5 +71,9 @@ export const routes = [
   {
     path: EDIT_PRODUCT_ROUTE,
     element: <EditProduct />,
+  },
+  {
+    path: ABOUT_US_ROUTE,
+    element: <AboutUs />,
   },
 ];
