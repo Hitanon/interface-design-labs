@@ -19,6 +19,7 @@ const EditSellerProductForm = ({ product }) => {
   return (
     <>
       <ProductInfo product={product} withSlider={false} />
+      <div>Категория: {product.category.name}</div>
       <TextRedirectButton text="Изменить" route={getEditProductRoute()} />
       <TextButton text="Удалить" callback={onDeleteClick} />
     </>
