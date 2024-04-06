@@ -7,6 +7,8 @@ import useOrders from "../../../hooks/useOrders";
 import { Context } from "../../..";
 import useSeller from "../../../hooks/useSeller";
 
+import OrderStatus from "./OrderStatus";
+
 
 const OrderStatusMovementForm = observer(({ order }) => {
   const { statuses } = useContext(Context);
@@ -16,6 +18,9 @@ const OrderStatusMovementForm = observer(({ order }) => {
   const [details, setDetails] = useState(detailsDefaultValue);
 
   const loadAvailableStatuses = async () => {
+    if (statuses.statuses.length > 0) {
+      return;
+    }
     statuses.setStatuses(await getStatuses());
   };
 
@@ -32,31 +37,23 @@ const OrderStatusMovementForm = observer(({ order }) => {
     loadAvailableStatuses();
   }, []);
 
-  if (isLastSellerEvent()) {
+  const orderStatuses = order.events.map(x => x.name);
+  const allStatuses = statuses.statuses.map(x => x.name);
+  const nonActiveStatuses = allStatuses.filter(x => !orderStatuses.includes(x));
+
+  if (isLastSellerEvent() || nonActiveStatuses.length === 0) {
     return (
       <>
-        <div>
-          Order statuses:
-          {order.events.map(status => <div key={status.id}>{status.name}</div>)}
-        </div>
-        <div>
-          All statuses:
-          {statuses.statuses.map(status => <div key={status.name}>{status.name}</div>)}
-        </div>
+        {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
+        {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
       </>
     );
   }
 
   return (
     <>
-      <div>
-        Order statuses:
-        {order.events.map(status => <div key={status.id}>{status.name}</div>)}
-      </div>
-      <div>
-        All statuses:
-        {statuses.statuses.map(status => <div key={status.name}>{status.name}</div>)}
-      </div>
+      {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
+      {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
       <div>
         <InputField type="text" value={details} callback={setDetails} />
         <TextButton text={"Перевести на следующий статус"} callback={onMoveClick} />

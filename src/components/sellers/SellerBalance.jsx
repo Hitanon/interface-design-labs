@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { observer } from "mobx-react-lite";
 
 import { Context } from "../..";
 
 
-const SellerBalance = () => {
+const SellerBalance = observer(() => {
   const { sellerProfile } = useContext(Context);
 
   return (
@@ -13,6 +14,6 @@ const SellerBalance = () => {
       </div>
     </>
   );
-};
+});
 
 export default SellerBalance;

@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { Box, Modal } from "@mui/material";
 
 import useAuthenticate from "../../hooks/useAuthenticate";
-import { MAIN_ROUTE } from "../../utils/Consts";
+import { LOGIN_ERROR_MODAL_MESSAGE, MAIN_ROUTE } from "../../utils/Consts";
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
 
@@ -43,9 +43,20 @@ const LoginForm = () => {
           {LOGIN_FORM_TITLE}
         </h2>
         <div>
-          <InputField className="input-auth" type="email" value={email} callback={setEmail} placeholder="E-mail" />
-          <InputField className="input-auth" type="password" value={password} callback={setPassword}
-            placeholder="Пароль" />
+          <InputField
+            className="input-auth"
+            type="email"
+            value={email}
+            callback={setEmail}
+            placeholder="E-mail"
+          />
+          <InputField
+            className="input-auth"
+            type="password"
+            value={password}
+            callback={setPassword}
+            placeholder="Пароль"
+          />
         </div>
         <div className="auth-buttons">
           <TextButton text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />
@@ -59,7 +70,7 @@ const LoginForm = () => {
         onClose={onClose}
       >
         <Box>
-          <p>Wrong email or password</p>
+          <p>{LOGIN_ERROR_MODAL_MESSAGE}</p>
         </Box>
       </Modal>
     </>

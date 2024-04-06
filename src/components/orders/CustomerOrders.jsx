@@ -3,6 +3,8 @@ import { observer } from "mobx-react-lite";
 
 import { Context } from "../..";
 import useCustomer from "../../hooks/useCustomer";
+import { MAIN_ROUTE } from "../../utils/Consts";
+import TextRedirectButton from "../ui/TextRedirectButton";
 
 import CustomerOrder from "./CustomerOrder";
 
@@ -16,7 +18,12 @@ const CustomerOrders = observer(() => {
   }, []);
 
   if (customerProfile.orders.length === 0) {
-    return <div>No orders</div>;
+    return (
+      <>
+        <div>У вас пока нет заказов. Вы можете их оформить</div>
+        <TextRedirectButton text={"На главную"} route={MAIN_ROUTE} />
+      </>
+    );
   }
 
   return (

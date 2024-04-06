@@ -13,6 +13,7 @@ import {
   MAIN_ROUTE,
   REGISTRATION_BUTTON_TEXT,
   ROLE,
+  REGISTRATION_ERROR_MODAL_MESSAGE,
 } from "../../utils/Consts";
 
 
@@ -66,7 +67,7 @@ const RegistrationForm = () => {
         onClose={onClose}
       >
         <Box>
-          <p>Wrong email or password</p>
+          <p>{REGISTRATION_ERROR_MODAL_MESSAGE}</p>
         </Box>
       </Modal>
     </>

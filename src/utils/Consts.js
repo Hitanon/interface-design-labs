@@ -14,29 +14,33 @@ export const PURCHASE_ORDER_ROUTE = "/cart";
 export const SEARCH_PRODUCTS_ROUTE = `${PRODUCTS_ROUTE}/search`;
 export const EDIT_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/:id/edit`;
 export const CREATE_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/create`;
+export const ABOUT_US_ROUTE = "/about";
 
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
-export const DEFAULT_TOP_PRODUCTS_COUNT = 5;
+export const DEFAULT_TOP_PRODUCTS_COUNT = 3;
+export const COMMENTS_PER_PAGE = 10;
+export const PRODUCTS_PER_PAGE = 8;
+export const ORDERS_PER_PAGE = 8;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
 export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем категориям";
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
 export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
-export const PURCHASE_BUTTON_TEXT = "Оформить";
+export const PURCHASE_BUTTON_TEXT = "Заказать";
 export const LOGIN_BUTTON_TEXT = "Войти";
 export const LOGOUT_BUTTON_TEXT = "Выйти";
-export const REGISTRATION_BUTTON_TEXT = "Регистрация";
+export const REGISTRATION_BUTTON_TEXT = "Зарегистрироваться";
 export const PROFILE_BUTTON_TEXT = "Профиль";
 export const HELLO_MESSAGE_TEXT = "Здравствуйте";
-export const DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT = "Нет аккаунта?";
-export const HAVE_AN_ACCOUNT_BUTTON_TEXT = "Есть аккаунт?";
+export const DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT = "Регистрация";
+export const HAVE_AN_ACCOUNT_BUTTON_TEXT = "Войти";
 export const EMAIL_FIELD_LABEL = "Электронная почта";
 export const USERNAME_FIELD_LABEL = "Имя";
 export const PASSWORD_FIELD_LABEL = "Пароль";
-export const LOGIN_FORM_TITLE = "Вход";
-export const REGISTRATION_FORM_TITLE = "Регистрация";
+export const LOGIN_FORM_TITLE = "ВХОД";
+export const REGISTRATION_FORM_TITLE = "РЕГИСТРАЦИЯ";
 export const EDIT_COMMENT_BUTTON_TEXT = "Изменить комментарий";
 export const CREATE_COMMENT_BUTTON_TEXT = "Оставить комментарий";
 export const DELETE_COMMENT_BUTTON_TEXT = "Удалить комментарий";
@@ -55,6 +59,8 @@ export const UPPER_PRICE_FILTER_LABEL = "Цена до";
 export const RATING_FILTER_LABEL = "Рейтинг";
 export const LOWER_RATING_FILTER_LABEL = "Рейтинг от";
 export const UPPER_RATING_FILTER_LABEL = "Рейтинг до";
+export const LOGIN_ERROR_MODAL_MESSAGE = "Неверная почта или пароль";
+export const REGISTRATION_ERROR_MODAL_MESSAGE = "Ошибка регистрации";
 
 // Enums
 export const ROLE = {

@@ -10,7 +10,7 @@ const CartItems = ({ items }) => {
     <>
       {items.map(item => <div key={item.id}><CartItem item={item} /></div>)}
       <div>
-        Total: {calculateTotal()}
+        В сумме: {calculateTotal()}
       </div>
     </>
   );

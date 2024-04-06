@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
 import useCustomer from "../../hooks/useCustomer";
 
-import ImageSlider from "../ui/ImageSlider";
 import TextButton from "../ui/TextButton";
+import ImageField from "../ui/ImageField";
 
-import OrderStatus from "./OrderStatus";
+import OrderStatuses from "./OrderStatuses";
 
 
 const OrderItem = ({ item }) => {
@@ -34,21 +34,18 @@ const OrderItem = ({ item }) => {
       <div onClick={onProductClick}>
         <div>
           <div>
-            Name: {item.product.name}
+            {item.product.name}
           </div>
-          <ImageSlider />
+          <ImageField url={item.product.images[0]} />
           <div>
-            Price: {item.product.price}
+            {item.product.price} ₽
           </div>
         </div>
         <div onClick={onSellerClick}>
-          Seller: {item.product.seller.name}
+          Продавец: {item.product.seller.name}
         </div>
         <div>
-          Statuses:
-          <div>
-            {item.statuses.map(status => <div key={status.id}><OrderStatus status={status} /></div>)}
-          </div>
+          <OrderStatuses statuses={item.statuses} />
         </div>
       </div>
       {isAcceptable() ? <TextButton text={"Подтвердить получение"} callback={onSubmitAcceptClick} /> : null}
