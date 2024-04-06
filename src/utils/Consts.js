@@ -19,6 +19,7 @@ export const ABOUT_US_ROUTE = "/about";
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
 export const DEFAULT_TOP_PRODUCTS_COUNT = 3;
+export const COMMENTS_PER_PAGE = 10;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";

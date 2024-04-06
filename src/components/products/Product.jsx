@@ -10,6 +10,7 @@ import useProducts from "../../hooks/useProducts";
 
 import ProductInfo from "./ProductInfo";
 import ProductComments from "./ProductComments";
+import ProductDescription from "./ProductDesctiption";
 
 
 const Product = observer(({ id }) => {
@@ -36,9 +37,10 @@ const Product = observer(({ id }) => {
       <CategoryButton category={product.category} />
       <ProductInfo product={product} withSlider={true} />
       <SellerButton seller={product.seller} />
+      <AddToCartButton item={product} />
+      <ProductDescription product={product} />
       <UserComment itemId={product.id} />
       <ProductComments comments={product.comments} />
-      <AddToCartButton item={product} />
     </>
   );
 });
