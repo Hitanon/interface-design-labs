@@ -59,7 +59,8 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: var(--active-color);
+    background-color: transparent;
+    outline: var(--primary-color) 2px solid;
 }
 
 search {
@@ -101,6 +102,8 @@ input[type="checkbox"]:checked+label:before {
 .search-button {
     margin: 0;
     padding: 0;
+    position: relative;
+    z-index: 999;
 
     height: 30px;
     width: 37px;
@@ -109,6 +112,10 @@ input[type="checkbox"]:checked+label:before {
     background-repeat: no-repeat;
     background-position: center;
     border: black 1px solid;
+}
+
+.search-button:hover {
+    background-color: var(--primary-color);
 }
 
 .page-footer-bottom {

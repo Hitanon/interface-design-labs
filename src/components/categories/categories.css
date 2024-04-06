@@ -27,8 +27,8 @@
     align-items: center;
 }
 
-.category:nth-child(n+2){
-    margin-left: 40px;
+.category:nth-child(n+1){
+    margin-right: 40px;
 }
 
 .category:hover {
