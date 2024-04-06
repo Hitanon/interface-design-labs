@@ -9,7 +9,7 @@ import { Context } from "../..";
 import useProducts from "../../hooks/useProducts";
 
 import ProductInfo from "./ProductInfo";
-import ProductComment from "./ProductComment";
+import ProductComments from "./ProductComments";
 
 
 const Product = observer(({ id }) => {
@@ -37,7 +37,7 @@ const Product = observer(({ id }) => {
       <ProductInfo product={product} withSlider={true} />
       <SellerButton seller={product.seller} />
       <UserComment itemId={product.id} />
-      {product.comments.map((comment) => <div key={comment.id}><ProductComment comment={comment} /></div>)}
+      <ProductComments comments={product.comments} />
       <AddToCartButton item={product} />
     </>
   );
