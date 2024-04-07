@@ -3,9 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
 import AddToCartButton from "../ui/AddToCartButton";
 
-import "./products.css";
 import ProductInfo from "./ProductInfo";
 
+import "./products.css";
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();

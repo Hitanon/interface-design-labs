@@ -3,7 +3,7 @@ import { useState } from "react";
 import SelectItem from "./SelectItem";
 
 
-const SelectItemList = ({ items, setItem, clearSelected }) => {
+const SelectItemList = ({ items, setItem, clearSelected, className, itemClassName }) => {
   const [selectedItem, setSelectedItem] = useState(null);
 
   const isItemSelected = (item) => {
@@ -21,16 +21,16 @@ const SelectItemList = ({ items, setItem, clearSelected }) => {
   };
 
   return (
-    <>
+    <div className={className}>
       {
         items.map(
           item =>
             <div key={item.id}>
-              <SelectItem item={item} onSelect={onSelect} isSelected={isItemSelected(item)} />
+              <SelectItem className={itemClassName} item={item} onSelect={onSelect} isSelected={isItemSelected(item)} />
             </div>
         )
       }
-    </>
+    </div>
   );
 };
 

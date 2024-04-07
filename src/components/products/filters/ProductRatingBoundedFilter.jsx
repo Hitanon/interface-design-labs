@@ -4,6 +4,8 @@ import useSearch from "../../../hooks/useSearch";
 import BoundedSearchFilter from "../../filters/BoundedSearchFilter";
 import { LOWER_RATING_FILTER_LABEL, RATING_FILTER_LABEL, UPPER_RATING_FILTER_LABEL } from "../../../utils/Consts";
 
+import "./filters.css";
+
 
 const ProductRatingBoundedFilter = () => {
   const INITIAL_VALUE = 0;
@@ -57,7 +59,7 @@ const ProductRatingBoundedFilter = () => {
 
   return (
     <>
-      <h2>
+      <h2 className="filter-title">
         {RATING_FILTER_LABEL}
       </h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType={INPUT_TYPE} />

@@ -38,10 +38,6 @@ const TopProducts = () => {
             <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
         }
       </div>
-      {
-        topProducts.map((product) =>
-          <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
-      }
     </div>
   );
 };

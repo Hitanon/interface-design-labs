@@ -1,11 +1,11 @@
-import "./general.css"
+import "./general.css";
 
-const SelectItem = ({ item, onSelect, isSelected }) => {
+const SelectItem = ({ item, onSelect, isSelected, className }) => {
   return (
-    <p className="select-item">
-      <div onClick={() => onSelect(item)} style={{ fontWeight: isSelected ? "bold" : "normal" }}>
-        {item.name}
-      </div>
+    <p className={className}
+      onClick={() => onSelect(item)}
+      style={{ fontWeight: isSelected ? "bold" : "normal" }}>
+      {item.name}
     </p>
   );
 };

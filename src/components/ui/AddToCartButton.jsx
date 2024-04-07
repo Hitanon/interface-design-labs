@@ -56,23 +56,38 @@ const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
   if (quantity === 0) {
     return (
       <div className="add-to-cart-button">
-        <TextButton text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+        <TextButton className="text-button" text={ADD_TO_CART_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
       </div>
     );
   };
 
   return (
     <div className="add-to-cart-button">
+
       {
         moveToCartButton
           ?
-          <TextRedirectButton text={MOVE_TO_CART_BUTTON_TEXT} route={PURCHASE_ORDER_ROUTE} />
+          <TextRedirectButton className="text-button"
+            text={MOVE_TO_CART_BUTTON_TEXT}
+            route={PURCHASE_ORDER_ROUTE} />
           :
-          <TextButton text={"Удалить из корзины"} callback={onDeleteClick} />
+          <TextButton className="text-button" text={"Удалить из корзины"} callback={onDeleteClick} />
       }
-      <TextButton text={DECREASE_QUANTITY_BUTTON_TEXT} callback={() => onRemoveFromCartClick(1)} />
-      {getItemQuantity(item.id)}
-      <TextButton text={INCREASE_QUANTITY_BUTTON_TEXT} callback={() => onAddToCartClick(1)} />
+
+      <div className="change-quantity-section">
+
+        <TextButton className="change-quantity-button"
+          text={DECREASE_QUANTITY_BUTTON_TEXT}
+          callback={() => onRemoveFromCartClick(1)} />
+
+        <div>{getItemQuantity(item.id)}</div>
+
+        <TextButton className="change-quantity-button"
+          text={INCREASE_QUANTITY_BUTTON_TEXT}
+          callback={() => onAddToCartClick(1)} />
+          
+      </div>
+
     </div>
   );
 });

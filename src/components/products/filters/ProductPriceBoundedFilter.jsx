@@ -4,6 +4,8 @@ import BoundedSearchFilter from "../../filters/BoundedSearchFilter";
 import { PRICE_FILTER_LABEL, LOWER_PRICE_FILTER_LABEL, UPPER_PRICE_FILTER_LABEL } from "../../../utils/Consts";
 import useSearch from "../../../hooks/useSearch";
 
+import "./filters.css";
+
 
 const ProductPriceBoundedFilter = () => {
   const INITIAL_VALUE = 0;
@@ -55,7 +57,7 @@ const ProductPriceBoundedFilter = () => {
 
   return (
     <>
-      <h2>
+      <h2 className="filter-title">
         {PRICE_FILTER_LABEL}
       </h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType={inputType} />

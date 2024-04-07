@@ -5,6 +5,8 @@ import { PRODUCTS_PER_PAGE } from "../../utils/Consts";
 
 import ProductCard from "./ProductCard";
 
+import "./products.css";
+
 
 const Products = ({ products }) => {
   const [page, setPage] = useState(1);
@@ -17,17 +19,23 @@ const Products = ({ products }) => {
 
   if (products.length === 0) {
     return (
-      <>
+      <h3>
         Нет товаров
-      </>
+      </h3>
     );
   }
 
   return (
     <>
-      {
-        getPagedProducts().map(product => <div key={product.id}><ProductCard product={product} /></div>)
-      }
+      <div className="products-list">
+        {
+          getPagedProducts().map(product =>
+            <div className="product" key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          )
+        }
+      </div>
       {
         products.length / PRODUCTS_PER_PAGE > 1
           ?

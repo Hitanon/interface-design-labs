@@ -1,9 +1,9 @@
 import "./ui.css";
 
-const TextButton = ({ text, callback}) => {
+const TextButton = ({ text, callback, className}) => {
   return (
     <>
-      <button className="text-button" onClick={callback}>{text}</button>
+      <button className={className} onClick={callback}>{text}</button>
     </>
   );
 };

@@ -59,7 +59,7 @@ const LoginForm = () => {
           />
         </div>
         <div className="auth-buttons">
-          <TextButton text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />
+          <TextButton className="text-button" text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />
           <Link className="auth-link" to={REGISTRATION_ROUTE}>
             {DOESNT_HAVE_AN_ACCOUNT_BUTTON_TEXT}
           </Link>

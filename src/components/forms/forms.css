@@ -36,3 +36,56 @@
     justify-content: center;
     margin: 15px 0 10px;
 }
+
+.user-comment {
+    width: 96%;
+    height: 200px;
+    overflow-y: auto;
+    resize: none;
+    border: 1px solid black;
+    margin-top: 10px;
+  }
+  
+  .user-comment::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .user-comment::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .user-comment::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  .user-comment::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .create-comment-button {
+    margin-top: 10px;
+    padding: 20px 40px;
+    width: calc(50% - 5px);
+  }
+
+  .edit-comment-section {
+    margin-top: 10px;
+  }
+
+  .edit-comment-button {
+    margin-right: 10px;
+    width: calc(50% - 5px);
+    padding: 20px 0;
+  }
+
+  .delete-comment-button {
+    width: calc(50% - 5px);
+    padding: 20px 0;
+    color: white;
+    background-color: var(--bg-dark-color);
+  }
+
+  .delete-comment-button:hover {
+    outline: 2px var(--bg-dark-color) solid;
+    color: black;
+  }

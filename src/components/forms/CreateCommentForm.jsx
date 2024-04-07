@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-import InputField from "../ui/InputField";
+import Rating from "@mui/material/Rating";
+import Box from "@mui/material/Box";
+
 import TextButton from "../ui/TextButton";
 import { CREATE_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
 import useComments from "../../hooks/useComments";
-import { ratingValidator } from "../../utils/Validators";
+
+import "./forms.css";
 
 
 const CreateCommentForm = ({ itemId }) => {
@@ -19,24 +22,34 @@ const CreateCommentForm = ({ itemId }) => {
 
   return (
     <>
-      <div>
-        <InputField
-          type="number"
-          placeholder="Rating"
+      <Box
+        sx={{
+          "& > legend": { mt: 2 },
+        }}
+      >
+        <Rating
+          name="simple-controlled"
           value={rating}
-          callback={setRating}
-          validator={ratingValidator}
+          onChange={(event, newValue) => {
+            setRating(newValue);
+          }}
+          sx={{
+            "& .MuiRating-iconFilled": {
+              color: "var(--primary-color)",
+            },
+            "& .MuiRating-iconHover": {
+              color: "var(--primary-color)",
+            },
+          }}
         />
-        <InputField
-          type="text"
-          placeholder="Message"
-          value={message}
-          callback={setMessage}
-        />
-      </div>
-      <div>
-        <TextButton text={CREATE_COMMENT_BUTTON_TEXT} callback={createProductComment} />
-      </div>
+      </Box>
+      <textarea
+        className="user-comment"
+        placeholder="Комментарий к отзыву"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <TextButton className="create-comment-button" text={CREATE_COMMENT_BUTTON_TEXT} callback={createProductComment} />
     </>
   );
 };

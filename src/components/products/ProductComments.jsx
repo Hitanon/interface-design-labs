@@ -7,6 +7,8 @@ import { Context } from "../..";
 
 import ProductComment from "./ProductComment";
 
+import "./products.css";
+
 
 const ProductComments = observer(() => {
   const { product } = useContext(Context);
@@ -41,10 +43,10 @@ const ProductComments = observer(() => {
   }, [product.comments]);
 
   return (
-    <>
-      <div>
+    <div className="product-comments">
+      <h2>
         {getCommentsCountText()}
-      </div>
+      </h2>
       <div>
         {getPagedComments().map((comment) => <ProductComment key={comment.id} comment={comment} />)}
       </div>
@@ -59,7 +61,7 @@ const ProductComments = observer(() => {
           :
           <></>
       }
-    </>
+    </div>
   );
 });
 

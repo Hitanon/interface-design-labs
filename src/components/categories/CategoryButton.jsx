@@ -1,5 +1,7 @@
 import useSearch from "../../hooks/useSearch";
 
+import "./categories.css";
+
 
 const CategoryButton = ({ category }) => {
   const { addParam, applyFilters } = useSearch();
@@ -10,11 +12,9 @@ const CategoryButton = ({ category }) => {
   };
 
   return (
-    <>
-      <div onClick={onCategoryClick}>
-        Category: {category.name}
-      </div>
-    </>
+    <div className="category-button" onClick={onCategoryClick}>
+      {category.name}
+    </div>
   );
 };
 
