@@ -1,14 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { getSellerProfile } from "../../clients/SellerClient";
-
-import { Context } from "../..";
 import SellerOrders from "../orders/SellerOrders";
+import useSeller from "../../hooks/useSeller";
 
 import SellerFormInfo from "./SellerFormInfo";
 import SellerBalance from "./SellerBalance";
 import SellerProducts from "./SellerProducts";
-import useSeller from "../../hooks/useSeller";
 
 
 const SellerProfile = () => {

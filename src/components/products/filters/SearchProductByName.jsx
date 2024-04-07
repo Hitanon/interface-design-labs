@@ -18,13 +18,18 @@ const SearchProductByName = () => {
     await applyFilters();
   };
 
+  const setName = (name) => {
+    setProductName(name);
+    search.addParam({ name: "name", value: name });
+  };
+
   return (
     <search>
       <InputField
         type="text"
         placeholder={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT}
         value={productName}
-        callback={setProductName}
+        callback={setName}
       />
       <button className="search-button" onClick={onSearchClick}></button>
     </search>

@@ -8,7 +8,7 @@ import { searchProductsByParams } from "../clients/ProductClient";
 
 const useSearch = () => {
   const navigate = useNavigate();
-  const { search, searchProducts } = useContext(Context);
+  const { search } = useContext(Context);
 
   const addParam = (name, value) => {
     search.addParam({name, value});
@@ -18,6 +18,9 @@ const useSearch = () => {
     const urlParams = search.params.reduce((acc, param) => `${acc}${param.name}=${param.value}&`, "?");
     const sliced = urlParams.slice(0, -1);
     if (search.orderBy) {
+      if (sliced.length === 0) {
+        return `?orderBy=${search.orderBy}`;
+      }
       return `${sliced}&orderBy=${search.orderBy}`;
     }
     return sliced;
@@ -28,13 +31,18 @@ const useSearch = () => {
     const filtered = splitted.filter(param => param.length > 0);
     const params = filtered.map((param) => param.split("=")).map(([key, value]) => ({name: key, value}));
     for (const param of params) {
-      search.addParam(param);
+      if (param.name === "orderBy") {
+        search.setOrderBy(param.value);
+      }
+      else {
+        search.addParam(param);
+      }
     }
   };
 
   const applyFilters = async () => {
     const url = getUrlParams();
-    searchProducts.setProducts(await searchProductsByParams(url));
+    search.setProducts(await searchProductsByParams(url));
     navigate(`${SEARCH_PRODUCTS_ROUTE}${url}`);
   };
 

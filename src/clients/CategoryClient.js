@@ -7,7 +7,7 @@ export const getCategory = async (id) => {
 };
 
 export const getTopCategories = async (limit) => {
-  const response = await $host.get("/api/categories/top");
+  const response = await $host.get(`/api/categories/top?limit=${limit}`);
   return response.data;
 };
 

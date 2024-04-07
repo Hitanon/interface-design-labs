@@ -9,7 +9,8 @@ import { Context } from "../..";
 import useProducts from "../../hooks/useProducts";
 
 import ProductInfo from "./ProductInfo";
-import ProductComment from "./ProductComment";
+import ProductComments from "./ProductComments";
+import ProductDescription from "./ProductDesctiption";
 
 
 const Product = observer(({ id }) => {
@@ -33,12 +34,13 @@ const Product = observer(({ id }) => {
 
   return (
     <>
-      <ProductInfo product={product} />
       <CategoryButton category={product.category} />
+      <ProductInfo product={product} withSlider={true} />
       <SellerButton seller={product.seller} />
-      <UserComment itemId={product.id} />
-      {product.comments.map((comment) => <div key={comment.id}><ProductComment comment={comment} /></div>)}
       <AddToCartButton item={product} />
+      <ProductDescription product={product} />
+      <UserComment itemId={product.id} />
+      <ProductComments comments={product.comments} />
     </>
   );
 });

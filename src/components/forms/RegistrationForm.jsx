@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import { Box, Modal } from "@mui/material";
 
 import InputField from "../ui/InputField";
 import TextButton from "../ui/TextButton";
@@ -12,10 +13,14 @@ import {
   MAIN_ROUTE,
   REGISTRATION_BUTTON_TEXT,
   ROLE,
+  REGISTRATION_ERROR_MODAL_MESSAGE,
 } from "../../utils/Consts";
 
 
 const RegistrationForm = () => {
+  const [hasError, setHasError] = useState(false);
+  const onOpen = () => setHasError(true);
+  const onClose = () => setHasError(false);
   const [email, setEmail] = useState("admin@test.com");
   const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("secret");
@@ -25,32 +30,47 @@ const RegistrationForm = () => {
 
   const onRegisterClick = async () => {
     const role = isSeller ? ROLE.SELLER : ROLE.CUSTOMER;
-    await register({ email, username, password, role });
-    navigate(MAIN_ROUTE);
+    try {
+      await register({ email, username, password, role });
+      navigate(MAIN_ROUTE);
+    }
+    catch {
+      onOpen();
+    }
   };
 
   return (
-    <div className="auth-form">
-      <h2 className="auth-title">
-        {REGISTRATION_FORM_TITLE}
-      </h2>
-      <div>
-        <InputField className="input-auth" type="email" value={email} callback={setEmail} placeholder="E-mail" />
-        <InputField className="input-auth" type="text" value={username} callback={setUsername} placeholder="Имя" />
-        <InputField className="input-auth" type="password" value={password} callback={setPassword}
-          placeholder="Пароль" />
+    <>
+      <div className="auth-form">
+        <h2 className="auth-title">
+          {REGISTRATION_FORM_TITLE}
+        </h2>
+        <div>
+          <InputField className="input-auth" type="email" value={email} callback={setEmail} placeholder="E-mail" />
+          <InputField className="input-auth" type="text" value={username} callback={setUsername} placeholder="Имя" />
+          <InputField className="input-auth" type="password" value={password} callback={setPassword}
+            placeholder="Пароль" />
+        </div>
+        <div className="checkbox-section">
+          <input type="checkbox" id="seller-checkbox" checked={isSeller} onChange={() => setIsSeller(!isSeller)} />
+          <label className="checkbox-label" htmlFor="seller-checkbox">Я продавец</label>
+        </div>
+        <div className="auth-buttons">
+          <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
+          <Link className="auth-link" to={LOGIN_ROUTE}>
+            {HAVE_AN_ACCOUNT_BUTTON_TEXT}
+          </Link>
+        </div>
       </div>
-      <div className="checkbox-section">
-        <input type="checkbox" id="seller-checkbox" checked={isSeller} onChange={() => setIsSeller(!isSeller)} />
-        <label className="checkbox-label" htmlFor="seller-checkbox">Я продавец</label>
-      </div>
-      <div className="auth-buttons">
-        <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
-        <Link className="auth-link" to={LOGIN_ROUTE}>
-          {HAVE_AN_ACCOUNT_BUTTON_TEXT}
-        </Link>
-      </div>
-    </div>
+      <Modal
+        open={hasError}
+        onClose={onClose}
+      >
+        <Box>
+          <p>{REGISTRATION_ERROR_MODAL_MESSAGE}</p>
+        </Box>
+      </Modal>
+    </>
   );
 };
 

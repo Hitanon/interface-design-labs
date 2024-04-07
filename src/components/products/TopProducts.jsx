@@ -23,6 +23,7 @@ const TopProducts = () => {
 
   return (
     <div className="top-products-section">
+      
       <div className="top-products-info">
         <h2 className="top-products-title">
           {TOP_PRODUCTS_LABEL}
@@ -37,6 +38,10 @@ const TopProducts = () => {
             <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
         }
       </div>
+      {
+        topProducts.map((product) =>
+          <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
+      }
     </div>
   );
 };

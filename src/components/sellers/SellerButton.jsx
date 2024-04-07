@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
 import { SELLERS_ROUTE } from "../../utils/Consts";
-import ImageField from "../ui/ImageField";
 
 
 const SellerButton = ({ seller }) => {
@@ -21,7 +20,6 @@ const SellerButton = ({ seller }) => {
   return (
     <>
       <div onClick={onSellerClick}>
-        <ImageField />
         <div>
           <div>
             Name: {seller.name}

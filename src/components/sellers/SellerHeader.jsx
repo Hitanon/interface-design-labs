@@ -1,24 +1,36 @@
-import ImageField from "../ui/ImageField";
-
-
 const SellerHeader = ({ seller }) => {
+  const getSellsCountText = () => {
+    if (seller.sales % 10 === 1) {
+      return `${seller.sales} продажа`;
+    }
+    if (seller.sales === 0 || (seller.sales > 4 && seller.sales < 21)) {
+      return `${seller.sales} продаж`;
+    }
+    return `${seller.sales} продажи`;
+  };
+
+  const getSellsFrom = () => {
+    const year = new Date(seller.sellsFrom).getFullYear();
+    return `${year} года`;
+  };
+
   return (
     <>
-      <ImageField />
       <div>
-        Name: {seller.name}
+        {seller.name}
       </div>
       <div>
-        Description: {seller.description}
+        {seller.description}
+      </div>
+      <div className="rating">
+        <div className="rating-icon"></div>
+        {seller.rating}
       </div>
       <div>
-        Rating: {seller.rating}
+        {getSellsCountText()}
       </div>
       <div>
-        Sales: {seller.sales}
-      </div>
-      <div>
-        Sells from: {seller.sellsFrom}
+        Продает с {getSellsFrom()}
       </div>
     </>
   );

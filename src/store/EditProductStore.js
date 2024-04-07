@@ -7,6 +7,10 @@ export default class EditProductStore {
     makeAutoObservable(this);
   }
 
+  get images() {
+    return this._images;
+  }
+
   get name() {
     return this._name;
   }
@@ -25,6 +29,10 @@ export default class EditProductStore {
 
   get category() {
     return this._category;
+  }
+
+  setImages(images) {
+    this._images = images;
   }
 
   setName(name) {
@@ -56,6 +64,7 @@ export default class EditProductStore {
   }
 
   setDelautlValues() {
+    this._images = [];
     this._name = "";
     this._description = "";
     this._price = 0;
@@ -68,6 +77,7 @@ export default class EditProductStore {
   }
 
   setProduct(product) {
+    this._images = product.images;
     this._name = product.name;
     this._description = product.description;
     this._price = product.price;

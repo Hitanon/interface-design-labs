@@ -1,19 +1,17 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { observer } from "mobx-react-lite";
 
-import { getProductOrder, submitAcceptOrderItem } from "../../clients/CustomerClient";
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
+import useCustomer from "../../hooks/useCustomer";
 
-import ImageSlider from "../ui/ImageSlider";
 import TextButton from "../ui/TextButton";
+import ImageField from "../ui/ImageField";
 
-import OrderStatus from "./OrderStatus";
+import OrderStatuses from "./OrderStatuses";
 
 
-const OrderItem = observer(({ item }) => {
+const OrderItem = ({ item }) => {
   const navigate = useNavigate();
-  const [orderItem, setOrderItem] = useState(item);
+  const { acceptOrderItem } = useCustomer();
 
   const onSellerClick = () => {
     navigate(`${SELLERS_ROUTE}/${item.product.seller.id}`);
@@ -23,13 +21,12 @@ const OrderItem = observer(({ item }) => {
     navigate(`${PRODUCTS_ROUTE}/${item.product.id}`);
   };
 
-  const isDelivered = () => {
-    return item.statuses[0].name === "DELIVERED";
+  const isAcceptable = () => {
+    return item.statuses[0].name === "SENT";
   };
 
   const onSubmitAcceptClick = async () => {
-    await submitAcceptOrderItem(orderItem.id);
-    setOrderItem(await getProductOrder(orderItem.id));
+    acceptOrderItem(item.id);
   };
 
   return (
@@ -37,28 +34,23 @@ const OrderItem = observer(({ item }) => {
       <div onClick={onProductClick}>
         <div>
           <div>
-            Name: {orderItem.product.name}
+            {item.product.name}
           </div>
-          <ImageSlider />
+          <ImageField url={item.product.images[0]} />
           <div>
-            Price: {orderItem.product.price}
+            {item.product.price} ₽
           </div>
         </div>
         <div onClick={onSellerClick}>
-          Seller: {orderItem.product.seller.name}
+          Продавец: {item.product.seller.name}
         </div>
         <div>
-          Statuses:
-          <div>
-            {
-              orderItem.statuses.map(status => <div key={status.id}><OrderStatus status={status} /></div>)
-            }
-          </div>
+          <OrderStatuses statuses={item.statuses} />
         </div>
       </div>
-      {isDelivered() ? <TextButton text={"Подтвердить получение"} callback={onSubmitAcceptClick} /> : null}
+      {isAcceptable() ? <TextButton text={"Подтвердить получение"} callback={onSubmitAcceptClick} /> : null}
     </>
   );
-});
+};
 
 export default OrderItem;

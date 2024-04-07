@@ -2,7 +2,7 @@ import { $host, $authHost } from ".";
 
 
 export const getTopProducts = async (limit) => {
-  const response = await $host.get("/api/products/top");
+  const response = await $host.get(`/api/products/top?limit=${limit}`);
   return response.data;
 };
 
@@ -17,7 +17,11 @@ export const searchProductsByParams = async (urlParams) => {
 };
 
 export const createProduct = async (data) => {
-  await $authHost.post("/api/products", data);
+  await $authHost.post("/api/products", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 
 export const updateProduct = async (id, data) => {
