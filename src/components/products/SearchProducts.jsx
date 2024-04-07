@@ -4,16 +4,17 @@ import { observer } from "mobx-react-lite";
 import { Context } from "../..";
 import useSearch from "../../hooks/useSearch";
 import { APPLY_FILTERS_BUTTON_TEXT, CLEAR_FILTERS_BUTTON_TEXT } from "../../utils/Consts";
-import TextButton from "../ui/TextButton";
 
 import ProductOrderer from "./ProductOrderer";
 import SearchProductsFilters from "./filters/SearchProductsFilters";
 import Products from "./Products";
 
+import "./products.css";
+
 
 const SearchProducts = observer(() => {
   const { search } = useContext(Context);
-  const { parseUrlParams, clearParams, applyFilters} = useSearch();
+  const { parseUrlParams, clearParams, applyFilters } = useSearch();
 
   const loadProducts = async () => {
     parseUrlParams();
@@ -35,17 +36,19 @@ const SearchProducts = observer(() => {
   }, []);
 
   return (
-    <>
-      <ProductOrderer />
-      <hr />
-      <SearchProductsFilters />
-      <hr />
-      <TextButton text={APPLY_FILTERS_BUTTON_TEXT} callback={onSubmitClick} />
-      <TextButton text={CLEAR_FILTERS_BUTTON_TEXT} callback={onClearClick} />
-      <hr />
-      <Products products={search.products} />
-    </>
+    <div className="search-products-section">
+      <div className="serch-products-filteres">
+        <SearchProductsFilters />
+        <button className="button-apply" onClick={onSubmitClick}>{APPLY_FILTERS_BUTTON_TEXT}</button>
+        <button className="button-clear" onClick={onClearClick}>{CLEAR_FILTERS_BUTTON_TEXT}</button>
+      </div>
+      <div className="search-product-body">
+        <ProductOrderer />
+        <Products products={search.products} />
+      </div>
+    </div>
   );
 });
+
 
 export default SearchProducts;

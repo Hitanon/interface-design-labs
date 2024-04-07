@@ -57,9 +57,9 @@ const ProductRatingBoundedFilter = () => {
 
   return (
     <>
-      <div>
+      <h2>
         {RATING_FILTER_LABEL}
-      </div>
+      </h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType={INPUT_TYPE} />
     </>
   );

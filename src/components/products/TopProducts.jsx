@@ -31,13 +31,17 @@ const TopProducts = () => {
         <p className="top-products-text">
           для всех, кто ценит уникальные и качественные изделия с особенным характером
         </p>
+      </div >
+      <div className="top-products-list">
+        {
+          topProducts.map((product) =>
+            <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
+        }
       </div>
-
       {
         topProducts.map((product) =>
           <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
       }
-
     </div>
   );
 };

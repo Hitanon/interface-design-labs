@@ -1,8 +1,8 @@
 const TechnicalWorks = () => {
   return (
-    <>
-      TechnicalWorks
-    </>
+    <h1>
+      Technical Works
+    </h1>
   );
 };
 
