@@ -30,9 +30,9 @@ const ProductCategoryFilter = () => {
 
   return (
     <>
-      <div>
+      <h2>
         {CATEGORY_FILTER_LABEL}
-      </div>
+      </h2>
       <SelectItemList
         items={categories}
         setItem={setCategory}

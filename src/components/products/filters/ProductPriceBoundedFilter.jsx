@@ -55,9 +55,9 @@ const ProductPriceBoundedFilter = () => {
 
   return (
     <>
-      <div>
+      <h2>
         {PRICE_FILTER_LABEL}
-      </div>
+      </h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType={inputType} />
     </>
   );

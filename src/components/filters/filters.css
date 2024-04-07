@@ -1,0 +1,18 @@
+.input-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-value {
+    min-width: 30px;
+    width: 100px;
+}
+
+.input-value-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label {
+    margin: 5px 0;
+}
