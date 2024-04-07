@@ -14,7 +14,7 @@ import "./products.css";
 
 const SearchProducts = observer(() => {
   const { search } = useContext(Context);
-  const { parseUrlParams, clearParams, applyFilters} = useSearch();
+  const { parseUrlParams, clearParams, applyFilters } = useSearch();
 
   const loadProducts = async () => {
     parseUrlParams();
@@ -44,10 +44,11 @@ const SearchProducts = observer(() => {
       </div>
       <div className="search-product-body">
         <ProductOrderer />
-        <Products products={products} />
+        <Products products={search.products} />
       </div>
     </div>
   );
 });
+
 
 export default SearchProducts;
