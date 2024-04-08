@@ -56,7 +56,7 @@ const RegistrationForm = () => {
           <label className="checkbox-label" htmlFor="seller-checkbox">Я продавец</label>
         </div>
         <div className="auth-buttons">
-          <TextButton text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
+          <TextButton className="text-button" text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
           <Link className="auth-link" to={LOGIN_ROUTE}>
             {HAVE_AN_ACCOUNT_BUTTON_TEXT}
           </Link>

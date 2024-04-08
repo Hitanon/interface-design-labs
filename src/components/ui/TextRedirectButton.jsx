@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import TextButton from "./TextButton";
 
 
-const TextRedirectButton = ({ text, route }) => {
+const TextRedirectButton = ({ text, route, className }) => {
   const navigate = useNavigate();
 
   const navigateTo = (route) => () => {
@@ -12,7 +12,7 @@ const TextRedirectButton = ({ text, route }) => {
 
   return (
     <>
-      <TextButton text={text} callback={navigateTo(route)}/>
+      <TextButton className={className} text={text} callback={navigateTo(route)}/>
     </>
   );
 };

@@ -2,12 +2,10 @@ import { BASE_API_URL } from "../../utils/Consts";
 import "./ui.css";
 
 
-const ImageField = ({ url }) => {
+const ImageField = ({ url, className }) => {
   return (
     <>
-      <div>
-        <img className="image-field" src={BASE_API_URL + url} alt="img"/>
-      </div>
+      <img className={className} src={BASE_API_URL + url} alt="img" />
     </>
   );
 };

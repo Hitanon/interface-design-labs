@@ -1,3 +1,7 @@
 .customer-bar {
     display: flex;
 }
+
+.user-comment {
+    margin-top: 50px;
+}

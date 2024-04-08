@@ -21,8 +21,9 @@ const SellerButton = ({ seller }) => {
     <>
       <div onClick={onSellerClick}>
         <div>
-          <div>
-            Name: {seller.name}
+          <div className="product-seller">
+            <div className="seller-icon"></div>
+            {seller.name}
           </div>
           <div>
             {getDescriptionLabel()}

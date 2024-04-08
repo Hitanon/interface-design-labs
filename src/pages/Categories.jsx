@@ -21,7 +21,7 @@ const Categories = () => {
     <div className="page-footer-bottom">
       <Header />
       <div className="categroies-section">
-        <h2>Категории</h2>
+        <h1>Категории</h1>
         <CategoriesList categories={categories} />
       </div>
       <Footer />

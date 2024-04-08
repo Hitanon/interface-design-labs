@@ -1,13 +1,15 @@
+import "./products.css";
+
 const ProductDescription = ({ product }) => {
   return (
-    <>
-      <div>
+    <div className="product-description">
+      <h3>
         Сведения о товаре
-      </div>
-      <div>
-        {product.description}
-      </div>
-    </>
+      </h3>
+      <p>
+        {product.description} 
+      </p>
+    </div>
   );
 };
 

@@ -1,0 +1,81 @@
+.orders-section {
+    margin: 60px 0;
+}
+
+.customer-order {
+    margin-top: 40px;
+}
+
+.customer-order-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-order-item {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-card {
+    display: flex;
+}
+
+.order-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.order-image:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.order-info {
+    margin-left: 30px;
+}
+
+.order-title {
+    font-size: 24px;
+}
+
+.order-title:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.order-seller {
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 30px 0 20px;
+}
+
+.order-seller:hover {
+    opacity: 70%;
+}
+
+.order-status {
+    width: 250px;
+}
+
+.order-status-section {
+    margin-top: 0;
+    padding: 15px 20px;
+    border: 2px var(--primary-color) solid;
+    text-align: center;
+}
+
+.order-status-details {
+    opacity: 70%;
+}
+
+.order-status-accept-button {
+    padding: 20px;
+}
+
+.order-sep {
+    margin-top: 50px;
+}

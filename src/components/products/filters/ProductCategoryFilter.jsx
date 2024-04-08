@@ -5,6 +5,8 @@ import SelectItemList from "../../general/SelectItemList";
 import useSearch from "../../../hooks/useSearch";
 import { CATEGORY_FILTER_LABEL } from "../../../utils/Consts";
 
+import "./filters.css";
+
 
 const ProductCategoryFilter = () => {
   const PARAM_NAME = "category";
@@ -37,6 +39,7 @@ const ProductCategoryFilter = () => {
         items={categories}
         setItem={setCategory}
         clearSelected={clearCategory}
+        itemClassName="select-item"
       />
     </>
   );

@@ -6,15 +6,15 @@
 }
 
 .list-button::before {
-    content: ""; 
-    background-image: url('/public/icons/list-icon.svg'); 
-    background-size: cover; 
-    display: block; 
+    content: "";
+    background-image: url('/public/icons/list-icon.svg');
+    background-size: cover;
+    display: block;
     width: 19px;
     height: 16px;
-    position: absolute; 
-    left: 0; 
-    top: 0; 
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .list-button:hover {
@@ -43,7 +43,7 @@ input:focus {
 }
 
 .social-icon {
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     display: block;
     min-width: 30px;
     height: 30px;
@@ -60,7 +60,7 @@ input:focus {
 
 .twitter-icon {
     background-image: url('/public/icons/twitter-icon.svg');
-    
+
 }
 
 .youtube-icon {
@@ -72,14 +72,8 @@ input:focus {
 }
 
 .text-button {
-    padding:20px 25px;
+    padding: 20px 25px;
     width: 100%;
-}
-
-.image-field {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
 }
 
 .image-field:hover {
@@ -96,6 +90,26 @@ input:focus {
     width: 100%;
 }
 
+.add-to-cart-button-full-product {
+    display: flex;
+}
+
+.add-to-cart-button-full-product .change-quantity-section {
+    margin: 0;
+}
+
+.add-to-cart-button-full-product .change-quantity-button {
+    height: 100%;
+    margin-left: 10px;
+}
+
+.quantity {
+    margin-left: 10px;
+    font-size: 18px;
+    width: 40px;
+    text-align: center;
+}
+
 .input-auth {
     margin: 15px 0;
     min-width: 100%;
@@ -105,5 +119,62 @@ input:focus {
 }
 
 .input-auth:hover {
-    cursor: pointer;;
+    cursor: pointer;
+}
+
+.change-quantity-button {
+    width: 60px;
+    height: 50px;
+    padding: 0;
+    background-color: var(--bg-dark-color);
+    color: white;
+    font-size: 20px;
+}
+
+.change-quantity-button:hover {
+    outline: 2px var(--bg-dark-color) solid;
+    color: black;
+}
+
+.change-quantity-section {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.square-slider {
+    aspect-ratio: 1/1;
+}
+
+.square-slider .awssld__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-slider .awssld__container {
+    aspect-ratio: 1 / 1;
+}
+
+.slider-content img {
+    object-fit: cover;
+}
+
+.custom-bullets {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.custom-bullet {
+    height: 4px;
+    width: 40px;
+    background-color: var(--bg-dark-color);
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.custom-bullet.active {
+    background-color: var(--grey-color);
 }

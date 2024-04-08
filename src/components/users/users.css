@@ -34,6 +34,10 @@ ul {
     margin-left: 15px;
 }
 
+.logout:hover {
+    outline: none;
+}
+
 .auth-bar {
     margin: 0;
     align-items: center;

@@ -16,7 +16,7 @@ const getClassName = (name) => {
 const SocialMediaButton = ({ name, url }) => {
   return (
     <li>
-      <a className={getClassName(name)} href={url}>
+      <a className={getClassName(name)} href={url} target="_blank" rel="noopener noreferrer">
         {name}
       </a>
     </li>

@@ -20,16 +20,10 @@
 .product {
     display: flex;
     flex-direction: column;
-    min-height: 470px;
+    min-height: 300px;
     justify-content: space-between;
-}
-
-.product:not(:first-child):not(:nth-child(5n)) {
-    margin-left: 25px;
-}
-
-.product:nth-child(n+5) {
-    margin-top: 50px;
+    margin-right: 10px;
+    margin-top: 25px;
 }
 
 .product-item:hover {
@@ -108,7 +102,7 @@
 }
 
 .button-apply {
-    margin-top: 20px;
+    margin-top: 40px;
     width: 100%;
     padding: 15px 0;
 }
@@ -131,3 +125,106 @@
     flex-wrap: wrap;
 }
 
+.product-image-field {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.orderer-list {
+    display: flex;
+}
+
+.order-item {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px black solid;
+    margin-right: 10px;
+}
+
+.order-item:hover {
+    opacity: 70%;
+    cursor: pointer;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.full-product {
+    display: flex;
+    margin-top: 20px;
+}
+
+.full-product .col1 {
+    width: 60%;
+}
+
+.full-product .col2 {
+    margin-left: 50px;
+    width: calc(40% - 50px);
+}
+
+.full-product h2.product-price {
+    font-size: 50px;
+    margin: 30px 0 10px;
+}
+
+.full-product h2.product-price span {
+    font-size: 0.7em;
+}
+
+.full-product h1.product-name {
+    font-size: 22px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 200;
+}
+
+.full-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.product-left {
+    margin: 15px 0 20px;
+}
+
+.user-comment-section {
+    margin-top: 40px;
+}
+
+.user-comment-section p {
+    margin: 0 0 10px;
+}
+
+.product-comments {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.product-comment {
+    margin-top: 30px;
+}
+
+.product-comment  hr {
+    margin-top: 20px;
+}
+
+.product-comment-author {
+    font-size: 14px;
+}
+
+.product-comment-message {
+    font-size: 18px;
+}
+
+.product-description {
+    margin-top: 40px;
+}
+
+.product-description h3 {
+    font-size: 22px;
+}

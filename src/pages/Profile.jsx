@@ -5,13 +5,11 @@ import UserProfile from "../components/users/UserProfile";
 
 const Profile = () => {
   return (
-    <>
+    <div className="page-footer-bottom">
       <Header />
-      <hr />
       <UserProfile />
-      <hr />
       <Footer />
-    </>
+    </div>
   );
 };
 

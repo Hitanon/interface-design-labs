@@ -25,7 +25,7 @@ export const ORDERS_PER_PAGE = 8;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
-export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск по всем категориям";
+export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск товара по всем категориям";
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
 export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
 export const PURCHASE_BUTTON_TEXT = "Заказать";
@@ -41,9 +41,9 @@ export const USERNAME_FIELD_LABEL = "Имя";
 export const PASSWORD_FIELD_LABEL = "Пароль";
 export const LOGIN_FORM_TITLE = "ВХОД";
 export const REGISTRATION_FORM_TITLE = "РЕГИСТРАЦИЯ";
-export const EDIT_COMMENT_BUTTON_TEXT = "Изменить комментарий";
-export const CREATE_COMMENT_BUTTON_TEXT = "Оставить комментарий";
-export const DELETE_COMMENT_BUTTON_TEXT = "Удалить комментарий";
+export const EDIT_COMMENT_BUTTON_TEXT = "Изменить отзыв";
+export const CREATE_COMMENT_BUTTON_TEXT = "Оставить отзыв";
+export const DELETE_COMMENT_BUTTON_TEXT = "Удалить отзыв";
 export const TOP_PRODUCTS_LABEL = "Лучшие товары";
 export const TOP_CATEGORIES_LABEL = "Лучшие категории";
 export const SEARCH_PRODUCTS_LABEL = "Поиск";
@@ -71,22 +71,22 @@ export const ROLE = {
 export const PRODUCT_ORDERS_OPTIONS = [
   {
     id: 1,
-    name: "По рейтингу (по убыванию)",
+    name: "По рейтингу ↓",
     codename: "desc-rating",
   },
   {
     id: 2,
-    name: "По рейтингу (по возрастанию)",
+    name: "По рейтингу ↑",
     codename: "asc-rating",
   },
   {
     id: 3,
-    name: "По цене (по убыванию)",
+    name: "По цене ↓",
     codename: "desc-price",
   },
   {
     id: 4,
-    name: "По цене (по возрастанию)",
+    name: "По цене ↑",
     codename: "asc-price",
   },
 ];

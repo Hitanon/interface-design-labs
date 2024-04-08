@@ -19,7 +19,7 @@ import TextRedirectButton from "./TextRedirectButton";
 import "./ui.css";
 
 
-const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
+const AddToCartButtonFullProduct = observer(({ item, moveToCartButton = true }) => {
   const { user } = useContext(Context);
   const [quantity, setQuantity] = useState(0);
   const { addItem, removeItem, getItemQuantity } = useCart();
@@ -62,7 +62,7 @@ const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
   };
 
   return (
-    <div className="add-to-cart-button">
+    <div className="add-to-cart-button-full-product">
 
       {
         moveToCartButton
@@ -80,7 +80,7 @@ const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
           text={DECREASE_QUANTITY_BUTTON_TEXT}
           callback={() => onRemoveFromCartClick(1)} />
 
-        <div>{getItemQuantity(item.id)}</div>
+        <div className="quantity">{getItemQuantity(item.id)}</div>
 
         <TextButton className="change-quantity-button"
           text={INCREASE_QUANTITY_BUTTON_TEXT}
@@ -92,4 +92,4 @@ const AddToCartButton = observer(({ item, moveToCartButton = true }) => {
   );
 });
 
-export default AddToCartButton;
+export default AddToCartButtonFullProduct;

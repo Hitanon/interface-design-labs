@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
+
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 
-import TextButton from "../ui/TextButton";
-import { MAIN_ROUTE, PROFILE_ROUTE, PURCHASE_BUTTON_TEXT } from "../../utils/Consts";
+import { MAIN_ROUTE, PROFILE_ROUTE } from "../../utils/Consts";
 import useCart from "../../hooks/useCart";
 import TextRedirectButton from "../ui/TextRedirectButton";
 
 import CartItems from "./CartItems";
+
+import "./carts.css";
 
 
 const PurchaseOrder = observer(() => {
@@ -25,18 +27,18 @@ const PurchaseOrder = observer(() => {
 
   if (cart.items.length === 0) {
     return (
-      <>
-        <div>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</div>
-        <TextRedirectButton text={"На главную"} route={MAIN_ROUTE} />
-      </>
+      <div className="section-without-items">
+        <h3>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</h3>
+        <TextRedirectButton className="to-main-button" text={"На главную"} route={MAIN_ROUTE} />
+      </div>
     );
   }
 
   return (
-    <>
-      <CartItems items={cart.items} />
-      <TextButton callback={onPurchaseClick} text={PURCHASE_BUTTON_TEXT} />
-    </>
+    <div className="section-with-items">
+      <h1>Корзина</h1>
+      <CartItems items={cart.items} callBack={onPurchaseClick} />
+    </div>
   );
 });
 

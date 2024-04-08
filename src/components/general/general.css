@@ -110,11 +110,11 @@ footer {
     display: flex;
 }
 
-.select-item {
-    font-size: 18px;
-}
-
 .select-item:hover {
     opacity: 70%;
     cursor: pointer;
+}
+
+.about-us-section {
+    text-align: center;
 }

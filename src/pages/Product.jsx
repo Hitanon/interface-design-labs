@@ -11,9 +11,7 @@ const Product = () => {
   return (
     <>
       <Header />
-      <hr />
       <FullProductInfo id={id} />
-      <hr />
       <Footer />
     </>
   );
