@@ -5,13 +5,11 @@ import AboutUsContent from "../components/general/AboutUs";
 
 const AboutUs = () => {
   return (
-    <>
+    <div className="page-footer-bottom">
       <Header />
-      <hr />
       <AboutUsContent />
-      <hr />
       <Footer />
-    </>
+    </div>
   );
 };
 

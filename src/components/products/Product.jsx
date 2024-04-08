@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 
-import AddToCartButton from "../ui/AddToCartButton";
+import AddToCartButtonFullProduct from "../ui/AddToCartButtonFullProduct";
 import UserComment from "../customers/UserComment";
 import SellerButton from "../sellers/SellerButton";
 import CategoryButton from "../categories/CategoryButton";
@@ -66,7 +66,7 @@ const Product = observer(({ id }) => {
 
         <SellerButton seller={product.seller} />
 
-        <AddToCartButton item={product} />
+        <AddToCartButtonFullProduct item={product} />
 
         <div className="product-left">
           Осталось {product.unitsInStock} шт.

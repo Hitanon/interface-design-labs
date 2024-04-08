@@ -1,6 +1,6 @@
 import "./ui.css";
 
-const InputField = ({type, placeholder, value, callback, validator = () => true, className}) => {
+const InputField = ({type, placeholder, value, callback, validator = () => true, className, onKeyDown}) => {
   const onChange = (value) => {
     if (validator(value)) {
       callback(value);
@@ -14,6 +14,7 @@ const InputField = ({type, placeholder, value, callback, validator = () => true,
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      onKeyDown={onKeyDown}
     />
   );
 };

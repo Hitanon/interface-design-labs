@@ -36,7 +36,7 @@ const PurchaseOrder = observer(() => {
 
   return (
     <div className="section-with-items">
-      <h2>Корзина</h2>
+      <h1>Корзина</h1>
       <CartItems items={cart.items} callBack={onPurchaseClick} />
     </div>
   );

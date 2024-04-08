@@ -1,5 +1,6 @@
 import OrderItem from "./OrderItem";
 
+import "./orders.css";
 
 const CustomerOrder = ({ order }) => {
   const formatCreatedAt = () => {
@@ -16,15 +17,18 @@ const CustomerOrder = ({ order }) => {
   };
 
   return (
-    <>
-      <div>
-        Заказ от: {formatCreatedAt()}
-      </div>
-      <div>
-        Всего: {order.total} ₽
+    <div className="customer-order">
+      <div className="customer-order-title">
+        <h2>
+          Заказ от {formatCreatedAt()}
+        </h2>
+        <h2>
+          Всего: {order.total} <span>₽</span>
+        </h2>
       </div>
       {order.items.map(item => <div key={item.id}><OrderItem item={item} /></div>)}
-    </>
+      <hr className="order-sep"/>
+    </div>
   );
 };
 

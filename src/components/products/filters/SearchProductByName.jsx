@@ -23,6 +23,12 @@ const SearchProductByName = () => {
     search.addParam({ name: "name", value: name });
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSearchClick();
+    }
+  };
+
   return (
     <search>
       <InputField
@@ -30,6 +36,7 @@ const SearchProductByName = () => {
         placeholder={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT}
         value={productName}
         callback={setName}
+        onKeyDown={handleKeyDown}
       />
       <button className="search-button" onClick={onSearchClick}></button>
     </search>

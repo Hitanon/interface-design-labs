@@ -1,5 +1,7 @@
 import { translateStatus } from "../../utils/StatusTranslations";
 
+import "./orders.css";
+
 
 const OrderStatuses = ({ statuses }) => {
   const lastStatus = statuses[0];
@@ -18,12 +20,12 @@ const OrderStatuses = ({ statuses }) => {
 
   return (
     <>
-      <div>
+      <p className="order-status-section">
         {translateStatus(lastStatus.name)} с {formatDate(new Date(lastStatus.dateFrom))}
-      </div>
-      <div>
+      </p>
+      <p className="order-status-details">
         {lastStatus.details}
-      </div>
+      </p>
     </>
   );
 };

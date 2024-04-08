@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
 import useCustomer from "../../hooks/useCustomer";
@@ -8,14 +8,12 @@ import ImageField from "../ui/ImageField";
 
 import OrderStatuses from "./OrderStatuses";
 
+import "./orders.css";
+
 
 const OrderItem = ({ item }) => {
   const navigate = useNavigate();
   const { acceptOrderItem } = useCustomer();
-
-  const onSellerClick = () => {
-    navigate(`${SELLERS_ROUTE}/${item.product.seller.id}`);
-  };
 
   const onProductClick = () => {
     navigate(`${PRODUCTS_ROUTE}/${item.product.id}`);
@@ -30,26 +28,35 @@ const OrderItem = ({ item }) => {
   };
 
   return (
-    <>
-      <div onClick={onProductClick}>
-        <div>
-          <div>
+    <div className="customer-order-item">
+
+      <div className="order-card">
+        <div onClick={onProductClick} >
+          <ImageField className="order-image" url={item.product.images[0]} />
+        </div>
+        <div className="order-info">
+          <h3 className="order-title" onClick={onProductClick}>
             {item.product.name}
-          </div>
-          <ImageField url={item.product.images[0]} />
-          <div>
-            {item.product.price} ₽
-          </div>
-        </div>
-        <div onClick={onSellerClick}>
-          Продавец: {item.product.seller.name}
-        </div>
-        <div>
-          <OrderStatuses statuses={item.statuses} />
+          </h3>
+          <Link className="order-seller" to={`${SELLERS_ROUTE}/${item.product.seller.id}`}>
+            <div className="seller-icon"></div>
+            {item.product.seller.name}
+          </Link>
+          <h2>
+            {item.product.price} <span>₽</span>
+          </h2>
         </div>
       </div>
-      {isAcceptable() ? <TextButton text={"Подтвердить получение"} callback={onSubmitAcceptClick} /> : null}
-    </>
+
+      <div className="order-status">
+        <OrderStatuses statuses={item.statuses} />
+        {isAcceptable() ? <TextButton
+          className="order-status-accept-button"
+          text={"Подтвердить получение"}
+          callback={onSubmitAcceptClick} /> : null}
+      </div>
+
+    </div>
   );
 };
 
