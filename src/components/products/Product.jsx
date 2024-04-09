@@ -43,10 +43,10 @@ const Product = observer(({ id }) => {
         <CategoryButton category={product.category} />
         <ImageSlider urls={product.images} />
         <div className="user-comment-section">
-          <p>Вашт отзыв:</p>
+          <p>Ваш отзыв:</p>
           <UserComment itemId={product.id} />
         </div>
-        <ProductComments comments={product.comments} />
+        <ProductComments />
       </div>
 
       <div className="col2">

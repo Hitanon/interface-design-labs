@@ -39,6 +39,7 @@ const useAuthenticate = () => {
     await logoutUser();
     user.setIsAuth(false);
     user.setUsername("");
+    user.setRole(null);
     localStorage.removeItem("token");
   };
 

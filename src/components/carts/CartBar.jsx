@@ -13,8 +13,13 @@ const CartBar = observer(() => {
   const { cart } = useContext(Context);
 
   const loadCart = async () => {
-    const cartItems = await getCart();
-    cart.setItems(cartItems);
+    try {
+      const cartItems = await getCart();
+      cart.setItems(cartItems);
+    }
+    catch (e) {
+      cart.setItems([]);
+    }
   };
 
   useEffect(() => {
