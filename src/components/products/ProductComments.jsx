@@ -28,12 +28,13 @@ const ProductComments = observer(() => {
   const getPagedComments = () => {
     const startIndex = (page - 1) * COMMENTS_PER_PAGE;
     const endIndex = startIndex + COMMENTS_PER_PAGE;
+    console.log(startIndex, endIndex);
     return product.comments.slice(startIndex, endIndex);
   };
 
   const checkPage = () => {
     const temp = Math.ceil(product.comments.length / COMMENTS_PER_PAGE);
-    if (page > temp) {
+    if (page > temp && temp !== 0) {
       setPage(temp);
     }
   };
