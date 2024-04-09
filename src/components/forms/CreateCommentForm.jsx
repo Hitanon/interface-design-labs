@@ -66,7 +66,6 @@ const CreateCommentForm = ({ itemId }) => {
           <p>{"Пожалуйста, оцените отзыв"}</p>
         </Box>
       </Modal>
-
     </>
   );
 };

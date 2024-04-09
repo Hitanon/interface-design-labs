@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import Rating from "@mui/material/Rating";
 
 import TextButton from "../ui/TextButton";
@@ -14,6 +15,9 @@ const EditCommentForm = observer(() => {
   const { getUserComment, updateComment, deleteComment } = useComments();
 
   const [rating, setRating] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const onOpen = () => setHasError(true);
+  const onClose = () => setHasError(false);
   const [message, setMessage] = useState("");
 
   const loadComment = () => {
@@ -23,6 +27,9 @@ const EditCommentForm = observer(() => {
   };
 
   const onEditClick = async () => {
+    if (rating === 0) {
+      return onOpen();
+    }
     await updateComment(getUserComment().id, rating, message);
   };
 
@@ -63,6 +70,15 @@ const EditCommentForm = observer(() => {
         <TextButton className="edit-comment-button" text={EDIT_COMMENT_BUTTON_TEXT} callback={onEditClick} />
         <TextButton className="delete-comment-button" text={DELETE_COMMENT_BUTTON_TEXT} callback={onDeleteClick} />
       </div>
+
+      <Modal
+        open={hasError}
+        onClose={onClose}
+      >
+        <Box>
+          <p>{"Пожалуйста, оцените отзыв"}</p>
+        </Box>
+      </Modal>
     </>
   );
 });
