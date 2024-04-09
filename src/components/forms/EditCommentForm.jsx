@@ -27,7 +27,8 @@ const EditCommentForm = observer(() => {
   };
 
   const onEditClick = async () => {
-    if (rating === 0) {
+    console.log(rating);
+    if (rating === 0 || rating === null) {
       return onOpen();
     }
     await updateComment(getUserComment().id, rating, message);
