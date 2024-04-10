@@ -1,91 +1,99 @@
 .auth-form {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 80px 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 80px 0;
 }
 
 .auth-title {
-    text-align: center;
+  text-align: center;
 }
 
 .auth-buttons {
-    margin-top: 20px;
+  margin-top: 30px;
+}
+
+.registration-buttons {
+  margin-top: 15px;
+}
+
+.auth-button {
+  width: 100%;
 }
 
 .auth-link {
-    display: block;
-    margin-top: 20px;
-    color:black;
-    text-decoration: none;
-    text-align: center;
+  display: block;
+  margin-top: 20px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
 }
 
 .auth-link:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 .checkbox-section label {
-    display: block;
-    margin-left: 30px;
+  display: block;
+  margin-left: 30px;
 }
 
 .checkbox-section {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0 10px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 10px;
 }
 
 .user-comment {
-    width: 96%;
-    height: 200px;
-    overflow-y: auto;
-    resize: none;
-    border: 1px solid black;
-    margin-top: 10px;
-  }
-  
-  .user-comment::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  .user-comment::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  .user-comment::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  .user-comment::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  width: 96%;
+  height: 200px;
+  overflow-y: auto;
+  resize: none;
+  border: 1px solid black;
+  margin-top: 10px;
+}
 
-  .create-comment-button {
-    margin-top: 10px;
-    padding: 20px 40px;
-    width: calc(50% - 5px);
-  }
+.user-comment::-webkit-scrollbar {
+  width: 8px;
+}
 
-  .edit-comment-section {
-    margin-top: 10px;
-  }
+.user-comment::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
-  .edit-comment-button {
-    margin-right: 10px;
-    width: calc(50% - 5px);
-    padding: 20px 0;
-  }
+.user-comment::-webkit-scrollbar-thumb {
+  background: #888;
+}
 
-  .delete-comment-button {
-    width: calc(50% - 5px);
-    padding: 20px 0;
-    color: white;
-    background-color: var(--bg-dark-color);
-  }
+.user-comment::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
-  .delete-comment-button:hover {
-    outline: 2px var(--bg-dark-color) solid;
-    color: black;
-  }
+.create-comment-button {
+  margin-top: 10px;
+  padding: 20px 40px;
+  width: calc(50% - 5px);
+}
+
+.edit-comment-section {
+  margin-top: 10px;
+}
+
+.edit-comment-button {
+  margin-right: 10px;
+  width: calc(50% - 5px);
+  padding: 20px 0;
+}
+
+.delete-comment-button {
+  width: calc(50% - 5px);
+  padding: 20px 0;
+  color: white;
+  background-color: var(--bg-dark-color);
+}
+
+.delete-comment-button:hover {
+  outline: 2px var(--bg-dark-color) solid;
+  color: black;
+}

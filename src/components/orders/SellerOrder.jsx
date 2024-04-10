@@ -1,14 +1,14 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
-import { Context } from "../..";
+// import { Context } from "../..";
 import ImageField from "../ui/ImageField";
 
 import OrderStatusMovementForm from "./forms/OrderStatusMovementForm";
 
 
 const SellerOrder = observer(({ order }) => {
-  const { sellerProfile } = useContext(Context);
+  // const { sellerProfile } = useContext(Context);
 
   const formatDate = () => {
     const date = new Date(order.createdAt);

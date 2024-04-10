@@ -7,7 +7,7 @@ import SellerHeader from "./SellerHeader";
 
 
 const SellerInfo = ({ id }) => {
-  const [seller, setSeller] = useState({products: []});
+  const [seller, setSeller] = useState({ products: [] });
   const [isLoading, setIsLoading] = useState(false);
 
   const loadSeller = async () => {
@@ -21,13 +21,17 @@ const SellerInfo = ({ id }) => {
   }, []);
 
   if (isLoading) {
-    return ;
+    return;
   }
 
   return (
     <>
       <SellerHeader seller={seller} />
-      <Products products={seller.products} />
+      <div className="seller-product-container">
+        <h2 className="seller-products-title">Товары</h2>
+        <Products products={seller.products} />
+      </div>
+
     </>
   );
 };
