@@ -21,7 +21,7 @@ const CreateCommentForm = ({ itemId }) => {
   const [message, setMessage] = useState("");
 
   const createProductComment = async () => {
-    if (rating === 0) {
+    if (rating === 0 || rating === null) {
       return onOpen();
     }
     await createComment(itemId, rating, message);
