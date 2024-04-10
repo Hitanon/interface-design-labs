@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 
 import useCategories from "../../../hooks/useCategories";
-import SelectItemList from "../../general/SelectItemList";
 import useSearch from "../../../hooks/useSearch";
 import { CATEGORY_FILTER_LABEL } from "../../../utils/Consts";
 
@@ -12,18 +15,16 @@ const ProductCategoryFilter = () => {
   const PARAM_NAME = "category";
   const { getAll } = useCategories();
   const { search } = useSearch();
+  const [category, setCategory_] = useState("");
   const [categories, setCategories] = useState([]);
 
   const loadCategories = async () => {
     setCategories(await getAll());
   };
 
-  const setCategory = (category) => {
-    search.addParam({ name: PARAM_NAME, value: category.id });
-  };
-
-  const clearCategory = () => {
-    search.clearParam(PARAM_NAME);
+  const setCategory = (event) => {
+    search.addParam({ name: PARAM_NAME, value: event.target.value });
+    setCategory_(event.target.value);
   };
 
   useEffect(() => {
@@ -32,15 +33,23 @@ const ProductCategoryFilter = () => {
 
   return (
     <>
-      <h2>
-        {CATEGORY_FILTER_LABEL}
-      </h2>
-      <SelectItemList
-        items={categories}
-        setItem={setCategory}
-        clearSelected={clearCategory}
-        itemClassName="select-item"
-      />
+
+      <Box>
+        <h2>
+          {CATEGORY_FILTER_LABEL}
+        </h2>
+        <FormControl fullWidth>
+          <Select
+            value={category}
+            label="Категория"
+            onChange={setCategory}
+          >
+            {
+              categories.map(category => <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>)
+            }
+          </Select>
+        </FormControl>
+      </Box>
     </>
   );
 };

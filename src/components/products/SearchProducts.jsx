@@ -14,10 +14,9 @@ import "./products.css";
 
 const SearchProducts = observer(() => {
   const { search } = useContext(Context);
-  const { parseUrlParams, clearParams, applyFilters } = useSearch();
+  const { clearParams, applyFilters } = useSearch();
 
   const loadProducts = async () => {
-    parseUrlParams();
     applyFilters();
   };
 
