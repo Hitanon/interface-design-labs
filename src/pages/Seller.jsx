@@ -11,9 +11,7 @@ const Seller = () => {
   return (
     <>
       <Header />
-      <hr />
       <SellerInfo id={id} />
-      <hr />
       <Footer />
     </>
   );
