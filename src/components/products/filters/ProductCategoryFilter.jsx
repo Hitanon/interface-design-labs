@@ -15,7 +15,7 @@ const ProductCategoryFilter = () => {
   const PARAM_NAME = "category";
   const { getAll } = useCategories();
   const { search } = useSearch();
-  const [category, setCategory_] = useState({});
+  const [category, setCategory_] = useState("");
   const [categories, setCategories] = useState([]);
 
   const loadCategories = async () => {
