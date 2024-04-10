@@ -15,15 +15,18 @@ const CreateProductForm = () => {
   const navigate = useNavigate();
 
   const onCreateClick = () => {
-    createProduct(
-      editProduct.images,
-      editProduct.name,
-      editProduct.description,
-      editProduct.price,
-      editProduct.unitsInStock,
-      editProduct.category,
-    );
-    navigate(PROFILE_ROUTE);
+    try {
+      createProduct(
+        editProduct.images,
+        editProduct.name,
+        editProduct.description,
+        editProduct.price,
+        editProduct.unitsInStock,
+        editProduct.category,
+      );
+      navigate(PROFILE_ROUTE);
+    }
+    catch (e) { }
   };
 
   const onCancelClick = () => {
