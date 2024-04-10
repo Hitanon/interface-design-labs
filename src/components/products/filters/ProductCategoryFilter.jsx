@@ -23,7 +23,7 @@ const ProductCategoryFilter = () => {
   };
 
   const setCategory = (event) => {
-    search.addParam({ name: "category", value: event.target.value });
+    search.addParam({ name: PARAM_NAME, value: event.target.value });
     setCategory_(event.target.value);
   };
 
