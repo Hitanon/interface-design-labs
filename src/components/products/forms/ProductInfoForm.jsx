@@ -1,66 +1,88 @@
 import { useContext } from "react";
 import { observer } from "mobx-react-lite";
+import TextField from "@mui/material/TextField";
 
-import InputField from "../../ui/InputField";
 import { Context } from "../../..";
-
-
-
 
 const ProductInfoForm = observer(() => {
   const { editProduct } = useContext(Context);
 
-  const setPrice = (price) => {
-    editProduct.setPrice(price);
-  };
-
-  const setUnitsInStock = (unitsInStock) => {
-    editProduct.setUnitsInStock(unitsInStock);
-  };
-
-  const setName = (name) => {
-    editProduct.setName(name);
-  };
-
-  const setDescription = (description) => {
-    editProduct.setDescription(description);
+  // Общие стили для TextField компонентов
+  const commonStyles = {
+    marginBottom: "20px",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderRadius: "0",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "black",
+      },
+    },
+    "& .MuiInputLabel-root": {
+      fontFamily: "'Comfortaa', cursive",
+      color: "black",
+      "&.Mui-focused": {
+        color: "black",
+      },
+    },
+    "& .MuiInputBase-input": {
+      fontFamily: "'Comfortaa', cursive",
+    },
   };
 
   return (
-    <>
-      <div>
-        Price:
-        <InputField
+    <div className="product-info">
+      <div className="price-count-container">
+        <TextField
+          label="Цена (₽)"
           type="number"
+          variant="outlined"
           value={editProduct.price}
-          callback={setPrice}
+          onChange={(e) => editProduct.setPrice(e.target.value)}
+          fullWidth
+          sx={{
+            width: "20%",
+            marginRight: "20px",
+            ...commonStyles,
+          }}
         />
-      </div>
-      <div>
-        Units in Stock:
-        <InputField
+        <TextField
+          label="Количество (шт)"
           type="number"
+          variant="outlined"
           value={editProduct.unitsInStock}
-          callback={setUnitsInStock}
+          onChange={(e) => editProduct.setUnitsInStock(e.target.value)}
+          fullWidth
+          sx={{
+            width: "20%",
+            ...commonStyles,
+          }}
         />
       </div>
-      <div>
-        Name:
-        <InputField
-          type="text"
-          value={editProduct.name}
-          callback={setName}
-        />
-      </div>
-      <div>
-        Description:
-        <InputField
-          type="text"
-          value={editProduct.description}
-          callback={setDescription}
-        />
-      </div>
-    </>
+
+      <TextField
+        label="Название"
+        type="text"
+        variant="outlined"
+        value={editProduct.name}
+        onChange={(e) => editProduct.setName(e.target.value)}
+        fullWidth
+        multiline
+        minRows={3}
+        sx={commonStyles}
+      />
+      <TextField
+        label="Описание"
+        type="text"
+        variant="outlined"
+        value={editProduct.description}
+        onChange={(e) => editProduct.setDescription(e.target.value)}
+        fullWidth
+        multiline
+        minRows={3}
+        sx={commonStyles}
+      />
+    </div>
   );
 });
 

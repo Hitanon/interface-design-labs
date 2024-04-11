@@ -1,8 +1,8 @@
 const OrderStatus = ({ status, isActive }) => {
   return (
-    <>
-      <div style={{ fontWeight: isActive ? "bold" : "normal" }}>{status}</div>
-    </>
+    <div className={isActive ? "status status-active" : "status status-inactive"}>
+      {status}
+    </div>
   );
 };
 

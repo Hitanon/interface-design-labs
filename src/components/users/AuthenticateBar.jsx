@@ -6,7 +6,7 @@ import "./users.css";
 
 const AuthenticateBar = () => {
   return (
-    <ul>
+    <ul className="menu">
       <li>
         <Link className="link login-link" to={LOGIN_ROUTE}></Link>
       </li>

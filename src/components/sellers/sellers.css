@@ -13,6 +13,14 @@
     margin-top: 40px;
 }
 
+.seller-header.full {
+    justify-content: space-between;
+}
+
+.seller-container {
+    display: flex;
+}
+
 .seller-name {
     text-transform: capitalize;
     margin: 0 0;
@@ -72,4 +80,65 @@
 .seller-product-container {
     margin-top: 30px;
     margin-bottom: 60px;
+}
+
+.seller-info-buttons {
+    margin-top: 30px;
+}
+
+.seller-info-button {
+    padding: 15px;
+    width: calc(50% - 7px);
+}
+
+.seller-info-button.accept {
+    margin-right: 14px;
+}
+
+.seller-info-button.cancel {
+    background-color: var(--bg-dark-color);
+    color: white;
+}
+
+.seller-info-button.cancel:hover {
+    background-color: transparent;
+    color: black;
+    outline: 2px var(--bg-dark-color) solid;
+}
+
+.seller-balance p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.balance {
+    margin: -10px 0 0;
+    font-size: 42px;
+    padding: 0;
+}
+
+.balance span {
+    font-size: 0.8em;
+}
+
+.seller-products-title {
+    display: flex;
+}
+
+.add-product-button {
+    padding: 4px;
+    margin-top: 14px;
+    margin-left: 15px;
+    background-color: transparent;
+    font-size: 20px;
+    border: 1px black solid;
+    width: 30px;
+    height: 30px;
+}
+
+.seller-products {
+    margin-top: 60px;
 }

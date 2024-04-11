@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
+import { TextField } from "@mui/material";
 
-import InputField from "../../ui/InputField";
 import TextButton from "../../ui/TextButton";
 import useOrders from "../../../hooks/useOrders";
 import { Context } from "../../..";
 import useSeller from "../../../hooks/useSeller";
 
 import OrderStatus from "./OrderStatus";
+
+import "../orders.css";
 
 
 const OrderStatusMovementForm = observer(({ order }) => {
@@ -44,19 +46,58 @@ const OrderStatusMovementForm = observer(({ order }) => {
   if (isLastSellerEvent() || nonActiveStatuses.length === 0) {
     return (
       <>
-        {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
-        {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
+        <p className="current-status">Текущий статус</p>
+        <div className="order-statuses-list">
+          {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
+          {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
+        </div>
       </>
+
     );
   }
 
   return (
     <>
-      {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
-      {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
-      <div>
-        <InputField type="text" value={details} callback={setDetails} />
-        <TextButton text={"Перевести на следующий статус"} callback={onMoveClick} />
+      <p className="current-status">Текущий статус</p>
+      <div className="order-statuses-list">
+        {orderStatuses.map(status => <OrderStatus key={status} status={status} isActive={true} />)}
+        {nonActiveStatuses.map(status => <OrderStatus key={status} status={status} isActive={false} />)}
+      </div>
+
+      <div className="change-status-containter">
+        <TextField
+          type="text"
+          label="Сообщение"
+          placeholder="Напишите комментарий для заказчика"
+          multiline
+          fullWidth
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+          variant="outlined"
+          sx={{
+            width: "700px",
+            "& .MuiInputBase-root": {
+              fontSize: "16px",
+              fontFamily: "'Comfortaa', cursive",
+            },
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderRadius: "0",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "black",
+              },
+            },
+            "& .MuiInputLabel-root": {
+              color: "black",
+              fontFamily: "'Comfortaa', cursive",
+              "&.Mui-focused": {
+                color: "black",
+              },
+            },
+          }}
+        />
+        <TextButton className="change-status-button" text={"Перевести на следующий статус"} callback={onMoveClick} />
       </div>
     </>
   );

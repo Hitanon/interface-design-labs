@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
-import TextButton from "../../ui/TextButton";
+
 import useSeller from "../../../hooks/useSeller";
 
 import ProductForm from "./ProductForm";
+
+import "./forms.css";
 
 
 const CreateProductForm = () => {
@@ -43,9 +45,7 @@ const CreateProductForm = () => {
 
   return (
     <>
-      <ProductForm />
-      <TextButton text="Создать" callback={onCreateClick} />
-      <TextButton text="Отмена" callback={onCancelClick} />
+      <ProductForm onCreate={onCreateClick} onCancel={onCancelClick} applyText="Создать" />
     </>
   );
 };

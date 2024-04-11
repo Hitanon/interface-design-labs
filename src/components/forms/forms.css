@@ -97,3 +97,23 @@
   outline: 2px var(--bg-dark-color) solid;
   color: black;
 }
+
+.product-category {
+  margin: 5px 0 10px;
+}
+
+.change-product-button {
+  padding: 15px 10px;
+}
+
+.delete-product-button {
+  margin-top: 10px;
+  padding: 15px 10px;
+  background-color: var(--bg-dark-color);
+  color: white;
+}
+
+.delete-product-button:hover {
+  color: black;
+  outline: 2px var(--bg-dark-color) solid;
+}

@@ -18,6 +18,14 @@ body {
     background-color: var(--bg-light-color);
 }
 
+textarea {
+    font-family: 'Comfortaa', cursive;
+}
+
+input {
+    font-family: 'Comfortaa', cursive;
+}
+
 h1,
 h2,
 h3,
