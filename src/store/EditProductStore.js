@@ -77,7 +77,7 @@ export default class EditProductStore {
   }
 
   setProduct(product) {
-    this._images = product.images;
+    this._images = [];
     this._name = product.name;
     this._description = product.description;
     this._price = product.price;
