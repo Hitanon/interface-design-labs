@@ -228,3 +228,7 @@
 .product-description h3 {
     font-size: 22px;
 }
+
+.product-orderer {
+    display: flex;
+}

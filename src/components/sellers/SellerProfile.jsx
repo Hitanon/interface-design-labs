@@ -28,12 +28,11 @@ const SellerProfile = () => {
 
   return (
     <>
-      <SellerFormInfo />
-      <hr />
-      <SellerBalance />
-      <hr />
+      <div className="seller-header full">
+        <SellerFormInfo />
+        <SellerBalance />
+      </div>
       <SellerProducts />
-      <hr />
       <SellerOrders />
     </>
   );

@@ -16,31 +16,27 @@ const ProductImagesForm = observer(() => {
 
   return (
     <>
-      <div>
-        <label>Изображения продукта:</label>
-        <div {...getRootProps()} style={{ border: "1px dashed #ccc", padding: "20px", marginTop: "10px" }}>
-          <input {...getInputProps()} />
-          <p>Перетащите файлы сюда или нажмите для выбора файлов.</p>
-        </div>
-        <div>
-          {editProduct.images.length > 0 && (
-            <div>
-              <h4>Выбранные изображения:</h4>
-              <ul>
-                {editProduct.images.map((file, index) => (
-                  <li key={index}>
-                    <img
-                      src={URL.createObjectURL(file)}
-                      alt={`Изображение ${index}`}
-                      style={{ maxWidth: "200px", maxHeight: "200px", marginBottom: "10px" }}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+      <label>Изображения продукта:</label>
+      <div {...getRootProps()} className="product-image">
+        <input {...getInputProps()} />
+        <p>Перетащите файлы сюда или нажмите для выбора файлов</p>
       </div>
+      {editProduct.images.length > 0 && (
+        <div>
+          <p className="images-list-title">Выбранные изображения:</p>
+          <ul className="images-list">
+            {editProduct.images.map((file, index) => (
+              <li key={index}>
+                <img
+                  className="image-item"
+                  src={URL.createObjectURL(file)}
+                  alt={`Изображение ${index}`}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 });

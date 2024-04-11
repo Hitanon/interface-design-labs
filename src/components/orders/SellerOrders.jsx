@@ -7,6 +7,8 @@ import { ORDERS_PER_PAGE } from "../../utils/Consts";
 
 import SellerOrder from "./SellerOrder";
 
+import "./orders.css";
+
 
 const SellerOrders = observer(() => {
   const [page, setPage] = useState(1);
@@ -19,7 +21,8 @@ const SellerOrders = observer(() => {
   };
 
   return (
-    <>
+    <div className="seller-orders">
+      <h2>Заказы</h2>
       {getPagedOrders().map(order => <div key={order.id}><SellerOrder order={order} /></div>)}
       {
         sellerProfile.orders.length / ORDERS_PER_PAGE > 1
@@ -32,7 +35,7 @@ const SellerOrders = observer(() => {
           :
           <></>
       }
-    </>
+    </div>
   );
 });
 

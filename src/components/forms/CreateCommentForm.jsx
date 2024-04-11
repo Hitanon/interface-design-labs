@@ -3,6 +3,7 @@ import { useState } from "react";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import ErrorIcon from "@mui/icons-material/Error";
 
 import TextButton from "../ui/TextButton";
 import { CREATE_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
@@ -61,9 +62,26 @@ const CreateCommentForm = ({ itemId }) => {
       <Modal
         open={hasError}
         onClose={onClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <Box>
-          <p>{"Пожалуйста, оцените отзыв"}</p>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "background.paper",
+            p: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <ErrorIcon color="error" sx={{ fontSize: 40 }} />
+          <p>Пожалуйста, поставьте оценку товару</p>
         </Box>
       </Modal>
     </>

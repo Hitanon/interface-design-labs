@@ -1,14 +1,13 @@
-// import { useContext } from "react";
 import { observer } from "mobx-react-lite";
 
-// import { Context } from "../..";
 import ImageField from "../ui/ImageField";
 
 import OrderStatusMovementForm from "./forms/OrderStatusMovementForm";
 
+import "./orders.css";
+
 
 const SellerOrder = observer(({ order }) => {
-  // const { sellerProfile } = useContext(Context);
 
   const formatDate = () => {
     const date = new Date(order.createdAt);
@@ -24,24 +23,33 @@ const SellerOrder = observer(({ order }) => {
   };
 
   return (
-    <>
-      <div>
+    <div className="seller-order">
+      <h3 className="seller-order-title">
         Заказ от: {formatDate()}
-      </div>
-      <div>
+      </h3>
+      <p>
         Заказчик: {order.customer.username}
+      </p>
+      <div className="seller-order-container">
+        <div className="seller-order-info">
+          <ImageField className="product-image-field" url={order.product.images[0]} />
+          <div className="seller-order-product-info">
+            <h3 className="product-name">
+              {order.product.name}
+            </h3>
+            <h2 className="product-price seller">
+              {order.product.price} <span>₽</span>
+            </h2>
+          </div>
+        </div>
+
+        <div className="seller-order-status">
+          <OrderStatusMovementForm order={order} />
+        </div>
+
       </div>
-      <div>
-        <ImageField url={order.product.images[0]} />
-      </div>
-      <div>
-        Название: {order.product.name}
-      </div>
-      <div>
-        Цена: {order.product.price} ₽
-      </div>
-      <OrderStatusMovementForm order={order} />
-    </>
+      <hr className="seller-order-sep" />
+    </div>
   );
 });
 

@@ -56,6 +56,11 @@ const RegistrationForm = () => {
             placeholder="E-mail"
             fullWidth
             variant="standard"
+            InputProps={{
+              style: {
+                fontFamily: "'Comfortaa', cursive",
+              },
+            }}
             sx={textFieldStyle}
           />
           <TextField
@@ -65,6 +70,11 @@ const RegistrationForm = () => {
             placeholder="Имя пользователя"
             fullWidth
             variant="standard"
+            InputProps={{
+              style: {
+                fontFamily: "'Comfortaa', cursive",
+              },
+            }}
             sx={textFieldStyle}
           />
           <TextField
@@ -92,6 +102,9 @@ const RegistrationForm = () => {
                   </IconButton>
                 </InputAdornment>
               ),
+              style: {
+                fontFamily: "'Comfortaa', cursive",
+              },
             }}
             sx={textFieldStyle}
           />

@@ -24,7 +24,7 @@ const UserBar = observer(() => {
 
   return (
     <>
-      <ul className="auth-bar">
+      <ul className="menu auth-bar">
         <li>
           <GreetingMessage />
         </li>

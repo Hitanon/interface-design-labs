@@ -51,6 +51,11 @@ const LoginForm = () => {
             placeholder="E-mail"
             fullWidth
             variant="standard"
+            InputProps={{
+              style: {
+                fontFamily: "'Comfortaa', cursive",
+              },
+            }}
             sx={{
               marginTop: "15px",
               "& .MuiInput-underline:before": {
@@ -95,6 +100,9 @@ const LoginForm = () => {
                   </IconButton>
                 </InputAdornment>
               ),
+              style: {
+                fontFamily: "'Comfortaa', cursive",
+              },
             }}
             sx={{
               marginTop: "15px",
@@ -107,6 +115,9 @@ const LoginForm = () => {
               "& .MuiInput-underline:after": {
                 borderBottom: "2px solid black",
               },
+              "& .MuiInputBase-input": {
+                fontFamily: "'Comfortaa', cursive",
+              },
               "& .Mui-focused": {
                 color: "black",
                 "& .MuiInput-underline:after": {
@@ -115,6 +126,7 @@ const LoginForm = () => {
               },
             }}
           />
+
         </div>
         <div className="auth-buttons">
           <TextButton className="text-button" text={LOGIN_BUTTON_TEXT} callback={onLoginClick} />

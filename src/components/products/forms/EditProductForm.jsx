@@ -4,7 +4,6 @@ import { observer } from "mobx-react-lite";
 
 import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
-import TextButton from "../../ui/TextButton";
 import useProducts from "../../../hooks/useProducts";
 import useSeller from "../../../hooks/useSeller";
 
@@ -54,9 +53,7 @@ const EditProductForm = observer(() => {
 
   return (
     <>
-      <ProductForm />
-      <TextButton text="Сохранить" callback={onSaveClick} />
-      <TextButton text="Отмена" callback={onCancelClick} />
+      <ProductForm onCreate={onSaveClick} onCancel={onCancelClick} applyText="Сохранить" />
     </>
   );
 });

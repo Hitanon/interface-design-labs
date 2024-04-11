@@ -26,7 +26,7 @@ const Footer = observer(() => {
         </Link>
       </div>
 
-      <ul className="footer-menu">
+      <ul className="menu footer-menu">
         <li>
           <Link className="footer-menu-link" to={MAIN_ROUTE}>
             Главная
@@ -48,7 +48,7 @@ const Footer = observer(() => {
         <div>Phone: {projectInfo.phone}</div>
         <div>Email: {projectInfo.email}</div>
 
-        <ul className="icons">
+        <ul className="menu icons">
           {projectInfo.social?.map((item) => (
             <SocialMediaButton
               key={item.name}
