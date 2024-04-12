@@ -25,10 +25,13 @@ const ProductInfo = ({ product, withSlider = false, onClick = () => { } }) => {
         <h3 className="product-name">
           {product.name}
         </h3>
-        <div className="rating">
-          <div className="rating-icon"></div>
-          {product.rating}
-        </div>
+        {product.rating > 0 &&
+          <div className="rating">
+            <div className="rating-icon"></div>
+            {product.rating}
+          </div>
+        }
+
       </div>
 
       <div>

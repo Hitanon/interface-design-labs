@@ -142,3 +142,7 @@
 .seller-products {
     margin-top: 60px;
 }
+
+.seller-product {
+    min-height: 500px;
+}
