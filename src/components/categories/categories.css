@@ -3,9 +3,9 @@
     left: 0;
     right: 0;
     
-    width: calc(100% + 280px);
-    margin-left: -140px;
-    padding: 65px 140px 85px;
+    width: calc(100% + 500px);
+    margin-left: -250px;
+    padding: 65px 250px 85px;
     box-sizing: border-box;
 
     background-color: var(--bg-dark-color);

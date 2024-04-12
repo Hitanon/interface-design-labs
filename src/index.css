@@ -11,7 +11,7 @@
 
 
 body {
-    padding: 0 142px;
+    padding: 0 250px;
     margin: 0;
 
     font-family: 'Comfortaa', cursive;
@@ -20,6 +20,8 @@ body {
 
 textarea {
     font-family: 'Comfortaa', cursive;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 input {

@@ -6,7 +6,7 @@ import ProductInfo from "../products/ProductInfo";
 import SellerButton from "../sellers/SellerButton";
 
 
-const CartItem = ({ item, className }) => {
+const CartItem = ({ item }) => {
   const navigate = useNavigate();
 
   const onProductClick = () => {
@@ -14,11 +14,11 @@ const CartItem = ({ item, className }) => {
   };
 
   return (
-    <div className={className}>
+    <>
       <ProductInfo product={item} onClick={onProductClick} />
       <SellerButton seller={item.seller} />
       <AddToCartButton item={item} moveToCartButton={false} />
-    </div>
+    </>
   );
 };
 
