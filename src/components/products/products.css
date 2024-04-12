@@ -6,6 +6,7 @@
 
 .top-products-info {
     width: 200px;
+    margin-right: 80px;
 }
 
 .top-products-title {
@@ -22,7 +23,7 @@
     flex-direction: column;
     min-height: 300px;
     justify-content: space-between;
-    
+
     min-height: 450px;
 }
 
@@ -180,8 +181,8 @@
 
 .products-list {
     display: grid;
-    grid-template-columns: repeat(5, 250px);
-    gap: 30px;
+    grid-template-columns: repeat(4, 250px);
+    gap: 40px;
 
     margin: 40px 0;
 }
@@ -192,12 +193,13 @@
 }
 
 .full-product .col1 {
-    width: 60%;
+    width: 50%;
 }
 
 .full-product .col2 {
-    margin-left: 50px;
-    width: calc(40% - 50px);
+    margin-left: 80px;
+    width: calc(50% - 80px);
+    padding-right: 30px;
 }
 
 .full-product h2.product-price {

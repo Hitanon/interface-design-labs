@@ -22,7 +22,7 @@ const CartItems = ({ items, callBack }) => {
       </div>
 
       <div className="products-list">
-        {items.map(item => <div key={item.id}><CartItem className="product" item={item} /></div>)}
+        {items.map(item => <div className="product" key={item.id}><CartItem item={item} /></div>)}
       </div>
     </div>
   );

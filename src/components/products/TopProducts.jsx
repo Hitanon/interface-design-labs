@@ -23,7 +23,7 @@ const TopProducts = () => {
 
   return (
     <div className="top-products-section">
-      
+
       <div className="top-products-info">
         <h2 className="top-products-title">
           {TOP_PRODUCTS_LABEL}

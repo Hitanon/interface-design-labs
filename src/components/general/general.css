@@ -3,8 +3,8 @@
     top: 0;
     left: 0;
     right: 0;
-    width: calc(100% + 280px);
-    margin-left: -140px;
+    width: calc(100% + 500px);
+    margin-left: -250px;
     z-index: 999;
 
     display: flex;
@@ -12,7 +12,7 @@
     align-items: center;
     
     height: 65px;
-    padding: 35px 140px;
+    padding: 35px 250px;
     box-sizing: border-box;
 
     background-color: var(--bg-light-color);
@@ -34,15 +34,15 @@
 
 footer {
     position: relative;
-    width: calc(100% + 280px);
-    margin-left: -140px;
+    width: calc(100% + 500px);
+    margin-left: -250px;
     box-sizing: border-box;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     
-    padding: 34px 140px;
+    padding: 34px 250px;
     
     background-color: white;
 }
