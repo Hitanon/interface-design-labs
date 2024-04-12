@@ -26,7 +26,8 @@ const ProjectGreeting = observer(() => {
           {projectInfo.greeting}
         </div>
         <div>
-          <TextRedirectButton className="text-button" text={LIST_CATEGORIES_BUTTON_TEXT} route={CATEGORIES_ROUTE} />
+          <TextRedirectButton className="text-button greeting-button"
+            text={LIST_CATEGORIES_BUTTON_TEXT} route={CATEGORIES_ROUTE} />
         </div>
       </div>
 

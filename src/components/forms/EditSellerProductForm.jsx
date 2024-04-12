@@ -18,11 +18,14 @@ const EditSellerProductForm = ({ product }) => {
   };
 
   return (
-    <div className="product">
+    <div className="product seller-product">
       <ProductInfo product={product} withSlider={false} />
       <div className="product-category">{product.category.name}</div>
-      <TextRedirectButton className="change-product-button" text="Изменить" route={getEditProductRoute()} />
-      <TextButton className="delete-product-button" text="Удалить" callback={onDeleteClick} />
+      <div className="buttons">
+        <TextRedirectButton className="change-product-button" text="Изменить" route={getEditProductRoute()} />
+        <TextButton className="delete-product-button" text="Удалить" callback={onDeleteClick} />
+      </div>
+
     </div>
   );
 };

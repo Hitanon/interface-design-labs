@@ -11,7 +11,8 @@ const AboutUs = observer(() => {
 
   return (
     <div className="about-us-section">
-      <h1 >{projectInfo.about}</h1>
+      <h1>О нас</h1>
+      <p className="about-us-text">{projectInfo.about}</p>
     </div>
   );
 });

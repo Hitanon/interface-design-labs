@@ -117,3 +117,12 @@
   color: black;
   outline: 2px var(--bg-dark-color) solid;
 }
+
+.product.seller-product {
+  min-height: 560px;
+}
+
+.product .buttons {
+  display: flex;
+  flex-direction: column;
+}

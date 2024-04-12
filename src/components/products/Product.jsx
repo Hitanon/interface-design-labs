@@ -55,7 +55,7 @@ const Product = observer(({ id }) => {
           {product.price} <span>₽</span>
         </h2>
 
-        <h1 className="product-name">
+        <h1 className="main-product-name">
           {product.name}
         </h1>
 
