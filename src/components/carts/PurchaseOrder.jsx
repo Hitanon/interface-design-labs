@@ -1,31 +1,47 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-import { useEffect } from "react";
-import { observer } from "mobx-react-lite";
+import TextRedirectButton from "../ui/TextRedirectButton";
 
 import { MAIN_ROUTE, PROFILE_ROUTE } from "../../utils/Consts";
-import useCart from "../../hooks/useCart";
-import TextRedirectButton from "../ui/TextRedirectButton";
 
 import CartItems from "./CartItems";
 
 import "./carts.css";
 
-
-const PurchaseOrder = observer(() => {
+const PurchaseOrder = () => {
   const navigate = useNavigate();
-  const { cart, loadCart, purchase } = useCart();
 
-  const onPurchaseClick = async () => {
-    await purchase();
+  const [cartItems, setCartItems] = useState([
+    {
+      id: 1,
+      name: "Старый деревянный рабочий стол",
+      price: 33500,
+      quantity: 1,
+      images: ["/img/table.png"],
+      seller: { id: 1, name: "Seller1" },
+      rating: 4.8,
+      unitsInStock: 5,
+    },
+    {
+      id: 2,
+      name: "Минималистичная книжная полка",
+      price: 12750,
+      quantity: 2,
+      images: ["/img/shelf.png"],
+      seller: { id: 2, name: "Seller2" },
+      rating: 4.6,
+      unitsInStock: 7,
+    },
+  ]);
+
+  const onPurchaseClick = () => {
+    alert("Покупка оформлена!");
+    setCartItems([]);
     navigate(PROFILE_ROUTE);
   };
 
-  useEffect(() => {
-    loadCart();
-  }, []);
-
-  if (cart.items.length === 0) {
+  if (cartItems.length === 0) {
     return (
       <div className="section-without-items">
         <h3>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</h3>
@@ -37,9 +53,9 @@ const PurchaseOrder = observer(() => {
   return (
     <div className="section-with-items">
       <h1>Корзина</h1>
-      <CartItems items={cart.items} callBack={onPurchaseClick} />
+      <CartItems items={cartItems} callBack={onPurchaseClick} />
     </div>
   );
-});
+};
 
 export default PurchaseOrder;

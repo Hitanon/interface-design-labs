@@ -1,0 +1,58 @@
+:root {
+    --color-primary: rgb(41, 66, 106); /* PANTONE P 108-16 C */
+    --color-grey-light: rgb(235, 237, 236); /* PANTONE P 179-2 C */
+    --color-grey-mid: rgb(162, 169, 175); /* PANTONE P 175-4 C */
+    --color-beige: rgb(207, 198, 184); /* PANTONE P 13-3 C */
+    --color-darkblue: rgb(42, 84, 130); /* PANTONE P 534 C (пример) */
+    --color-darkgrey: rgb(61, 61, 59); /* PANTONE P 179-14 C (пример) */
+  
+    /* Дополнительно: яркие цвета */
+    --color-green: rgb(141, 191, 50); /* PANTONE 368 */
+    --color-turquoise: rgb(30, 175, 178); /* Пример PANTONE P 130-6 C */
+    
+    --color-text: #333; /* Цвет текста */
+    --color-bg: #fff;   /* Фон */
+  }
+  
+  /* Базовые общие стили */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+  
+  /* Пример адаптивного контейнера */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .admin-back-button {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .admin-back-button:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  button:hover {
+    outline: none;
+  }
+  

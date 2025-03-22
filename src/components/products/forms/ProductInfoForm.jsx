@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 
-import { Context } from "../../..";
+const ProductInfoForm = () => {
+  const [price, setPrice] = useState(1000);
+  const [unitsInStock, setUnitsInStock] = useState(10);
+  const [name, setName] = useState("Пример товара");
+  const [description, setDescription] = useState("Описание примера товара");
 
-const ProductInfoForm = observer(() => {
-  const { editProduct } = useContext(Context);
-
-  // Общие стили для TextField компонентов
   const commonStyles = {
     marginBottom: "20px",
     "& .MuiOutlinedInput-root": {
@@ -37,8 +36,8 @@ const ProductInfoForm = observer(() => {
           label="Цена (₽)"
           type="number"
           variant="outlined"
-          value={editProduct.price}
-          onChange={(e) => editProduct.setPrice(e.target.value)}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
           fullWidth
           sx={{
             width: "20%",
@@ -50,8 +49,8 @@ const ProductInfoForm = observer(() => {
           label="Количество (шт)"
           type="number"
           variant="outlined"
-          value={editProduct.unitsInStock}
-          onChange={(e) => editProduct.setUnitsInStock(e.target.value)}
+          value={unitsInStock}
+          onChange={(e) => setUnitsInStock(e.target.value)}
           fullWidth
           sx={{
             width: "20%",
@@ -64,8 +63,8 @@ const ProductInfoForm = observer(() => {
         label="Название"
         type="text"
         variant="outlined"
-        value={editProduct.name}
-        onChange={(e) => editProduct.setName(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         fullWidth
         multiline
         minRows={3}
@@ -75,8 +74,8 @@ const ProductInfoForm = observer(() => {
         label="Описание"
         type="text"
         variant="outlined"
-        value={editProduct.description}
-        onChange={(e) => editProduct.setDescription(e.target.value)}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
         fullWidth
         multiline
         minRows={3}
@@ -84,6 +83,6 @@ const ProductInfoForm = observer(() => {
       />
     </div>
   );
-});
+};
 
 export default ProductInfoForm;

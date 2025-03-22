@@ -1,16 +1,17 @@
 import ImageField from "../ui/ImageField";
-import useSearch from "../../hooks/useSearch";
+import { useNavigate } from "react-router-dom";
+import { SEARCH_PRODUCTS_ROUTE } from "../../utils/Consts";
 
 import "./categories.css";
 
 
 const CategoryCard = ({ category }) => {
-  const { addParam, applyFilters } = useSearch();
+
+  const navigate = useNavigate();
 
   const onCategoryClick = () => {
-    addParam("category", category.id);
-    applyFilters();
-  };
+    navigate(SEARCH_PRODUCTS_ROUTE);
+  }
 
   return (
     <div className="category" onClick={onCategoryClick}>

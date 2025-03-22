@@ -1,61 +1,53 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { observer } from "mobx-react-lite";
 
 import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
-import useProducts from "../../../hooks/useProducts";
-import useSeller from "../../../hooks/useSeller";
 
 import ProductForm from "./ProductForm";
 
-
-const EditProductForm = observer(() => {
-  const { get } = useProducts();
-  const [product, setProduct] = useState({});
-  const { editProduct } = useContext(Context);
+const EditProductForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { updateProduct } = useSeller();
+  const { editProduct } = useContext(Context); // доступ к MobX store
 
-  const loadProduct = async () => {
-    const product = await get(id);
-    editProduct.setProduct({ ...product, images: [] });
-    setProduct(product);
+  const loadProduct = () => {
+    const mockProduct = {
+      id: id,
+      name: "Пример товара",
+      description: "Описание примера товара",
+      price: 9999,
+      unitsInStock: 5,
+      category: 1,
+      images: ["/img/table.png"],
+    };
+    editProduct.setProduct({ ...mockProduct, images: [] }); // инициализация глобального состояния
   };
 
   const onSaveClick = () => {
-    updateProduct(
-      id,
-      editProduct.images,
-      editProduct.name,
-      editProduct.description,
-      editProduct.price,
-      editProduct.unitsInStock,
-      editProduct.category,
-    );
+    alert("Товар успешно сохранён (макет)");
     navigate(PROFILE_ROUTE);
   };
 
   const onCancelClick = () => {
-    editProduct.clear();
-    editProduct.setProduct(product);
-  };
-
-  const onDestroy = () => {
-    editProduct.clear();
+    alert("Изменения отменены");
+    navigate(PROFILE_ROUTE);
   };
 
   useEffect(() => {
     loadProduct();
-    return onDestroy;
+    return () => {
+      editProduct.clear();
+    };
   }, []);
 
   return (
-    <>
-      <ProductForm onCreate={onSaveClick} onCancel={onCancelClick} applyText="Сохранить" />
-    </>
+    <ProductForm
+      onCreate={onSaveClick}
+      onCancel={onCancelClick}
+      applyText="Сохранить"
+    />
   );
-});
+};
 
 export default EditProductForm;

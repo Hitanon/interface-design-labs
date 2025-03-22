@@ -1,30 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import useSearch from "../../../hooks/useSearch";
 import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../../utils/Consts";
 import InputField from "../../ui/InputField";
 
 import "../../../index.css";
 
-
 const SearchProductByName = () => {
-  const { search, applyFilters } = useSearch();
   const [productName, setProductName] = useState("");
+  const navigate = useNavigate();
 
-  const onSearchClick = async () => {
-    if (productName.length !== 0) {
-      search.addParam({ name: "name", value: productName });
-    }
-    await applyFilters();
+  const onSearchClick = () => {
+    navigate("/products/search");
   };
 
   const setName = (name) => {
     setProductName(name);
-    search.addParam({ name: "name", value: name });
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       onSearchClick();
     }
   };

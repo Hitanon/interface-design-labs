@@ -1,34 +1,33 @@
-import { useContext, useState } from "react";
-import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { TextField } from "@mui/material";
 
 import TextButton from "../ui/TextButton";
-import { Context } from "../..";
-import useSeller from "../../hooks/useSeller";
 
 import "./sellers.css";
 
+const SellerFormInfo = () => {
+  const staticSeller = {
+    name: "Магазин РетроМебели",
+    description: "Мы специализируемся на винтажной мебели ручной работы.",
+  };
 
-const SellerFormInfo = observer(() => {
-  const { sellerProfile } = useContext(Context);
-  const { updateDescription } = useSeller();
-  const [description, setDescription] = useState(sellerProfile.description || "");
+  const [description, setDescription] = useState(staticSeller.description);
+  const [savedDescription, setSavedDescription] = useState(staticSeller.description);
 
-  const onSaveClick = async () => {
-    updateDescription(description);
+  const onSaveClick = () => {
+    setSavedDescription(description);
+    alert("Описание обновлено!");
   };
 
   const onCancelClick = () => {
-    setDescription(sellerProfile.description);
+    setDescription(savedDescription);
   };
 
   return (
     <div className="seller-header">
       <div className="seller-icon big"></div>
       <div className="seller-info">
-        <h1 className="seller-name">
-          {sellerProfile.name}
-        </h1>
+        <h1 className="seller-name">{staticSeller.name}</h1>
         <div>
           <TextField
             label="Описание"
@@ -70,6 +69,6 @@ const SellerFormInfo = observer(() => {
       </div>
     </div>
   );
-});
+};
 
 export default SellerFormInfo;

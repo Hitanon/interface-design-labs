@@ -7,8 +7,8 @@ export const getCategory = async (id) => {
 };
 
 export const getTopCategories = async (limit) => {
-  const response = await $host.get(`/api/categories/top?limit=${limit}`);
-  return response.data;
+  const response =  [{image: "/img/accessories.png", name: "Аксуссуары"}]
+  return response;
 };
 
 export const getAllCategories = async () => {

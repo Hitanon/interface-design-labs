@@ -1,29 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Select, MenuItem, Box, FormControl } from "@mui/material";
 
-import useCategories from "../../../hooks/useCategories";
-import useSearch from "../../../hooks/useSearch";
 import { CATEGORY_FILTER_LABEL } from "../../../utils/Consts";
 
 const ProductCategoryFilter = () => {
-  const PARAM_NAME = "category";
-  const { getAll } = useCategories();
-  const { search } = useSearch();
   const [category, setCategory_] = useState("");
-  const [categories, setCategories] = useState([]);
-
-  const loadCategories = async () => {
-    setCategories(await getAll());
-  };
+  const [categories, setCategories] = useState([
+    { id: 1, image: "/img/accessories.png", name: "Аксессуары" },
+    { id: 2, image: "/img/jewelry.png", name: "Украшения" },
+    { id: 3, image: "/img/cloth.png", name: "Одежда" },
+    { id: 4, image: "/img/toys.png", name: "Игрушки и игры" },
+    { id: 5, image: "/img/bags.png", name: "Сумки и кошельки" },
+  ]);
 
   const setCategory = (event) => {
-    search.addParam({ name: PARAM_NAME, value: event.target.value });
     setCategory_(event.target.value);
   };
-
-  useEffect(() => {
-    loadCategories();
-  }, []);
 
   return (
     <Box>
@@ -61,7 +53,7 @@ const ProductCategoryFilter = () => {
         >
           <MenuItem
             value=""
-            disabled 
+            disabled
             sx={{
               fontStyle: "italic",
             }}

@@ -1,48 +1,25 @@
 import { useState } from "react";
 
-import useSearch from "../../hooks/useSearch";
-
-
 const ProductRatingOrderer = () => {
   const baseText = "По рейтингу";
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { search, applyFilters } = useSearch();
 
   const selectNext = () => {
-    if (selectedIndex === 2) {
-      setSelectedIndex(0);
-      search.clearOrderBy();
-    }
-    else {
-      if (selectedIndex === 0) {
-        search.setOrderBy("asc-rating");
-      }
-      else if (selectedIndex === 1) {
-        search.setOrderBy("desc-rating");
-      }
-      setSelectedIndex(selectedIndex + 1);
-    }
-    applyFilters();
+    setSelectedIndex((prev) => (prev === 2 ? 0 : prev + 1));
   };
 
   const getText = () => {
-    if (selectedIndex === 0) {
-      return `${baseText}`;
-    }
-    else if (selectedIndex === 1) {
-      return `${baseText} ↑`;
-    }
-    else if (selectedIndex === 2) {
-      return `${baseText} ↓`;
-    }
+    if (selectedIndex === 0) return baseText;
+    if (selectedIndex === 1) return `${baseText} ↑`;
+    if (selectedIndex === 2) return `${baseText} ↓`;
   };
 
   return (
-    <>
-      <div className="orderer-list">
-        <p className="order-item" onClick={selectNext}>{getText()}</p>
-      </div>
-    </>
+    <div className="orderer-list">
+      <p className="order-item" onClick={selectNext}>
+        {getText()}
+      </p>
+    </div>
   );
 };
 

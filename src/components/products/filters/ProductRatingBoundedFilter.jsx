@@ -1,68 +1,34 @@
 import { useState } from "react";
 
-import useSearch from "../../../hooks/useSearch";
 import BoundedSearchFilter from "../../filters/BoundedSearchFilter";
-import { LOWER_RATING_FILTER_LABEL, RATING_FILTER_LABEL, UPPER_RATING_FILTER_LABEL } from "../../../utils/Consts";
+import {
+  LOWER_RATING_FILTER_LABEL,
+  RATING_FILTER_LABEL,
+  UPPER_RATING_FILTER_LABEL,
+} from "../../../utils/Consts";
 
 import "./filters.css";
 
-
 const ProductRatingBoundedFilter = () => {
-  const INITIAL_VALUE = 0;
-  const MAX_RATING_VALUE = 5;
-  const LOWER_RATING_CODENAME = "lowerRating";
-  const UPPER_RATING_CODENAME = "upperRating";
-  const INPUT_TYPE = "number";
-  const { search } = useSearch();
-  const [upperValue, setUpperValue] = useState(INITIAL_VALUE);
-
-  const setRating = (rating, codename) => {
-    if (rating === INITIAL_VALUE) {
-      search.removeParam(codename);
-    } else {
-      search.addParam({ name: codename, value: rating });
-    }
-  };
-
-  const checkLowerRating = (rating) => {
-    return rating >= INITIAL_VALUE && rating <= upperValue;
-  };
-
-  const setLowerRating = (rating) => {
-    setRating(rating, LOWER_RATING_CODENAME);
-  };
-
-  const checkUpperRating = (rating) => {
-    return rating >= INITIAL_VALUE && rating <= MAX_RATING_VALUE;
-  };
-
-  const setUpperRating = (rating) => {
-    setRating(rating, UPPER_RATING_CODENAME);
-    if (checkUpperRating(rating)) {
-      setUpperValue(rating);
-    }
-  };
+  const [lowerValue, setLowerValue] = useState(0);
+  const [upperValue, setUpperValue] = useState(5);
 
   const lower = {
     label: LOWER_RATING_FILTER_LABEL,
-    initialValue: INITIAL_VALUE,
-    setValue: setLowerRating,
-    validator: checkLowerRating,
+    initialValue: lowerValue,
+    setValue: setLowerValue,
   };
 
   const upper = {
     label: UPPER_RATING_FILTER_LABEL,
-    initialValue: INITIAL_VALUE,
-    setValue: setUpperRating,
-    validator: checkUpperRating,
+    initialValue: upperValue,
+    setValue: setUpperValue,
   };
 
   return (
     <>
-      <h2 className="filter-title">
-        {RATING_FILTER_LABEL}
-      </h2>
-      <BoundedSearchFilter lower={lower} upper={upper} inputType={INPUT_TYPE} />
+      <h2 className="filter-title">{RATING_FILTER_LABEL}</h2>
+      <BoundedSearchFilter lower={lower} upper={upper} inputType="number" />
     </>
   );
 };

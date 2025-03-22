@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 
-import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
+import { PRODUCT_ROUTE, SELLER_ROUTE } from "../../utils/Consts";
 import AddToCartButton from "../ui/AddToCartButton";
 
 import ProductInfo from "./ProductInfo";
@@ -11,19 +11,19 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const onProductClick = (id) => {
-    navigate(`${PRODUCTS_ROUTE}/${id}`);
+    navigate(`${PRODUCT_ROUTE}`);
   };
 
   return (
     <>
       <ProductInfo product={product} onClick={onProductClick} />
 
-      <Link className="product-seller" to={`${SELLERS_ROUTE}/${product.seller?.id}`}>
+      <Link className="product-seller" to={`${SELLER_ROUTE}`}>
         <div className="seller-icon"></div>
         {product.seller?.name}
       </Link>
 
-      <AddToCartButton item={product} />
+      <AddToCartButton />
     </>
   );
 };

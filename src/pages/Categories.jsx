@@ -1,21 +1,15 @@
-import { useEffect, useState } from "react";
-
-import { getAllCategories } from "../clients/CategoryClient";
 import Header from "../components/general/Header";
 import Footer from "../components/general/Footer";
 import CategoriesList from "../components/categories/Categories";
 
-
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-
-  const loadCategories = async () => {
-    setCategories(await getAllCategories());
-  };
-
-  useEffect(() => {
-    loadCategories();
-  }, []);
+  const categories = [
+    { image: "/img/accessories.png", name: "Аксессуары" },
+    { image: "/img/jewelry.png", name: "Украшения" },
+    { image: "/img/cloth.png", name: "Одежда" },
+    { image: "/img/toys.png", name: "Игрушки и игры" },
+    { image: "/img/bags.png", name: "Сумки и кошельки" },
+  ];
 
   return (
     <div className="page-footer-bottom">

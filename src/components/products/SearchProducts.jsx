@@ -14,24 +14,24 @@ import "./products.css";
 
 const SearchProducts = observer(() => {
   const { search } = useContext(Context);
-  const { clearParams, applyFilters } = useSearch();
+  // const { clearParams, applyFilters } = useSearch();
 
   const loadProducts = async () => {
-    applyFilters();
+    // applyFilters();
   };
 
   const onSubmitClick = async () => {
-    await applyFilters();
+    // await applyFilters();
   };
 
   const onClearClick = async () => {
-    clearParams();
-    await applyFilters();
+    // clearParams();
+    // await applyFilters();
   };
 
   useEffect(() => {
-    loadProducts();
-    return clearParams;
+    // loadProducts();
+    // return clearParams;
   }, []);
 
   return (

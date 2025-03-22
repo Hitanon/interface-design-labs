@@ -16,6 +16,13 @@ export const EDIT_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/:id/edit`;
 export const CREATE_PRODUCT_ROUTE = `${PRODUCTS_ROUTE}/create`;
 export const ABOUT_US_ROUTE = "/about";
 
+// Admin routes
+export const ADMIN_ROUTE = "/admin";
+export const ADMIN_NEW_PRODUCTS_ROUTE = "/admin/new-products";
+export const ADMIN_NEW_PRODUCT_VIEW_ROUTE = "/admin/new-products/:id";
+export const ADMIN_USERS_ROUTE = "/admin/users";
+export const ADMIN_SELLERS_ROUTE = "/admin/sellers";
+
 // Settings
 export const DEFAULT_TOP_CATEGORIES_COUNT = 5;
 export const DEFAULT_TOP_PRODUCTS_COUNT = 3;
@@ -66,6 +73,7 @@ export const REGISTRATION_ERROR_MODAL_MESSAGE = "Ошибка регистрац
 export const ROLE = {
   CUSTOMER: "customer",
   SELLER: "seller",
+  ADMIN: "admin",
 };
 
 export const PRODUCT_ORDERS_OPTIONS = [

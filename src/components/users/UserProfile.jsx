@@ -5,7 +5,7 @@ import { Context } from "../..";
 import { ROLE } from "../../utils/Consts";
 import SellerProfile from "../sellers/SellerProfile";
 import CustomerProfile from "../customers/CustomerProfile";
-
+import AdminProfile from "../admin/AdminProfile";
 
 const UserProfile = observer(() => {
   const { user } = useContext(Context);
@@ -13,6 +13,11 @@ const UserProfile = observer(() => {
   if (user.role === ROLE.SELLER) {
     return <SellerProfile />;
   }
+
+  if (user.role === ROLE.ADMIN) {
+    return <AdminProfile />;
+  }
+
   return <CustomerProfile />;
 });
 

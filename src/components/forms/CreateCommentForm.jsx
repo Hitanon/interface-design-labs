@@ -7,25 +7,29 @@ import ErrorIcon from "@mui/icons-material/Error";
 
 import TextButton from "../ui/TextButton";
 import { CREATE_COMMENT_BUTTON_TEXT } from "../../utils/Consts";
-import useComments from "../../hooks/useComments";
 
 import "./forms.css";
 
-
-const CreateCommentForm = ({ itemId }) => {
-  const { createComment } = useComments();
-
+const CreateCommentForm = () => {
   const [hasError, setHasError] = useState(false);
   const onOpen = () => setHasError(true);
   const onClose = () => setHasError(false);
+
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
 
-  const createProductComment = async () => {
+  const handleSubmit = () => {
     if (rating === 0 || rating === null) {
-      return onOpen();
+      onOpen();
+    } else {
+      console.log("Отправлен комментарий:", {
+        rating,
+        message,
+      });
+      // Можно добавить сброс формы, если нужно:
+      // setRating(0);
+      // setMessage("");
     }
-    await createComment(itemId, rating, message);
   };
 
   return (
@@ -57,7 +61,11 @@ const CreateCommentForm = ({ itemId }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <TextButton className="create-comment-button" text={CREATE_COMMENT_BUTTON_TEXT} callback={createProductComment} />
+      <TextButton
+        className="create-comment-button"
+        text={CREATE_COMMENT_BUTTON_TEXT}
+        callback={handleSubmit}
+      />
 
       <Modal
         open={hasError}

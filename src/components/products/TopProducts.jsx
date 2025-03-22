@@ -1,42 +1,54 @@
-import { useEffect, useState } from "react";
-
 import { TOP_PRODUCTS_LABEL } from "../../utils/Consts";
-
-import useProducts from "../../hooks/useProducts";
-
 import ProductCard from "./ProductCard";
 
 import "./products.css";
 
-
 const TopProducts = () => {
-  const [topProducts, setTopProducts] = useState([]);
-  const { getTop } = useProducts();
-
-  const loadTopProducts = async () => {
-    setTopProducts(await getTop());
-  };
-
-  useEffect(() => {
-    loadTopProducts();
-  }, []);
+  const topProducts = [
+    {
+      id: 0,
+      images: ["/img/table.png"],
+      price: 33500,
+      name: "Старый деревянный рабочий стол",
+      raiting: 4.76,
+      seller: { id: 0, name: "Seller1" },
+      unitsInStock: 10,
+    },
+    {
+      id: 1,
+      images: ["/img/shelf.png"],
+      price: 12750,
+      name: "Минималистичная книжная полка",
+      raiting: 4.68,
+      seller: { id: 1, name: "Seller2" },
+      unitsInStock: 3,
+    },
+    {
+      id: 2,
+      images: ["/img/chair.png"],
+      price: 18900,
+      name: "Винтажный кожаный офисный стул",
+      raiting: 4.84,
+      seller: { id: 2, name: "Seller3" },
+      unitsInStock: 5,
+    },
+  ];
 
   return (
     <div className="top-products-section">
-
       <div className="top-products-info">
-        <h2 className="top-products-title">
-          {TOP_PRODUCTS_LABEL}
-        </h2>
+        <h2 className="top-products-title">{TOP_PRODUCTS_LABEL}</h2>
         <p className="top-products-text">
-          для всех, кто ценит уникальные и качественные изделия с особенным характером
+          для всех, кто ценит уникальные и качественные изделия с особенным
+          характером
         </p>
-      </div >
+      </div>
       <div className="top-products-list">
-        {
-          topProducts.map((product) =>
-            <div className="product" key={product.id}><ProductCard product={product}></ProductCard></div>)
-        }
+        {topProducts.map((product) => (
+          <div className="product" key={product.id}>
+            <ProductCard product={product}></ProductCard>
+          </div>
+        ))}
       </div>
     </div>
   );

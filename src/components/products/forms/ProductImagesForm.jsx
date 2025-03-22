@@ -19,11 +19,11 @@ const ProductImagesForm = observer(() => {
       <label>Изображения продукта:</label>
       <div {...getRootProps()} className="product-image">
         <input {...getInputProps()} />
-        <p>Перетащите файлы сюда или нажмите для выбора файлов</p>
+        <p>Перетащите файл сюда или нажмите для выбора</p>
       </div>
       {editProduct.images.length > 0 && (
         <div>
-          <p className="images-list-title">Выбранные изображения:</p>
+          <p className="images-list-title">Выбранное изображение:</p>
           <ul className="images-list">
             {editProduct.images.map((file, index) => (
               <li key={index}>

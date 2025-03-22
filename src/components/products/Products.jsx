@@ -1,53 +1,45 @@
-import { useState } from "react";
-import { Pagination } from "@mui/material";
-
-import { PRODUCTS_PER_PAGE } from "../../utils/Consts";
-
 import ProductCard from "./ProductCard";
-
 import "./products.css";
 
-
-const Products = ({ products }) => {
-  const [page, setPage] = useState(1);
-
-  const getPagedProducts = () => {
-    const startIndex = (page - 1) * PRODUCTS_PER_PAGE;
-    const endIndex = startIndex + PRODUCTS_PER_PAGE;
-    return products.slice(startIndex, endIndex);
-  };
-
-  if (products.length === 0) {
-    return (
-      <h3>
-        Нет товаров
-      </h3>
-    );
-  }
+const Products = () => {
+  const products = [
+    {
+      id: 0,
+      images: ["/img/table.png"],
+      price: 33500,
+      name: "Старый деревянный рабочий стол",
+      raiting: 4.76,
+      seller: { id: 0, name: "Seller1" },
+      unitsInStock: 10,
+    },
+    {
+      id: 1,
+      images: ["/img/shelf.png"],
+      price: 12750,
+      name: "Минималистичная книжная полка",
+      raiting: 4.68,
+      seller: { id: 1, name: "Seller2" },
+      unitsInStock: 3,
+    },
+    {
+      id: 2,
+      images: ["/img/chair.png"],
+      price: 18900,
+      name: "Винтажный кожаный офисный стул",
+      raiting: 4.84,
+      seller: { id: 2, name: "Seller3" },
+      unitsInStock: 5,
+    },
+  ];
 
   return (
-    <>
-      <div className="products-list">
-        {
-          getPagedProducts().map(product =>
-            <div className="product" key={product.id}>
-              <ProductCard product={product} />
-            </div>
-          )
-        }
-      </div>
-      {
-        products.length / PRODUCTS_PER_PAGE > 1
-          ?
-          <Pagination
-            count={Math.ceil(products.length / PRODUCTS_PER_PAGE)}
-            page={page}
-            onChange={(event, value) => setPage(value)}
-          />
-          :
-          <></>
-      }
-    </>
+    <div className="products-list">
+      {products.map((product) => (
+        <div className="product" key={product.id}>
+          <ProductCard product={product} />
+        </div>
+      ))}
+    </div>
   );
 };
 

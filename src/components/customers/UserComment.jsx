@@ -9,7 +9,7 @@ import { Context } from "../..";
 import { ROLE } from "../../utils/Consts";
 
 
-const UserComment = observer(({ itemId }) => {
+const UserComment = observer(() => {
   const { user } = useContext(Context);
   const { isUserCommentExists } = useComments();
 
@@ -24,7 +24,7 @@ const UserComment = observer(({ itemId }) => {
   }
 
   return (
-    <CreateCommentForm itemId={itemId} />
+    <CreateCommentForm />
   );
 });
 

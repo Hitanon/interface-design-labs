@@ -1,46 +1,30 @@
-import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-import { Context } from "../../..";
 import { PROFILE_ROUTE } from "../../../utils/Consts";
-
-import useSeller from "../../../hooks/useSeller";
 
 import ProductForm from "./ProductForm";
 
 import "./forms.css";
 
-
 const CreateProductForm = () => {
-  const { editProduct } = useContext(Context);
-  const { createProduct } = useSeller();
   const navigate = useNavigate();
 
   const onCreateClick = () => {
-    try {
-      createProduct(
-        editProduct.images,
-        editProduct.name,
-        editProduct.description,
-        editProduct.price,
-        editProduct.unitsInStock,
-        editProduct.category,
-      );
-      navigate(PROFILE_ROUTE);
-    }
-    catch (e) { }
+    alert("Товар успешно создан");
+    navigate(PROFILE_ROUTE);
   };
 
   const onCancelClick = () => {
     navigate(PROFILE_ROUTE);
   };
 
-  const onDestroy = () => {
-    editProduct.clear();
-  };
-
+  // Эффект очистки можно опустить, если нет глобального состояния
   useEffect(() => {
-    return onDestroy;
+    return () => {
+      // Очистка временных данных (если нужно)
+      console.log("Очищены временные данные редактирования");
+    };
   }, []);
 
   return (

@@ -1,22 +1,23 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { observer } from "mobx-react-lite";
 
-import useProjectInfo from "../../hooks/useProjectInfo";
-
 import SocialMediaButton from "../ui/SocialMediaButton";
 
-import { MAIN_ROUTE, CATEGORIES_ROUTE, ABOUT_US_ROUTE } from "../../utils/Consts";
+import {
+  MAIN_ROUTE,
+  CATEGORIES_ROUTE,
+  ABOUT_US_ROUTE,
+} from "../../utils/Consts";
 
 import "./general.css";
 
 const Footer = observer(() => {
-  const { loadProjectInfo, projectInfo } = useProjectInfo();
-
-  useEffect(() => {
-    loadProjectInfo();
-  }, []);
+  const socials = [
+    { name: "Twitter", url: "https://x.com/home" },
+    { name: "Youtube", url: "https://www.youtube.com/" },
+    {name: "VK", url: "https://vk.com/"},
+  ];
 
   return (
     <footer>
@@ -45,11 +46,11 @@ const Footer = observer(() => {
       </ul>
 
       <div className="footer-contats">
-        <div>Phone: {projectInfo.phone}</div>
-        <div>Email: {projectInfo.email}</div>
+        <div>Phone: + 7(999)999-99-99</div>
+        <div>Email: artisan.avenue@email.com</div>
 
         <ul className="menu icons">
-          {projectInfo.social?.map((item) => (
+          {socials?.map((item) => (
             <SocialMediaButton
               key={item.name}
               name={item.name}

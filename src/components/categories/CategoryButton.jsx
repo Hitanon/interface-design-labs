@@ -1,14 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 
 import "./categories.css";
+import { CATEGORIES_ROUTE } from "../../utils/Consts";
 
 
 const CategoryButton = ({ category }) => {
-  const { addParam, applyFilters } = useSearch();
+  const navigate = useNavigate();
 
   const onCategoryClick = () => {
-    addParam("category", category.id);
-    applyFilters();
+    navigate(CATEGORIES_ROUTE)
   };
 
   return (

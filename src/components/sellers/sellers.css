@@ -6,10 +6,12 @@
     background-color: #5a6871;
     background-size: 50px;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .seller-header {
     display: flex;
+    justify-content: flex-start;
     margin-top: 40px;
 }
 

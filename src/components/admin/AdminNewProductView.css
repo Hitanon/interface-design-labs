@@ -1,0 +1,64 @@
+/* AdminNewProductView.css */
+
+.admin-new-product-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .product-info p {
+    margin: 0.3rem 0;
+  }
+  
+  .product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Кнопка одобрения */
+  .product-actions .approve {
+    background-color: var(--color-green);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  /* Блок отклонения */
+  .reject-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .reject-section textarea {
+    width: 200px;
+    height: 70px;
+    resize: vertical;
+    border: 1px solid var(--color-grey-mid);
+    border-radius: 3px;
+    padding: 0.4rem;
+  }
+  
+  .reject-section .reject {
+    background-color: var(--color-darkgrey);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .reject-section .reject:hover {
+    background-color: #333;
+  }
+  
+  /* Адаптив */
+  @media (max-width: 600px) {
+    .reject-section textarea {
+      width: 100%;
+    }
+  }
+  

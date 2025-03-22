@@ -1,8 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
 
 import { PRODUCTS_ROUTE, SELLERS_ROUTE } from "../../utils/Consts";
-import useCustomer from "../../hooks/useCustomer";
-
 import TextButton from "../ui/TextButton";
 import ImageField from "../ui/ImageField";
 
@@ -10,28 +9,32 @@ import OrderStatuses from "./OrderStatuses";
 
 import "./orders.css";
 
-
 const OrderItem = ({ item }) => {
   const navigate = useNavigate();
-  const { acceptOrderItem } = useCustomer();
+
+  const [statuses, setStatuses] = useState(item.statuses);
 
   const onProductClick = () => {
     navigate(`${PRODUCTS_ROUTE}/${item.product.id}`);
   };
 
   const isAcceptable = () => {
-    return item.statuses[0].name === "SENT";
+    return statuses[0].name === "SENT";
   };
 
-  const onSubmitAcceptClick = async () => {
-    acceptOrderItem(item.id);
+  const onSubmitAcceptClick = () => {
+    const newStatus = {
+      name: "DELIVERED",
+      dateFrom: new Date().toISOString(),
+      details: "Покупатель подтвердил получение",
+    };
+    setStatuses([newStatus, ...statuses]);
   };
 
   return (
     <div className="customer-order-item">
-
       <div className="order-card">
-        <div onClick={onProductClick} >
+        <div onClick={onProductClick}>
           <ImageField className="order-image" url={item.product.images[0]} />
         </div>
         <div className="order-info">
@@ -49,13 +52,15 @@ const OrderItem = ({ item }) => {
       </div>
 
       <div className="order-status">
-        <OrderStatuses statuses={item.statuses} />
-        {isAcceptable() ? <TextButton
-          className="order-status-accept-button"
-          text={"Подтвердить получение"}
-          callback={onSubmitAcceptClick} /> : null}
+        <OrderStatuses statuses={statuses} />
+        {isAcceptable() && (
+          <TextButton
+            className="order-status-accept-button"
+            text={"Подтвердить получение"}
+            callback={onSubmitAcceptClick}
+          />
+        )}
       </div>
-
     </div>
   );
 };

@@ -6,12 +6,11 @@ import Header from "../components/general/Header";
 
 
 const Product = () => {
-  const { id } = useParams();
 
   return (
     <>
       <Header />
-      <FullProductInfo id={id} />
+      <FullProductInfo id={0} />
       <Footer />
     </>
   );

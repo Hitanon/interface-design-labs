@@ -1,8 +1,5 @@
-import { useContext, useEffect } from "react";
-import { observer } from "mobx-react-lite";
+import { useState } from "react";
 
-import { Context } from "../..";
-import useCustomer from "../../hooks/useCustomer";
 import { MAIN_ROUTE } from "../../utils/Consts";
 import TextRedirectButton from "../ui/TextRedirectButton";
 
@@ -10,16 +7,58 @@ import CustomerOrder from "./CustomerOrder";
 
 import "./orders.css";
 
+const CustomerOrders = () => {
+  const [orders] = useState([
+    {
+      id: 1,
+      createdAt: new Date().toISOString(),
+      total: 46250,
+      items: [
+        {
+          id: 101,
+          product: {
+            id: 1,
+            name: "Старый деревянный рабочий стол",
+            price: 33500,
+            images: ["/img/table.png"],
+            seller: { id: 1, name: "Seller1" },
+          },
+          statuses: [{ name: "SENT", dateFrom: new Date().toISOString() }],
+        },
+        {
+          id: 102,
+          product: {
+            id: 2,
+            name: "Минималистичная книжная полка",
+            price: 12750,
+            images: ["/img/shelf.png"],
+            seller: { id: 2, name: "Seller2" },
+          },
+          statuses: [{ name: "DELIVERED", dateFrom: new Date().toISOString() }],
+        },
+      ],
+    },
+    {
+      id: 2,
+      createdAt: new Date().toISOString(),
+      total: 18900,
+      items: [
+        {
+          id: 103,
+          product: {
+            id: 3,
+            name: "Винтажный кожаный офисный стул",
+            price: 18900,
+            images: ["/img/chair.png"],
+            seller: { id: 3, name: "Seller3" },
+          },
+          statuses: [{ name: "SENT", dateFrom: new Date().toISOString() }],
+        },
+      ],
+    },
+  ]);
 
-const CustomerOrders = observer(() => {
-  const { customerProfile } = useContext(Context);
-  const { loadOrders } = useCustomer();
-
-  useEffect(() => {
-    loadOrders();
-  }, []);
-
-  if (customerProfile.orders.length === 0) {
+  if (orders.length === 0) {
     return (
       <div className="section-without-items">
         <h2>У вас пока нет заказов. Вы можете их оформить</h2>
@@ -31,11 +70,13 @@ const CustomerOrders = observer(() => {
   return (
     <div className="orders-section">
       <h1>Заказы</h1>
-      {
-        customerProfile.orders.map(order => <div key={order.id}><CustomerOrder order={order} /></div>)
-      }
+      {orders.map((order) => (
+        <div key={order.id}>
+          <CustomerOrder order={order} />
+        </div>
+      ))}
     </div>
   );
-});
+};
 
 export default CustomerOrders;

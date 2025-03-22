@@ -20,7 +20,7 @@ const ImageSlider = ({ urls }) => {
       >
         {urls.map((url, index) => (
           <div key={index} className="slider-content">
-            <img src={BASE_API_URL + url} alt="Slide" />
+            <img src={url} alt="Slide" />
           </div>
         ))}
       </AwesomeSlider>

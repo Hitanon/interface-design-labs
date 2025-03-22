@@ -18,8 +18,8 @@ const LoginForm = () => {
   const [hasError, setHasError] = useState(false);
   const onOpen = () => setHasError(true);
   const onClose = () => setHasError(false);
-  const [email, setEmail] = useState("admin@test.com");
-  const [password, setPassword] = useState("secret");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuthenticate();

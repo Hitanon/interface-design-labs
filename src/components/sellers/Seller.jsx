@@ -1,37 +1,23 @@
-import { useEffect, useState } from "react";
-
-import { getSellerInfo } from "../../clients/SellerClient";
 import Products from "../products/Products";
-
 import SellerHeader from "./SellerHeader";
 
-
-const SellerInfo = ({ id }) => {
-  const [seller, setSeller] = useState({ products: [] });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const loadSeller = async () => {
-    setIsLoading(true);
-    setSeller(await getSellerInfo(id));
-    setIsLoading(false);
+const SellerInfo = () => {
+  const seller = {
+    id: 1,
+    name: "Интерьерная мастерская 'Уют'",
+    rating: 4.85,
+    sales: 26,
+    sellsFrom: "2019-04-15",
+    description: "Мебель и предметы интерьера, сделанные с душой. Работаем с натуральным деревом, создаем вещи, которые живут долго и радуют глаз.",
   };
-
-  useEffect(() => {
-    loadSeller();
-  }, []);
-
-  if (isLoading) {
-    return;
-  }
 
   return (
     <>
       <SellerHeader seller={seller} />
       <div className="seller-product-container">
         <h2 className="seller-products-title">Товары</h2>
-        <Products products={seller.products} />
+        <Products />
       </div>
-
     </>
   );
 };
