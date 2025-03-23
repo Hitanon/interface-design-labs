@@ -9,6 +9,8 @@ import SearchStore from "./store/SearchStore";
 import CartStore from "./store/CartStore";
 import ProjectInfoStore from "./store/ProjectInfoStore";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./index.css";
 import EditProductStore from "./store/EditProductStore";
 import SellerProfileStore from "./store/SellerProfileStore";

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT } from "../../../utils/Consts";
 import InputField from "../../ui/InputField";
 
-import "../../../index.css";
 
 const SearchProductByName = () => {
   const [productName, setProductName] = useState("");
@@ -33,6 +32,7 @@ const SearchProductByName = () => {
         value={productName}
         callback={setName}
         onKeyDown={handleKeyDown}
+        className="search-input"
       />
       <button className="search-button" onClick={onSearchClick}></button>
     </search>

@@ -32,7 +32,7 @@ export const ORDERS_PER_PAGE = 8;
 
 // UI
 export const LIST_CATEGORIES_BUTTON_TEXT = "Категории";
-export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск товара по всем категориям";
+export const SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT = "Поиск";
 export const ADD_TO_CART_BUTTON_TEXT = "Добавить в корзину";
 export const PLACE_AN_ORDER_BUTTON_TEXT = "Оформить заказ";
 export const PURCHASE_BUTTON_TEXT = "Заказать";

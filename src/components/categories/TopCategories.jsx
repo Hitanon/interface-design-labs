@@ -6,17 +6,22 @@ import "./categories.css";
 
 const TopCategories = () => {
   const topCategories = [
-    { image: "/img/accessories.png", name: "Аксессуары" },
-    { image: "/img/jewelry.png", name: "Украшения" },
-    { image: "/img/cloth.png", name: "Одежда" },
-    { image: "/img/toys.png", name: "Игрушки и игры" },
-    { image: "/img/bags.png", name: "Сумки и кошельки" },
+    { id: 1, image: "/img/accessories.png", name: "Аксессуары" },
+    { id: 2, image: "/img/jewelry.png", name: "Украшения" },
+    { id: 3, image: "/img/cloth.png", name: "Одежда" },
+    { id: 4, image: "/img/toys.png", name: "Игрушки и игры" },
   ];
 
   return (
-    <div className="top-categories-section">
-      <h2 className="top-categories-title">{TOP_CATEGORIES_LABEL}</h2>
-      <Categories categories={topCategories} />
+    <div className="top-categories-section container-fluid py-3">
+      <div className="container">
+        <div className="row text-center">
+          <h2 className="top-categories-title">{TOP_CATEGORIES_LABEL}</h2>
+        </div>
+        <div className="row gy-3 py-4">
+          <Categories categories={topCategories} />
+        </div>
+      </div>
     </div>
   );
 };

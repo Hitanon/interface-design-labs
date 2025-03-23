@@ -25,19 +25,27 @@ const Header = observer(() => {
   };
 
   return (
-    <nav className="header">
-      <Link rel="stylesheet" to={MAIN_ROUTE}>
-        <img className="logo" src="/img/logo.svg" alt="Logo" />
-      </Link>
-      <div className="nav-section">
-        <ListButton
-          text={LIST_CATEGORIES_BUTTON_TEXT}
-          callback={onCategoriesClick}
-        />
-        <SearchProductByName />
-      </div>
-      <div className="header-user-bar">
-        {user.isAuth ? <UserBar /> : <AuthenticateBar />}
+    <nav className="container-fluid header">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-2">
+            <Link rel="stylesheet" to={MAIN_ROUTE}>
+              <img className="logo" src="/img/logo.svg" alt="Logo" />
+            </Link>
+          </div>
+
+          <div className="col nav-section justify-content-center">
+            <ListButton
+              text={LIST_CATEGORIES_BUTTON_TEXT}
+              callback={onCategoriesClick}
+            />
+            <SearchProductByName />
+          </div>
+
+          <div className="col-3">
+            {user.isAuth ? <UserBar /> : <AuthenticateBar />}
+          </div>
+        </div>
       </div>
     </nav>
   );

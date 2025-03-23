@@ -11,7 +11,7 @@
 
 
 body {
-    padding: 0 250px;
+    padding: 0;
     margin: 0;
 
     font-family: 'Comfortaa', cursive;
@@ -76,6 +76,7 @@ button:hover {
 search {
     margin-left: 20px;
     display: flex;
+    width: 100%;
 }
 
 input[type="checkbox"] {

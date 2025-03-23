@@ -14,7 +14,7 @@
     height: 16px;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 3px;
 }
 
 .list-button:hover {
@@ -29,7 +29,7 @@ input {
 
     margin: 0;
     padding: 0 14px;
-    min-width: 350px;
+    /* min-width: 350px; */
     height: 30px;
     box-sizing: border-box;
     border: black 1px solid;
@@ -165,4 +165,14 @@ input:focus {
 
 .custom-bullet.active {
     background-color: var(--grey-color);
+}
+
+.search-input {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .list-button {
+        display: none;
+    }
 }

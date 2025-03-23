@@ -35,20 +35,25 @@ const TopProducts = () => {
   ];
 
   return (
-    <div className="top-products-section">
-      <div className="top-products-info">
-        <h2 className="top-products-title">{TOP_PRODUCTS_LABEL}</h2>
-        <p className="top-products-text">
-          для всех, кто ценит уникальные и качественные изделия с особенным
-          характером
-        </p>
-      </div>
-      <div className="top-products-list">
-        {topProducts.map((product) => (
-          <div className="product" key={product.id}>
-            <ProductCard product={product}></ProductCard>
+    <div className="container top-products-section">
+      <div className="row py-4 gy-3">
+        <div className="col-12">
+          <h2 className="top-products-title">{TOP_PRODUCTS_LABEL}</h2>
+          <p className="top-products-text">
+            для всех, кто ценит уникальные и качественные изделия с особенным
+            характером
+          </p>
+        </div>
+
+        <div className="col-12">
+          <div className="row gy-5">
+            {topProducts.map((product) => (
+              <div className="col-12 col-sm-6 col-lg-4 col-xl-3 product" key={product.id}>
+                <ProductCard product={product}></ProductCard>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
