@@ -18,8 +18,16 @@ const OrderStatus = ({ status, isActive }) => {
   };
 
   return (
-    <div className={isActive ? "status status-active" : "status status-inactive"}>
-      {translateStatus(status)}
+    <div className="col-4 col-xl-3">
+      <div
+        className={
+          isActive
+            ? "text-center status status-active"
+            : "text-center status status-inactive"
+        }
+      >
+        {translateStatus(status)}
+      </div>
     </div>
   );
 };

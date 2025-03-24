@@ -41,7 +41,6 @@
 }
 
 .product-name-full {
-  max-width: 450px;
   line-height: 28px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -114,10 +113,6 @@
 
 .serch-products-filteres {
   width: 220px;
-}
-
-.search-product-body {
-  margin-left: 40px;
 }
 
 .button-apply {
@@ -251,11 +246,10 @@
 }
 
 @media (min-width: 992px) {
-  .top-products-title {
-    max-width: 10%;
-  }
-
   .top-products-text {
     max-width: 70%;
+  }
+  .product-price {
+    margin-top: 3rem;
   }
 }

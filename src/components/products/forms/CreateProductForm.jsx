@@ -28,9 +28,15 @@ const CreateProductForm = () => {
   }, []);
 
   return (
-    <>
-      <ProductForm onCreate={onCreateClick} onCancel={onCancelClick} applyText="Создать" />
-    </>
+    <div className="container-fluid page-footer-bottom">
+      <div className="container">
+        <ProductForm
+          onCreate={onCreateClick}
+          onCancel={onCancelClick}
+          applyText="Создать"
+        />
+      </div>
+    </div>
   );
 };
 

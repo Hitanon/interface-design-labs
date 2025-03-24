@@ -33,9 +33,9 @@ const Products = () => {
   ];
 
   return (
-    <div className="products-list">
+    <div className="row gy-4">
       {products.map((product) => (
-        <div className="product" key={product.id}>
+        <div className="col-12 col-md-6 col-lg-4 product" key={product.id}>
           <ProductCard product={product} />
         </div>
       ))}

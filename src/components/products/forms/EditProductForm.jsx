@@ -42,11 +42,15 @@ const EditProductForm = () => {
   }, []);
 
   return (
-    <ProductForm
-      onCreate={onSaveClick}
-      onCancel={onCancelClick}
-      applyText="Сохранить"
-    />
+    <div className="container-fluid page-footer-bottom">
+      <div className="container">
+        <ProductForm
+          onCreate={onSaveClick}
+          onCancel={onCancelClick}
+          applyText="Сохранить"
+        />
+      </div>
+    </div>
   );
 };
 

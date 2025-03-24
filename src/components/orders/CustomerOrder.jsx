@@ -18,16 +18,18 @@ const CustomerOrder = ({ order }) => {
 
   return (
     <div className="customer-order">
-      <div className="customer-order-title">
-        <h2>
-          Заказ от {formatCreatedAt()}
-        </h2>
+      <div className="col-12 customer-order-title">
+        <h2>Заказ от {formatCreatedAt()}</h2>
         <h2>
           Всего: {order.total} <span>₽</span>
         </h2>
       </div>
-      {order.items.map(item => <div key={item.id}><OrderItem item={item} /></div>)}
-      <hr className="order-sep"/>
+      {order.items.map((item) => (
+        <div className="col-12" key={item.id}>
+          <OrderItem item={item} />
+        </div>
+      ))}
+      <hr className="order-sep" />
     </div>
   );
 };

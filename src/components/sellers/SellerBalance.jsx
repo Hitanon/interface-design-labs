@@ -7,7 +7,7 @@ import "./sellers.css";
 const SellerBalance = observer(() => {
 
   return (
-    <div className="seller-balance">
+    <div className="col-12 col-lg-2 offset-lg-4 seller-balance">
       <p>На счете</p>
       <h2 className="balance">
         102 530 <span>₽</span>

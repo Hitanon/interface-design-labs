@@ -43,17 +43,28 @@ const PurchaseOrder = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="section-without-items">
-        <h3>У вас нет товаров. Вы можете их добавить из главной страницы. Ждем ваших покупок :)</h3>
-        <TextRedirectButton className="to-main-button" text={"На главную"} route={MAIN_ROUTE} />
+      <div className="container section-without-items">
+        <h3 className="text-center">
+          У вас нет товаров. Вы можете их добавить из главной страницы. Ждем
+          ваших покупок :)
+        </h3>
+        <TextRedirectButton
+          className="to-main-button"
+          text={"На главную"}
+          route={MAIN_ROUTE}
+        />
       </div>
     );
   }
 
   return (
-    <div className="section-with-items">
-      <h1>Корзина</h1>
-      <CartItems items={cartItems} callBack={onPurchaseClick} />
+    <div className="container-fluid">
+      <div className="container section-with-items">
+        <div className="row gy-3">
+          <h1 className="col-12">Корзина</h1>
+          <CartItems items={cartItems} callBack={onPurchaseClick} />
+        </div>
+      </div>
     </div>
   );
 };

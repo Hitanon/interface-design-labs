@@ -5,11 +5,11 @@ import ProductRatingBoundedFilter from "./ProductRatingBoundedFilter";
 
 const SearchProductsFilters = () => {
   return (
-    <>
+    <div className="row">
       <ProductCategoryFilter />
       <ProductPriceBoundedFilter />
       <ProductRatingBoundedFilter />
-    </>
+    </div>
   );
 };
 

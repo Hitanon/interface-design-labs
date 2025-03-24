@@ -62,19 +62,27 @@ const CustomerOrders = () => {
     return (
       <div className="section-without-items">
         <h2>У вас пока нет заказов. Вы можете их оформить</h2>
-        <TextRedirectButton className="to-main-button" text={"На главную"} route={MAIN_ROUTE} />
+        <TextRedirectButton
+          className="to-main-button"
+          text={"На главную"}
+          route={MAIN_ROUTE}
+        />
       </div>
     );
   }
 
   return (
-    <div className="orders-section">
-      <h1>Заказы</h1>
-      {orders.map((order) => (
-        <div key={order.id}>
-          <CustomerOrder order={order} />
+    <div className="container-fluid">
+      <div className="container orders-section">
+        <div className="row">
+          <h1 className="col-12">Заказы</h1>
+          {orders.map((order) => (
+            <div className="col-12 row " key={order.id}>
+              <CustomerOrder order={order} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };

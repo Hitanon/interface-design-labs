@@ -26,10 +26,10 @@ const ProductPriceBoundedFilter = () => {
   };
 
   return (
-    <>
+    <div className="col-7 col-sm-6 col-md-4 col-lg-3 col-xl-12">
       <h2 className="filter-title">{PRICE_FILTER_LABEL}</h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType="number" />
-    </>
+    </div>
   );
 };
 

@@ -6,14 +6,17 @@ import SellerProducts from "./SellerProducts";
 
 const SellerProfile = () => {
   return (
-    <>
-      <div className="seller-header full">
-        <SellerFormInfo />
-        <SellerBalance />
+    <div className="container-fluid">
+      <div className="container">
+        <div className="row">
+          <SellerFormInfo />
+          <SellerBalance />
+        </div>
+
+        <SellerProducts />
+        <SellerOrders />
       </div>
-      <SellerProducts />
-      <SellerOrders />
-    </>
+    </div>
   );
 };
 

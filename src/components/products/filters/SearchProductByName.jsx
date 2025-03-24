@@ -25,7 +25,7 @@ const SearchProductByName = () => {
   };
 
   return (
-    <search>
+    <search className="search-bar">
       <InputField
         type="text"
         placeholder={SEARCH_PRODUCTS_BY_ALL_CATEGORIES_TEXT}

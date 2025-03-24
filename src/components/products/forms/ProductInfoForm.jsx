@@ -40,20 +40,20 @@ const ProductInfoForm = () => {
           onChange={(e) => setPrice(e.target.value)}
           fullWidth
           sx={{
-            width: "20%",
+            width: "30%",
             marginRight: "20px",
             ...commonStyles,
           }}
         />
         <TextField
-          label="Количество (шт)"
+          label="Количество"
           type="number"
           variant="outlined"
           value={unitsInStock}
           onChange={(e) => setUnitsInStock(e.target.value)}
           fullWidth
           sx={{
-            width: "20%",
+            width: "40%",
             ...commonStyles,
           }}
         />

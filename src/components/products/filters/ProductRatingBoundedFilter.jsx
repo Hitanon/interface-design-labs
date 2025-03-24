@@ -26,10 +26,10 @@ const ProductRatingBoundedFilter = () => {
   };
 
   return (
-    <>
+    <div className="col-7 col-sm-6 col-md-4 offset-md-1 col-lg-3 col-xl-12 offset-xl-0">
       <h2 className="filter-title">{RATING_FILTER_LABEL}</h2>
       <BoundedSearchFilter lower={lower} upper={upper} inputType="number" />
-    </>
+    </div>
   );
 };
 

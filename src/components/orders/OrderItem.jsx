@@ -33,15 +33,19 @@ const OrderItem = ({ item }) => {
 
   return (
     <div className="customer-order-item">
-      <div className="order-card">
-        <div onClick={onProductClick}>
-          <ImageField className="order-image" url={item.product.images[0]} />
-        </div>
-        <div className="order-info">
+      <div className="row gy-4">
+        <div className="col-12 col-md-6 col-lg-5">
           <h3 className="order-title" onClick={onProductClick}>
+            <ImageField
+              className="order-full-image"
+              url={item.product.images[0]}
+            />
             {item.product.name}
           </h3>
-          <Link className="order-seller" to={`${SELLERS_ROUTE}/${item.product.seller.id}`}>
+          <Link
+            className="order-seller"
+            to={`${SELLERS_ROUTE}/${item.product.seller.id}`}
+          >
             <div className="seller-icon"></div>
             {item.product.seller.name}
           </Link>
@@ -49,17 +53,17 @@ const OrderItem = ({ item }) => {
             {item.product.price} <span>₽</span>
           </h2>
         </div>
-      </div>
 
-      <div className="order-status">
-        <OrderStatuses statuses={statuses} />
-        {isAcceptable() && (
-          <TextButton
-            className="order-status-accept-button"
-            text={"Подтвердить получение"}
-            callback={onSubmitAcceptClick}
-          />
-        )}
+        <div className="col-12 col-md-6 col-lg-5 offset-lg-2 col-xl-3 offset-xl-4 order-status">
+          <OrderStatuses statuses={statuses} />
+          {isAcceptable() && (
+            <TextButton
+              className="order-status-accept-button"
+              text={"Подтвердить получение"}
+              callback={onSubmitAcceptClick}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -18,40 +18,49 @@ const Product = () => {
     seller: { id: 1, name: "Seller1" },
     category: { id: 2, name: "Мебель" },
     unitsInStock: 10,
-    description: "Прочный рабочий стол из массива дуба. Идеален для домашнего офиса или творческой студии.",
+    description:
+      "Прочный рабочий стол из массива дуба. Идеален для домашнего офиса или творческой студии.",
   };
 
   return (
-    <div className="full-product">
-      <div className="col1">
-        <CategoryButton category={product.category} />
-        <ImageSlider urls={product.images} />
-        <div className="user-comment-section">
-          <p>Ваш отзыв:</p>
-          <UserComment />
-        </div>
-        <ProductComments />
-      </div>
+    <div className="container">
+      <div className="row gy-3">
 
-      <div className="col2">
-        <h2 className="product-price">
-          {product.price} <span>₽</span>
-        </h2>
-
-        <h1 className="main-product-name">{product.name}</h1>
-
-        <div className="full-rating">
-          <div className="rating-icon"></div>
-          {product.rating}
+        <div className="col-12 col-lg-6 col-xl-6">
+          <CategoryButton category={product.category} />
+          <ImageSlider urls={product.images} />
         </div>
 
-        <SellerButton seller={product.seller} />
+        <div className="col-12 col-lg-6 col-xl-5 offset-xl-1">
+          <h2 className="product-price">
+            {product.price} <span>₽</span>
+          </h2>
 
-        <AddToCartButtonFullProduct />
+          <h1 className="main-product-name">{product.name}</h1>
 
-        <div className="product-left">Осталось {product.unitsInStock} шт.</div>
+          <div className="full-rating">
+            <div className="rating-icon"></div>
+            {product.rating}
+          </div>
 
-        <ProductDescription product={product} />
+          <SellerButton seller={product.seller} />
+
+          <AddToCartButtonFullProduct />
+
+          <div className="product-left">
+            Осталось {product.unitsInStock} шт.
+          </div>
+
+          <ProductDescription product={product} />
+        </div>
+
+        <div className="col-12 col-lg-8 col-xl-7 py-xl-3">
+          <div className="user-comment-section">
+            <p>Ваш отзыв:</p>
+            <UserComment />
+          </div>
+          <ProductComments />
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,6 @@
 import { useState } from "react";
-
-import { TextField } from "@mui/material";
-
 import TextButton from "../../ui/TextButton";
-
 import OrderStatus from "./OrderStatus";
-
 import "../orders.css";
 
 const OrderStatusMovementForm = ({ order }) => {
@@ -15,7 +10,9 @@ const OrderStatusMovementForm = ({ order }) => {
 
   const allStatuses = ["CREATED", "ACCEPTED", "PACKED", "SENT", "RECEIVED"];
   const orderStatuses = events.map((e) => e.name);
-  const nonActiveStatuses = allStatuses.filter((s) => !orderStatuses.includes(s));
+  const nonActiveStatuses = allStatuses.filter(
+    (s) => !orderStatuses.includes(s)
+  );
 
   const isLastSellerEvent = () => {
     return orderStatuses.length === allStatuses.length;
@@ -30,50 +27,28 @@ const OrderStatusMovementForm = ({ order }) => {
   };
 
   return (
-    <>
-      <p className="current-status">Текущий статус</p>
-      <div className="order-statuses-list">
-        {orderStatuses.map((status) => (
-          <OrderStatus key={status} status={status} isActive={true} />
-        ))}
-        {nonActiveStatuses.map((status) => (
-          <OrderStatus key={status} status={status} isActive={false} />
-        ))}
-      </div>
+    <div className="row gy-3 py-5">
+      <p className="col-12 current-status">Текущий статус</p>
+      {orderStatuses.map((status) => (
+        <OrderStatus key={status} status={status} isActive={true} />
+      ))}
+      {nonActiveStatuses.map((status) => (
+        <OrderStatus key={status} status={status} isActive={false} />
+      ))}
 
       {!isLastSellerEvent() && nonActiveStatuses.length > 0 && (
         <div className="change-status-containter">
-          <TextField
-            type="text"
-            label="Сообщение"
+          <label htmlFor="status-message" className="form-label">
+            Сообщение
+          </label>
+          <textarea
+            id="status-message"
             placeholder="Напишите комментарий для заказчика"
-            multiline
-            fullWidth
             value={details}
             onChange={(e) => setDetails(e.target.value)}
-            variant="outlined"
-            sx={{
-              width: "700px",
-              "& .MuiInputBase-root": {
-                fontSize: "16px",
-                fontFamily: "'Comfortaa', cursive",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderRadius: "0",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "black",
-                },
-              },
-              "& .MuiInputLabel-root": {
-                color: "black",
-                fontFamily: "'Comfortaa', cursive",
-                "&.Mui-focused": {
-                  color: "black",
-                },
-              },
-            }}
+            rows={4}
+            className="status-textarea"
+            style={{ minHeight: "150px", maxHeight: "300px", }}
           />
           <TextButton
             className="change-status-button"
@@ -82,7 +57,7 @@ const OrderStatusMovementForm = ({ order }) => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 

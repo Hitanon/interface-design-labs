@@ -42,7 +42,7 @@ const Header = observer(() => {
             <SearchProductByName />
           </div>
 
-          <div className="col-3">
+          <div className="col-5 col-lg-4">
             {user.isAuth ? <UserBar /> : <AuthenticateBar />}
           </div>
         </div>

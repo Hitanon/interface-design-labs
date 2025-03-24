@@ -50,14 +50,14 @@ const SellerProducts = () => {
   };
 
   return (
-    <div className="seller-products">
+    <div className="col-12 py-5">
       <div className="seller-products-title">
         <h2>Товары</h2>
         <TextRedirectButton className="add-product-button" text="+" route={CREATE_PRODUCT_ROUTE} />
       </div>
-      <div className="products-list">
+      <div className="row gy-4 py-3">
         {getPagedProducts().map((product) => (
-          <div key={product.id}>
+          <div className="col-12 col-md-6 col-lg-4 col-xl-3" key={product.id}>
             <EditSellerProductForm product={product} />
           </div>
         ))}

@@ -6,9 +6,7 @@ import OrderStatusMovementForm from "./forms/OrderStatusMovementForm";
 
 import "./orders.css";
 
-
 const SellerOrder = observer(({ order }) => {
-
   const formatDate = () => {
     const date = new Date(order.createdAt);
     let day = date.getDate();
@@ -24,30 +22,27 @@ const SellerOrder = observer(({ order }) => {
 
   return (
     <div className="seller-order">
-      <h3 className="seller-order-title">
-        Заказ от: {formatDate()}
-      </h3>
-      <p>
-        Заказчик: {order.customer.username}
-      </p>
-      <div className="seller-order-container">
-        <div className="seller-order-info">
-          <ImageField className="product-image-field" url={order.product.images[0]} />
-          <div className="seller-order-product-info">
-            <h3 className="product-name-full">
-              {order.product.name}
-            </h3>
-            <h2 className="product-price seller">
-              {order.product.price} <span>₽</span>
-            </h2>
+      <div className="row">
+        <div className="col-12 col-lg-6 col-xl-4">
+          <h3 className="seller-order-title">Заказ от: {formatDate()}</h3>
+          <p>Заказчик: {order.customer.username}</p>
+          <div className="seller-order-container">
+            <ImageField
+              className="product-image-field"
+              url={order.product.images[0]}
+            />
           </div>
-        </div>
 
-        <div className="seller-order-status">
+          <h3 className="product-name-full py-3">{order.product.name}</h3>
+          <h2 className="seller">
+            {order.product.price} <span>₽</span>
+          </h2>
+        </div>
+        <div className="col-12 col-lg-6 mt-lg-4 col-xl-7 offset-xl-1">
           <OrderStatusMovementForm order={order} />
         </div>
-
       </div>
+
       <hr className="seller-order-sep" />
     </div>
   );

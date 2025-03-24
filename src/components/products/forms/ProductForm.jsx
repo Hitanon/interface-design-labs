@@ -6,11 +6,11 @@ import ProductCategoryForm from "./ProductCategoryForm";
 
 const ProductForm = ({onCreate, onCancel, applyText}) => {
   return (
-    <div className="product-form">
-      <div className="col1">
+    <div className="row">
+      <div className="col-12 col-md-6 col-xl-5">
         <ProductImagesForm />
       </div>
-      <div className="col2">
+      <div className="col-12 col-md-6 offset-xl-1">
         <TextButton className="save-changes-button" text={applyText} callback={onCreate} />
         <TextButton className="cancel-changes-button" text="Отмена" callback={onCancel} />
         <ProductInfoForm />

@@ -62,7 +62,7 @@ const SellerOrders = () => {
   };
 
   return (
-    <div className="seller-orders">
+    <div className="col-12">
       <h2>Заказы</h2>
       {getPagedOrders().map((order) => (
         <div key={order.id}>

@@ -4,19 +4,23 @@ import CategoriesList from "../components/categories/Categories";
 
 const Categories = () => {
   const categories = [
-    { image: "/img/accessories.png", name: "Аксессуары" },
-    { image: "/img/jewelry.png", name: "Украшения" },
-    { image: "/img/cloth.png", name: "Одежда" },
-    { image: "/img/toys.png", name: "Игрушки и игры" },
-    { image: "/img/bags.png", name: "Сумки и кошельки" },
+    { id: 1, image: "/img/accessories.png", name: "Аксессуары" },
+    { id: 2, image: "/img/jewelry.png", name: "Украшения" },
+    { id: 3, image: "/img/cloth.png", name: "Одежда" },
+    { id: 4, image: "/img/toys.png", name: "Игрушки и игры" },
+    { id: 5, image: "/img/bags.png", name: "Сумки и кошельки" },
   ];
 
   return (
     <div className="page-footer-bottom">
       <Header />
-      <div className="categroies-section">
-        <h1>Категории</h1>
-        <CategoriesList categories={categories} />
+      <div className="container categroies-section">
+        <div className="row py-3">
+          <h1 className="col-12 text-center text-md-start">Категории</h1>
+        </div>
+        <div className="row">
+          <CategoriesList categories={categories} />
+        </div>
       </div>
       <Footer />
     </div>

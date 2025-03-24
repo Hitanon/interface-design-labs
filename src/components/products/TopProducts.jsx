@@ -1,4 +1,5 @@
 import { TOP_PRODUCTS_LABEL } from "../../utils/Consts";
+
 import ProductCard from "./ProductCard";
 
 import "./products.css";
@@ -38,7 +39,7 @@ const TopProducts = () => {
     <div className="container top-products-section">
       <div className="row py-4 gy-3">
         <div className="col-12">
-          <h2 className="top-products-title">{TOP_PRODUCTS_LABEL}</h2>
+          <h2>{TOP_PRODUCTS_LABEL}</h2>
           <p className="top-products-text">
             для всех, кто ценит уникальные и качественные изделия с особенным
             характером
