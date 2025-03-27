@@ -38,7 +38,7 @@ const AdminUsersList = () => {
   return (
     <div className="admin-users-list container">
       <button
-        className="admin-back-button"
+        className="admin-back-button admin-button"
         onClick={() => navigate(PROFILE_ROUTE)}
       >
         ← Назад в профиль администратора
@@ -63,7 +63,7 @@ const AdminUsersList = () => {
                 <td>{user.name}</td>
                 <td>{user.role}</td>
                 <td>
-                  <button className="ban-btn" onClick={() => banUser(user.id)}>
+                  <button className="ban-btn admin-button" onClick={() => banUser(user.id)}>
                     Забанить
                   </button>
                 </td>
@@ -92,7 +92,7 @@ const AdminUsersList = () => {
                 <td>{user.role}</td>
                 <td>
                   <button
-                    className="unban-btn"
+                    className="unban-btn admin-button"
                     onClick={() => unbanUser(user.id)}
                   >
                     Разбанить

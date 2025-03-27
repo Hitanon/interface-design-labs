@@ -36,7 +36,7 @@
 }
 
 /* Адаптив */
-@media (max-width: 600px) {
+@media (max-width: 991px) {
   .admin-links {
     flex-direction: column;
   }

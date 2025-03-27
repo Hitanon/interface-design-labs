@@ -12,7 +12,7 @@ import "./colors.css";
 
 const AdminProfile = () => {
   const navigate = useNavigate();
-  const adminLogin = "adminUser"; // Статические данные
+  const adminLogin = "adminUser";
 
   return (
     <div className="container-fluid">

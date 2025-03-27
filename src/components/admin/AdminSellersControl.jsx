@@ -1,4 +1,3 @@
-// AdminSellersControl.jsx
 import React, { useState } from "react";
 import "./AdminSellersControl.css";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,6 @@ import "./colors.css";
 
 const AdminSellersControl = () => {
   const navigate = useNavigate();
-  // Статические данные по продавцам
   const [sellers] = useState([
     {
       id: 1,
@@ -36,7 +34,7 @@ const AdminSellersControl = () => {
   return (
     <div className="admin-sellers-control container">
       <button
-        className="admin-back-button"
+        className="admin-back-button admin-button"
         onClick={() => navigate(PROFILE_ROUTE)}
       >
         ← Назад в профиль администратора

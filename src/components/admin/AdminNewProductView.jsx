@@ -1,4 +1,3 @@
-// AdminNewProductView.jsx
 import React, { useState } from "react";
 import "./AdminNewProductView.css";
 import { useNavigate } from "react-router-dom";
@@ -31,8 +30,16 @@ const AdminNewProductView = () => {
 
   return (
     <div className="admin-new-product-view container">
-      <h1>Просмотр нового товара</h1>
       <div className="product-info">
+        <button
+          className="admin-back-button admin-button"
+          onClick={() => navigate(ADMIN_NEW_PRODUCTS_ROUTE)}
+        >
+          ← Назад к списку товаров
+        </button>
+
+        <h1 className="admin-new-product-title">Просмотр нового товара</h1>
+
         <p>
           <strong>ID:</strong> {product.id}
         </p>
@@ -53,7 +60,7 @@ const AdminNewProductView = () => {
         </p>
       </div>
       <div className="product-actions">
-        <button className="approve" onClick={onApprove}>
+        <button className="approve admin-button" onClick={onApprove}>
           Одобрить
         </button>
         <div className="reject-section">
@@ -62,14 +69,8 @@ const AdminNewProductView = () => {
             value={rejectReason}
             onChange={(e) => setRejectReason(e.target.value)}
           />
-          <button className="reject" onClick={onReject}>
+          <button className="reject admin-button" onClick={onReject}>
             Отклонить
-          </button>
-          <button
-            className="admin-back-button"
-            onClick={() => navigate(ADMIN_NEW_PRODUCTS_ROUTE)}
-          >
-            ← Назад к списку товаров
           </button>
         </div>
       </div>

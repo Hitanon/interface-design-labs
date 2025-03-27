@@ -1,43 +1,48 @@
 /* AdminNewProductsList.css */
 
 .admin-new-products h1 {
-    margin-bottom: 1rem;
-  }
-  
-  .new-products-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
+  margin-bottom: 1rem;
+}
+
+.new-products-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.new-products-table th,
+.new-products-table td {
+  border: 1px solid var(--color-grey-mid);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.new-products-table thead {
+  background-color: var(--color-grey-light);
+}
+
+.new-products-table button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.new-products-table button:hover {
+  background-color: var(--color-darkblue);
+}
+
+@media (max-width: 767px) {
   .new-products-table th,
   .new-products-table td {
-    border: 1px solid var(--color-grey-mid);
-    padding: 0.5rem;
-    text-align: left;
+    font-size: 0.85rem;
   }
-  
-  .new-products-table thead {
-    background-color: var(--color-grey-light);
+}
+
+@media (max-width: 575px) {
+  .new-products-table th,
+  .new-products-table td {
+    font-size: 0.65rem;
   }
-  
-  .new-products-table button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    background-color: var(--color-primary);
-    color: #fff;
-    cursor: pointer;
-    border-radius: 2px;
-  }
-  
-  .new-products-table button:hover {
-    background-color: var(--color-darkblue);
-  }
-  
-  /* Адаптив */
-  @media (max-width: 600px) {
-    .new-products-table th,
-    .new-products-table td {
-      font-size: 0.85rem;
-    }
-  }
-  
+}
