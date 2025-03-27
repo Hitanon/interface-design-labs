@@ -31,39 +31,44 @@ const AdminNewProductsList = () => {
   };
 
   return (
-      <div className="admin-new-products container">
-        <button
-          className="admin-back-button admin-button"
-          onClick={() => navigate(PROFILE_ROUTE)}
-        >
-          ← Назад в профиль администратора
-        </button>
-        <h1>Список новых товаров</h1>
-        <table className="new-products-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Название</th>
-              <th>Категория</th>
-              <th>Продавец</th>
-              <th>Действие</th>
+    <div className="admin-new-products container">
+      <button
+        className="admin-back-button admin-button"
+        onClick={() => navigate(PROFILE_ROUTE)}
+      >
+        ← Назад в профиль администратора
+      </button>
+      <h1>Список новых товаров</h1>
+      <table className="new-products-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Продавец</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+        <tbody>
+          {newProducts.map((p) => (
+            <tr key={p.id}>
+              <td>{p.id}</td>
+              <td>{p.name}</td>
+              <td>{p.category}</td>
+              <td>{p.seller}</td>
+              <td>
+                <button
+                  className="admin-button"
+                  onClick={() => onViewProduct(p.id)}
+                >
+                  Просмотр
+                </button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {newProducts.map((p) => (
-              <tr key={p.id}>
-                <td>{p.id}</td>
-                <td>{p.name}</td>
-                <td>{p.category}</td>
-                <td>{p.seller}</td>
-                <td>
-                  <button className="admin-button" onClick={() => onViewProduct(p.id)}>Просмотр</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
