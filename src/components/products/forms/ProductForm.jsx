@@ -10,12 +10,12 @@ const ProductForm = ({onCreate, onCancel, applyText}) => {
       <div className="col-12 col-md-6 col-xl-5">
         <ProductImagesForm />
       </div>
-      <div className="col-12 col-md-6 offset-xl-1">
+      <section className="col-12 col-md-6 offset-xl-1">
         <TextButton className="save-changes-button" text={applyText} callback={onCreate} />
         <TextButton className="cancel-changes-button" text="Отмена" callback={onCancel} />
         <ProductInfoForm />
         <ProductCategoryForm />
-      </div>
+      </section>
     </div>
   );
 };

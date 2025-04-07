@@ -10,10 +10,10 @@ const AboutUs = observer(() => {
   const { projectInfo } = useContext(Context);
 
   return (
-    <div className="about-us-section">
+    <section className="about-us-section">
       <h1>О нас</h1>
       <p className="about-us-text">{projectInfo.about}</p>
-    </div>
+    </section>
   );
 });
 

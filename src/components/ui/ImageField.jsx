@@ -1,10 +1,10 @@
 import "./ui.css";
 
 
-const ImageField = ({ url, className }) => {
+const ImageField = ({ url, className, alt }) => {
   return (
     <>
-      <img className={className} src={url} alt="img" />
+      <img className={className} src={url} alt={alt} />
     </>
   );
 };

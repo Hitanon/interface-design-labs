@@ -35,10 +35,21 @@ const OrderItem = ({ item }) => {
     <div className="customer-order-item">
       <div className="row gy-4">
         <div className="col-12 col-md-6 col-lg-5">
-          <h3 className="order-title" onClick={onProductClick}>
+          <h3
+            className="order-title"
+            tabIndex={0}
+            role="button"
+            onClick={onProductClick}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onProductClick();
+              }
+            }}
+          >
             <ImageField
               className="order-full-image"
               url={item.product.images[0]}
+              alt={item.product.name}
             />
             {item.product.name}
           </h3>

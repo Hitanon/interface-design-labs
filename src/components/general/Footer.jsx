@@ -22,13 +22,16 @@ const Footer = observer(() => {
   return (
     <footer className="container">
       <div className="row gy-3 footer">
-        <div className="col-12 col-md-1 col-lg-1 d-flex justify-content-center justify-content-lg-start align-items-center">
+        <div
+          className="col-12 col-md-1 col-lg-1 d-flex
+        justify-content-center justify-content-lg-start align-items-center"
+        >
           <Link rel="stylesheet" to={MAIN_ROUTE}>
             <img className="logo" src="/img/logo.svg" alt="Logo" />
           </Link>
         </div>
 
-        <div className="col-12 col-md-11 col-lg-7 col-xl-4 offset-xl-2 ">
+        <nav className="col-12 col-md-11 col-lg-7 col-xl-4 offset-xl-2 ">
           <ul className="footer-menu">
             <li>
               <Link className="footer-menu-link" to={MAIN_ROUTE}>
@@ -46,16 +49,23 @@ const Footer = observer(() => {
               </Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
         <div className="col-12 col-lg-4 col-xl-3 offset-xl-2">
           <div className="contacts-block">
-            <address className="row">
-              <div className="col-12 py-1 text-center text-lg-end">
-                +7(999)999-99-99
+            <address className="row text-center text-lg-end">
+              <div className="col-12 py-1">
+                <a className="address-text" href="tel:+79999999999">
+                  +7 (999) 999-99-99
+                </a>
               </div>
-              <div className="col-12 py-1 text-center text-lg-end">
-                artisan.avenue@email.com
+              <div className="col-12 py-1">
+                <a
+                  className="address-text"
+                  href="mailto:artisan.avenue@email.com"
+                >
+                  artisan.avenue@email.com
+                </a>
               </div>
             </address>
 

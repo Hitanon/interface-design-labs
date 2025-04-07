@@ -16,7 +16,7 @@ const AdminProfile = () => {
 
   return (
     <div className="container-fluid">
-      <div className="admin-profile container">
+      <section className="admin-profile container">
         <h1>Личный кабинет администратора</h1>
         <div className="admin-info">
           <p>
@@ -46,7 +46,7 @@ const AdminProfile = () => {
             Контроль работы продавцов
           </button>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

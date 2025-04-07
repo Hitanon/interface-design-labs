@@ -9,14 +9,16 @@ import TextRedirectButton from "../ui/TextRedirectButton";
 
 const ProjectGreeting = observer(() => {
   return (
-    <div className="container">
+    <main className="container">
       <div className="row pg-3 py-4 align-items-center">
         <div className="col-12 col-lg-4 col-xl-2">
-          <h1 className="greeting-section-title">Artisan Avenue</h1>
+          <h1 className="greeting-section-title" aria-label="Название магазина">
+            Artisan Avenue
+          </h1>
 
           <div className="gretting-section-text">
             Здравствуйте! На нашем маркетплейсе у вас есть возможность
-            приобрести изделия ручной работы
+            приобрести <strong>изделия ручной работы</strong>
           </div>
           <div>
             <TextRedirectButton
@@ -32,22 +34,22 @@ const ProjectGreeting = observer(() => {
             <img
               className="greeting-image col-4 col-lg-3"
               src="/img/greeting-section/image1.png"
-              alt=""
+              alt="Винтажные наручные часы"
             />
             <img
               className="greeting-image col-4 col-lg-6"
               src="/img/greeting-section/image2.png"
-              alt=""
+              aria-label="2 Чаши ручной работы с гравировкой в виде римских цифр и сердец"
             />
             <img
               className="greeting-image col-4 col-lg-3"
               src="/img/greeting-section/image3.png"
-              alt=""
+              alt="Кружка ручной работы"
             />
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 });
 

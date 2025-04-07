@@ -25,7 +25,7 @@ const Header = observer(() => {
   };
 
   return (
-    <nav className="container-fluid header">
+    <header className="container-fluid header">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-2">
@@ -34,7 +34,10 @@ const Header = observer(() => {
             </Link>
           </div>
 
-          <div className="col nav-section justify-content-center">
+          <div
+            className="col nav-section justify-content-center"
+            aria-label="Поиск товаров"
+          >
             <ListButton
               text={LIST_CATEGORIES_BUTTON_TEXT}
               callback={onCategoriesClick}
@@ -47,7 +50,7 @@ const Header = observer(() => {
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 });
 

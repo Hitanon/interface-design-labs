@@ -2,7 +2,9 @@ import AddToCartButtonFullProduct from "../ui/AddToCartButtonFullProduct";
 import UserComment from "../customers/UserComment";
 import SellerButton from "../sellers/SellerButton";
 import CategoryButton from "../categories/CategoryButton";
+
 import ImageSlider from "../ui/ImageSlider";
+
 import ProductComments from "./ProductComments";
 import ProductDescription from "./ProductDesctiption";
 
@@ -25,13 +27,12 @@ const Product = () => {
   return (
     <div className="container">
       <div className="row gy-3">
-
-        <div className="col-12 col-lg-6 col-xl-6">
+        <section className="col-12 col-lg-6 col-xl-6">
           <CategoryButton category={product.category} />
           <ImageSlider urls={product.images} />
-        </div>
+        </section>
 
-        <div className="col-12 col-lg-6 col-xl-5 offset-xl-1">
+        <section className="col-12 col-lg-6 col-xl-5 offset-xl-1">
           <h2 className="product-price">
             {product.price} <span>₽</span>
           </h2>
@@ -52,15 +53,15 @@ const Product = () => {
           </div>
 
           <ProductDescription product={product} />
-        </div>
+        </section>
 
-        <div className="col-12 col-lg-8 col-xl-7 py-xl-3">
+        <section className="col-12 col-lg-8 col-xl-7 py-xl-3">
           <div className="user-comment-section">
             <p>Ваш отзыв:</p>
             <UserComment />
           </div>
           <ProductComments />
-        </div>
+        </section>
       </div>
     </div>
   );

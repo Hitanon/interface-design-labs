@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 
 import { SELLERS_ROUTE } from "../../utils/Consts";
 
-
 const SellerButton = ({ seller }) => {
   const navigate = useNavigate();
 
@@ -11,26 +10,28 @@ const SellerButton = ({ seller }) => {
   };
 
   const getDescriptionLabel = () => {
-    if (seller.description) {
-      return seller.description;
-    }
-    return null;
+    return seller.description || null;
   };
 
   return (
-    <>
-      <div onClick={onSellerClick}>
-        <div>
-          <div className="product-seller">
-            <div className="seller-icon"></div>
-            {seller.name}
-          </div>
-          <div>
-            {getDescriptionLabel()}
-          </div>
+    <div
+      tabIndex={0}
+      role="button"
+      onClick={onSellerClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          onSellerClick();
+        }
+      }}
+    >
+      <div>
+        <div className="product-seller">
+          <div className="seller-icon"></div>
+          {seller.name}
         </div>
+        <div>{getDescriptionLabel()}</div>
       </div>
-    </>
+    </div>
   );
 };
 

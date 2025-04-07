@@ -13,7 +13,7 @@ const TopCategories = () => {
   ];
 
   return (
-    <div className="top-categories-section container-fluid py-3">
+    <section className="top-categories-section container-fluid py-3">
       <div className="container">
         <div className="row text-center">
           <h2 className="top-categories-title">{TOP_CATEGORIES_LABEL}</h2>
@@ -22,7 +22,7 @@ const TopCategories = () => {
           <Categories categories={topCategories} />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

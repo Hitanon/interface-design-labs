@@ -30,6 +30,7 @@ const SellerOrder = observer(({ order }) => {
             <ImageField
               className="product-image-field"
               url={order.product.images[0]}
+              alt={order.product.name}
             />
           </div>
 

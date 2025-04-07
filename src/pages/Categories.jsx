@@ -14,14 +14,14 @@ const Categories = () => {
   return (
     <div className="page-footer-bottom">
       <Header />
-      <div className="container categroies-section">
+      <section className="container categroies-section">
         <div className="row py-3">
           <h1 className="col-12 text-center text-md-start">Категории</h1>
         </div>
         <div className="row">
           <CategoriesList categories={categories} />
         </div>
-      </div>
+      </section>
       <Footer />
     </div>
   );

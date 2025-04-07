@@ -7,15 +7,15 @@ import SellerProducts from "./SellerProducts";
 const SellerProfile = () => {
   return (
     <div className="container-fluid">
-      <div className="container">
-        <div className="row">
+      <section className="container">
+        <section className="row">
           <SellerFormInfo />
           <SellerBalance />
-        </div>
+        </section>
 
         <SellerProducts />
         <SellerOrders />
-      </div>
+      </section>
     </div>
   );
 };

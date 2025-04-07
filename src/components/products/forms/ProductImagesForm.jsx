@@ -30,7 +30,7 @@ const ProductImagesForm = observer(() => {
                 <img
                   className="image-item"
                   src={URL.createObjectURL(file)}
-                  alt={`Изображение ${index}`}
+                  alt={`Изображение ${index + 1}`}
                 />
               </li>
             ))}

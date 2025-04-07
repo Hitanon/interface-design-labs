@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AwesomeSlider from "react-awesome-slider";
 
 import "react-awesome-slider/dist/styles.css";
-import { BASE_API_URL } from "../../utils/Consts";
+// import { BASE_API_URL } from "../../utils/Consts";
 
 import "./ui.css";
 
@@ -20,7 +20,7 @@ const ImageSlider = ({ urls }) => {
       >
         {urls.map((url, index) => (
           <div key={index} className="slider-content">
-            <img src={url} alt="Slide" />
+            <img src={url} alt="Деревянный стол" />
           </div>
         ))}
       </AwesomeSlider>

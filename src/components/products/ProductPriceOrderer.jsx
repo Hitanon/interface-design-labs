@@ -16,7 +16,17 @@ const ProductPriceOrderer = () => {
 
   return (
     <div className="orderer-list">
-      <p className="order-item" onClick={selectNext}>
+      <p
+        className="order-item"
+        onClick={selectNext}
+        tabIndex={0}
+        role="button"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            selectNext();
+          }
+        }}
+      >
         {getText()}
       </p>
     </div>

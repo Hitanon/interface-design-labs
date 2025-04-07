@@ -3,18 +3,29 @@ import ImageSlider from "../ui/ImageSlider";
 
 import "./products.css";
 
-
-const ProductInfo = ({ product, withSlider = false, onClick = () => { } }) => {
+const ProductInfo = ({ product, withSlider = false, onClick = () => {} }) => {
   return (
-    <div className="product-item" onClick={() => onClick(product.id)}>
-      <>
-        {
-          withSlider
-            ?
-            <ImageSlider urls={product.images} />
-            :
-            <ImageField url={product.images[0]} className="product-image-field" />
+    <div
+      className="product-item"
+      tabIndex={0}
+      role="button"
+      onClick={() => onClick(product.id)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          onClick(product.id);
         }
+      }}
+    >
+      <>
+        {withSlider ? (
+          <ImageSlider urls={product.images} />
+        ) : (
+          <ImageField
+            url={product.images[0]}
+            alt={product.name}
+            className="product-image-field"
+          />
+        )}
       </>
 
       <h2 className="product-price">
@@ -22,21 +33,16 @@ const ProductInfo = ({ product, withSlider = false, onClick = () => { } }) => {
       </h2>
 
       <div className="product-name-rating">
-        <h3 className="product-name">
-          {product.name}
-        </h3>
-        {product.rating > 0 &&
+        <h3 className="product-name">{product.name}</h3>
+        {product.rating > 0 && (
           <div className="rating">
             <div className="rating-icon"></div>
             {product.rating}
           </div>
-        }
-
+        )}
       </div>
 
-      <div>
-        Осталось {product.unitsInStock} шт.
-      </div>
+      <div>Осталось {product.unitsInStock} шт.</div>
     </div>
   );
 };

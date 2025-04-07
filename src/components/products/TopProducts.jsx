@@ -36,12 +36,12 @@ const TopProducts = () => {
   ];
 
   return (
-    <div className="container top-products-section">
+    <section className="container top-products-section">
       <div className="row py-4 gy-3">
         <div className="col-12">
           <h2>{TOP_PRODUCTS_LABEL}</h2>
           <p className="top-products-text">
-            для всех, кто ценит уникальные и качественные изделия с особенным
+            для всех, кто ценит <mark>уникальные и качественные изделия</mark> с особенным
             характером
           </p>
         </div>
@@ -56,7 +56,7 @@ const TopProducts = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

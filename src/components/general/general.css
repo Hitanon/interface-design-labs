@@ -153,3 +153,12 @@ footer {
     max-width: 100%;
   }
 }
+
+.address-text {
+  color: black;
+  text-decoration: none;
+}
+
+.address-text:hover {
+  opacity: 0.6;
+}
