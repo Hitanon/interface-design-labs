@@ -7,9 +7,12 @@ import Header from "../components/general/Header";
 
 const Product = () => {
 
+  const {id} = useParams();
+
   return (
     <>
       <Header />
+      <div>{id}</div>
       <FullProductInfo id={0} />
       <Footer />
     </>

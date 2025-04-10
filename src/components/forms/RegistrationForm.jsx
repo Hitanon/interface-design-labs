@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Box, Modal, TextField, InputAdornment, IconButton } from "@mui/material";
+import {
+  Box,
+  Modal,
+  TextField,
+  InputAdornment,
+  IconButton,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
 import ErrorIcon from "@mui/icons-material/Error";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -109,7 +117,8 @@ const RegistrationForm = () => {
             sx={textFieldStyle}
           />
         </div>
-        <div className="checkbox-section">
+
+        {/* <div className="checkbox-section">
           <input
             type="checkbox"
             id="seller-checkbox"
@@ -117,10 +126,41 @@ const RegistrationForm = () => {
             onChange={() => setIsSeller(!isSeller)}
           />
           <label htmlFor="seller-checkbox">Я продавец</label>
-        </div>
+        </div> */}
+        <FormControlLabel
+          className="checkbox-section"
+          control={
+            <Checkbox
+              checked={isSeller}
+              onChange={() => setIsSeller(!isSeller)}
+              sx={{
+                color: "black",
+                "&.Mui-checked": {
+                  color: "black",
+                },
+              }}
+            />
+          }
+          label="Я продавец"
+          sx={{
+            marginTop: "15px",
+            fontFamily: "'Comfortaa', cursive",
+            color: "black",
+            "& .MuiFormControlLabel-label": {
+              fontFamily: "'Comfortaa', cursive",
+            },
+          }}
+        />
+
         <div className="registration-buttons">
-          <TextButton className="text-button" text={REGISTRATION_BUTTON_TEXT} callback={onRegisterClick} />
-          <Link className="auth-link" to={LOGIN_ROUTE}>{HAVE_AN_ACCOUNT_BUTTON_TEXT}</Link>
+          <TextButton
+            className="text-button"
+            text={REGISTRATION_BUTTON_TEXT}
+            callback={onRegisterClick}
+          />
+          <Link className="auth-link" to={LOGIN_ROUTE}>
+            {HAVE_AN_ACCOUNT_BUTTON_TEXT}
+          </Link>
         </div>
       </div>
       <Modal

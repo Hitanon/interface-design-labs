@@ -8,10 +8,10 @@ const AuthenticateBar = () => {
   return (
     <ul className="menu">
       <li>
-        <Link className="link login-link" to={LOGIN_ROUTE}></Link>
+        <Link className="link login-link" aria-label="Кнопка вход"  to={LOGIN_ROUTE}></Link>
       </li>
       <li>
-        <Link className="link registration-link" to={REGISTRATION_ROUTE}></Link>
+        <Link className="link registration-link" aria-label="Кнопка регистрация" to={REGISTRATION_ROUTE}></Link>
       </li>
     </ul>
   );
